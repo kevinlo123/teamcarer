@@ -1,24 +1,27 @@
-# README
+# Teamcarer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: `Ruby 2.5.1p57`
 
-Things you may want to cover:
+* Rails version: `Rails 5.2.1`
 
-* Ruby version
+* System dependencies: `bundle install`
 
-* System dependencies
+* Database setup:`rake db:setup`
 
-* Configuration
+* Database initialization:`rake db:migrate`
 
-* Database creation
+* Database rollback to last migration:`rake db:rollback`
 
-* Database initialization
+* Database drop:`rake db:drop`
 
-* How to run the test suite
+* Rails CLI help:`rails -h`
 
-* Services (job queues, cache servers, search engines, etc.)
+**Link to project:**(for testing purposes)
+https://teamcarer.herokuapp.com/
 
-* Deployment instructions
+**For more about all rails db tasks and what they do visit:**
+https://jacopretorius.net/2014/02/all-rails-db-rake-tasks-and-what-they-do.html
 
-* ...
+**Deployment instructions:**
+* The web application is connected to this github repo to deploy you want to push up to this repo and run `git push heroku master`
+
