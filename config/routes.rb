@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'pages#home'
+  devise_for :families, path: 'families', controllers: { sessions: "families/sessions" }
+  devise_for :teams, path: 'teams' , controllers: { sessions: "teams/sessions" }
+  root to: 'pages#home'
+  get 'family', to: 'pages#family'
+  get 'team', to: 'pages#team'  
 end

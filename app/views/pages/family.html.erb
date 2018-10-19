@@ -1,0 +1,8 @@
+<h1>this is the page that will have all the family login / sign </h1>
+<% if family_signed_in? %>
+   <li class="nav-item"><%= link_to "Logout family", destroy_family_session_path, method: :delete, class: "nav-link" %></li>
+<% else %>
+   <li class="nav-item"><%= link_to "Sign In family", new_family_session_path, class: "nav-link" %></li>
+   <li class="nav-item"><%= link_to "Sign Up family", new_family_registration_path, class: "nav-link" %></li>
+<% end %>
+<%= link_to "back to home", "/" %>
