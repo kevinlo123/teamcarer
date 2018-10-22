@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Teamcarer</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'false' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
+  </head>
+  <body>
+      <% if family_signed_in? %>
+         <li class="nav-item"><%= link_to "HomePage", root_path, class: "nav-link" %></li>
+         <li class="nav-item"><%= link_to "Logout family", destroy_family_session_path, method: :delete, class: "nav-link" %></li>
+      <% else %>
+         <li class="nav-item"><%= link_to "Sign In family", new_family_session_path, class: "nav-link" %></li>
+         <li class="nav-item"><%= link_to "Sign Up family", new_family_registration_path, class: "nav-link" %></li>
+      <% end %>
+      <h1>Welcome to the family Dashboard!</h1>
+      <%= yield %>
+      <h3>Dashboard example actions</h3>
+      <%= link_to "home/index", "/family" %>
+      <br>
+      <%= link_to "Create a Job post", "/family/createPost" %>
+      <br>
+      <%= link_to "Search for a team", "/family/teamSearch" %>
+      <br>
+      <%= link_to "Settings", "/families/edit" %>
+  </body>
+</html>
