@@ -8,6 +8,8 @@ class PagesController < ApplicationController
       end
    end
    def team
-
+      if team_signed_in?
+         redirect_to(team_root_path)       
+      end
    end
 end

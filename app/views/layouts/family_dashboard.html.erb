@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Teamcarer</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'false' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
-  </head>
-  <body>
+   <head>
+      <title>Teamcarer</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'false' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
+   </head>
+   <body>
       <% if family_signed_in? %>
          <li class="nav-item"><%= link_to "HomePage", root_path, class: "nav-link" %></li>
          <li class="nav-item"><%= link_to "Logout family", destroy_family_session_path, method: :delete, class: "nav-link" %></li>
@@ -26,5 +26,5 @@
       <%= link_to "Search for a team", "/family/teamSearch" %>
       <br>
       <%= link_to "Settings", "/families/edit" %>
-  </body>
+   </body>
 </html>
