@@ -5,7 +5,7 @@ class TeamController < ApplicationController
 
    end
    def allPosts
-
+      @Jobpost = JobPost.all
    end
    def team
 

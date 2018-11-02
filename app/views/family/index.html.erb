@@ -1,1 +1,10 @@
-<h2>This is the dashboards index content (what the user will first see on the dashboard)</h2>
+<h2>This is the dashboards index content (for now we have all posts made by the current family)</h2>
+<% current_family.Job_posts.each do |post| %>   
+   <div style="border: 1px solid lightgrey" class="post">
+      <p>post title:<%= post.title %></p>
+      <p>post description:<%= post.description %></p>
+      <p>post created by family with id: <%= post.family_id %></p>
+      <p>Is this job currently taken?: <%= post.taken %></p>
+      <p>post created at: <%= post.created_at.to_formatted_s(:long) %></p>
+   </div>
+<% end %>

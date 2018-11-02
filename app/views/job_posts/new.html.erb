@@ -1,0 +1,10 @@
+<h3>Create a post!</h3>
+<%= form_for  :Jobpost , url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+   <%= f.label :title %>
+   <%= f.text_field :title %><br>
+   <%= f.label :description%>
+   <%= f.text_area :description, size: "40x12" %><br>
+   <%= f.label :taken %>
+   <%= f.select(:taken, options_for_select([['Active', true], ['Inactive', false]], :prompt => "Select")) %><br>
+   <%= f.submit%>
+<% end %>
