@@ -8,7 +8,8 @@ Rails.application.routes.draw do
    as :family do 
       get 'family', to: 'family#index', as: :family_root
       get 'family/all', to: 'family#allPosts'       
-      get 'family/createPost', to: 'job_posts#new' 
+      get 'family/newPost', to: 'family#new'
+      post 'family/createPost', to: 'family#create'
       get 'family/teamSearch', to: 'family#teamSearch'  
    end  
    as :team do      
