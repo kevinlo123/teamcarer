@@ -4,4 +4,5 @@ class Family < ApplicationRecord
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
    has_many :Job_posts
+   has_one :recipient   
 end
