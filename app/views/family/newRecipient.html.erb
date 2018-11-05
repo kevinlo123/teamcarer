@@ -1,0 +1,23 @@
+<h3>Recipient</h3>
+<% if @recipient %>
+   <div style="border: 1px solid lightgrey" class="post">
+      <p>firstname: <%= @recipient.firstname %></p>
+      <p>lastname: <%= @recipient.lastname %></p>
+      <p>firstname: <%= @recipient.gender %></p>
+      <p>lastname: <%= @recipient.age %></p>
+      <p>Recipient Belongs to : <%= current_family.email %></p>
+   </div>
+   <a href="editRecipient/<%= @recipient.id %>/edit">Edit Recipient</a>
+<% else %>
+   <%= form_for :recipient, url: "createRecipient",  html: {class: "nifty_form"} do |f| %>
+      <%= f.label :firstname %>
+      <%= f.text_field :firstname, required: true %><br>
+      <%= f.label :lastname %>
+      <%= f.text_field :lastname, required: true %><br>
+      <%= f.label :gender %>
+      <%= f.text_field :gender, required: true %><br>
+      <%= f.label :age %>
+      <%= f.text_field :age, required: true %><br>
+      <%= f.submit%>
+   <% end %>
+<% end %>

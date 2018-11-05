@@ -10,6 +10,10 @@ Rails.application.routes.draw do
       get 'family/all', to: 'family#allPosts'       
       get 'family/newPost', to: 'family#new'
       post 'family/createPost', to: 'family#create'
+      get 'family/recipient', to: 'family#newRecipient'
+      post 'family/createRecipient', to: 'family#createRecipient'
+      get 'family/editRecipient/:id/edit', to: 'family#editRecipient'  
+      patch 'family/updateRecipient/:id', to: 'family#updateRecipient'
       get 'family/teamSearch', to: 'family#teamSearch'  
    end  
    as :team do      

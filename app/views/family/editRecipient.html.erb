@@ -1,0 +1,12 @@
+<h3>Edit recipient credentials</h3>
+<%= form_for @recipient, url: {action: 'updateRecipient'},  html: {class: "nifty_form"} do |f| %>
+   <%= f.label :firstname %>
+   <%= f.text_field :firstname, required: true, value: @recipient.firstname %><br>
+   <%= f.label :lastname %>
+   <%= f.text_field :lastname, required: true, value: @recipient.lastname %><br>
+   <%= f.label :gender %>
+   <%= f.text_field :gender, required: true, value: @recipient.gender %><br>
+   <%= f.label :age %>
+   <%= f.text_field :age, required: true, value: @recipient.age %><br>
+   <%= f.submit%>
+<% end %>
