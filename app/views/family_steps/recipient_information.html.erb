@@ -1,14 +1,8 @@
-<h3>Recipient</h3>
 <% if @recipient %>
-   <div style="border: 1px solid lightgrey" class="post">
-      <p>firstname: <%= @recipient.firstname %></p>
-      <p>lastname: <%= @recipient.lastname %></p>
-      <p>Gender: <%= @recipient.gender %></p>
-      <p>Age: <%= @recipient.age %></p>
-      <p>Recipient Belongs to : <%= current_family.email %></p>
-   </div>
-   <a href="editRecipient/<%= @recipient.id %>/edit">Edit Recipient</a>
+   <%= link_to 'Finish', family_root_path %>
 <% else %>
+   <h2>Step 2</h2>
+   <h2>Recipient information</h2>
    <%= form_for :recipient, url: "createRecipient",  html: {class: "nifty_form"} do |f| %>
       <%= f.label :firstname %>
       <%= f.text_field :firstname, required: true %><br>
@@ -18,6 +12,9 @@
       <%= f.text_field :gender, required: true %><br>
       <%= f.label :age %>
       <%= f.text_field :age, required: true %><br>
-      <%= f.submit%>
+      <%= f.submit%>    
+      <%= link_to 'Skip this Step', next_wizard_path %>
    <% end %>
 <% end %>
+
+
