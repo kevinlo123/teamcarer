@@ -3,7 +3,7 @@ class Team < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable 
-   validates_presence_of :firstname, :lastname, :phone, :city, :state, :street, :zip, presence: true, on: :create
+   validates_presence_of :phone, :city, :state, :street, :zip, presence: true, on: :create
          
    STATES = 
       [

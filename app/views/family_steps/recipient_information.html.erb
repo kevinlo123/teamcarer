@@ -3,15 +3,15 @@
 <% else %>
    <h2>Step 2</h2>
    <h2>Recipient information</h2>
-   <%= form_for :recipient, url: "createRecipient",  html: {class: "nifty_form"} do |f| %>
+   <%= form_for :recipient, url: "recipient_information",  html: {class: "nifty_form"} do |f| %>
       <%= f.label :firstname %>
       <%= f.text_field :firstname, required: true %><br>
       <%= f.label :lastname %>
       <%= f.text_field :lastname, required: true %><br>
       <%= f.label :gender %>
       <%= f.text_field :gender, required: true %><br>
-      <%= f.label :age %>
-      <%= f.text_field :age, required: true %><br>
+      <!--<%= f.label :age %>
+      <%= f.text_field :age, required: true %><br> -->
       <%= f.submit%>    
       <%= link_to 'Skip this Step', next_wizard_path %>
    <% end %>

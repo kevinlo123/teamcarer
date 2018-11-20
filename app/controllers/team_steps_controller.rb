@@ -1,32 +1,19 @@
 class TeamStepsController < ApplicationController
    include Wicked::Wizard
    steps :skills_information, :disease_management
-   def new
-      # @family = current_family      
-      # @recipient = current_family.recipient      
+   def new  
    end
    def show
       @team = current_team
-      # @recipient = current_family.recipient            
       render_wizard
    end
-   # def create
-   #    @recipient = current_family.create_recipient(sanitize_recipient)
-   #    if @recipient.save
-   #        jump_to(:recipient_information_second)
-   #    else
-   #       render json: @recipient.errors.full_messages
-   #    end
-   #    render_wizard
-   # end
    def update
-      # @user = current_family
-      # @user.attributes = params[:user]
-      # render_wizard @user  
-      render_wizard      
+      @team = current_team
+      @team.update_attributes(sanitize_team)
+      render_wizard @team  
    end
    private 
-      def sanitize_recipient
-         params.require(:recipient).permit(:firstname,:lastname,:gender,:age)
+      def sanitize_team
+         params.require(:team).permit(:firstname,:middlename,:lastname)
       end
 end

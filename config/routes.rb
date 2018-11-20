@@ -10,8 +10,9 @@ Rails.application.routes.draw do
    resources :job_posts      
    resources :family_steps   
    resources :team_steps
-   # random url make sure to clean
-   post 'family_steps/createRecipient', to: 'family_steps#create'  
+   # family steps recipient
+   post 'family_steps/recipient_information', to: 'family_steps#create'
+   post 'family_steps/recipient_information_second', to: 'family_steps#update'     
    # family dashboard 
    as :family do 
       get 'family', to: 'family#index', as: :family_root

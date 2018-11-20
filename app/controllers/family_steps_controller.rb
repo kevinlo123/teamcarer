@@ -1,12 +1,7 @@
 class FamilyStepsController < ApplicationController
    include Wicked::Wizard
    steps :recipient_information, :recipient_information_second
-   def new
-      @family = current_family      
-      @recipient = current_family.recipient      
-   end
    def show
-      @family = current_family
       @recipient = current_family.recipient            
       render_wizard
    end
@@ -20,9 +15,9 @@ class FamilyStepsController < ApplicationController
       render_wizard
    end
    def update
-      # @user = current_family
-      # @user.attributes = params[:user]
-      # render_wizard @user      
+      @recipient = current_family.recipient  
+      @recipient.update_attributes(sanitize_recipient)
+      redirect_to family_root_path
    end
    private 
       def sanitize_recipient
