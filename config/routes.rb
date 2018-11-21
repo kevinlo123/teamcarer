@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
    # static pages
-   root to: 'pages#home'
-   get 'familyPage', to: 'pages#family'
-   get 'teamPage', to: 'pages#team'
+   as :static_pages do 
+      root to: 'pages#home'
+      get 'family_page', to: 'pages#family'
+      get 'team_page', to: 'pages#team'
+   end
    # devise for our two users
    devise_for :families, path: 'families', controllers: { sessions: "families/sessions", confirmations: 'families/confirmations', registrations: 'families/registrations'} 
    devise_for :teams, path: 'teams' , controllers: { sessions: "teams/sessions", confirmations: 'teams/confirmations', registrations: 'teams/registrations' } 
