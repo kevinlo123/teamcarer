@@ -4,7 +4,9 @@ class Team < ApplicationRecord
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable 
    validates_presence_of :phone, :city, :state, :street, :zip, presence: true, on: :create
-         
+   # validates :care_team_id, :teams, presence: true
+   # has_one :care_team
+   belongs_to :care_team, optional: true 
    STATES = 
       [
          ['Alabama', 'AL'],

@@ -1,0 +1,8 @@
+<h1>Create a team!</h1>
+<%= form_for :care_team, url: 'create_team', html: {class: "nifty_form"} do |f| %>
+   <%= f.label :team_name %>
+   <%= f.text_field :team_name %><br>
+   <%= f.label :team_statement %>
+   <%= f.text_area :team_statement, size: "40x12" %><br>
+   <%= f.submit%>
+<% end %>
