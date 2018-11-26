@@ -37,6 +37,11 @@
       </div>
 
       <div class="field">
+         <%= f.label :phone%><br />
+         <%= f.telephone_field :phone, maxlength: 10, autocomplete: "phone" %>
+      </div>
+
+      <div class="field">
          <%= f.label :city%><br />
          <%= f.text_field :city, autofocus: true, autocomplete: "city" %>
       </div>
