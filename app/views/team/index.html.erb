@@ -1,4 +1,12 @@
-<p>Welcome! would you like to</p>
-<%= link_to 'create a team', '/' %>
-<%= link_to 'join a team', '/' %>
+<% if current_team.care_team %>
+   <h3>Your Team</h3>
+   <div style="border: 1px solid lightgrey" class="post">
+      <p>Team name:<%= current_team.care_team.team_name %></p>
+      <p>Team statement:<%= current_team.care_team.team_statement %></p>
+   </div>
+<% else %>
+   <p>Welcome! would you like to</p>
+   <%= link_to 'create a team', 'team/new_team' %>
+   <%= link_to 'join a team', 'team/join_team' %>
+<% end %>
 

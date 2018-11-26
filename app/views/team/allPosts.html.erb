@@ -1,9 +1,21 @@
+<p><%= flash[:notice] %></p>
 <% @Jobpost.each do |post| %>    <!-- Featured Post -->
-   <div style="border: 1px solid lightgrey" class="post">
-      <p>post title:<%= post.title %></p>
-      <p>post description:<%= post.description %></p>
-      <p>post created by family with id: <%= post.family_id %></p>
-      <p>Is this job currently taken?: <%= post.taken %></p>
-      <p>post created at: <%= post.created_at.to_formatted_s(:long) %></p>
-   </div>
+   <% if post.taken %>
+      <div style="border: 1px solid lightgrey" class="post">
+         <p>post title:<%= post.title %></p>
+         <p>post description:<%= post.description %></p>
+         <p>post created by family with id: <%= post.family_id %></p>
+         <p>This post has been taken</p>
+         <p>post created at: <%= post.created_at.to_formatted_s(:long) %></p>
+      </div>
+   <% else %>
+      <div style="border: 1px solid lightgrey" class="post">
+         <p>post title:<%= post.title %></p>
+         <p>post description:<%= post.description %></p>
+         <p>post created by family with id: <%= post.family_id %></p>
+         <p>Is this job currently taken?: <%= post.taken %></p>
+         <a href="/team/edit_post/<%= post.id %>/edit">Request Job</a>
+         <p>post created at: <%= post.created_at.to_formatted_s(:long) %></p>
+      </div>
+   <% end %>
 <% end %>

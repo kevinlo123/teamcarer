@@ -32,6 +32,11 @@ Rails.application.routes.draw do
       get 'team', to: 'team#index', as: :team_root   
       get 'team/posts', to: 'team#allPosts' 
       get 'team/myTeam', to: 'team#team'
+      get 'team/new_team', to: 'team#new_team'
+      post 'team/create_team', to: 'team#create_team' 
+      get 'team/join_team', to: 'team#join_team'
+      get 'team/edit_post/:id/edit', to: 'team#edit_post'
+      patch 'team/edit_post/:id/update_post', to: 'team#update_post'      
    end  
 end
 

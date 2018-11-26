@@ -1,0 +1,12 @@
+<h3>Edit recipient credentials</h3>
+<% if @Jobpost.taken %>
+      <p>This job has already been taken</p>
+<% else %>
+   <%= form_for @Jobpost, url: 'update_post',  html: {class: "nifty_form"} do |f| %>
+      <h3><%= @Jobpost.title %></h3>
+      <p><%= @Jobpost.description %></p>
+      <p>this job is currently taken? <%= @Jobpost.taken %></p>
+      <%= f.submit 'Take job' %>
+   <% end %>
+<% end %>
+
