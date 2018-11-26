@@ -1,10 +1,5 @@
 <h2>Welcome <%= current_family.firstname %>!</h2>
-<% current_family.Job_posts.each do |post| %>   
-   <div style="border: 1px solid lightgrey" class="post">
-      <p>post title:<%= post.title %></p>
-      <p>post description:<%= post.description %></p>
-      <p>post created by family with id: <%= post.family_id %></p>
-      <p>Is this job currently taken?: <%= post.taken %></p>
-      <p>post created at: <%= post.created_at.to_formatted_s(:long) %></p>
-   </div>
-<% end %>
+<div style="border: 1px solid lightgrey" class="post">
+   <p>Name: <%= @family.firstname %><%= @family.lastname %></p>
+</div>
+<p>FAMILY NEEDS TO VIEW HIS / HER INFO IN THIS PAGE</p>

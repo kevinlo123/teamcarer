@@ -1,5 +1,5 @@
 <h3>Edit recipient credentials</h3>
-<%= form_for @recipient, url: {action: 'updateRecipient'},  html: {class: "nifty_form"} do |f| %>
+<%= form_for @recipient, url: {action: 'update_recipient'},  html: {class: "nifty_form"} do |f| %>
    <%= f.label :firstname %>
    <%= f.text_field :firstname, required: true, value: @recipient.firstname %><br>
    <%= f.label :lastname %>

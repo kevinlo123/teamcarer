@@ -18,19 +18,20 @@ Rails.application.routes.draw do
    # family dashboard 
    as :family do 
       get 'family', to: 'family#index', as: :family_root
-      get 'family/all', to: 'family#allPosts'       
-      get 'family/newPost', to: 'family#new'
-      post 'family/createPost', to: 'family#create'
-      get 'family/recipient', to: 'family#newRecipient'
-      post 'family/createRecipient', to: 'family#createRecipient'
-      get 'family/editRecipient/:id/edit', to: 'family#editRecipient'  
-      patch 'family/updateRecipient/:id', to: 'family#updateRecipient'
+      get 'family/my_posting', to: 'family#my_posting'      
+      get 'family/all_posts', to: 'family#all_posts'       
+      get 'family/new_post', to: 'family#new_post'
+      post 'family/create_post', to: 'family#create_post'
+      get 'family/recipient', to: 'family#recipient'
+      post 'family/create_recipient', to: 'family#create_family_recipient'
+      get 'family/edit_recipient/:id/edit', to: 'family#edit_recipient'  
+      patch 'family/update_recipient/:id', to: 'family#update_recipient'
       get 'family/teamSearch', to: 'family#teamSearch'  
    end  
    # caregiver dashboard 
    as :team do      
       get 'team', to: 'team#index', as: :team_root   
-      get 'team/posts', to: 'team#allPosts' 
+      get 'team/posts', to: 'team#all_posts' 
       get 'team/myTeam', to: 'team#team'
       get 'team/new_team', to: 'team#new_team'
       post 'team/create_team', to: 'team#create_team' 

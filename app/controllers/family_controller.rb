@@ -2,15 +2,15 @@ class FamilyController < ApplicationController
    layout "family_dashboard" 
    before_action :authenticate_family!
    def index
-      @Jobpost = JobPost.all
+      @family = current_family      
    end
-   def allPosts
-      @Jobpost = JobPost.all
-   end 
-   def new
+   def my_posting
+
+   end
+   def new_post
       @Jobpost = current_family.Job_posts.build     
    end
-   def create
+   def create_post
       @Jobpost = current_family.Job_posts.build(sanitize_post)
       if @Jobpost.save
          redirect_to family_root_path
@@ -18,10 +18,13 @@ class FamilyController < ApplicationController
          render json: @Jobpost.errors.full_messages
       end
    end
-   def newRecipient
+   def all_posts
+      @Jobpost = JobPost.all
+   end 
+   def recipient
       @recipient = current_family.recipient
    end
-   def createRecipient
+   def create_family_recipient
       @recipient = current_family.create_recipient(sanitize_recipient)
       if @recipient.save
          redirect_to family_recipient_path
@@ -29,10 +32,10 @@ class FamilyController < ApplicationController
          render json: @recipient.errors.full_messages
       end
    end
-   def editRecipient
+   def edit_recipient
       @recipient = Recipient.find(params[:id])      
    end
-   def updateRecipient
+   def update_recipient
       @recipient = Recipient.find(params[:id])
       if @recipient.update(sanitize_recipient)
          redirect_to family_recipient_path

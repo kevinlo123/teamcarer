@@ -2,7 +2,7 @@ class TeamController < ApplicationController
    layout "team_dashboard" 
    before_action :authenticate_team!   
    def index
-      @team = current_team.care_team
+      @team = current_team
    end
    def new_team
 
@@ -27,7 +27,7 @@ class TeamController < ApplicationController
    def join_team 
       @teams = CareTeam.all
    end
-   def allPosts
+   def all_posts
       @Jobpost = JobPost.all
    end
    def edit_post
@@ -42,7 +42,7 @@ class TeamController < ApplicationController
       end 
    end
    def team
-
+      @team = current_team.care_team      
    end
    private 
       def sanitize_team
