@@ -41,7 +41,7 @@ class TeamController < ApplicationController
          render html: "Sorry the post wasnt updated"
       end 
    end
-   def team
+   def my_team
       @team = current_team.care_team      
    end
    private 

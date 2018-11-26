@@ -26,13 +26,13 @@ Rails.application.routes.draw do
       post 'family/create_recipient', to: 'family#create_family_recipient'
       get 'family/edit_recipient/:id/edit', to: 'family#edit_recipient'  
       patch 'family/update_recipient/:id', to: 'family#update_recipient'
-      get 'family/teamSearch', to: 'family#teamSearch'  
+      get 'family/team_search', to: 'family#team_search'  
    end  
    # caregiver dashboard 
    as :team do      
       get 'team', to: 'team#index', as: :team_root   
       get 'team/posts', to: 'team#all_posts' 
-      get 'team/myTeam', to: 'team#team'
+      get 'team/my_team', to: 'team#my_team'
       get 'team/new_team', to: 'team#new_team'
       post 'team/create_team', to: 'team#create_team' 
       get 'team/join_team', to: 'team#join_team'
