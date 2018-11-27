@@ -1,8 +1,14 @@
 <h3>Your Team</h3>
-<div style="border: 1px solid lightgrey" class="post">
-   <p>Team name: <%= @team.team_name %></p>
-   <p>Team statement: <%= @team.team_statement %></p>
-   <p>Leader: X</p>
-   <p>Members: X,Y,Z</p>
-</div>
-<p>user will also be able to see all members of the team and also leader</p>
+<% if(@team != nil) then %>
+   <div style="border: 1px solid lightgrey" class="post">
+      <p>Team name: <%= @team.team_name %></p>
+      <p>Team statement: <%= @team.team_statement %></p>
+      <p>Leader: <%= @team.team.email %></p>
+      <% @members.each do |member|%>
+         <p>Member: <%= member.email %></p>
+      <% end %>
+   </div>
+   <p>user will also be able to see all members of the team and also leader</p>
+<% else %>
+   <p>You are currently not in a team</p>
+<% end %>

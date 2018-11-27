@@ -12,6 +12,7 @@ class TeamController < ApplicationController
       if @team.save
         unless current_team.care_team
           current_team.update(care_team: @team)
+          @team.update(team: current_team)
         end
         redirect_to team_root_path
       else
@@ -36,17 +37,20 @@ class TeamController < ApplicationController
       end 
    end
    def my_team
-      @team = current_team.care_team      
+      @team = current_team.care_team 
+      @members = Team.where(care_team: @team)     
    end
    def show_team
       @team = CareTeam.find(params[:id])
+      @members = Team.where(care_team: @team)           
    end
    def update_team
       @team = CareTeam.find(params[:id])
-      if current_team.update(care_team: @team)
-        redirect_to team_page_url 
+      if current_team.update(care_team: @team) 
+        redirect_to team_page_url
       else
-         render html: "Could not join team"
+         flash[:notice] = 'Sorry this team is full!'
+         redirect_to show_team_path
       end
    end
    private 
