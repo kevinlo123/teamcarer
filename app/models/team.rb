@@ -1,12 +1,18 @@
-class Team < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+class Team < ApplicationRecord 
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable 
    validates_presence_of :phone, :city, :state, :street, :zip, presence: true, on: :create
-   # validates :care_team_id, :teams, presence: true
-   # has_one :care_team
    belongs_to :care_team, optional: true 
+   validate :validate_care_team_user_limit
+   private
+      def validate_care_team_user_limit
+         if care_team_id
+            care_team = CareTeam.find_by(id: care_team_id)
+            if care_team && care_team.teams.count > CareTeam::NUMBER_OF_PERMITTED_TEAMS
+               errors.add(:care_team_id, "User cannot be added to that care team")
+            end
+         end
+      end
    STATES = 
       [
          ['Alabama', 'AL'],

@@ -1,8 +1,12 @@
 <h3>Team information here</h3>
+<p><%= flash[:notice] %></p>
 <p>Team Name: <%= @team.team_name %></p>
 <p>Team Statement: <%= @team.team_statement %></p>
-<p>Members: X,Y,Z</p>
+<% @members.each do |member|%>
+   <p>Member: <%= member.email %></p>
+<% end %>
 <%= form_for @team, url: {action:'update_team'},  html: {class: "nifty_form"} do |f| %>
    <%= f.submit 'Join Team' %>
 <% end %>
+<%= link_to 'go back', join_teams_path %>
 
