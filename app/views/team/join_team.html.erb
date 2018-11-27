@@ -1,1 +1,9 @@
 <h1>Join a team</h1>
+<% @teams.each do |team| %>
+   <div style="border: 1px solid lightgrey" class="post">
+      <p>Team: <%= team.team_name %></p>
+      <p>Statement: <%= team.team_statement %></p>
+      <p>Leader: Jane Doe</p>
+      <a href="/team/show_team/<%= team.id %>">join team</a>
+   </div>
+<% end %>

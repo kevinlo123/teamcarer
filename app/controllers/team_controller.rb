@@ -17,12 +17,6 @@ class TeamController < ApplicationController
       else
          render html: "Sorry the post wasnt updated"
       end
-      # @team = current_team.create_care_team(sanitize_team)
-      # if @team.save 
-      #    redirect_to team_root_path
-      # else
-      #    render json: @team.errors.full_messages
-      # end
    end
    def join_team 
       @teams = CareTeam.all
@@ -43,6 +37,17 @@ class TeamController < ApplicationController
    end
    def my_team
       @team = current_team.care_team      
+   end
+   def show_team
+      @team = CareTeam.find(params[:id])
+   end
+   def update_team
+      @team = CareTeam.find(params[:id])
+      if current_team.update(care_team: @team)
+        redirect_to team_page_url 
+      else
+         render html: "Could not join team"
+      end
    end
    private 
       def sanitize_team

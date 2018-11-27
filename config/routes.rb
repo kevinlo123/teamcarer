@@ -37,7 +37,9 @@ Rails.application.routes.draw do
       post 'team/create_team', to: 'team#create_team' 
       get 'team/join_team', to: 'team#join_team'
       get 'team/edit_post/:id/edit', to: 'team#edit_post'
-      patch 'team/edit_post/:id/update_post', to: 'team#update_post'      
+      patch 'team/edit_post/:id/update_post', to: 'team#update_post'
+      get 'team/show_team/:id', to: 'team#show_team' 
+      patch '/team/update_team/:id', to: 'team#update_team'      
    end  
 end
 
