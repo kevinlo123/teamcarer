@@ -1,4 +1,4 @@
-class Team < ApplicationRecord 
+class Team < ApplicationRecord
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable 
    validates_presence_of :phone, :city, :state, :street, :zip, presence: true, on: :create

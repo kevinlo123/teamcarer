@@ -60,6 +60,10 @@
       <%= f.label :zip %><br />
       <%= f.text_field :zip, maxlength: 5, autofocus: true, autocomplete: "zip" %>
    </div>
+   
+   <div>
+      <%= recaptcha_tags %>
+   </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
