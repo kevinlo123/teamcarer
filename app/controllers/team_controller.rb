@@ -10,11 +10,11 @@ class TeamController < ApplicationController
    def create_team
       @team = CareTeam.new(sanitize_team)
       if @team.save
-        unless current_team.care_team
-          current_team.update(care_team: @team)
-          @team.update(team: current_team)
-        end
-        redirect_to team_root_path
+         unless current_team.care_team
+            current_team.update(care_team: @team)
+            @team.update(team: current_team)
+         end
+         redirect_to team_root_path
       else
          render html: "Sorry the post wasnt updated"
       end

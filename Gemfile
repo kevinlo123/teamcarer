@@ -33,6 +33,7 @@ gem 'devise' # User Authentiacation
 
 gem 'wicked' # Multi Step Form 
 
+gem "recaptcha", require: "recaptcha/rails" #google robot captcha
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
