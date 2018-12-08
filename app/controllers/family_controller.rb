@@ -5,22 +5,19 @@ class FamilyController < ApplicationController
       @family = current_family      
    end
    def my_posting
-
+      @jobpost = current_family.job_post 
    end
    def new_post
-      @Jobpost = current_family.Job_posts.build     
+
    end
    def create_post
-      @Jobpost = current_family.Job_posts.build(sanitize_post)
-      if @Jobpost.save
-         redirect_to family_root_path
+      @jobpost = current_family.create_job_post(sanitize_post)
+      if @jobpost.save
+         redirect_to my_posting_path
       else
-         render json: @Jobpost.errors.full_messages
+         render json: @jobpost.errors.full_messages
       end
    end
-   def all_posts
-      @Jobpost = JobPost.all
-   end 
    def recipient
       @recipient = current_family.recipient
    end

@@ -23,10 +23,9 @@
       <br>
       <%= link_to "My posting", "/family/my_posting" %>
       <br>
-      <%= link_to "Create a Job post", "/family/new_post" %>
-      <br>
-      <%= link_to "All posts", "/family/all_posts" %>
-      <br>
+      <% unless current_family.job_post %>
+         <%= link_to "Create a Job post", "/family/new_post" %><br>
+      <% end %>
       <%= link_to "Care Recipient", "/family/recipient" %>
       <br>
       <%= link_to "Search for a team", "/family/team_search" %>

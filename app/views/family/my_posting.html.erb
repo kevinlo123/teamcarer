@@ -1,9 +1,12 @@
-<% current_family.Job_posts.each do |post| %>   
+<% if !@jobpost %>
+   <p>you have not made a post yet</p>
+<% else %>
    <div style="border: 1px solid lightgrey" class="post">
-      <p>post title:<%= post.title %></p>
-      <p>post description:<%= post.description %></p>
-      <p>post created by family with id: <%= post.family_id %></p>
-      <p>Is this job currently taken?: <%= post.taken %></p>
-      <p>post created at: <%= post.created_at.to_formatted_s(:long) %></p>
+      <p>post title:<%= @jobpost.title %></p>
+      <p>post description:<%= @jobpost.description %></p>
+      <p>post created by family with id: <%= @jobpost.family_id %></p>
+      <p>Is this job currently taken?: <%= @jobpost.taken %></p>
+      <p>post created at: <%= @jobpost.created_at.to_formatted_s(:long) %></p>
    </div>
 <% end %>
+
