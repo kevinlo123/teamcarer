@@ -4,7 +4,7 @@
 <p>Team Statement: <%= @team.team_statement %></p>
 <p>Team Leader: <%= @team.team.firstname %> <%= @team.team.lastname %></p>
 <% @members.each do |member|%>
-   <p>Member: <%= member.email %></p>
+   <p>Member: <%= member.firstname %></p>
 <% end %>
 <%= form_for @team, url: {action:'update_team'},  html: {class: "nifty_form"} do |f| %>
    <%= f.submit 'Join Team' %>
