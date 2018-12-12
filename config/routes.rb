@@ -7,7 +7,7 @@ Rails.application.routes.draw do
    end
    # devise for our two users
    devise_for :families, path: 'families', controllers: { sessions: "families/sessions", confirmations: 'families/confirmations', registrations: 'families/registrations'} 
-   devise_for :teams, path: 'teams' , controllers: { sessions: "teams/sessions", confirmations: 'teams/confirmations', registrations: 'teams/registrations' } 
+   devise_for :teams, path: 'teams' , controllers: { sessions: "teams/sessions", confirmations: 'teams/confirmations', registrations: 'teams/registrations'} 
    # resources
    resources :job_posts      
    resources :family_steps   
@@ -25,7 +25,8 @@ Rails.application.routes.draw do
       post 'family/create_recipient', to: 'family#create_family_recipient'
       get 'family/edit_recipient/:id/edit', to: 'family#edit_recipient'  
       patch 'family/update_recipient/:id', to: 'family#update_recipient'
-      get 'family/team_search', to: 'family#team_search'  
+      get 'family/team_search', to: 'family#team_search', as: :search_team  
+      get 'family/team_search_results', to: 'family#team_search_results', as: :search_team_results           
    end  
    # caregiver dashboard 
    as :team do      

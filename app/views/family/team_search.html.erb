@@ -1,5 +1,14 @@
-<h2>Search for a team!</h2>
-<form>
-   <input type="text" placeholder="search for a team!"/>
-   <input type="button" value="search"/>
-</form>
+<h1>Search for a team</h1>
+<p>search for a team by team name</p>
+<%= form_tag search_team_results_path, :method => 'get' do %>
+   <%= text_field_tag :search, params[:search], placeholder: "Search Teams" %>
+   <%= submit_tag "Search", :name => nil %>
+<% end %>
+<p>Search through <%= @teams.length %> total teams</p> 
+<% @teams.each do |team| %>
+   <div style="border: 1px solid lightgrey" class="post">
+      <p>team name:<%= team.team_name %></p>
+   </div>
+<% end %>
+
+
