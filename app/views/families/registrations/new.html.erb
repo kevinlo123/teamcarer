@@ -1,7 +1,7 @@
 <h2>Sign up</h2>
 <h2>Step 1</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-   <!--<%= devise_error_messages! %>-->
+   <%= devise_error_messages! %>
    <div class="step1">
       <div class="field">
          <%= f.label :email %><br />
@@ -46,9 +46,9 @@
          <%= f.text_field :city, autofocus: true, autocomplete: "city" %>
       </div>
 
-      <!--<div>
+      <div>
          <%= recaptcha_tags %>
-      </div>-->
+      </div>
 
       <div class="actions">
          <%= f.submit "Next Step" %>
