@@ -1,7 +1,7 @@
 class CareTeam < ApplicationRecord
    NUMBER_OF_PERMITTED_TEAMS = 3 #this is the number of added members allowed    
-   belongs_to :team, optional: true  
-   has_many :teams
+   belongs_to :care_giver, optional: true  
+   has_many :care_givers
    def self.search(team_name)
       if team_name
          team_name.downcase!

@@ -6,7 +6,7 @@ module Accessible
  
    protected
    def check_user
-      if current_team
+      if current_care_giver
          flash.clear
          # if you have rails_admin. You can redirect anywhere really
          redirect_to(team_root_path) && return

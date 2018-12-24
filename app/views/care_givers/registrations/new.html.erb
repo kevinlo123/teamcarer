@@ -1,0 +1,73 @@
+<h2>Sign up</h2>
+<h2>Step 1</h2>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+   <%= devise_error_messages! %>
+
+   <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+   </div>
+
+   <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+   </div>
+
+   <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+   </div>
+
+      <!--<div class="field">
+         <%= f.label :firstname %><br />
+         <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname" %>
+      </div>
+
+      <div class="field">
+         <%= f.label :middlename,'Middlename (optional)' %><br />
+         <%= f.text_field :middlename, autofocus: true, autocomplete: "middlename" %>
+      </div>
+
+      <div class="field">
+         <%= f.label :lastname %><br />
+         <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname" %>
+      </div> -->
+
+      <div class="field">
+         <%= f.label :phone %><br />
+         <%= f.text_field :phone, autofocus: true, maxlength: 10, autocomplete: "phone" %>
+      </div>
+
+      <div class="field">
+         <%= f.label :city %><br />
+         <%= f.text_field :city, autofocus: true, autocomplete: "city" %>
+      </div>
+
+      <div class="field">
+         <%= f.label :state %><br />
+         <%= f.select :state, collection: CareGiver::STATES, autocomplete: "state"%>
+      </div>
+
+      <div class="field">
+         <%= f.label :street %><br />
+         <%= f.text_field :street, autofocus: true, autocomplete: "street" %>
+      </div>
+
+      <div class="field">
+         <%= f.label :zip %><br />
+         <%= f.text_field :zip, maxlength: 5, autofocus: true, autocomplete: "zip" %>
+      </div>
+      
+      <div>
+         <%= recaptcha_tags %>
+      </div>
+
+   <div class="actions">
+      <%= f.submit "Sign up" %>
+   </div>
+<% end %>
+
+<%= render "care_givers/shared/links" %>

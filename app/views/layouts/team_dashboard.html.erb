@@ -9,12 +9,12 @@
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
    </head>
    <body>
-      <% if team_signed_in? %>
+      <% if care_giver_signed_in? %>
          <li class="nav-item"><%= link_to "HomePage", root_path, class: "nav-link" %></li>
-         <li class="nav-item"><%= link_to "Logout team", destroy_team_session_path, method: :delete, class: "nav-link" %></li>
+         <li class="nav-item"><%= link_to "Logout team", destroy_care_giver_session_path, method: :delete, class: "nav-link" %></li>
       <% else %>
-         <li class="nav-item"><%= link_to "Sign In team", new_team_session_path, class: "nav-link" %></li>
-         <li class="nav-item"><%= link_to "Sign Up team", new_team_registration_path, class: "nav-link" %></li>
+         <li class="nav-item"><%= link_to "Sign In team", new_care_giver_session_path, class: "nav-link" %></li>
+         <li class="nav-item"><%= link_to "Sign Up team", new_care_giver_registration_path, class: "nav-link" %></li>
       <% end %>
       <h1>Welcome to the Team Dashboard!</h1>
       <%= yield %>
@@ -25,6 +25,6 @@
       <br>
       <%= link_to "My team", "/team/my_team" %>
       <br>
-      <%= link_to "Settings", "/teams/edit" %>
+      <%= link_to "Settings", "/care_givers/edit" %>
    </body>
 </html>

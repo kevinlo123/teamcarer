@@ -1,9 +1,13 @@
 <h1>Join a team</h1>
-<% @teams.each do |team| %>
-   <div style="border: 1px solid lightgrey" class="post">
-      <p>Team: <%= team.team_name %></p>
-      <p>Statement: <%= team.team_statement %></p>
-      <p>Leader: <%= team.team.firstname %> <%= team.team.lastname %></p>
-      <a href="/team/show_team/<%= team.id %>">join team</a>
-   </div>
+<% if @teams.length < 1 %>
+   <p>No teams to join at this time</p>
+<% else %>
+   <% @teams.each do |team| %>
+      <div style="border: 1px solid lightgrey" class="post">
+         <p>Team: <%= team.team_name %></p>
+         <p>Statement: <%= team.team_statement %></p>
+         <p>Leader: <%= team.care_giver.firstname %> <%= team.care_giver.lastname %></p>
+         <a href="/team/show_team/<%= team.id %>">join team</a>
+      </div>
+   <% end %>
 <% end %>

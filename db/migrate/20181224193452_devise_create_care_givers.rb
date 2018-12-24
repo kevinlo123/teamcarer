@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class DeviseCreateTeams < ActiveRecord::Migration[5.2]
+class DeviseCreateCareGivers < ActiveRecord::Migration[5.2]
   def change
-    create_table :teams do |t|
+    create_table :care_givers do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -36,9 +36,9 @@ class DeviseCreateTeams < ActiveRecord::Migration[5.2]
       t.timestamps null: false
     end
 
-    add_index :teams, :email,                unique: true
-    add_index :teams, :reset_password_token, unique: true
-    # add_index :teams, :confirmation_token,   unique: true
-    # add_index :teams, :unlock_token,         unique: true
+    add_index :care_givers, :email,                unique: true
+    add_index :care_givers, :reset_password_token, unique: true
+    # add_index :care_givers, :confirmation_token,   unique: true
+    # add_index :care_givers, :unlock_token,         unique: true
   end
 end
