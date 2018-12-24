@@ -7,18 +7,18 @@ class TeamStepsController < ApplicationController
    end
 
    def show
-      @team = current_team
+      @team = current_care_giver
       render_wizard
    end
 
    def update
-      @team = current_team
+      @team = current_care_giver
       @team.update_attributes(sanitize_team)
       render_wizard @team  
    end
    
    private 
       def sanitize_team
-         params.require(:team).permit(:firstname,:middlename,:lastname)
+         params.require(:care_giver).permit(:firstname,:middlename,:lastname)
       end
 end

@@ -6,8 +6,8 @@ Rails.application.routes.draw do
       get 'team_page', to: 'pages#team'
    end
    # devise for our two users
-   devise_for :families, path: 'families', controllers: { sessions: "families/sessions", confirmations: 'families/confirmations', registrations: 'families/registrations'} 
-   devise_for :teams, path: 'teams' , controllers: { sessions: "teams/sessions", confirmations: 'teams/confirmations', registrations: 'teams/registrations'} 
+   devise_for :families, path: 'families', controllers: { sessions: "families/sessions", confirmations: 'families/confirmations', registrations: 'families/registrations'}
+   devise_for :care_givers, path: 'care_givers' , controllers: { sessions: "caregivers/sessions", confirmations: 'caregivers/confirmations', registrations: 'caregivers/registrations'}
    # resources
    resources :job_posts      
    resources :family_steps   

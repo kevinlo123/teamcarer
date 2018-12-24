@@ -1,9 +1,9 @@
 class TeamController < ApplicationController
    layout "team_dashboard" 
-   before_action :authenticate_team!  
+   before_action :authenticate_care_giver!  
 
    def index
-      @team = current_team
+      @team = current_care_giver
    end
 
    def new_team
@@ -13,9 +13,9 @@ class TeamController < ApplicationController
    def create_team
       @team = CareTeam.new(sanitize_team)
       if @team.save
-         unless current_team.care_team
-            current_team.update(care_team: @team)
-            @team.update(team: current_team)
+         unless current_care_giver.care_team
+            current_care_giver.update(care_team: @team)
+            @team.update(care_giver: current_care_giver)
          end
          redirect_to team_root_path
       else
@@ -45,19 +45,19 @@ class TeamController < ApplicationController
    end
 
    def my_team
-      @team = current_team.care_team 
-      @members = Team.where(care_team: @team)     
+      @team = current_care_giver.care_team 
+      @members = CareGiver.where(care_team: @team)     
    end
 
    def show_team
       @team = CareTeam.find(params[:id])
-      @members = Team.where(care_team: @team)           
+      @members = CareGiver.where(care_team: @team)           
    end
 
    def update_team
       @team = CareTeam.find(params[:id])
       @join_team_message = 'Congratulations on requesting this team the leader will be with you shortly!'
-      if current_team.update(care_team: @team) 
+      if current_care_giver.update(care_team: @team) 
          flash[:notice] = @join_team_message        
          redirect_to team_page_url
       else

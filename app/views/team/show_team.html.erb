@@ -2,7 +2,7 @@
 <p><%= flash[:notice] %></p>
 <p>Team Name: <%= @team.team_name %></p>
 <p>Team Statement: <%= @team.team_statement %></p>
-<p>Team Leader: <%= @team.team.firstname %> <%= @team.team.lastname %></p>
+<p>Team Leader: <%= @team.care_giver.firstname %> <%= @team.care_giver.lastname %></p>
 <% @members.each do |member|%>
    <p>Member: <%= member.firstname %></p>
 <% end %>

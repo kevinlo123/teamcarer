@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Teams::ConfirmationsController < Devise::ConfirmationsController
+class Caregivers::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new
   # def new
   #   super
@@ -17,13 +17,13 @@ class Teams::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   protected
-
-  # The path used after resending confirmation instructions.
-  # def after_resending_confirmation_instructions_path_for(resource_name)
-  #   super(resource_name)
-  # end
-
-  # The path used after confirmation.
+  
+    # The path used after resending confirmation instructions.
+    # def after_resending_confirmation_instructions_path_for(resource_name)
+    #   super(resource_name)
+    # end
+  
+    # The path used after confirmation.
       def after_confirmation_path_for(resource_name, resource)
          sign_in(resource)               
          team_root_path
