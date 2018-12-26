@@ -4,6 +4,12 @@
    <%= f.text_field :title %><br>
    <%= f.label :description%>
    <%= f.text_area :description, size: "40x12" %><br>
+   <h3>companion care</h3>
+   <% @recipient_info.companion_care.each do |activity|%>
+      <li><%= activity %></li>
+   <% end %>
+   <%= link_to 'edit needs', '/family_steps/recipient_information_second' %>
+   <%= f.text_area :companion_care, required: true, style: 'display:none', value: @recipient_info.companion_care %><br>
    <%= f.label :taken %>
    <%= f.select(:taken, options_for_select([['Active', true], ['Inactive', false]], :prompt => "Select")) %><br>
    <%= f.submit%>

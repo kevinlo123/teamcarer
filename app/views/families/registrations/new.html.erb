@@ -37,14 +37,45 @@
       </div>
 
       <div class="field">
-         <%= f.label :phone%><br />
+         <%= f.label :phone %><br />
          <%= f.telephone_field :phone, maxlength: 10, autocomplete: "phone" %>
       </div>
 
       <div class="field">
-         <%= f.label :city%><br />
+         <%= f.label :city %><br />
          <%= f.text_field :city, autofocus: true, autocomplete: "city" %>
       </div>
+
+      <div class="field">
+         <%= f.label :state %><br />
+         <%= f.text_field :state, autofocus: true, autocomplete: "state" %>
+      </div>
+
+      <div class="field">
+         <%= f.label :street %><br />
+         <%= f.text_field :street, autofocus: true, autocomplete: "street" %>
+      </div>
+
+      <div class="field">
+         <%= f.label :zip %><br />
+         <%= f.text_field :zip, autofocus: true, autocomplete: "zip" %>
+      </div>
+
+      <div class="field">
+         <%= f.label :emergency_name %><br />
+         <%= f.text_field :emergency_name, autofocus: true, autocomplete: "emergency_name" %>
+      </div>
+
+      <div class="field">
+         <%= f.label :emergency_contact %><br />
+         <%= f.text_field :emergency_contact , autofocus: true, autocomplete: "emergency_contact" %>
+      </div>
+
+      <div class="field">
+         <%= f.label :recipient_relation %><br />
+         <%= f.text_field :recipient_relation, autofocus: true, autocomplete: "recipient_relation" %>
+      </div>
+
 
       <div>
          <%= recaptcha_tags %>

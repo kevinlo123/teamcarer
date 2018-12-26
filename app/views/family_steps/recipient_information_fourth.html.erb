@@ -1,0 +1,25 @@
+<h2>Step 5</h2>
+<h2>Family information continued</h2>
+<%= form_for :recipient, url: 'recipient_information_fourth',  html: {class: "nifty_form"} do |f| %>
+   <h3>Common Conditions</h3>
+   <%= check_box_tag  "conditions[]", 'Memory impairment / Dementia' %><%= label_tag :Memory, 'Memory impairment / Dementia' %><br>
+   <%= check_box_tag  "conditions[]", 'Congestive heart failure' %><%= label_tag :HeartFailure, 'Congestive heart failure' %><br>
+   <%= check_box_tag  "conditions[]", 'Diabetes' %><%= label_tag :Diabetes %><br>
+   <%= check_box_tag  "conditions[]", 'End stage renal disease' %><%= label_tag :EndStage, 'End stage renal disease' %><br>
+   <%= check_box_tag  "conditions[]", 'Failure to thrive' %><%= label_tag :Thrive, 'Failure to thrive' %><br>
+   <%= check_box_tag  "conditions[]", 'Fall risk' %><%= label_tag :Risk, 'Fall risk' %><br>
+   <h3>Other Conditions</h3>
+   <%= check_box_tag  "conditions[]", 'Cancer' %><%= label_tag :Cancer %><br>
+   <%= check_box_tag  "conditions[]", 'Chronic Obstructive Pulmonary disease' %><%= label_tag :Chronic, 'Chronic Obstructive Pulmonary disease' %><br>
+   <%= check_box_tag  "conditions[]", 'Stroke' %><%= label_tag :Stroke %><br>
+   <%= check_box_tag  "conditions[]", 'Musculoskeletal disorders' %><%= label_tag :Musculoskeletal, 'Musculoskeletal disorders' %><br>
+   <%= check_box_tag  "conditions[]", 'Psychiatric disorders' %><%= label_tag :Psychiatric, 'Psychiatric disorders' %><br>
+   <%= check_box_tag  "conditions[]", 'Other' %><%= label_tag :other, 'Other' %><br>
+   <p>On average how many hours of service does the care recipient need per week?</p>
+   <%= f.label :hours_weekly %>
+   <%= f.text_field :hours_weekly, maxlength: 2,  required: true %><br>
+   <%= f.label :months %>
+   <%= f.text_field :months, maxlength: 2,  required: true %><br>
+   <%= f.submit%>
+   <%= link_to 'Skip this Step', next_wizard_path %>
+<% end %>

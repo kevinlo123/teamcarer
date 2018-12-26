@@ -1,0 +1,23 @@
+<h2>Step 6</h2>
+<h2>Family information continued</h2>
+<h3>companion care</h3>
+<% current_family.recipient.companion_care.each do |activity|%>
+   <li><%= activity %></li>
+<% end %>
+<h3>personal care</h3>
+<% current_family.recipient.personal_care.each do |activity|%>
+   <li><%= activity %></li>
+<% end %>
+<h3>Mobility</h3>
+<% current_family.recipient.mobility.each do |activity|%>
+   <li><%= activity %></li>
+<% end %>
+<h3>Conditions</h3>
+<% current_family.recipient.conditions.each do |activity|%>
+   <li><%= activity %></li>
+<% end %>
+<h3>Most desired quality</h3>
+<li><%= current_family.recipient.quality %></li>
+<li><%= current_family.recipient.recently_discharged %></li>
+<%= link_to "Back", :back %>
+<%= link_to 'finish', family_root_path %>

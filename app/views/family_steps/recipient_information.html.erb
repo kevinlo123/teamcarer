@@ -3,13 +3,26 @@
 <%= form_for :recipient, url: "recipient_information",  html: {class: "nifty_form"} do |f| %>
    <%= f.label :firstname %>
    <%= f.text_field :firstname, required: true %><br>
+   <%= f.label :middlename %>
+   <%= f.text_field :middlename %><br>
    <%= f.label :lastname %>
    <%= f.text_field :lastname, required: true %><br>
    <%= f.label :gender %>
    <%= f.text_field :gender, required: true %><br>
-   <!--<%= f.label :age %>
-   <%= f.text_field :age, required: true %><br> -->
-   <%= f.submit%>    
+   <%= f.label :age %>
+   <%= f.text_field :age, required: true %><br>
+   <%= f.label :primary_language %>
+   <%= f.text_field :primary_language , required: true %><br>
+   <%= f.label :phone %>
+   <%= f.text_field :phone , required: true %><br>
+   <%= f.label :address %>
+   <%= f.text_field :address , required: true %><br>
+   <%= f.label :city %>
+   <%= f.text_field :city , required: true %><br>
+   <%= f.label :state %>
+   <%= f.text_field :state , required: true %><br>
+   <%= f.submit%>   
+   <%= link_to "Back", :back %> 
    <%= link_to 'Skip this Step', next_wizard_path %>
 <% end %>
 

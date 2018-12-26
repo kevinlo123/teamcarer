@@ -7,11 +7,11 @@ class FamilyController < ApplicationController
    end
 
    def my_posting
-      @jobpost = current_family.job_post 
+      @jobpost = current_family.job_post
    end
 
    def new_post
-
+      @recipient_info = current_family.recipient
    end
 
    def create_post
@@ -60,7 +60,7 @@ class FamilyController < ApplicationController
    
    private 
       def sanitize_post
-         params.require(:jobpost).permit(:title,:description,:taken)
+         params.require(:jobpost).permit(:title,:description,:taken,:companion_care)
       end 
       def sanitize_recipient
          params.require(:recipient).permit(:firstname,:lastname,:gender,:age)

@@ -1,8 +1,24 @@
 <h2>Step 3</h2>
 <h2>Family information continued</h2>
 <%= form_for :recipient, url: 'recipient_information_second',  html: {class: "nifty_form"} do |f| %>
-      <%= f.label :age %>
-      <%= f.text_field :age, required: true %><br>
+   <h3>Companion Care</h3>
+  <%# <%= f.collection_check_boxes(:companion_care, { 'House Cleaning': 'House Cleaning', 'Laundry': 'Laundry', 'Meal preperation': 'Meal preperation' }, :last, :first) %> 
+   <%= check_box_tag  "companion_care[]", 'House Cleaning' %><%= label_tag :HouseCleaning, 'House Cleaning' %><br>
+   <%= check_box_tag  "companion_care[]", 'Laundry' %><%= label_tag :Laundry %><br>
+   <%= check_box_tag  "companion_care[]", 'Meal preperation' %><%= label_tag :mealprep, 'Meal Prep' %><br>
+   <%= check_box_tag  "companion_care[]", 'Driving / Transportation' %><%= label_tag :transportation %><br>
+   <%= check_box_tag  "companion_care[]", 'Running Errands' %><%= label_tag :Errands %><br>
+   <%= check_box_tag  "companion_care[]", 'Companionship' %><%= label_tag :Companionship %><br>
+   <%= check_box_tag  "companion_care[]", 'Medication Reminders' %><%= label_tag :Reminders %><br>
+   <%= check_box_tag  "companion_care[]", 'Managing Finances' %><%= label_tag :Finance, 'Finance Management' %><br>
+   <h3>Personal Care</h3>
+   <%= check_box_tag  "personal_care[]", 'Bathing' %><%= label_tag :HouseCleaning, 'Bathing' %><br>
+   <%= check_box_tag  "personal_care[]", 'Grooming' %><%= label_tag :Grooming %><br>
+   <%= check_box_tag  "personal_care[]", 'Dressing' %><%= label_tag :Dressing %><br>
+   <%= check_box_tag  "personal_care[]", 'Toilet/Incontinence' %><%= label_tag :Toilet, 'Toilet/Incontinence' %><br>
+   <%= check_box_tag  "personal_care[]", 'Transfering' %><%= label_tag :Transfering %><br>
+   <%= check_box_tag  "personal_care[]", 'Ambulating' %><%= label_tag :Ambulating %><br>
+   <%= check_box_tag  "personal_care[]", 'Oral Care' %><%= label_tag :Reminders, 'Oral Care' %><br>
    <%= f.submit%>
+   <%= link_to 'Skip this Step', next_wizard_path %>
 <% end %>
-<%= link_to 'finish', family_root_url %>

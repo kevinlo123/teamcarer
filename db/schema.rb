@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_24_211302) do
+ActiveRecord::Schema.define(version: 2018_12_26_045729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,12 @@ ActiveRecord::Schema.define(version: 2018_12_24_211302) do
     t.string "lastname"
     t.string "city"
     t.string "phone"
+    t.string "street"
+    t.string "zip"
+    t.string "state"
+    t.string "emergency_name"
+    t.string "emergency_contact"
+    t.string "recipient_relation"
     t.index ["confirmation_token"], name: "index_families_on_confirmation_token", unique: true
     t.index ["email"], name: "index_families_on_email", unique: true
     t.index ["reset_password_token"], name: "index_families_on_reset_password_token", unique: true
@@ -77,6 +83,7 @@ ActiveRecord::Schema.define(version: 2018_12_24_211302) do
     t.bigint "family_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "companion_care"
     t.index ["family_id"], name: "index_job_posts_on_family_id"
   end
 
@@ -88,6 +95,20 @@ ActiveRecord::Schema.define(version: 2018_12_24_211302) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "family_id"
+    t.string "primary_language"
+    t.string "phone"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "companion_care", array: true
+    t.string "personal_care", array: true
+    t.string "mobility", array: true
+    t.string "conditions", array: true
+    t.string "quality"
+    t.boolean "recently_discharged"
+    t.boolean "hospice"
+    t.integer "hours_weekly"
+    t.integer "months"
     t.index ["family_id"], name: "index_recipients_on_family_id"
   end
 
