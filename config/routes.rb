@@ -3,7 +3,7 @@ Rails.application.routes.draw do
    as :static_pages do 
       root to: 'pages#home'
       get 'family_page', to: 'pages#family'
-      get 'team_page', to: 'pages#team'
+      get 'care_giver_page', to: 'pages#care_giver'
    end
    # devise for our two users
    devise_for :families, path: 'families', controllers: { sessions: "families/sessions", confirmations: 'families/confirmations', registrations: 'families/registrations'}
@@ -11,12 +11,16 @@ Rails.application.routes.draw do
    # resources
    resources :job_posts      
    resources :family_steps   
-   resources :team_steps
+   resources :care_giver_steps
    # family steps recipient
    post 'family_steps/recipient_information', to: 'family_steps#create'
    post 'family_steps/recipient_information_second', to: 'family_steps#care_needs'
    post 'family_steps/recipient_information_third', to: 'family_steps#mobility_quality' 
-   post 'family_steps/recipient_information_fourth', to: 'family_steps#conditions'           
+   post 'family_steps/recipient_information_fourth', to: 'family_steps#conditions' 
+   post 'care_giver_steps/skills_information', to: 'care_giver_steps#update'    
+   post 'care_giver_steps/disease_management', to: 'care_giver_steps#conditions'
+   post 'care_giver_steps/yes_no', to: 'care_giver_steps#yes_no' 
+   post 'care_giver_steps/personal_statement', to: 'care_giver_steps#personal_statement'                    
    # family dashboard 
    as :family do 
       get 'family', to: 'family#index', as: :family_root

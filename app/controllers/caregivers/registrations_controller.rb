@@ -57,7 +57,7 @@ class Caregivers::RegistrationsController < Devise::RegistrationsController
 
    # If you have extra params to permit, append them to the sanitizer.
       def configure_sign_up_params
-         devise_parameter_sanitizer.permit(:sign_up, keys: [:phone, :city, :state, :street, :zip, :search])
+         devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :middlename, :lastname, :phone, :city, :state, :street, :zip, :search, :emergency_contact, :emergency_number])
       end
 
    # If you have extra params to permit, append them to the sanitizer.
@@ -67,7 +67,7 @@ class Caregivers::RegistrationsController < Devise::RegistrationsController
 
    # The path used after sign up.
       def after_sign_up_path_for(resource)
-         team_steps_path
+         care_giver_steps_path
       end
 
    # The path used after sign up for inactive accounts.

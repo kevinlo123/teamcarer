@@ -9,7 +9,7 @@ class PagesController < ApplicationController
       end
    end
    
-   def team
+   def care_giver
       if care_giver_signed_in?
          redirect_to(team_root_path)       
       end

@@ -1,0 +1,7 @@
+<h1>Step 5</h1>
+<h1>Personal statement</h1>
+<%= form_for :care_giver, url: 'personal_statement',  html: {class: "nifty_form"} do |f| %>
+   <%= f.label :statement %>
+   <%= f.text_area :statement, size: "40x12" %><br>
+   <%= f.submit%>
+<% end %>

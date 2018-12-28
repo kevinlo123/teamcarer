@@ -1,8 +1,7 @@
-<h2>Step 3</h2>
-<h2>Family information continued</h2>
-<%= form_for :recipient, url: 'recipient_information_second',  html: {class: "nifty_form"} do |f| %>
+<h1>Step 2</h1>
+<h1>Skills</h1>
+<%= form_for :team, url: 'skills_information',  html: {class: "nifty_form"} do |f| %>
    <h3>Companion Care</h3>
-  <%# <%= f.collection_check_boxes(:companion_care, { 'House Cleaning': 'House Cleaning', 'Laundry': 'Laundry', 'Meal preperation': 'Meal preperation' }, :last, :first) %> 
    <%= check_box_tag  "companion_care[]", 'House Cleaning' %><%= label_tag :HouseCleaning, 'House Cleaning' %><br>
    <%= check_box_tag  "companion_care[]", 'Laundry' %><%= label_tag :Laundry %><br>
    <%= check_box_tag  "companion_care[]", 'Meal preperation' %><%= label_tag :mealprep, 'Meal Prep' %><br>
@@ -19,5 +18,14 @@
    <%= check_box_tag  "personal_care[]", 'Transfering' %><%= label_tag :Transfering %><br>
    <%= check_box_tag  "personal_care[]", 'Ambulating' %><%= label_tag :Ambulating %><br>
    <%= check_box_tag  "personal_care[]", 'Oral Care' %><%= label_tag :OralCare, 'Oral Care' %><br>
+   <h3>Languages</h3>
+   <%= check_box_tag  "languages[]", 'English' %><%= label_tag :English, 'English' %><br>
+   <%= check_box_tag  "languages[]", 'Spanish' %><%= label_tag :Spanish, 'Spanish' %><br>
+   <%= check_box_tag  "languages[]", 'German' %><%= label_tag :German, 'German' %><br>
+   <%= check_box_tag  "languages[]", 'Russian' %><%= label_tag :Russian, 'Russian' %><br>
+   <%= check_box_tag  "languages[]", 'French' %><%= label_tag :French, 'French' %><br>
+   <%= check_box_tag  "languages[]", 'Italian' %><%= label_tag :Italian, 'Italian' %><br>
+   <%= check_box_tag  "languages[]", 'Chinese' %><%= label_tag :Chinese, 'Chinese' %><br>
+   <%= check_box_tag  "languages[]", 'Other' %><%= label_tag :Other, 'Other' %><br>
    <%= f.submit%>
 <% end %>
