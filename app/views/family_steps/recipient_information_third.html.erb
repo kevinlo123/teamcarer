@@ -28,5 +28,4 @@
    <p>Is the Care recipient on hospice?</p>
    <%= f.select(:hospice, options_for_select([['Yes', true], ['No', false]], :prompt => "Select")) %><br>
    <%= f.submit%>
-   <%= link_to 'Skip this Step', next_wizard_path %>
 <% end %>

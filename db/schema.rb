@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_26_045729) do
+ActiveRecord::Schema.define(version: 2018_12_28_030607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,23 @@ ActiveRecord::Schema.define(version: 2018_12_26_045729) do
     t.string "street"
     t.string "zip"
     t.integer "care_team_id"
+    t.string "emergency_contact"
+    t.string "emergency_number"
+    t.string "companion_care", array: true
+    t.string "personal_care", array: true
+    t.string "languages", array: true
+    t.string "conditions", array: true
+    t.string "related_service", array: true
+    t.boolean "dependable_car"
+    t.boolean "physical_issues"
+    t.boolean "tb_malaria"
+    t.boolean "smoke"
+    t.boolean "smoke_several_hours"
+    t.boolean "drugs_alcohol"
+    t.boolean "felonies"
+    t.string "years_experience"
+    t.boolean "authorized"
+    t.text "statement"
     t.index ["confirmation_token"], name: "index_care_givers_on_confirmation_token", unique: true
     t.index ["email"], name: "index_care_givers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_care_givers_on_reset_password_token", unique: true
@@ -110,31 +127,6 @@ ActiveRecord::Schema.define(version: 2018_12_26_045729) do
     t.integer "hours_weekly"
     t.integer "months"
     t.index ["family_id"], name: "index_recipients_on_family_id"
-  end
-
-  create_table "teams", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "firstname"
-    t.string "middlename"
-    t.string "lastname"
-    t.string "phone"
-    t.string "city"
-    t.string "state"
-    t.string "street"
-    t.string "zip"
-    t.integer "care_team_id"
-    t.index ["confirmation_token"], name: "index_teams_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_teams_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_teams_on_reset_password_token", unique: true
   end
 
   add_foreign_key "job_posts", "families"

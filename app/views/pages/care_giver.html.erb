@@ -1,0 +1,8 @@
+<h1>this is the page that will have all the team login / sign </h1>
+<% if care_giver_signed_in? %>
+   <li class="nav-item"><%= link_to "Logout care", destroy_care_giver_session_path, method: :delete, class: "nav-link" %></li>
+<% else %>
+   <li class="nav-item"><%= link_to "Sign In Caregiver", new_care_giver_session_path, class: "nav-link" %></li>
+   <li class="nav-item"><%= link_to "Sign Up Caregiver", new_care_giver_registration_path, class: "nav-link" %></li>
+<% end %>
+<%= link_to "back to home", "/" %>
