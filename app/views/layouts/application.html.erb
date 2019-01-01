@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Teamcarer</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'false' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
-  </head>
-  <body>
-      <!-- flash messages -->
-      <% flash.each do |name, message|%>
-         <%= content_tag(:div, message, class: "alert alert-info #{name}") %>
-      <% end %>
-      <%= yield %>
-  </body>
+   <head>
+      <title>Teamcarer</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'false' %>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <script src="https://use.fontawesome.com/f5fb6e9872.js"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
+   </head>
+   <body>
+      <div class="main">
+         <div class="black-overlay"></div>
+         <%= render "layouts/partials/header" %>
+         <!-- flash messages -->
+         <% flash.each do |name, message|%>
+            <%= content_tag(:div, message, class: "alert alert-info #{name}") %>
+         <% end %>
+         <%= yield %>
+         <%= render "layouts/partials/footer" %>
+      </div>
+   </body>
 </html>

@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+   font-family: 'Raleway', sans-serif;
+}
+
+html {
+   height: 100%;
+   font-size: 15px;
+}
+
+body {
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 0;
+}
+
+.main {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   -webkit-transform: translateX(0);
+   transform: translateX(0);
+   -webkit-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+   -webkit-transition: 300ms ease all;
+   transition: 300ms ease all;
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+}
+
+.show {
+   background: black;
+   height: 100vh;
+   width: 100%;
+   opacity: .5;
+   z-index: 1;
+   position: absolute;
+}
+ 
+
+@import "partials/_header.scss";
+@import "partials/_footer.scss";
+@import "styles/family.scss";
+@import "styles/job_posts.scss";
+@import "styles/pages.scss";
+@import "styles/scaffolds.scss";
+@import "styles/steps_controller.scss";
+@import "styles/team_steps.scss";
+@import "styles/team.scss";

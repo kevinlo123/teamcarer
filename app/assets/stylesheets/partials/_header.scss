@@ -1,0 +1,191 @@
+@import "../base/mix-ins.scss";
+@import "../base/variables.scss";
+
+header {
+   @include padding($small-padding - .25, $medium-padding, $small-padding - .25, $medium-padding);
+   border-bottom: 1px solid #d2d2d2;
+}
+
+.header-container {
+   display: flex;
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+.mobile-nav {
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+   @include element(logo){
+      height: 3rem - .15;
+      align-self: center;
+   }
+   @include element(lines){
+      cursor: pointer;
+      height: 2rem - .2;
+      @include margin(auto, 0, auto, 0);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .mobile-nav__lines--line1, .mobile-nav__lines--line2,.mobile-nav__lines--line3 {
+         background-color: $blue;
+         border-radius: 1px;
+         height: 2px;
+         width: 2rem;  
+      }
+   }
+}
+
+.side-menu {
+   display: flex;
+   flex-direction: column;
+   list-style: none;
+   @include padding(0, 0, 0, 0);   
+   @include element(list-item) {
+      @include padding($small-padding + .4, $small-padding, $small-padding, $small-padding);
+      border-bottom: 1px solid;
+      font-size: $medium-font; 
+      cursor: pointer;  
+      transition: .3s ease-in-out;      
+      &:hover {
+         margin-left: 5px;
+         color: $yellow;
+      }   
+      @include modifier(text) {
+         font-size: $medium-font;
+         color: $white;
+         text-decoration: none;
+         transition: .3s ease-in-out;
+         &:hover {
+            margin-left: 5px;
+            color: $yellow;
+         }
+      }
+   }
+   .sub-menu {
+      display: none;
+      list-style: none;
+      @include padding(0,$small-padding,0,$small-padding - .5);      
+      @include element(list-item) {
+         @include padding($small-padding ,0,0,$small-padding);                           
+         @include modifier(text) {
+            font-size: $medium-font;         
+            color: $white;
+            text-decoration: none;
+            transition: .3s ease-in-out; 
+            &:hover {
+               margin-left: 5px;
+               color: $yellow;
+            }          
+         }
+      }
+   }
+}
+
+.toggle-nav {
+   cursor: pointer;
+}
+
+.site-menu {
+   width: 300px;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: -300px;
+   background-color: $blue;
+   color: $white;
+   z-index: 2;
+}
+
+.fas {
+   position: relative;
+   top: 3px;
+   left: 3px;
+}
+
+.desktop-nav {
+   display: none;
+}
+
+ .show-nav {
+   -webkit-transform: translateX(300px);
+   transform: translateX(300px);
+   -webkit-transform: translate3d(300px, 0, 0);
+   transform: translate3d(300px, 0, 0);
+}
+
+ .scroll {
+    overflow: hidden;
+}
+
+.desktop-nav-list {
+   display: flex;
+   list-style: none;
+   padding: 0;
+   width: 100%;
+   justify-content: space-around;
+   margin-top: 1rem;
+   @include element(item) {
+      color: $light-blue;
+      font-size: $medium-font - .25;
+      transition: .3s ease-in-out;
+      cursor: pointer;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      &:hover {
+         color: $blue;
+      } 
+      @include modifier(text) {
+         text-decoration: none;
+         color: $light-blue;
+         transition: .3s ease-in-out;
+         &:hover {
+            color: $blue;
+         }          
+      }     
+   }
+}
+
+.desktop-dropdown {
+   position: absolute;
+   display: none;
+   padding: 0rem;
+   margin-top: 8px;
+   background: $blue;
+   list-style: none;
+   @include element(list-item) {
+      padding: 1rem 2rem;
+      border-bottom: 1px solid white;
+      transition: .3s ease-in-out;      
+      &:hover {
+         background: #D9F4FF;
+      }
+      @include modifier(text) {
+         color: $white;
+         text-decoration: none;
+         transition: .3s ease-in-out;      
+         &:hover {
+            margin-left: 3px;
+         }         
+      }
+   }
+}
+
+@include medium-desktop {
+   .mobile-nav {
+      width: 65%;
+   }
+   .mobile-nav__logo {
+      height: 3.5rem;
+   }
+   .toggle-nav {
+      display: none;
+   }
+   .desktop-nav {
+      display: block;
+      width: 31%;
+   }
+}
+
+
+

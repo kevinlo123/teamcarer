@@ -1,0 +1,52 @@
+@import "variables.scss";
+// B.E.M mixins
+@mixin element($element) {
+   &__#{$element} {
+      @content;
+   }
+}
+
+@mixin modifier($modifier) {
+   &--#{$modifier} {
+      @content;
+   }
+}
+ //Padding mixin
+@mixin padding($top, $right, $bottom, $left) {
+   padding-top: $top;
+   padding-right: $right;
+   padding-bottom: $bottom;
+   padding-left: $left;
+}
+ //Margin mixin
+ @mixin margin($top, $right, $bottom, $left) {
+   margin-top: $top;
+   margin-right: $right;
+   margin-bottom: $bottom;
+   margin-left: $left;
+}
+//media query mixin 
+@mixin mobile {
+   @media only screen and (min-width : #{$screen-sm-min}) {
+      @content;         
+   }
+}
+
+@mixin tablet {
+   @media only screen and (min-width : #{$screen-md-min}) {
+      @content;         
+   }
+}
+
+@mixin medium-desktop {
+   @media only screen and (min-width : #{$screen-lg-min}) {
+      @content;         
+   }
+}
+
+@mixin large-desktop {
+   @media only screen and (min-width : #{$screen-xl-min}) {
+      @content;         
+   }
+}
+               

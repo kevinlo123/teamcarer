@@ -1,0 +1,49 @@
+<header>
+   <div class="header-container">
+      <div class="mobile-nav">
+         <a style="display: flex;" href="/">
+            <%= image_tag "logo.png", class: "mobile-nav__logo" %>
+         </a>
+         <a class="mobile-nav__lines toggle-nav">
+            <span class="mobile-nav__lines--line1"></span>
+            <span class="mobile-nav__lines--line2"></span>
+            <span class="mobile-nav__lines--line3"></span>
+         </a>
+      </div>
+      <nav class="desktop-nav">
+         <ul class="desktop-nav-list">
+            <li class="desktop-nav-list__item"><a class="desktop-nav-list__item--text" href="/">Home</a></li>
+            <li class="desktop-nav-list__item">Log in 
+               <ul class="desktop-dropdown">
+                  <li class="desktop-dropdown__list-item"><a class="desktop-dropdown__list-item--text" href="/families/sign_in">Family</a></li>
+                  <li class="desktop-dropdown__list-item"><a class="desktop-dropdown__list-item--text" href="/care_givers/sign_in">Caregiver</a></li>
+               </ul>
+            </li>
+            <li class="desktop-nav-list__item">Sign up 
+               <ul class="desktop-dropdown">
+                  <li class="desktop-dropdown__list-item"><a class="desktop-dropdown__list-item--text" href="/families/sign_up">Family</a></li>
+                  <li class="desktop-dropdown__list-item"><a class="desktop-dropdown__list-item--text" href="/care_givers/sign_up">Caregiver</a></li>
+               </ul>
+            </li>
+         </ul>
+      </nav>
+      <nav class="site-menu">
+         <ul class="side-menu">
+            <li class="side-menu__list-item"><a class="side-menu__list-item--text" href="/">Home</a></li>
+            <li class="side-menu__list-item">Log in <i class="fas fa-chevron-down"></i>
+               <ul class="sub-menu">
+                  <li class="sub-menu__list-item"><a class="sub-menu__list-item--text" href="/families/sign_in">- Family</a></li>
+                  <li class="sub-menu__list-item"><a class="sub-menu__list-item--text" href="/care_givers/sign_in" >- Caregiver</a></li>
+               </ul>
+            </li>
+            <li class="side-menu__list-item">Sign up <i class="fas fa-chevron-down"></i>
+               <ul class="sub-menu">
+                  <li class="sub-menu__list-item"><a class="sub-menu__list-item--text" href="/families/sign_up">- Family</a></li>
+                  <li class="sub-menu__list-item"><a class="sub-menu__list-item--text" href="/care_givers/sign_up" >- Caregiver</a></li>
+               </ul>
+            </li>
+            <li class="side-menu__list-item toggle-nav">Close</li>
+         </ul>
+      </nav>
+   </div>
+</header>

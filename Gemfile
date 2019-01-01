@@ -35,6 +35,11 @@ gem 'wicked' # Multi Step Form
 
 gem "recaptcha", require: "recaptcha/rails" #google robot captcha
 
+gem 'normalize-rails' #normalize
+
+gem 'jquery-rails' #jquerrryyyy lol
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

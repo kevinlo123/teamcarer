@@ -1,0 +1,7 @@
+@import "../base/mix-ins.scss";
+@import "../base/variables.scss";
+
+footer {
+   background: $blue;
+   @include padding($small-padding, $medium-padding, $small-padding, $medium-padding);   
+}
