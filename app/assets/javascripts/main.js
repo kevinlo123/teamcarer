@@ -32,15 +32,6 @@
             $(".desktop-dropdown").eq(0).css("display" , "none")
          }
       });
-
-      $(".desktop-dropdown__list-item").on({
-         mouseenter: function () {
-            $(this).children().css("color" , "#104A75")
-         },
-        mouseleave: function () {
-            $(".desktop-dropdown__list-item--text").css("color" , "white")
-         }
-      });
    });
 })(jQuery);
 

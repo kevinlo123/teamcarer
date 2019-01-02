@@ -12,37 +12,73 @@
       </div>
       <nav class="desktop-nav">
          <ul class="desktop-nav-list">
-            <li class="desktop-nav-list__item"><a class="desktop-nav-list__item--text" href="/">Home</a></li>
-            <li class="desktop-nav-list__item">Log in 
-               <ul class="desktop-dropdown">
-                  <li class="desktop-dropdown__list-item"><a class="desktop-dropdown__list-item--text" href="/families/sign_in">Family</a></li>
-                  <li class="desktop-dropdown__list-item"><a class="desktop-dropdown__list-item--text" href="/care_givers/sign_in">Caregiver</a></li>
-               </ul>
-            </li>
-            <li class="desktop-nav-list__item">Sign up 
-               <ul class="desktop-dropdown">
-                  <li class="desktop-dropdown__list-item"><a class="desktop-dropdown__list-item--text" href="/families/sign_up">Family</a></li>
-                  <li class="desktop-dropdown__list-item"><a class="desktop-dropdown__list-item--text" href="/care_givers/sign_up">Caregiver</a></li>
-               </ul>
-            </li>
+            <% if family_signed_in? %>
+               <a class="desktop-nav-list__item desktop-nav-list__item--text" style="margin-left: 40px;" href="/">Home</a>
+               <%= link_to "Log out", destroy_family_session_path, method: :delete, class: "desktop-nav-list__item desktop-nav-list__item--text" %>
+            <% elsif care_giver_signed_in? %>
+               <a class="desktop-nav-list__item desktop-nav-list__item--text" style="margin-left: 40px;" href="/">Home</a>
+               <%= link_to "Log out", destroy_care_giver_session_path, method: :delete, class: "desktop-nav-list__item desktop-nav-list__item--text" %>
+            <% else %>
+               <a class="desktop-nav-list__item desktop-nav-list__item--text" href="/">Home</a>
+               <li class="desktop-nav-list__item">Log in 
+                  <ul class="desktop-dropdown">
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/families/sign_in">Family</a>
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/care_givers/sign_in">Caregiver</a>
+                  </ul>
+               </li>
+               <li class="desktop-nav-list__item">Sign up 
+                  <ul class="desktop-dropdown">
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/families/sign_up">Family</a>
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/care_givers/sign_up">Caregiver</a>
+                  </ul>
+               </li> 
+            <% end %>
          </ul>
       </nav>
       <nav class="site-menu">
          <ul class="side-menu">
-            <li class="side-menu__list-item"><a class="side-menu__list-item--text" href="/">Home</a></li>
-            <li class="side-menu__list-item">Log in <i class="fas fa-chevron-down"></i>
-               <ul class="sub-menu">
-                  <li class="sub-menu__list-item"><a class="sub-menu__list-item--text" href="/families/sign_in">- Family</a></li>
-                  <li class="sub-menu__list-item"><a class="sub-menu__list-item--text" href="/care_givers/sign_in" >- Caregiver</a></li>
-               </ul>
-            </li>
-            <li class="side-menu__list-item">Sign up <i class="fas fa-chevron-down"></i>
-               <ul class="sub-menu">
-                  <li class="sub-menu__list-item"><a class="sub-menu__list-item--text" href="/families/sign_up">- Family</a></li>
-                  <li class="sub-menu__list-item"><a class="sub-menu__list-item--text" href="/care_givers/sign_up" >- Caregiver</a></li>
-               </ul>
-            </li>
-            <li class="side-menu__list-item toggle-nav">Close</li>
+            <a class="side-menu__list-item side-menu__list-item--text" href="/">Home</a>
+            <% if family_signed_in? %>
+               <li class="side-menu__list-item">Dashboard <i class="fas fa-chevron-down"></i>
+                  <ul class="sub-menu">
+                     <%= link_to "- Home", "/family", class: "sub-menu__list-item sub-menu__list-item--text" %>
+                     <%= link_to "- My posting", "/family/my_posting", class: "sub-menu__list-item sub-menu__list-item--text" %>
+                     <% unless current_family.job_post %>
+                        <%= link_to "- Create a Job post", "/family/new_post", class: "sub-menu__list-item sub-menu__list-item--text" %>
+                     <% end %>
+                     <%= link_to "- Care Recipient", "/family/recipient", class: "sub-menu__list-item sub-menu__list-item--text" %>
+                     <%= link_to "- Search for a team", "/family/team_search", class: "sub-menu__list-item sub-menu__list-item--text" %>
+                  </ul>
+               </li>
+               <%= link_to "Log out", destroy_family_session_path, method: :delete, class: "side-menu__list-item side-menu__list-item--text" %>
+               <%= link_to "Settings", "/families/edit", class: "side-menu__list-item side-menu__list-item--text" %>
+               <li class="side-menu__list-item toggle-nav">Close</li>
+            <% elsif care_giver_signed_in? %>
+               <li class="side-menu__list-item">Dashboard <i class="fas fa-chevron-down"></i>
+                  <ul class="sub-menu">
+                     <%= link_to "- Home", "/team", class: "sub-menu__list-item sub-menu__list-item--text" %>
+                     <%= link_to "- All Job post", "/team/posts", class: "sub-menu__list-item sub-menu__list-item--text" %>
+                     <%= link_to "- My team", "/team/my_team", class: "sub-menu__list-item sub-menu__list-item--text" %>
+                  </ul>
+               </li>
+               <%= link_to "Log out", destroy_care_giver_session_path, method: :delete, class: "side-menu__list-item side-menu__list-item--text" %>
+               <%= link_to "Settings", "/care_givers/edit" , class: "side-menu__list-item side-menu__list-item--text" %>
+               <li class="side-menu__list-item toggle-nav">Close</li>
+            <% else %>
+               <li class="side-menu__list-item">Log in <i class="fas fa-chevron-down"></i>
+                  <ul class="sub-menu">
+                     <a class="sub-menu__list-item sub-menu__list-item--text" href="/families/sign_in">- Family</a>
+                     <a class="sub-menu__list-item sub-menu__list-item--text" href="/care_givers/sign_in" >- Caregiver</a>
+                  </ul>
+               </li>
+               <li class="side-menu__list-item">Sign up <i class="fas fa-chevron-down"></i>
+                  <ul class="sub-menu">
+                     <a class="sub-menu__list-item sub-menu__list-item--text" href="/families/sign_up">- Family</a>
+                     <a class="sub-menu__list-item sub-menu__list-item--text" href="/care_givers/sign_up" >- Caregiver</a>
+                  </ul>
+               </li>
+               <li class="side-menu__list-item toggle-nav">Close</li>
+            <% end %>
          </ul>
       </nav>
    </div>

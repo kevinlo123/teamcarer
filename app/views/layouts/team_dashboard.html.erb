@@ -6,25 +6,26 @@
       <%= csp_meta_tag %>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'false' %>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <script src="https://use.fontawesome.com/f5fb6e9872.js"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
    </head>
    <body>
-      <% if care_giver_signed_in? %>
-         <li class="nav-item"><%= link_to "HomePage", root_path, class: "nav-link" %></li>
-         <li class="nav-item"><%= link_to "Logout team", destroy_care_giver_session_path, method: :delete, class: "nav-link" %></li>
-      <% else %>
-         <li class="nav-item"><%= link_to "Sign In team", new_care_giver_session_path, class: "nav-link" %></li>
-         <li class="nav-item"><%= link_to "Sign Up team", new_care_giver_registration_path, class: "nav-link" %></li>
-      <% end %>
-      <h1>Welcome to the Team Dashboard!</h1>
-      <%= yield %>
-      <h3>Dashboard example actions</h3>
-      <%= link_to "home/index", "/team" %>
-      <br>
-      <%= link_to "All Job post", "/team/posts" %>
-      <br>
-      <%= link_to "My team", "/team/my_team" %>
-      <br>
-      <%= link_to "Settings", "/care_givers/edit" %>
+      <div class="main">
+         <div class="black-overlay"></div>
+         <%= render "layouts/partials/header" %>
+         <h1>Welcome to the Team Dashboard!</h1>
+         <%= yield %>
+         <h3>Dashboard example actions</h3>
+         <%= link_to "home/index", "/team" %>
+         <br>
+         <%= link_to "All Job post", "/team/posts" %>
+         <br>
+         <%= link_to "My team", "/team/my_team" %>
+         <br>
+         <%= link_to "Settings", "/care_givers/edit" %>
+         <%= render "layouts/partials/footer" %>
+      </div>
    </body>
 </html>

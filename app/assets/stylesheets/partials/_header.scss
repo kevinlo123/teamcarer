@@ -63,6 +63,7 @@ header {
          }
       }
    }
+   
    .sub-menu {
       display: none;
       list-style: none;
@@ -74,6 +75,7 @@ header {
             color: $white;
             text-decoration: none;
             transition: .3s ease-in-out; 
+            display: flex;            
             &:hover {
                margin-left: 5px;
                color: $yellow;
@@ -96,6 +98,7 @@ header {
    background-color: $blue;
    color: $white;
    z-index: 2;
+   overflow-y: scroll;
 }
 
 .fas {
@@ -141,6 +144,7 @@ header {
          text-decoration: none;
          color: $light-blue;
          transition: .3s ease-in-out;
+         display: block;
          &:hover {
             color: $blue;
          }          
@@ -165,9 +169,10 @@ header {
       @include modifier(text) {
          color: $white;
          text-decoration: none;
-         transition: .3s ease-in-out;      
+         transition: .3s ease-in-out;  
+         display: block;    
          &:hover {
-            margin-left: 3px;
+            color: $blue;
          }         
       }
    }
@@ -177,9 +182,11 @@ header {
    .mobile-nav {
       width: 65%;
    }
+
    .mobile-nav__logo {
       height: 3.5rem;
    }
+
    .toggle-nav {
       display: none;
    }
