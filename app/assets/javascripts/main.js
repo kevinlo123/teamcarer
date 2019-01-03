@@ -34,7 +34,8 @@
       });
 
       $(".fa-arrow-circle-up").on("click", function() {
-         $("header")[0].scrollIntoView({behavior: "smooth"});
+         $("html, body").animate({ scrollTop: 0 }, "smooth");
+         return false;
       });
    });
 })(jQuery);
