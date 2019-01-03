@@ -3,7 +3,7 @@
 
 footer {
    background: $blue;
-   @include padding($small-padding - .25, $medium-padding, $small-padding - .25, $medium-padding);
+   @include padding($small-padding - .25, $small-padding, $small-padding - .25, $small-padding);
    color: $white;   
 }
 
