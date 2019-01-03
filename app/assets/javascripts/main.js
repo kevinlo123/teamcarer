@@ -32,6 +32,10 @@
             $(".desktop-dropdown").eq(0).css("display" , "none")
          }
       });
+
+      $(".fa-arrow-circle-up").on("click", function() {
+         $("header")[0].scrollIntoView({behavior: "smooth"});
+      });
    });
 })(jQuery);
 
