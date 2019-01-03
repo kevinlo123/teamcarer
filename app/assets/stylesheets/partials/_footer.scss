@@ -3,5 +3,133 @@
 
 footer {
    background: $blue;
-   @include padding($small-padding, $medium-padding, $small-padding, $medium-padding);   
+   @include padding($small-padding - .25, $medium-padding, $small-padding - .25, $medium-padding);
+   color: $white;   
+}
+
+.footer-container {
+   display: flex;
+   max-width: 1200px;
+   margin: 0 auto;
+   flex-direction: column;
+}
+
+.footer-social-scroll {
+   display: flex;
+   justify-content: space-between;
+   @include element(social) {
+      @include modifier(text) {
+         font-size: $medium-font - .25;
+         @include margin(0,0,$extra-small-margin,0);
+      }
+      @include modifier(icons) {
+         display: flex;
+         justify-content: space-between;
+         a {
+            color: white;            
+         }
+         .fab {
+            font-size: $medium-font + .25;
+            transition: .3s ease-in-out;      
+            @include margin(0,0,$extra-small-margin,0);
+            &:hover {
+               color: $yellow;
+               cursor: pointer;
+            }            
+         }
+      }
+   }
+   @include element(scroll) {
+      @include modifier(text) {
+         font-size: $medium-font - .25;         
+         @include margin(0,0,$extra-small-margin,0);
+      }
+      .fas {
+         font-size: $medium-font + .20;
+         margin: 0 2.25rem;
+         transition: .3s ease-in-out;      
+         &:hover {
+            color: $yellow;
+            cursor: pointer;
+         }          
+      }
+   }
+}
+
+.footer-contact {
+   display: flex;
+   flex-direction: column;
+   @include element(text) {
+      margin: $extra-small-margin 0;
+      font-size: $medium-font - .25;      
+      @include modifier(num) {
+         color: $white;
+         text-decoration: underline;
+         transition: .3s ease-in-out;      
+         &:hover {
+            color: $yellow;
+            cursor: pointer;
+         } 
+      }
+   }
+   &:nth-child(2) {
+      margin-bottom: $small-margin;
+   }
+}
+
+.footer-copyright {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   @include element(text) {
+      margin: 0;
+      font-size: $extra-small-font + .02; 
+      @media screen and (min-width: 400px){
+         font-size: $small-font - .35;          
+      }           
+      @include modifier(link) {
+         color: $white;
+         transition: .3s ease-in-out;      
+         &:hover {
+            color: $yellow;
+            cursor: pointer;
+         } 
+      }
+   }
+}
+
+@include medium-desktop {
+   footer {
+      @include padding($small-padding + .25, $medium-padding, $small-padding + .25, $medium-padding);
+   } 
+   .footer-social-scroll {
+      @include element(social) {
+         @include modifier(text) {
+            font-size: $medium-font;
+         }
+         @include modifier(icons) {
+            .fab {
+               font-size: $large-font;
+            }
+         }
+      }
+      @include element(scroll) {
+         @include modifier(text) {
+            font-size: $medium-font;         
+         }
+         .fas {
+            font-size: $large-font;
+         }
+      }
+   }
+   .footer-contact {
+      @include element(text) {
+         font-size: $medium-font;      
+      }
+   }
+   .footer-copyright {
+      @include element(text) {
+         font-size: $small-font;       
+      }
+   }
 }
