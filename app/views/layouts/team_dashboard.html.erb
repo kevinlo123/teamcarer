@@ -11,6 +11,15 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
       <%= favicon_link_tag asset_path('logo-icon.ico') %>
+      <%= favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type:'image/png' %>
+      <% if content_for?(:meta_og) %>
+         <%= yield :meta_og %>
+      <% else %>
+         <meta property="og:title" content="Teamcarer inc" />
+         <meta property="og:type" content="website" />
+         <meta property="og:url" content="teamcarer.herokuapp.com" />
+         <%= tag :meta, property: 'og:image', content: image_url('logo.png') %>
+      <% end %>
    </head>
    <body>
       <div class="main">
