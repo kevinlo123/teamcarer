@@ -3,6 +3,7 @@
 
 * {
    font-family: 'Raleway', sans-serif;
+   box-sizing: border-box;
 }
 
 html {
@@ -42,6 +43,7 @@ body {
 
 @import "partials/_header.scss";
 @import "partials/_footer.scss";
+@import "styles/login.scss";
 @import "styles/family.scss";
 @import "styles/job_posts.scss";
 @import "styles/pages.scss";

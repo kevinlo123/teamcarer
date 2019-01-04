@@ -1,0 +1,70 @@
+@import "../base/mix-ins.scss";
+@import "../base/variables.scss";
+
+.login-container {
+   background: $light-grey;
+   @include padding($small-padding - .25, $small-padding, $small-padding - .25, $small-padding);
+   @include element(logo) {
+      @include margin($extra-large-margin, auto, 0, auto);
+      display: block;
+      height: 5.5rem;
+   }  
+   @include element(log-in-text) {
+      font-size: $medium-font + .25;
+      text-align: center;
+   }
+}
+
+.email-password {
+   width: 90%;
+   margin: 0 auto;
+   max-width: 450px;
+   @include margin(0, auto, $extra-large-margin + 1.5, auto);   
+   @include element(email) {
+      @include margin($extra-large-margin, 0, $small-margin + .25, 0);
+   }
+   @include element(password) {
+      @include margin($medium-margin, 0, $small-margin + .25, 0);
+   }
+   @include element(submit) {
+      background: $yellow;
+      @include margin($small-margin - .25, 0, $extra-small-margin, 0);
+      width: 100%;  
+      border-radius: 2px; 
+      padding: 10px;
+      color: $white; 
+      font-size: 20px; 
+      border: none; 
+      cursor: pointer;   
+   }
+}
+
+.email-password__input {
+   margin: 0;
+   width: 100%;
+   border: 1px solid #d2d2d2;
+   border-radius: 2px;
+   color: $blue;
+   padding: 7px;
+   font-size: 20px;
+   transition: all 300ms ease-in-out;
+   &:placeholder {
+      color: #fff;
+   }
+   &:focus {
+      outline: none;
+      border:1px solid $yellow !important;
+      box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.5);
+   }
+}
+
+.login-form-links {
+   font-size: $medium-font - .35;
+   color: $dark-blue;
+   text-decoration: none;
+   display: block;
+   @include margin($extra-small-margin, 0, $extra-small-margin, 0);   
+   &:hover {
+      text-decoration: underline;
+   }   
+}

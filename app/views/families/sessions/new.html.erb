@@ -1,26 +1,25 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "families/shared/links" %>
+<div class="login-container">
+   <%= image_tag "logo-icon.png", class: "login-container__logo" %>
+   <h2 class="login-container__log-in-text">Family Log in</h2>
+   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="email-password">
+         <div class="field email-password__email">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail", class: "email-password__input" %>
+         </div>
+         <div class="field email-password__password">
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "email-password__input" %>
+         </div>
+         <% if devise_mapping.rememberable? -%>
+         <div class="field">
+            <%= f.label :remember_me ,:style => "display: inline-block; color: #133A6B; margin: 5px 0; font-size: 1.15rem;" %>
+            <%= f.check_box :remember_me %>
+         </div>
+         <% end -%>
+         <%= render "families/shared/links" %>
+         <div class="actions">
+            <%= f.submit "Log in", class: "email-password__submit" %>
+         </div>
+         <p style="color: #133A6B">By signing in, you agree to our Terms of Service and Privacy Policy.</p>
+      </div>
+   <% end %>
+</div>

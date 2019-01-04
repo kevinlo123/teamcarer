@@ -3,13 +3,12 @@
 
 footer {
    background: $blue;
-   @include padding($small-padding - .25, $small-padding, $small-padding - .25, $small-padding);
+   @include padding($medium-padding + .25, $small-padding, $medium-padding + .25, $small-padding);
    color: $white;   
 }
 
 .footer-container {
    display: flex;
-   max-width: 1200px;
    margin: 0 auto;
    flex-direction: column;
 }
@@ -20,7 +19,7 @@ footer {
    @include element(social) {
       @include modifier(text) {
          font-size: $medium-font - .25;
-         @include margin(0,0,$extra-small-margin,0);
+         @include margin(0, 0, $medium-margin - .25, 0);
       }
       @include modifier(icons) {
          display: flex;
@@ -42,7 +41,7 @@ footer {
    @include element(scroll) {
       @include modifier(text) {
          font-size: $medium-font - .25;         
-         @include margin(0,0,$extra-small-margin,0);
+         @include margin(0, 0, $extra-small-margin + .25, 0);
       }
       .fas {
          font-size: $medium-font + .20;
@@ -102,7 +101,7 @@ footer {
 
 @include medium-desktop {
    footer {
-      @include padding($small-padding + .25, $medium-padding, $small-padding + .25, $medium-padding);
+      @include padding($extra-large-padding, $medium-padding, $extra-large-padding, $medium-padding);
    } 
    .footer-social-scroll {
       @include element(social) {
