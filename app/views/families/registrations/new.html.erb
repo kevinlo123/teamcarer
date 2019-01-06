@@ -85,7 +85,7 @@
             <%= f.text_field :emergency_name, autofocus: true, autocomplete: "emergency_name", placeholder: "Emergency contact name", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.text_field :emergency_contact, maxlength: 10, autofocus: true, autocomplete: "emergency_contact", placeholder: "Emergency contact number", class: "signup-input-container--input" %>
+            <%= f.telephone_field :emergency_contact, maxlength: 10, autofocus: true, autocomplete: "emergency_contact", placeholder: "Emergency contact number", class: "signup-input-container--input" %>
          </div>
          <div class="field">
             <%= f.select :recipient_relation, options_for_select(family_relationships), {:prompt => "Relation to Recipient"}, {:class => "signup-input-container--input"} %>
