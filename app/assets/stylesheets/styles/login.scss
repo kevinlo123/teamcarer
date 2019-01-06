@@ -17,7 +17,6 @@
 
 .email-password {
    width: 90%;
-   margin: 0 auto;
    max-width: 450px;
    @include margin(0, auto, $extra-large-margin + 1.5, auto);   
    @include element(email) {
@@ -48,9 +47,6 @@
    padding: 7px;
    font-size: 20px;
    transition: all 300ms ease-in-out;
-   &:placeholder {
-      color: #fff;
-   }
    &:focus {
       outline: none;
       border:1px solid $yellow !important;
