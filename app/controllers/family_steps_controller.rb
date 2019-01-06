@@ -1,6 +1,6 @@
 class FamilyStepsController < ApplicationController
    include Wicked::Wizard
-   steps :recipient_information, :recipient_information_second, :recipient_information_third, :recipient_information_fourth, :recipient_information_fifth
+   steps :recipient_information, :care_needed, :recipient_qualities, :recipient_conditions, :recipient_information_fifth
 
    def show
       @recipient = current_family.recipient 
@@ -10,7 +10,7 @@ class FamilyStepsController < ApplicationController
    def create
       @recipient = current_family.create_recipient(sanitize_recipient)
       if @recipient.save
-          jump_to(:recipient_information_second)       
+          jump_to(:care_needed)       
       else      
          render json: @recipient.errors.full_messages
       end
@@ -21,7 +21,7 @@ class FamilyStepsController < ApplicationController
       @recipient = current_family.recipient
       @recipient.update(companion_care: params[:companion_care])
       @recipient.update(personal_care: params[:personal_care])      
-      jump_to(:recipient_information_third)                                
+      jump_to(:recipient_qualities)                                
       render_wizard
    end
 
@@ -29,7 +29,7 @@ class FamilyStepsController < ApplicationController
       @recipient = current_family.recipient      
       @recipient.update(mobility: params[:mobility])
       @recipient.update_attributes(sanitize_recipient)      
-      jump_to(:recipient_information_fourth)   
+      jump_to(:recipient_conditions)   
       render_wizard      
    end
 

@@ -1,27 +1,84 @@
-<h2>Step 2</h2>
-<h2>Recipient information</h2>
-<%= form_for :recipient, url: "recipient_information",  html: {class: "nifty_form"} do |f| %>
-   <%= f.label :firstname %>
-   <%= f.text_field :firstname, required: true %><br>
-   <%= f.label :middlename %>
-   <%= f.text_field :middlename %><br>
-   <%= f.label :lastname %>
-   <%= f.text_field :lastname, required: true %><br>
-   <%= f.label :gender %>
-   <%= f.text_field :gender, required: true %><br>
-   <%= f.label :age %>
-   <%= f.text_field :age, required: true %><br>
-   <%= f.label :primary_language %>
-   <%= f.text_field :primary_language , required: true %><br>
-   <%= f.label :phone %>
-   <%= f.text_field :phone , required: true %><br>
-   <%= f.label :address %>
-   <%= f.text_field :address , required: true %><br>
-   <%= f.label :city %>
-   <%= f.text_field :city , required: true %><br>
-   <%= f.label :state %>
-   <%= f.text_field :state , required: true %><br>
-   <%= f.submit%>   
-<% end %>
+<div class="signup-container">
+   <%= image_tag "logo-icon.png", class: "login-container__logo" %>
+   <h2 class="signup-container__signup-text">Sign up</h2>
+   <div class="progress-bar-container">
+      <div class="box progress-bar" data-module="progressbar">
+         <ol>
+            <li class="current qa-progressbar-item">
+               <span style="background: #104A75; !important"  class="cell">
+                  <span class="item">
+                     <span>Family Member info</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current qa-progressbar-item">
+               <span class="cell">
+                  <span class="item">
+                     <span>Care Recipient Info</span>
+                  </span>
+               </span>
+            </li>
+            <li class="qa-progressbar-item">
+               <span class="cell">
+                  <span class="item">
+                     <span>Care Needed</span>
+                  </span>
+               </span>
+            </li>
+            <li class="qa-progressbar-item">
+               <span class="cell">
+                  <span class="item">
+                     <span>Care Recipient qualities</span>
+                  </span>
+               </span>
+            </li>
+            <li class="last qa-progressbar-item">
+               <span class="cell">
+                  <span class="item">
+                     <span>Care Recipient conditions</span>
+                  </span>
+               </span>
+            </li>
+         </ol>
+      </div>
+   </div>
+   <%= form_for :recipient, url: "recipient_information",  html: {class: "nifty_form"} do |f| %>
+      <div class="signup-input-container">
+         <div class="field">
+            <%= f.text_field :firstname, required: true, placeholder: "Recipient First Name", class: "signup-input-container--input" %>
+         </div>
+         <div class="field">
+            <%= f.text_field :middlename, required: true, placeholder: "Recipient Middle Name", class: "signup-input-container--input" %>
+         </div>
+         <div class="field">
+            <%= f.text_field :lastname, required: true, placeholder: "Recipient Last Name", class: "signup-input-container--input" %>
+         </div>
+         <div class="field">
+            <%= f.select :gender, options_for_select([["Male", "Male"],["Female","Female"]]), {:prompt => "Gender"}, {:class => "signup-input-container--input"} %>
+         </div>
+         <div class="field">
+            <%= f.text_field :age, maxlength: 2, required: true, placeholder: "Age", class: "signup-input-container--input" %>
+         </div>
+         <div class="field">
+            <%= f.text_field :primary_language , required: true, placeholder: "Primary Language", class: "signup-input-container--input" %>
+         </div>
+         <div class="field">
+            <%= f.telephone_field :phone, maxlength: 10, required: true, placeholder: "Phone number", class: "signup-input-container--input" %>
+         </div>
+         <div class="field">
+            <%= f.text_field :address , required: true, placeholder: "Address", class: "signup-input-container--input" %>
+         </div>
+         <div class="field">
+            <%= f.text_field :city , required: true, placeholder: "City", class: "signup-input-container--input" %>
+         </div>
+         <div class="field">
+            <%= f.text_field :state , required: true, placeholder: "State", class: "signup-input-container--input" %>
+         </div>
+         <div class="actions">
+            <%= f.submit "Next Step", class: "signup-input-container--submit" %> 
+         </div> 
+      </div> 
+   <% end %>
+</div>
 
 
