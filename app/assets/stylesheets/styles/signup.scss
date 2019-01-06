@@ -155,8 +155,12 @@
 }
 
 @media only screen and (max-width : 325px) {
+   div.g-recaptcha div {
+      width: 100% !important;
+   }
+   
    iframe {
-      width: 280px;
+      width: 100% !important;   
    }
 }
 
