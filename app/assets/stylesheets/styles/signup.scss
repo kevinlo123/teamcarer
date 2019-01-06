@@ -11,7 +11,7 @@
 }
 
 .signup-input-container {
-   width: 90%;
+   width: 100%;
    @include margin(0, auto, $extra-large-margin + 1.5, auto);   
    max-width: 450px;
    .field {
@@ -154,13 +154,4 @@
    }
 }
 
-@media only screen and (max-width : 340px) {
-   div.g-recaptcha div {
-      width: 90% !important;
-   }
-   
-   iframe {
-      width: 90% !important;   
-   }
-}
 
