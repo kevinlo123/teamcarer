@@ -47,28 +47,28 @@
          <%= devise_error_messages! %>
          <h2 class="signup-input-container__text">Step 1. Care Giver Info</h2>
          <div class="field">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail", autocomplete: "email", class: "signup-input-container-cg--input-cg" %>
+            <%= f.email_field :email, autofocus: true, placeholder: "E-mail", autocomplete: "email", class: "signup-input-container-cg--input-cg" %>
          </div>
          <div class="field">
             <!--<% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br />-->
-            <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", autocomplete: "password", class: "signup-input-container-cg--input-cg" %>
+            <%= f.password_field :password,  placeholder: "Password", autocomplete: "password", class: "signup-input-container-cg--input-cg" %>
          </div>
          <div class="field">
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", autocomplete: "confirm password", class: "signup-input-container-cg--input-cg" %>
+            <%= f.password_field :password_confirmation, placeholder: "Confirm Password", autocomplete: "confirm password", class: "signup-input-container-cg--input-cg" %>
          </div>
          <div class="field">
-            <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname", placeholder: "First Name", autocomplete: "firstname", class: "signup-input-container-cg--input-cg" %>
+            <%= f.text_field :firstname, autofocus: true, placeholder: "First Name", autocomplete: "firstname", class: "signup-input-container-cg--input-cg" %>
          </div>
          <div class="field">
-            <%= f.text_field :middlename, autofocus: true, autocomplete: "middlename", placeholder: "Middle Name", autocomplete: "middlename", class: "signup-input-container-cg--input-cg" %>
+            <%= f.text_field :middlename, autofocus: true, placeholder: "Middle Name", autocomplete: "middlename", class: "signup-input-container-cg--input-cg" %>
          </div>
          <div class="field">
-            <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname", placeholder: "Last Name", autocomplete: "last name", class: "signup-input-container-cg--input-cg" %>
+            <%= f.text_field :lastname, autofocus: true, placeholder: "Last Name", autocomplete: "last name", class: "signup-input-container-cg--input-cg" %>
          </div>
          <div class="field">
-            <%= f.text_field :phone, autofocus: true, maxlength: 10, autocomplete: "phone", placeholder: "Phone Number", autocomplete: "phone number", class: "signup-input-container-cg--input-cg number-field" %>
+            <%= f.text_field :phone, autofocus: true, maxlength: 10, placeholder: "Phone Number", autocomplete: "phone number", class: "signup-input-container-cg--input-cg number-field" %>
          </div>
          <div class="field">
             <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker"} %>
@@ -77,16 +77,16 @@
             <%= f.select :city, options_for_select([]),{:prompt => "City"}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker"} %> 
          </div>
          <div class="field">
-            <%= f.text_field :street, autofocus: true, autocomplete: "street", placeholder: "Street", autocomplete: "street", class: "signup-input-container-cg--input-cg" %>
+            <%= f.text_field :street, autofocus: true, placeholder: "Street", autocomplete: "street", class: "signup-input-container-cg--input-cg" %>
          </div>
          <div class="field">
-            <%= f.text_field :zip, maxlength: 5, autofocus: true, autocomplete: "zip", placeholder: "Zip code", autocomplete: "zip code", class: "signup-input-container-cg--input-cg" %>
+            <%= f.text_field :zip, maxlength: 5, autofocus: true, placeholder: "Zip code", autocomplete: "zip code", class: "signup-input-container-cg--input-cg" %>
          </div>
          <div class="field">
-            <%= f.text_field :emergency_contact, autofocus: true, autocomplete: "emergency_contact", placeholder: "Emergency Contact Name", autocomplete: "Emergency Contact Name", class: "signup-input-container-cg--input-cg" %>
+            <%= f.text_field :emergency_contact, autofocus: true, placeholder: "Emergency Contact Name", autocomplete: "Emergency Contact Name", class: "signup-input-container-cg--input-cg" %>
          </div>
          <div class="field">
-            <%= f.text_field :emergency_number, maxlength: 11, autofocus: true, autocomplete: "emergency_number", autofocus: true, autocomplete: "emergency_contact", placeholder: "Emergency Contact Number", autocomplete: "Emergency Contact Number", class: "signup-input-container-cg--input-cg number-field" %>
+            <%= f.text_field :emergency_number, maxlength: 11, autofocus: true, placeholder: "Emergency Contact Number", autocomplete: "Emergency Contact Number", class: "signup-input-container-cg--input-cg number-field" %>
          </div>
          <%= recaptcha_tags %>
          <%= render "care_givers/shared/links" %>
