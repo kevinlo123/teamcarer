@@ -23,8 +23,11 @@
    <body>
       <div class="main">
          <div class="black-overlay"></div>
-         <%= render "layouts/partials/header" %>
-         <!-- flash messages -->
+         <% if controller.controller_name == "family_steps" || controller.controller_name == "care_giver_steps"  %>
+            <%= render "layouts/partials/steps_header" %>
+         <% else %>
+            <%= render "layouts/partials/header" %>
+         <% end %>       
          <% flash.each do |name, message|%>
             <%= content_tag(:div, message, class: "alert alert-info #{name}") %>
          <% end %>
