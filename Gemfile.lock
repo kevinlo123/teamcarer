@@ -75,9 +75,6 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
-    country_state_select (3.0.3)
-      city-state
-      rails
     crass (1.0.4)
     devise (4.5.0)
       bcrypt (~> 3.0)
@@ -223,7 +220,6 @@ DEPENDENCIES
   chromedriver-helper
   city-state
   coffee-rails (~> 4.2)
-  country_state_select
   devise
   jbuilder (~> 2.5)
   jquery-rails
