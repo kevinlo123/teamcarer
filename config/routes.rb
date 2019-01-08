@@ -12,6 +12,13 @@ Rails.application.routes.draw do
    resources :job_posts      
    resources :family_steps   
    resources :care_giver_steps
+   # resources :states, only: :new  
+   devise_scope :family do
+      get 'states', to: 'families/registrations#city'
+   end
+   devise_scope :care_giver do
+      get 'states', to: 'caregivers/registrations#city'
+   end
    # family steps recipient
    post 'family_steps/recipient_information', to: 'family_steps#create'
    post 'family_steps/recipient_information_second', to: 'family_steps#care_needs'

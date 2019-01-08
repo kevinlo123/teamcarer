@@ -1,83 +1,99 @@
-<%= image_tag "logo-icon.png", class: "login-container__logo" %>
-<h2>Sign up</h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-   <%= devise_error_messages! %>
-
-   <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="signup-container-cg">
+   <%= image_tag "logo-icon.png", class: "login-container__logo" %>
+   <h2 class="signup-container__signup-text">Sign up</h2>
+   <div class="progress-bar-container-cg">
+      <div class="box progress-bar-cg" data-module="progressbar">
+         <ol>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Care Giver info</span>
+                  </span>
+               </span>
+            </li>
+            <li class="qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Care Giver Skills</span>
+                  </span>
+               </span>
+            </li>
+            <li class="qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Disease Management</span>
+                  </span>
+               </span>
+            </li>
+            <li class="qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Questionnaire</span>
+                  </span>
+               </span>
+            </li>
+            <li class="last qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Statement</span>
+                  </span>
+               </span>
+            </li>
+         </ol>
+      </div>
    </div>
-
-   <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-   </div>
-
-   <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-   </div>
-
-      <div class="field">
-         <%= f.label :firstname %><br />
-         <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname" %>
-      </div>
-
-      <div class="field">
-         <%= f.label :middlename,'Middlename (optional)' %><br />
-         <%= f.text_field :middlename, autofocus: true, autocomplete: "middlename" %>
-      </div>
-
-      <div class="field">
-         <%= f.label :lastname %><br />
-         <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname" %>
-      </div>
-
-      <div class="field">
-         <%= f.label :phone %><br />
-         <%= f.text_field :phone, autofocus: true, maxlength: 10, autocomplete: "phone" %>
-      </div>
-
-      <div class="field">
-         <%= f.label :city %><br />
-         <%= f.text_field :city, autofocus: true, autocomplete: "city" %>
-      </div>
-
-      <div class="field">
-         <%= f.label :state %><br />
-         <%= f.select :state, options_for_select(us_states), :prompt => 'Select' %>
-      </div>
-
-      <div class="field">
-         <%= f.label :street %><br />
-         <%= f.text_field :street, autofocus: true, autocomplete: "street" %>
-      </div>
-
-      <div class="field">
-         <%= f.label :zip %><br />
-         <%= f.text_field :zip, maxlength: 5, autofocus: true, autocomplete: "zip" %>
-      </div>
-
-      <div class="field">
-         <%= f.label :emergency_contact %><br />
-         <%= f.text_field :emergency_contact , autofocus: true, autocomplete: "emergency_contact" %>
-      </div>
-
-      <div class="field">
-         <%= f.label :emergency_number %><br />
-         <%= f.text_field :emergency_number, autofocus: true, autocomplete: "emergency_number" %>
-      </div>
-      
-      <div>
+   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="signup-input-container-cg">
+         <%= devise_error_messages! %>
+         <h2 class="signup-input-container__text">Step 1. Care Giver Info</h2>
+         <div class="field">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail", autocomplete: "email", class: "signup-input-container-cg--input-cg" %>
+         </div>
+         <div class="field">
+            <!--<% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />-->
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", autocomplete: "password", class: "signup-input-container-cg--input-cg" %>
+         </div>
+         <div class="field">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", autocomplete: "confirm password", class: "signup-input-container-cg--input-cg" %>
+         </div>
+         <div class="field">
+            <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname", placeholder: "First Name", autocomplete: "firstname", class: "signup-input-container-cg--input-cg" %>
+         </div>
+         <div class="field">
+            <%= f.text_field :middlename, autofocus: true, autocomplete: "middlename", placeholder: "Middle Name", autocomplete: "middlename", class: "signup-input-container-cg--input-cg" %>
+         </div>
+         <div class="field">
+            <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname", placeholder: "Last Name", autocomplete: "last name", class: "signup-input-container-cg--input-cg" %>
+         </div>
+         <div class="field">
+            <%= f.text_field :phone, autofocus: true, maxlength: 10, autocomplete: "phone", placeholder: "Phone Number", autocomplete: "phone number", class: "signup-input-container-cg--input-cg number-field" %>
+         </div>
+         <div class="field">
+            <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker"} %>
+         </div>
+         <div class="field">
+            <%= f.select :city, options_for_select([]),{:prompt => "City"}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker"} %> 
+         </div>
+         <div class="field">
+            <%= f.text_field :street, autofocus: true, autocomplete: "street", placeholder: "Street", autocomplete: "street", class: "signup-input-container-cg--input-cg" %>
+         </div>
+         <div class="field">
+            <%= f.text_field :zip, maxlength: 5, autofocus: true, autocomplete: "zip", placeholder: "Zip code", autocomplete: "zip code", class: "signup-input-container-cg--input-cg" %>
+         </div>
+         <div class="field">
+            <%= f.text_field :emergency_contact, autofocus: true, autocomplete: "emergency_contact", placeholder: "Emergency Contact Name", autocomplete: "Emergency Contact Name", class: "signup-input-container-cg--input-cg" %>
+         </div>
+         <div class="field">
+            <%= f.text_field :emergency_number, maxlength: 11, autofocus: true, autocomplete: "emergency_number", autofocus: true, autocomplete: "emergency_contact", placeholder: "Emergency Contact Number", autocomplete: "Emergency Contact Number", class: "signup-input-container-cg--input-cg number-field" %>
+         </div>
          <%= recaptcha_tags %>
+         <%= render "care_givers/shared/links" %>
+         <div class="actions">
+            <%= f.submit "Next Step", class: "signup-input-container-cg--submit-cg" %>
+         </div>
+         <p style="color: #133A6B">By signing in, you agree to our Terms of Service and Privacy Policy.</p>
       </div>
-
-   <div class="actions">
-      <%= f.submit "Sign up" %>
-   </div>
-<% end %>
-
-<%= render "care_givers/shared/links" %>
+   <% end %>
+</div>

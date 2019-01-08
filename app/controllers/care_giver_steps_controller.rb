@@ -12,12 +12,16 @@ class CareGiverStepsController < ApplicationController
    end
 
    def update
-      @team = current_care_giver
-      @team.update(companion_care: params[:companion_care])
-      @team.update(personal_care: params[:personal_care])  
-      @team.update(languages: params[:languages]) 
-      jump_to(:disease_management)               
-      render_wizard   
+      if current_care_giver.confirmed? == false 
+         render html: "please confirm your email address!"
+      else         
+         @team = current_care_giver
+         @team.update(companion_care: params[:companion_care])
+         @team.update(personal_care: params[:personal_care])  
+         @team.update(languages: params[:languages]) 
+         jump_to(:disease_management)  
+         render_wizard
+      end  
    end
 
    def conditions

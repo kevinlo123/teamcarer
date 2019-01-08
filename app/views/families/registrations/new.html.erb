@@ -1,4 +1,4 @@
-<div class="signup-container">
+<div class="signup-container-cg">
    <%= image_tag "logo-icon.png", class: "login-container__logo" %>
    <h2 class="signup-container__signup-text">Sign up</h2>
    <div class="progress-bar-container">
@@ -45,6 +45,7 @@
    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <div class="signup-input-container">
          <%= devise_error_messages! %>
+         <h2 class="signup-input-container__text">Step 1. Family Member Info</h2>
          <div class="field">
             <%= f.email_field :email, autofocus: true, placeholder: "E-mail", autocomplete: "email", class: "signup-input-container--input" %>
          </div>
@@ -55,7 +56,7 @@
             <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "password_confirmation", class: "signup-input-container--input" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "password confirmation", class: "signup-input-container--input" %>
          </div>
          <div class="field">
             <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname", placeholder: "First name", class: "signup-input-container--input" %>
@@ -67,16 +68,16 @@
             <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname", placeholder:"Last name", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.telephone_field :phone, maxlength: 10, autocomplete: "phone", placeholder: "Phone", class: "signup-input-container--input" %>
+            <%= f.telephone_field :phone, maxlength: 11, autocomplete: "phone", placeholder: "Phone", class: "signup-input-container--input number-field" %>
          </div>
          <div class="field">
-            <%= f.text_field :city, autofocus: true, autocomplete: "city", placeholder: "City", class: "signup-input-container--input" %>
+            <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container--input", :id => "state-picker"} %>
          </div>
          <div class="field">
-            <%= f.select :state, options_for_select(us_states), {:prompt => "State"}, {:class => "signup-input-container--input"} %>
+            <%= f.select :city, options_for_select([]),{:prompt => "City"}, {:class => "signup-input-container--input", :id => "city-picker"} %> 
          </div>
          <div class="field">
-            <%= f.text_field :street, autofocus: true, autocomplete: "street", placeholder: "Street", class: "signup-input-container--input" %>
+            <%= f.text_field :street, autofocus: true, autocomplete: "street", placeholder: "Street Address", class: "signup-input-container--input" %>
          </div>
          <div class="field">
             <%= f.text_field :zip, maxlength: 5, autofocus: true, autocomplete: "zip", placeholder: "Zip Code", class: "signup-input-container--input" %>
@@ -85,10 +86,10 @@
             <%= f.text_field :emergency_name, autofocus: true, autocomplete: "emergency_name", placeholder: "Emergency contact name", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.telephone_field :emergency_contact, maxlength: 10, autofocus: true, autocomplete: "emergency_contact", placeholder: "Emergency contact number", class: "signup-input-container--input" %>
+            <%= f.telephone_field :emergency_contact, maxlength: 11, autofocus: true, autocomplete: "emergency_contact", placeholder: "Emergency contact number", class: "signup-input-container--input number-field" %>
          </div>
          <div class="field">
-            <%= f.select :recipient_relation, options_for_select(family_relationships), {:prompt => "Relation to Recipient"}, {:class => "signup-input-container--input"} %>
+            <%= f.select :recipient_relation, options_for_select(family_relationships), {:prompt => "Who is the Care Recipient?"}, {:class => "signup-input-container--input"} %>
          </div>
          <%= recaptcha_tags %>
          <%= render "families/shared/links" %>

@@ -1,0 +1,12 @@
+var city = document.getElementById("city-picker-cg");
+
+while (city.firstChild) city.removeChild(city.firstChild);
+
+var placeholder = document.createElement("option");
+placeholder.text = "City";
+placeholder.value = "";
+city.appendChild(placeholder);
+
+<% @cities.each do |c| %>
+    city.options[city.options.length] = new Option('<%= c %>');
+<% end %>

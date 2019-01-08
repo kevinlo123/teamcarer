@@ -1,23 +1,118 @@
-<h2>Step 3</h2>
-<h2>Family information continued</h2>
-<%= form_for :recipient, url: 'recipient_information_second',  html: {class: "nifty_form"} do |f| %>
-   <h3>Companion Care</h3>
-  <%# <%= f.collection_check_boxes(:companion_care, { 'House Cleaning': 'House Cleaning', 'Laundry': 'Laundry', 'Meal preperation': 'Meal preperation' }, :last, :first) %> 
-   <%= check_box_tag  "companion_care[]", 'House Cleaning' %><%= label_tag :HouseCleaning, 'House Cleaning' %><br>
-   <%= check_box_tag  "companion_care[]", 'Laundry' %><%= label_tag :Laundry %><br>
-   <%= check_box_tag  "companion_care[]", 'Meal preperation' %><%= label_tag :mealprep, 'Meal Prep' %><br>
-   <%= check_box_tag  "companion_care[]", 'Driving / Transportation' %><%= label_tag :transportation %><br>
-   <%= check_box_tag  "companion_care[]", 'Running Errands' %><%= label_tag :Errands %><br>
-   <%= check_box_tag  "companion_care[]", 'Companionship' %><%= label_tag :Companionship %><br>
-   <%= check_box_tag  "companion_care[]", 'Medication Reminders' %><%= label_tag :Reminders %><br>
-   <%= check_box_tag  "companion_care[]", 'Managing Finances' %><%= label_tag :Finance, 'Finance Management' %><br>
-   <h3>Personal Care</h3>
-   <%= check_box_tag  "personal_care[]", 'Bathing' %><%= label_tag :HouseCleaning, 'Bathing' %><br>
-   <%= check_box_tag  "personal_care[]", 'Grooming' %><%= label_tag :Grooming %><br>
-   <%= check_box_tag  "personal_care[]", 'Dressing' %><%= label_tag :Dressing %><br>
-   <%= check_box_tag  "personal_care[]", 'Toilet/Incontinence' %><%= label_tag :Toilet, 'Toilet/Incontinence' %><br>
-   <%= check_box_tag  "personal_care[]", 'Transfering' %><%= label_tag :Transfering %><br>
-   <%= check_box_tag  "personal_care[]", 'Ambulating' %><%= label_tag :Ambulating %><br>
-   <%= check_box_tag  "personal_care[]", 'Oral Care' %><%= label_tag :OralCare, 'Oral Care' %><br>
-   <%= f.submit%>
-<% end %>
+<div class="signup-container">
+   <%= image_tag "logo-icon.png", class: "login-container__logo" %>
+   <h2 class="signup-container__signup-text">Sign up</h2>
+   <div class="progress-bar-container">
+      <div class="box progress-bar" data-module="progressbar">
+         <ol>
+            <li class="current qa-progressbar-item">
+               <span style="background: #104A75; !important" class="cell">
+                  <span class="item">
+                     <span>Family Member info</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current qa-progressbar-item">
+               <span style="background: #104A75; !important" class="cell">
+                  <span class="item">
+                     <span>Care Recipient Info</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current qa-progressbar-item">
+               <span class="cell">
+                  <span class="item">
+                     <span>Care Needed</span>
+                  </span>
+               </span>
+            </li>
+            <li class="qa-progressbar-item">
+               <span class="cell">
+                  <span class="item">
+                     <span>Care Recipient qualities</span>
+                  </span>
+               </span>
+            </li>
+            <li class="last qa-progressbar-item">
+               <span class="cell">
+                  <span class="item">
+                     <span>Care Recipient conditions</span>
+                  </span>
+               </span>
+            </li>
+         </ol>
+      </div>
+   </div>
+   <%= form_for :recipient, url: 'recipient_information_second',  html: {class: "nifty_form"} do |f| %>
+      <h2 style="text-align: center; margin: 40px 0;" class="signup-input-container__text">What Type of Care is needed? Check all that apply</h2>
+      <h2 class="text-desktop">What Type of Care is needed? Check all that apply</h2>
+      <div class="conditions-container">
+         <div class="conditions-container__companion">
+            <h3 class="conditions-container__companion--text">Companion Care</h3>
+            <%= label_tag :HouseCleaning, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "House cleaning", false, class: "conditions-container__companion--checkbox" %>
+               House Cleaning
+            <% end %>
+            <%= label_tag :Laundry, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Laundry", false, class: "conditions-container__companion--checkbox" %>
+               Laundry
+            <% end %>
+            <%= label_tag :mealprep, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Meal preperation", false, class: "conditions-container__companion--checkbox" %>
+               Meal preperation
+            <% end %>
+            <%= label_tag :transportation, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Driving / Transportation", false, class: "conditions-container__companion--checkbox" %>
+               Driving / Transportation
+            <% end %>
+            <%= label_tag :Errands, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Running Errands", false, class: "conditions-container__companion--checkbox" %>
+               Running Errands
+            <% end %>
+            <%= label_tag :Companionship, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Companionship", false, class: "conditions-container__companion--checkbox" %>
+               Companionship
+            <% end %>
+            <%= label_tag :Reminders, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Medication Reminders", false, class: "conditions-container__companion--checkbox" %>
+               Medication Reminders
+            <% end %>
+            <%= label_tag :Finance, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Finance Management", false, class: "conditions-container__companion--checkbox" %>
+               Finance Management
+            <% end %>
+         </div>
+         <div class="conditions-container__personal">
+            <h3 class="conditions-container__personal--text">Personal Care</h3>
+            <%= label_tag :bathing, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Bathing", false, class: "conditions-container__personal--checkbox" %>
+               Bathing
+            <% end %>
+            <%= label_tag :Grooming, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Grooming", false, class: "conditions-container__personal--checkbox" %>
+               Grooming
+            <% end %>
+            <%= label_tag :Dressing, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Dressing", false, class: "conditions-container__personal--checkbox" %>
+               Dressing
+            <% end %>
+            <%= label_tag :Toilet, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Toilet/Incontinence", false, class: "conditions-container__personal--checkbox" %>
+               Toilet/Incontinence
+            <% end %>
+            <%= label_tag :Transfering, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Transfering", false, class: "conditions-container__personal--checkbox" %>
+               Toilet/Incontinence
+            <% end %>
+            <%= label_tag :Ambulating, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Ambulating", false, class: "conditions-container__personal--checkbox" %>
+               Ambulating 
+            <% end %>
+            <%= label_tag :OralCare, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Oral Care", false, class: "conditions-container__personal--checkbox" %>
+               Oral Care
+            <% end %>
+         </div>
+      </div>
+      <%= f.submit "Next Step", class: "signup-input-container--submit care-button"%>
+   <% end %>
+</div>

@@ -12,6 +12,14 @@ class Caregivers::RegistrationsController < Devise::RegistrationsController
       super
    end
 
+   def city
+      @cities = CS.get(:us,params[:state]) 
+      respond_to do |format|
+         format.js { render '/caregivers/registrations/new.js.erb' }         
+         format.html { redirect_to care_giver_steps_path } 
+      end
+   end
+
    # POST /resource
    def create
       if verify_recaptcha

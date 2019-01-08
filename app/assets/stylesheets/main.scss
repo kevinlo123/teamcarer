@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "base/mix-ins.scss";
+@import "base/variables.scss";
 
 * {
    font-family: 'Raleway', sans-serif;
@@ -39,12 +41,23 @@ body {
    z-index: 1;
    position: absolute;
 }
+
+.alert {
+   position: relative;
+   padding: .75rem 1.25rem;
+   border: 1px solid transparent;
+   font-size: $small-font + .25;
+   color: #0c5460;
+   background-color: #d1ecf1;
+   border-color: #bee5eb;
+}
  
 
 @import "partials/_header.scss";
 @import "partials/_footer.scss";
 @import "styles/login.scss";
-@import "styles/signup.scss";
+@import "styles/family-signup.scss";
+@import "styles/caregiver-signup.scss";
 @import "styles/family.scss";
 @import "styles/job_posts.scss";
 @import "styles/pages.scss";

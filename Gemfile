@@ -39,6 +39,7 @@ gem 'normalize-rails' #normalize
 
 gem 'jquery-rails' #jquerrryyyy lol
 
+gem 'city-state'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

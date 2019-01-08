@@ -2,12 +2,30 @@
 <h2>Family information continued</h2>
 <%= form_for :recipient, url: 'recipient_information_third',  html: {class: "nifty_form"} do |f| %>
    <h3>Mobility</h3>
-   <%= check_box_tag  "mobility[]", 'Cane' %><%= label_tag :Cane %><br>
-   <%= check_box_tag  "mobility[]", 'Walker' %><%= label_tag :Walker %><br>
-   <%= check_box_tag  "mobility[]", 'Wheel Chair' %><%= label_tag :WheelChair, 'Wheel Chair' %><br>
-   <%= check_box_tag  "mobility[]", 'Hoyer Lift' %><%= label_tag :Hoyer, 'Hoyer Lift' %><br>
-   <%= check_box_tag  "mobility[]", 'Scooter' %><%= label_tag :Scooter %><br>
-   <%= check_box_tag  "mobility[]", 'Hospital Bed' %><%= label_tag :HospitalBed, 'Hospital Bed'%><br>
+   <%= label_tag :Cane do %>
+      <%= check_box_tag "mobility[]", "Cane" %>
+      Cane
+   <% end %>
+   <%= label_tag :Walker do %>
+      <%= check_box_tag "mobility[]", "Walker" %>
+      Walker
+   <% end %>
+   <%= label_tag :WheelChair do %>
+      <%= check_box_tag "mobility[]", "Wheel Chair" %>
+      Wheel Chair
+   <% end %>
+   <%= label_tag :Hoyer do %>
+      <%= check_box_tag "mobility[]", "Hoyer Lift" %>
+      Hoyer Lift
+   <% end %>
+   <%= label_tag :Scooter do %>
+      <%= check_box_tag "mobility[]", "Scooter" %>
+      Scooter
+   <% end %>
+   <%= label_tag :HospitalBed do %>
+      <%= check_box_tag "mobility[]", "Hospital Bed" %>
+      Hospital Bed
+   <% end %>
    <h3>Most desired Quality</h3>
    <%= f.radio_button :quality, 'Empathy' %>
    <%= f.label :quality, 'Empathy', value: 'launch product' %>

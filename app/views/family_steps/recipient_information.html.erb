@@ -42,13 +42,14 @@
          </ol>
       </div>
    </div>
-   <%= form_for :recipient, url: "recipient_information",  html: {class: "nifty_form"} do |f| %>
+   <%= form_for :recipient, url: "recipient_information" do |f| %>
       <div class="signup-input-container">
+         <h2 class="signup-input-container__text">Step 2. Care Recipient Info</h2>
          <div class="field">
             <%= f.text_field :firstname, required: true, placeholder: "Recipient First Name", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.text_field :middlename, required: true, placeholder: "Recipient Middle Name", class: "signup-input-container--input" %>
+            <%= f.text_field :middlename, placeholder: "Recipient Middle Name", class: "signup-input-container--input" %>
          </div>
          <div class="field">
             <%= f.text_field :lastname, required: true, placeholder: "Recipient Last Name", class: "signup-input-container--input" %>

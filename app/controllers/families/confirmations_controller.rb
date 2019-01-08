@@ -24,7 +24,6 @@ class Families::ConfirmationsController < Devise::ConfirmationsController
 
 # #   The path used after confirmation.
    def after_confirmation_path_for(resource_name, resource)
-      sign_in(resource)      
-      family_root_path      
+      "/family_steps/recipient_information"  
    end
 end

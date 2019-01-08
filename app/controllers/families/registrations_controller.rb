@@ -7,9 +7,16 @@ class Families::RegistrationsController < Devise::RegistrationsController
    
    # before_action :configure_account_update_params, only: [:update]
 
-   # GET /resource/sign_up
    def new
-      super
+      super 
+   end
+
+   def city
+      @cities = CS.get(:us,params[:state]) 
+      respond_to do |format|
+         format.js { render '/families/registrations/new.js.erb' }         
+         format.html { redirect_to family_steps_path } 
+      end
    end
 
    #   POST /resource
@@ -18,7 +25,7 @@ class Families::RegistrationsController < Devise::RegistrationsController
          super
        else
          build_resource(sign_up_params)
-         clean_up_passwords(resource)
+         clean_up_passwords(resource)       
          flash.now[:alert] = "There was an error with the recaptcha code below. Please re-enter the code."
          flash.delete :recaptcha_error
          render :new
@@ -52,7 +59,7 @@ class Families::RegistrationsController < Devise::RegistrationsController
    protected
       # If you have extra params to permit, append them to the sanitizer.
       def configure_sign_up_params
-         devise_parameter_sanitizer.permit(:sign_up, keys:[:firstname, :lastname, :phone, :street, :city, :state, :zip, :emergency_name, :emergency_contact, :recipient_relation])
+         devise_parameter_sanitizer.permit(:sign_up, keys:[:firstname, :middlename, :lastname, :phone, :street, :city, :state, :zip, :emergency_name, :emergency_contact, :recipient_relation])
       end
 
       # If you have extra params to permit, append them to the sanitizer.

@@ -1,0 +1,174 @@
+@import "../base/mix-ins.scss";
+@import "../base/variables.scss";
+
+.signup-container-cg {
+   background: $baby-blue;
+   @include padding($small-padding - .25, $small-padding, $small-padding - .25, $small-padding);
+   @include element(signup-text-cg) {
+      font-size: $medium-font + .25;
+      text-align: center;
+   }
+}
+
+.signup-input-container-cg {
+   width: 90%;
+   @include margin(0, auto, $extra-large-margin + 1.5, auto);   
+   max-width: 450px;
+   .field {
+      @include margin($extra-large-margin, 0, $small-margin + .25, 0);      
+   }
+   @include element(text) {
+      display: none;
+   }
+   @include modifier(input-cg) {
+      margin: 0;
+      width: 100%;
+      border: 1px solid #d2d2d2;
+      border-radius: 2px;
+      color: $blue;
+      padding: 7px;
+      font-size: 20px;
+      transition: all 300ms ease-in-out;
+      &:focus {
+         outline: none;
+         border:1px solid $yellow;
+         box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.5);
+      }
+   }
+   @include modifier(submit-cg) {
+      background: $yellow;
+      @include margin($small-margin - .25, 0, $extra-small-margin, 0);
+      width: 100%;  
+      border-radius: 2px; 
+      padding: 10px;
+      color: $white; 
+      font-size: 20px; 
+      border: none; 
+      cursor: pointer;   
+   }
+}
+
+.progress-bar-container-cg {
+   width: 80%;
+   @include margin($extra-large-margin + 1, auto, $extra-large-margin + 1, auto);   
+}
+
+.progress-bar-cg li.last .item-cg span {
+   left: -100px;
+   width: 200px;
+}
+
+.progress-bar-cg {
+   overflow: hidden;
+   box-sizing: border-box;
+   padding: 20px 60px 46px;
+}
+
+.progress-bar-cg ol {
+   display: table;
+   table-layout: fixed;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   counter-reset: step;
+}
+
+.progress-bar-cg li {
+   display: table-cell;
+   counter-increment: step;
+   vertical-align: middle;
+   padding: 10px 0;
+}
+
+.progress-bar-cg li.last {
+   width: 64px;
+}
+
+.progress-bar-cg .cell-cg {
+   position: relative;
+   display: block;
+   width: 100%;
+   height: 4px;
+   background-color: #f6f6f6;
+}
+
+.progress-bar-cg .item-cg {
+   color: #111118;
+   text-decoration: none;
+}
+
+.progress-bar-cg .current-cg .item-cg:before, .progress-bar-cg a.item-cg:hover:before {
+   color: #fff;
+   background-color: $yellow;
+   border-color: $yellow;
+}
+.progress-bar-cg .item-cg:before {
+   content: counter(step);
+   position: absolute;
+   top: -30px;
+   width: 60px;
+   height: 60px;
+   line-height: 60px;
+   background-color: #f6f6f6;
+   border: 2px solid #f6f6f6;
+   border-radius: 50%;
+   text-align: center;
+   font-size: 24px;
+   font-weight: bold;
+   color: #999999;
+}
+
+.progress-bar-cg .item-cg span {
+   position: absolute;
+   width: 100%;
+   top: 40px;
+   left: -50%;
+   margin-left: 32px;
+   font-size: 1rem;
+   font-weight: bold;
+   text-align: center;
+}
+
+@media only screen and (max-width : 992px) {
+   .progress-bar-cg .item-cg:before {
+      top: -20px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+   }
+
+   .progress-bar-cg .item-cg span {
+      display: none;
+   } 
+
+   .progress-bar-cg li.last {
+      width: 40px;
+   } 
+
+   .progress-bar-container-cg {
+      width: 100%;
+   }
+
+   .progress-bar-cg {
+      overflow: hidden;
+      box-sizing: border-box;
+      padding: 20px 5px 20px;
+   }
+   .signup-input-container {
+      @include element(text) {
+         display: block;
+         color: #133A6B;
+      }          
+   }
+}
+
+@media only screen and (max-width : 320px) {
+   .signup-input-container {
+      width: 100%;           
+   }
+}
+
+.yellow {
+   background: $yellow !important;
+}

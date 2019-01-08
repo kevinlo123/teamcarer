@@ -37,8 +37,21 @@
          $("html, body").animate({ scrollTop: 0 }, "smooth");
          return false;
       });
+
+      $(".number-field").keyup(function() {
+         $(this).val($(this).val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
+      });
+      var state = document.getElementById("state-picker");
+      state.addEventListener("change", function() {
+         $.ajax({
+            url: "/states?state=" + state.value,
+            type: "GET"
+         })
+      })
    });
 })(jQuery);
+
+   
 
 
 	
