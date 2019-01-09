@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Teamcarer</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'false' %>
+      <script src="https://use.fontawesome.com/f5fb6e9872.js"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
+      <%= favicon_link_tag asset_path('logo-icon.ico') %>
+      <%= favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type:'image/png' %>
+      <% if content_for?(:meta_og) %>
+         <%= yield :meta_og %>
+      <% else %>
+         <meta property="og:title" content="Teamcarer inc" />
+         <meta property="og:type" content="website" />
+         <meta property="og:url" content="teamcarer.herokuapp.com" />
+         <%= tag :meta, property: 'og:image', content: image_url('logo.png') %>
+      <% end %>
+   </head>
+   <body>
+      <div style="height: 1000px; background: #F3FCFF">
+         <h1 style="margin-top:0;padding-top:2rem">please confirm your email address!</h1>
+         <%= link_to 'Go Back', :back %>
+      </div>
+   </body>
+</html>

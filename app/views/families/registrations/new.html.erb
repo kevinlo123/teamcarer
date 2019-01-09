@@ -92,7 +92,6 @@
             <%= f.select :recipient_relation, options_for_select(family_relationships), {:prompt => "Who is the Care Recipient?"}, {:class => "signup-input-container--input"} %>
          </div>
          <%= recaptcha_tags %>
-         <%= render "families/shared/links" %>
          <div class="actions">
             <%= f.submit "Next Step", class: "signup-input-container--submit" %>
          </div>

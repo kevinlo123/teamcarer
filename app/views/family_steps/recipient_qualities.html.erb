@@ -1,49 +1,112 @@
-<h2>Step 4</h2>
-<h2>Family information continued</h2>
-<%= form_for :recipient, url: 'recipient_information_third',  html: {class: "nifty_form"} do |f| %>
-   <h3>Mobility</h3>
-   <%= label_tag :Cane do %>
-      <%= check_box_tag "mobility[]", "Cane" %>
-      Cane
+<div class="signup-container">
+   <%= image_tag "logo-icon.png", class: "login-container__logo" %>
+   <h2 class="signup-container__signup-text">Sign up</h2>
+   <div class="progress-bar-container">
+      <div class="box progress-bar" data-module="progressbar">
+         <ol>
+            <li class="current qa-progressbar-item">
+               <span style="background: #104A75; !important" class="cell">
+                  <span class="item">
+                     <span>Family Member info</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current qa-progressbar-item">
+               <span style="background: #104A75; !important" class="cell">
+                  <span class="item">
+                     <span>Care Recipient Info</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current qa-progressbar-item">
+               <span style="background: #104A75; !important" class="cell">
+                  <span class="item">
+                     <span>Care Needed</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current qa-progressbar-item">
+               <span class="cell">
+                  <span class="item">
+                     <span>Care Recipient qualities</span>
+                  </span>
+               </span>
+            </li>
+            <li class="last qa-progressbar-item">
+               <span class="cell">
+                  <span class="item">
+                     <span>Care Recipient conditions</span>
+                  </span>
+               </span>
+            </li>
+         </ol>
+      </div>
+   </div>
+   <%= form_for :recipient, url: 'recipient_information_third',  html: {class: "nifty_form"} do |f| %>
+      <div class="qualities-container">
+         <h2 style="color: #133A6B">Is the care recipient using any of the following? Please check ALL that apply.</h2>
+         <div class="mobility-container">
+            <%= label_tag :Cane, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "mobility[]", "Cane", false, class: "conditions-container__companion--checkbox" %>
+               Cane
+            <% end %>
+            <%= label_tag :Walker, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "mobility[]", "Walker", false, class: "conditions-container__companion--checkbox" %>
+               Walker
+            <% end %>
+            <%= label_tag :WheelChair, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "mobility[]", "Wheel Chair", false, class: "conditions-container__companion--checkbox" %>
+               Wheel Chair
+            <% end %>
+            <%= label_tag :Hoyer, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "mobility[]", "Hoyer Lift", false, class: "conditions-container__companion--checkbox" %>
+               Hoyer Lift
+            <% end %>
+            <%= label_tag :Scooter, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "mobility[]", "Scooter", false, class: "conditions-container__companion--checkbox" %>
+               Scooter
+            <% end %>
+            <%= label_tag :HospitalBed, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "mobility[]", "Hospital Bed", false, class: "conditions-container__companion--checkbox" %>
+               Hospital Bed
+            <% end %>
+         </div>
+         <h2 style="color: #133A6B">What is the most desirable quality of a care team you prefer to have? Please check ONE.</h2>
+         <div class="quality-container">
+            <div class="inline">
+               <%= f.radio_button :quality, 'Empathy' %>
+               <%= f.label :quality, 'Empathy', value: "launch product", :class => "conditions-container__companion--label" %>
+            </div>
+            <div class="inline">
+               <%= f.radio_button :quality, "Trust" %>
+               <%= f.label :quality, "Trust", value: "Trust", :class => "conditions-container__companion--label" %>
+            </div>
+            <div class="inline">
+               <%= f.radio_button :quality, "Credentials and Skills" %>
+               <%= f.label :quality, "Credentials and Skills", value: "Credentials and Skills", :class => "conditions-container__companion--label" %>
+            </div>
+            <div class="inline">
+               <%= f.radio_button :quality, "Speaks care recipients Language" %>
+               <%= f.label :quality, "Speaks care recipients Language", value: "Speaks care recipients Language", :class => "conditions-container__companion--label" %>
+            </div>
+            <div class="inline">
+               <%= f.radio_button :quality, "Punctuality & Reliability" %>
+               <%= f.label :quality, "Punctuality & Reliability", value: "Punctuality & Reliability", :class => "conditions-container__companion--label" %>
+            </div>
+            <div class="inline">
+               <%= f.radio_button :quality, "Persistence" %>
+               <%= f.label :quality, "Persistence", value: "Persistence", :class => "conditions-container__companion--label" %>
+            </div>
+            <div class="inline">
+               <%= f.radio_button :quality, "Other" %>
+               <%= f.label :quality, "Other", value: "Other", :class => "conditions-container__companion--label" %>
+            </div>
+         </div>
+         <h2 style="color: #133A6B">Was the care recipient recently discharged from a hospital?</h2>
+         <%= f.select :recently_discharged, options_for_select([['Yes', true], ['No', false]]), {:prompt => "Select"}, {:class => "signup-input-container--input"} %><br>
+         <h2 style="color: #133A6B">Is the Care recipient on hospice?</h2>
+         <%= f.select :hospice, options_for_select([['Yes', true], ['No', false]]), {:prompt => "Select"}, {:class => "signup-input-container--input"} %><br>
+      </div>
+      <%= f.submit "Next Step", class: "signup-input-container--submit care-button", style: "max-width: 500px !important;" %>
    <% end %>
-   <%= label_tag :Walker do %>
-      <%= check_box_tag "mobility[]", "Walker" %>
-      Walker
-   <% end %>
-   <%= label_tag :WheelChair do %>
-      <%= check_box_tag "mobility[]", "Wheel Chair" %>
-      Wheel Chair
-   <% end %>
-   <%= label_tag :Hoyer do %>
-      <%= check_box_tag "mobility[]", "Hoyer Lift" %>
-      Hoyer Lift
-   <% end %>
-   <%= label_tag :Scooter do %>
-      <%= check_box_tag "mobility[]", "Scooter" %>
-      Scooter
-   <% end %>
-   <%= label_tag :HospitalBed do %>
-      <%= check_box_tag "mobility[]", "Hospital Bed" %>
-      Hospital Bed
-   <% end %>
-   <h3>Most desired Quality</h3>
-   <%= f.radio_button :quality, 'Empathy' %>
-   <%= f.label :quality, 'Empathy', value: 'launch product' %>
-   <%= f.radio_button :quality, "Trust" %>
-   <%= f.label :quality, "Trust", value: "Trust" %>
-   <%= f.radio_button :quality, "Credentials and Skills" %>
-   <%= f.label :quality, "Credentials and Skills", value: "Credentials and Skills" %>
-   <%= f.radio_button :quality, "Speaks care recipients Language" %>
-   <%= f.label :quality, "Speaks care recipients Language", value: "Speaks care recipients Language" %>
-   <%= f.radio_button :quality, "Punctuality & Reliability" %>
-   <%= f.label :quality, "Punctuality & Reliability", value: "Punctuality & Reliability" %>
-   <%= f.radio_button :quality, "Persistence" %>
-   <%= f.label :quality, "Persistence", value: "Persistence" %>
-   <%= f.radio_button :quality, "Other" %>
-   <%= f.label :quality, "Other", value: "Other" %>
-   <p>Was the care recipient recently discharged from a hospital?</p>
-   <%= f.select(:recently_discharged, options_for_select([['Yes', true], ['No', false]], :prompt => "Select")) %><br>
-   <p>Is the Care recipient on hospice?</p>
-   <%= f.select(:hospice, options_for_select([['Yes', true], ['No', false]], :prompt => "Select")) %><br>
-   <%= f.submit%>
-<% end %>
+</div>

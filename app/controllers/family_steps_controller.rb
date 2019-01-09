@@ -10,7 +10,7 @@ class FamilyStepsController < ApplicationController
 
    def create
       if current_family.confirmed? == false
-         render html: "please confirm your email address!"
+         render template: "layouts/confirm_email"
       else
          @recipient = current_family.create_recipient(sanitize_recipient)
          if @recipient.save
@@ -42,8 +42,7 @@ class FamilyStepsController < ApplicationController
       @recipient = current_family.recipient 
       @recipient.update(conditions: params[:conditions]) 
       @recipient.update_attributes(sanitize_recipient)            
-      jump_to(:recipient_information_fifth)   
-      render_wizard      
+      redirect_to family_root_path
    end
    
    private 
