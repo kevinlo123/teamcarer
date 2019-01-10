@@ -42,4 +42,9 @@
          <%= render "layouts/partials/footer" %>
       </div>
    </body>
+   <%= javascript_tag do %>
+     $(function() {
+       $("time.timeago").timeago();
+     });
+   <% end %>
 </html>

@@ -15,4 +15,5 @@
 //= require jquery3
 //= require jquery_ujs
 //= require main
+//= require timeago.jquery
 //= require_tree .

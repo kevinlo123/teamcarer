@@ -1,5 +1,15 @@
-<h2>Welcome <%= current_family.firstname %>!</h2>
-<div style="border: 1px solid lightgrey" class="post">
-   <p>Name: <%= @family.firstname %><%= @family.lastname %></p>
-</div>
-<p>FAMILY NEEDS TO VIEW HIS / HER INFO IN THIS PAGE</p>
+<% if !current_family.job_post %>
+<h3>Do you want to Create a Job Post?</h3>
+<h3>You can make changes after you post. Only items flagged with an asterick will be posted, and only registered care teams can see the post.</h3>
+   <%= form_for  :jobpost , url: "family/create_post",  html: {class: "nifty_form"} do |f| %>
+      <h4>Give a title to your Job Post.</h4>
+      <%= f.text_field :title %><br>
+      <%= f.submit%>
+   <% end %>
+<% else %>
+   <h2>Welcome <%= current_family.firstname %>!</h2>
+   <div style="border: 1px solid lightgrey" class="post">
+      <p>Name: <%= current_family.firstname %><%= current_family.lastname %></p>
+   </div>
+   <p>FAMILY NEEDS TO VIEW HIS / HER INFO IN THIS PAGE</p>
+<% end %>

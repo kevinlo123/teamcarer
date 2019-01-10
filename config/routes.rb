@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       get 'family/my_posting', to: 'family#my_posting', as: :my_posting      
       get 'family/new_post', to: 'family#new_post'
       post 'family/create_post', to: 'family#create_post'
+      post 'family/update_post', to: 'family#update_post'      
       get 'family/recipient', to: 'family#recipient'
       post 'family/create_recipient', to: 'family#create_family_recipient'
       get 'family/edit_recipient/:id/edit', to: 'family#edit_recipient'  

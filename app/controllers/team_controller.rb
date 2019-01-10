@@ -28,7 +28,7 @@ class TeamController < ApplicationController
    end
 
    def all_posts
-      @Jobpost = JobPost.all
+      @Jobpost = JobPost.where(public: true)
    end
 
    def edit_post

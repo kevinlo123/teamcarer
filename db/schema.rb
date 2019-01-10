@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_28_030607) do
+ActiveRecord::Schema.define(version: 2019_01_10_102218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,12 @@ ActiveRecord::Schema.define(version: 2018_12_28_030607) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "companion_care"
+    t.string "recipient_gender"
+    t.string "location"
+    t.string "recipient_quality"
+    t.string "family_contact"
+    t.boolean "public", default: false
+    t.string "recipient_conditions"
     t.index ["family_id"], name: "index_job_posts_on_family_id"
   end
 

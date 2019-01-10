@@ -1,16 +1,27 @@
-<h3>Create a post!</h3>
-<%= form_for  :jobpost , url: "create_post",  html: {class: "nifty_form"} do |f| %>
-   <%= f.label :title %>
-   <%= f.text_field :title %><br>
-   <%= f.label :description%>
-   <%= f.text_area :description, size: "40x12" %><br>
-   <h3>companion care</h3>
+<h3>Your job post will look like this to Teams, Would you like to continue or make changes?</h3>
+<%= form_for :jobpost , url: "update_post",  html: {class: "nifty_form"} do |f| %>
+   <h4>title:<%= @jobpost_title %></h4>
+   <h3>Care Recipient: <%= @recipient_info.gender %>, <%= @recipient_info.age %> years old</h3>
+   <h3>Location <%= @location %> </h3>
+   <h3>Care Needed</h3>
    <% @recipient_info.companion_care.each do |activity|%>
       <li><%= activity %></li>
+   <% end %>   
+   <% @recipient_info.personal_care.each do |activity|%>
+      <li><%= activity %></li>
    <% end %>
-   <%= link_to 'edit needs', '/family_steps/recipient_information_second' %>
-   <%= f.text_area :companion_care, required: true, style: 'display:none', value: @recipient_info.companion_care %><br>
-   <%= f.label :taken %>
-   <%= f.select(:taken, options_for_select([['Active', true], ['Inactive', false]], :prompt => "Select")) %><br>
+   <h3>Medical Conditions</h3>
+   <% @recipient_info.conditions.each do |condition|%>
+      <li><%= condition %></li>
+   <% end %>
+   <h3>Most desired Quality: <%= @recipient_info.quality %> </h3>
+   <h3>Family contact: <%= @family_contact %> </h3>
+   <h3>Posted: <%= timeago(@jobpost.created_at) %></h3>
+   <%= f.text_area :companion_care, style:"display: none;", value: @care_needed  %>
+   <%= f.text_area :recipient_conditions, style:"display: none;", value: @recipient_info.conditions %>
+   <%= f.text_field :recipient_gender,style:"display: none;", value: @recipient_info.gender %>
+   <%= f.text_field :location, style:"display: none;", value: @location %>
+   <%= f.text_field :family_contact, style:"display: none;", value: @family_contact %>
+   <%= f.text_field :recipient_quality, style:"display: none;", value: @recipient_info.quality %>
    <%= f.submit%>
 <% end %>

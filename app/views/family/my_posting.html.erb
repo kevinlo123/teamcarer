@@ -8,7 +8,6 @@
       <p>Is this job currently taken?: <%= @jobpost.taken %></p>
       <p>post created at: <%= @jobpost.created_at.to_formatted_s(:long) %></p>
       <h3>companion needs</h3>
-      <%= current_family.job_post.companion_care[1...-1].gsub(/[""]/, '') %>
    </div>
 <% end %>
 
