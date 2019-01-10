@@ -1,31 +1,162 @@
-<h1>Step 2</h1>
-<h1>Skills</h1>
-<%= form_for :team, url: 'skills_information',  html: {class: "nifty_form"} do |f| %>
-   <h3>Companion Care</h3>
-   <%= check_box_tag  "companion_care[]", 'House Cleaning' %><%= label_tag :HouseCleaning, 'House Cleaning' %><br>
-   <%= check_box_tag  "companion_care[]", 'Laundry' %><%= label_tag :Laundry %><br>
-   <%= check_box_tag  "companion_care[]", 'Meal preperation' %><%= label_tag :mealprep, 'Meal Prep' %><br>
-   <%= check_box_tag  "companion_care[]", 'Driving / Transportation' %><%= label_tag :transportation %><br>
-   <%= check_box_tag  "companion_care[]", 'Running Errands' %><%= label_tag :Errands %><br>
-   <%= check_box_tag  "companion_care[]", 'Companionship' %><%= label_tag :Companionship %><br>
-   <%= check_box_tag  "companion_care[]", 'Medication Reminders' %><%= label_tag :Reminders %><br>
-   <%= check_box_tag  "companion_care[]", 'Managing Finances' %><%= label_tag :Finance, 'Finance Management' %><br>
-   <h3>Personal Care</h3>
-   <%= check_box_tag  "personal_care[]", 'Bathing' %><%= label_tag :HouseCleaning, 'Bathing' %><br>
-   <%= check_box_tag  "personal_care[]", 'Grooming' %><%= label_tag :Grooming %><br>
-   <%= check_box_tag  "personal_care[]", 'Dressing' %><%= label_tag :Dressing %><br>
-   <%= check_box_tag  "personal_care[]", 'Toilet/Incontinence' %><%= label_tag :Toilet, 'Toilet/Incontinence' %><br>
-   <%= check_box_tag  "personal_care[]", 'Transfering' %><%= label_tag :Transfering %><br>
-   <%= check_box_tag  "personal_care[]", 'Ambulating' %><%= label_tag :Ambulating %><br>
-   <%= check_box_tag  "personal_care[]", 'Oral Care' %><%= label_tag :OralCare, 'Oral Care' %><br>
-   <h3>Languages</h3>
-   <%= check_box_tag  "languages[]", 'English' %><%= label_tag :English, 'English' %><br>
-   <%= check_box_tag  "languages[]", 'Spanish' %><%= label_tag :Spanish, 'Spanish' %><br>
-   <%= check_box_tag  "languages[]", 'German' %><%= label_tag :German, 'German' %><br>
-   <%= check_box_tag  "languages[]", 'Russian' %><%= label_tag :Russian, 'Russian' %><br>
-   <%= check_box_tag  "languages[]", 'French' %><%= label_tag :French, 'French' %><br>
-   <%= check_box_tag  "languages[]", 'Italian' %><%= label_tag :Italian, 'Italian' %><br>
-   <%= check_box_tag  "languages[]", 'Chinese' %><%= label_tag :Chinese, 'Chinese' %><br>
-   <%= check_box_tag  "languages[]", 'Other' %><%= label_tag :Other, 'Other' %><br>
-   <%= f.submit%>
-<% end %>
+<div class="signup-container-cg">
+   <%= image_tag "logo-icon.png", class: "login-container__logo" %>
+   <h2 class="signup-container__signup-text">Sign up</h2>
+   <div class="progress-bar-container-cg">
+      <div class="box progress-bar-cg" data-module="progressbar">
+         <ol>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span style="background: #FFB052; !important" class="cell-cg">
+                  <span class="item-cg">
+                     <span>Care Giver info</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Care Giver Skills</span>
+                  </span>
+               </span>
+            </li>
+            <li class="qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Disease Management</span>
+                  </span>
+               </span>
+            </li>
+            <li class="qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Questionnaire</span>
+                  </span>
+               </span>
+            </li>
+            <li class="last qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Experience/Statement</span>
+                  </span>
+               </span>
+            </li>
+         </ol>
+      </div>
+   </div>
+   <%= form_for :team, url: 'skills_information',  html: {class: "nifty_form"} do |f| %>
+      <div class="conditions-cg">
+         <h3 class="conditions-container__companion--text">I am good at the following caregiving skills. Please check ALL that apply.</h3>
+         <div class="conditions-container">
+            <div class="conditions-container__companion">
+               <h3 class="conditions-container__companion--text">Companion Care</h3>
+               <%= label_tag :HouseCleaning, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "House cleaning", false, class: "conditions-container__companion--checkbox" %>
+                  House Cleaning
+               <% end %>
+               <%= label_tag :Laundry, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Laundry", false, class: "conditions-container__companion--checkbox" %>
+                  Laundry
+               <% end %>
+               <%= label_tag :mealprep, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Meal preperation", false, class: "conditions-container__companion--checkbox" %>
+                  Meal preperation
+               <% end %>
+               <%= label_tag :transportation, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Driving / Transportation", false, class: "conditions-container__companion--checkbox" %>
+                  Driving / Transportation
+               <% end %>
+               <%= label_tag :Errands, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Running Errands", false, class: "conditions-container__companion--checkbox" %>
+                  Running Errands
+               <% end %>
+               <%= label_tag :Companionship, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Companionship", false, class: "conditions-container__companion--checkbox" %>
+                  Companionship
+               <% end %>
+               <%= label_tag :Reminders, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Medication Reminders", false, class: "conditions-container__companion--checkbox" %>
+                  Medication Reminders
+               <% end %>
+               <%= label_tag :Finance, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Finance Management", false, class: "conditions-container__companion--checkbox" %>
+                  Finance Management
+               <% end %>
+            </div>
+            <div class="conditions-container__personal">
+               <h3 class="conditions-container__personal--text">Personal Care</h3>
+               <%= label_tag :bathing, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Bathing", false, class: "conditions-container__personal--checkbox" %>
+                  Bathing
+               <% end %>
+               <%= label_tag :Grooming, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Grooming", false, class: "conditions-container__personal--checkbox" %>
+                  Grooming
+               <% end %>
+               <%= label_tag :Dressing, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Dressing", false, class: "conditions-container__personal--checkbox" %>
+                  Dressing
+               <% end %>
+               <%= label_tag :Toilet, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Toilet/Incontinence", false, class: "conditions-container__personal--checkbox" %>
+                  Toilet/Incontinence
+               <% end %>
+               <%= label_tag :Transfering, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Transfering", false, class: "conditions-container__personal--checkbox" %>
+                  Toilet/Incontinence
+               <% end %>
+               <%= label_tag :Ambulating, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Ambulating", false, class: "conditions-container__personal--checkbox" %>
+                  Ambulating 
+               <% end %>
+               <%= label_tag :OralCare, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Oral Care", false, class: "conditions-container__personal--checkbox" %>
+                  Oral Care
+               <% end %>
+            </div>
+         </div>
+      </div>
+      <div class="language-wrapper">
+         <h3 class="conditions-container__companion--text">I am fluent in the following languages. Please check ALL that apply.</h3>
+         <div class="language-container" >
+            <%= label_tag :English, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "languages[]", "English", false, class: "conditions-container__personal--checkbox" %>
+               English
+            <% end %>
+            <%= label_tag :Spanish, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "languages[]", "Spanish", false, class: "conditions-container__personal--checkbox" %>
+               Spanish
+            <% end %>
+            <%= label_tag :German, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "languages[]", "German", false, class: "conditions-container__personal--checkbox" %>
+               German
+            <% end %>
+            <%= label_tag :Russian, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "languages[]", "Russian", false, class: "conditions-container__personal--checkbox" %>
+               Russian
+            <% end %>
+            <%= label_tag :French, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "languages[]", "French", false, class: "conditions-container__personal--checkbox" %>
+               French
+            <% end %>
+            <%= label_tag :Italian, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "languages[]", "Italian", false, class: "conditions-container__personal--checkbox" %>
+               Italian
+            <% end %>
+            <%= label_tag :Chinese, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "languages[]", "Italian", false, class: "conditions-container__personal--checkbox" %>
+               Italian
+            <% end %>
+            <%= label_tag :Chinese, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "languages[]", "Chinese", false, class: "conditions-container__personal--checkbox" %>
+               Chinese
+            <% end %>
+            <%= label_tag :Other, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "languages[]", "Other", false, class: "conditions-container__personal--checkbox" %>
+               Other
+            <% end %>
+         </div>
+      </div>
+      <div class="actions">
+         <%= f.submit "Next Step", class: "skills-submit-cg" %>
+      </div>
+   <% end %>
+</div>

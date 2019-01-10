@@ -13,7 +13,7 @@ class CareGiverStepsController < ApplicationController
 
    def update
       if current_care_giver.confirmed? == false 
-         render html: "please confirm your email address!"
+         render template: "layouts/confirm_email"
       else         
          @team = current_care_giver
          @team.update(companion_care: params[:companion_care])

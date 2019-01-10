@@ -35,7 +35,7 @@
             <li class="last qa-progressbar-item-cg">
                <span class="cell-cg">
                   <span class="item-cg">
-                     <span>Statement</span>
+                     <span>Experience/Statement</span>
                   </span>
                </span>
             </li>
@@ -71,10 +71,10 @@
             <%= f.text_field :phone, autofocus: true, maxlength: 10, placeholder: "Phone Number", autocomplete: "phone number", class: "signup-input-container-cg--input-cg number-field" %>
          </div>
          <div class="field">
-            <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker"} %>
+            <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker", :required => true } %>
          </div>
          <div class="field">
-            <%= f.select :city, options_for_select([]),{:prompt => "City"}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker"} %> 
+            <%= f.select :city, options_for_select([]),{:prompt => "City"}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker", :required => true } %> 
          </div>
          <div class="field">
             <%= f.text_field :street, autofocus: true, placeholder: "Street", autocomplete: "street", class: "signup-input-container-cg--input-cg" %>
@@ -89,7 +89,6 @@
             <%= f.text_field :emergency_number, maxlength: 11, autofocus: true, placeholder: "Emergency Contact Number", autocomplete: "Emergency Contact Number", class: "signup-input-container-cg--input-cg number-field" %>
          </div>
          <%= recaptcha_tags %>
-         <%= render "care_givers/shared/links" %>
          <div class="actions">
             <%= f.submit "Next Step", class: "signup-input-container-cg--submit-cg" %>
          </div>

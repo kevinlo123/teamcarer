@@ -1,23 +1,86 @@
-<h1>Step 4</h1>
-<h1>Skills</h1>
-<%= form_for :care_giver, url: 'yes_no',  html: {class: "nifty_form"} do |f| %>
-   <p>Do you have a dependable car that is properly insured?</p>
-   <%= f.select(:dependable_car, options_for_select([['Yes', true], ['No', false]], :prompt => "Select")) %><br>
-   <p>Do you have any physical problems that would prevent you from helping a client ambulate, transfer or lift a wheelchair?</p>
-   <%= f.select(:physical_issues, options_for_select([['Yes', true], ['No', false]], :prompt => "Select")) %><br>
-   <p>Have you ever contracted TB (tuberculosis) or malaria?</p>
-   <%= f.select(:tb_malaria, options_for_select([['Yes', true], ['No', false]], :prompt => "Select")) %><br>
-   <p>Do you smoke?</p>
-   <%= f.select(:smoke, options_for_select([['Yes', true], ['No', false]], :prompt => "Select")) %><br>
-   <p>If yes, can you go without a cigarette for several hours?</p>
-   <%= f.select(:smoke_several_hours, options_for_select([['Yes', true], ['No', false]], :prompt => "Select")) %><br>
-   <p>Have you ever had problems with drug or alcohol abuse?</p>
-   <%= f.select(:drugs_alcohol, options_for_select([['Yes', true], ['No', false]], :prompt => "Select")) %><br>
-   <p>Have you ever been convicted of a felony?</p>
-   <%= f.select(:felonies, options_for_select([['Yes', true], ['No', false]], :prompt => "Select")) %><br>
-   <p>How many years of experience do you have with in-home companion care or personal care for seniors?</p>
-   <%= f.text_field :years_experience, maxlength: 2,  required: true %><br>
-   <p>Are you authorized to work in the United States?</p>
-   <%= f.select(:authorized, options_for_select([['Yes', true], ['No', false]], :prompt => "Select")) %><br>
-   <%= f.submit%>
-<% end %>
+<div class="signup-container-cg">
+   <%= image_tag "logo-icon.png", class: "login-container__logo" %>
+   <h2 class="signup-container__signup-text">Sign up</h2>
+   <div class="progress-bar-container-cg">
+      <div class="box progress-bar-cg" data-module="progressbar">
+         <ol>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span style="background: #FFB052; !important" class="cell-cg">
+                  <span class="item-cg">
+                     <span>Care Giver info</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span style="background: #FFB052;" class="cell-cg">
+                  <span class="item-cg">
+                     <span>Care Giver Skills</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span style="background: #FFB052;" class="cell-cg">
+                  <span class="item-cg">
+                     <span>Disease Management</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Questionnaire</span>
+                  </span>
+               </span>
+            </li>
+            <li class="last qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Experience/Statement</span>
+                  </span>
+               </span>
+            </li>
+         </ol>
+      </div>
+   </div>
+   <%= form_for :care_giver, url: 'yes_no',  html: {class: "nifty_form"} do |f| %>
+      <div class="signup-input-container-cg">
+         <div class="field">
+            <p class="questionaire-text">Do you have a dependable car that is properly insured?</p>
+            <%= f.select :dependable_car, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg",:required => true } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">Do you have any physical problems that would prevent you from helping a client ambulate, transfer or lift a wheelchair?</p>
+            <%= f.select :physical_issues, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg",:required => true } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">Have you ever contracted TB (tuberculosis) or malaria?</p>
+            <%= f.select :tb_malaria, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg",:required => true } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">Do you smoke?</p>
+            <%= f.select :smoke, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg",:required => true } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">If yes, can you go without a cigarette for several hours?</p>
+            <%= f.select :smoke_several_hours, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg",:required => true } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">Have you ever had problems with drug or alcohol abuse?</p>
+            <%= f.select :drugs_alcohol, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg", :required => true } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">Have you ever been convicted of a felony?</p>
+            <%= f.select :felonies, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg", :required => true } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">How many years of experience do you have with in-home companion care or personal care for seniors?</p>
+            <%= f.text_field :years_experience, maxlength: 2, autofocus: true, required: true, placeholder: "Years of experience", autocomplete: "Years of experience", class: "signup-input-container-cg--input-cg" %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">Are you authorized to work in the United States?</p>
+            <%= f.select :authorized, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg",:required => true } %>
+         </div>
+         <%= f.submit "Next Step", class: "signup-input-container-cg--submit-cg"%>
+      </div>
+   <% end %>
+</div>

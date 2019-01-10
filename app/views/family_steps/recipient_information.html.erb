@@ -55,13 +55,13 @@
             <%= f.text_field :lastname, required: true, placeholder: "Recipient Last Name", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.select :gender, options_for_select([["Male", "Male"],["Female","Female"]]), {:prompt => "Gender"}, {:class => "signup-input-container--input"} %>
+            <%= f.select :gender, options_for_select([["Male", "Male"],["Female","Female"]]), {:prompt => "Gender"}, {:class => "signup-input-container--input", :required => true } %>
          </div>
          <div class="field">
             <%= f.text_field :age, maxlength: 3, required: true, placeholder: "Age", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.text_field :primary_language , required: true, placeholder: "Primary Language", class: "signup-input-container--input" %>
+            <%= f.select :primary_language, options_for_select(languages), {:prompt => "Primary Language"}, {:class => "signup-input-container--input", :required => true} %>
          </div>
          <div class="field">
             <%= f.telephone_field :phone, maxlength: 10, required: true, placeholder: "Phone number", class: "signup-input-container--input number-field" %>
@@ -70,10 +70,10 @@
             <%= f.text_field :address , required: true, placeholder: "Address", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.text_field :city , required: true, placeholder: "City", class: "signup-input-container--input" %>
+            <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker", :required => true } %>
          </div>
          <div class="field">
-            <%= f.text_field :state , required: true, placeholder: "State", class: "signup-input-container--input" %>
+            <%= f.select :city, options_for_select([]),{:prompt => "City", :required => true}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker", :required => true } %> 
          </div>
          <div class="actions">
             <%= f.submit "Next Step", class: "signup-input-container--submit" %> 

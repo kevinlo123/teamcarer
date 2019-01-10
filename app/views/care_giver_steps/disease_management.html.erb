@@ -1,26 +1,134 @@
-<h1>Step 3</h1>
-<h1>Condition Management</h1>
-<%= form_for :team, url: 'disease_management',  html: {class: "nifty_form"} do |f| %>
-   <%= check_box_tag  "conditions[]", 'Memory impairment / Dementia' %><%= label_tag :Memory, 'Memory impairment / Dementia' %><br>
-   <%= check_box_tag  "conditions[]", 'Congestive heart failure' %><%= label_tag :HeartFailure, 'Congestive heart failure' %><br>
-   <%= check_box_tag  "conditions[]", 'Diabetes' %><%= label_tag :Diabetes %><br>
-   <%= check_box_tag  "conditions[]", 'End stage renal disease' %><%= label_tag :EndStage, 'End stage renal disease' %><br>
-   <%= check_box_tag  "conditions[]", 'Failure to thrive' %><%= label_tag :Thrive, 'Failure to thrive' %><br>
-   <%= check_box_tag  "conditions[]", 'Fall risk' %><%= label_tag :Risk, 'Fall risk' %><br>
-   <h3>Other Conditions</h3>
-   <%= check_box_tag  "conditions[]", 'Cancer' %><%= label_tag :Cancer %><br>
-   <%= check_box_tag  "conditions[]", 'Chronic Obstructive Pulmonary disease' %><%= label_tag :Chronic, 'Chronic Obstructive Pulmonary disease' %><br>
-   <%= check_box_tag  "conditions[]", 'Stroke' %><%= label_tag :Stroke %><br>
-   <%= check_box_tag  "conditions[]", 'Musculoskeletal disorders' %><%= label_tag :Musculoskeletal, 'Musculoskeletal disorders' %><br>
-   <%= check_box_tag  "conditions[]", 'Psychiatric disorders' %><%= label_tag :Psychiatric, 'Psychiatric disorders' %><br>
-   <%= check_box_tag  "conditions[]", 'Other' %><%= label_tag :other, 'Other' %><br>
-   <h3>Related Service</h3>
-   <%= check_box_tag  "related_service[]", 'Home Health Care' %><%= label_tag :Care, 'Home Health Care' %><br>
-   <%= check_box_tag  "related_service[]", 'Palliative Care' %><%= label_tag :Palliative, 'Palliative Care' %><br>
-   <%= check_box_tag  "related_service[]", 'Hospice Care' %><%= label_tag :Hospice, 'Hospice Care' %><br>
-   <%= check_box_tag  "related_service[]", 'Post surgery recovery' %><%= label_tag :Surgery, 'Post surgery recovery' %><br>
-   <%= check_box_tag  "related_service[]", 'Other' %><%= label_tag :other, 'Other' %><br>
-   <%= f.submit%>
-<% end %>
+<div class="signup-container-cg">
+   <%= image_tag "logo-icon.png", class: "login-container__logo" %>
+   <h2 class="signup-container__signup-text">Sign up</h2>
+   <div class="progress-bar-container-cg">
+      <div class="box progress-bar-cg" data-module="progressbar">
+         <ol>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span style="background: #FFB052; !important" class="cell-cg">
+                  <span class="item-cg">
+                     <span>Care Giver info</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span style="background: #FFB052;" class="cell-cg">
+                  <span class="item-cg">
+                     <span>Care Giver Skills</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Disease Management</span>
+                  </span>
+               </span>
+            </li>
+            <li class="qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Questionnaire</span>
+                  </span>
+               </span>
+            </li>
+            <li class="last qa-progressbar-item-cg">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Experience/Statement</span>
+                  </span>
+               </span>
+            </li>
+         </ol>
+      </div>
+   </div>
+   <%= form_for :team, url: 'disease_management',  html: {class: "nifty_form"} do |f| %>
+      <div class="disease-wrap">
+         <h3 class="conditions-container__companion--text">I am good at the following caregiving skills. Please check ALL that apply.</h3>
+         <div class="disease-management-container">
+            <div class="condition-wrap">
+               <div>
+                  <h3 class="conditions-container__companion--text">Common Conditions</h3>
+                  <%= label_tag :Memory, nil, :class => "conditions-container__companion--label" do %>
+                     <%= check_box_tag "conditions[]", "Memory impairment / Dementia", false, class: "conditions-container__companion--checkbox" %>
+                     Memory impairment / Dementia
+                  <% end %>
+                  <%= label_tag :HeartFailure, nil, :class => "conditions-container__companion--label" do %>
+                     <%= check_box_tag "conditions[]", "Congestive heart failure", false, class: "conditions-container__companion--checkbox" %>
+                     Congestive heart failure
+                  <% end %>
+                  <%= label_tag :Diabetes, nil, :class => "conditions-container__companion--label" do %>
+                     <%= check_box_tag "conditions[]", "Diabetes", false, class: "conditions-container__companion--checkbox" %>
+                     Diabetese
+                  <% end %>
+                  <%= label_tag :EndStage, nil, :class => "conditions-container__companion--label" do %>
+                     <%= check_box_tag "conditions[]", "End stage renal disease", false, class: "conditions-container__companion--checkbox" %>
+                     End stage renal disease
+                  <% end %>
+                  <%= label_tag :Thrive, nil, :class => "conditions-container__companion--label" do %>
+                     <%= check_box_tag "conditions[]", "Failure to thrive", false, class: "conditions-container__companion--checkbox" %>
+                     Failure to thrive
+                  <% end %>
+                  <%= label_tag :Risk, nil, :class => "conditions-container__companion--label" do %>
+                     <%= check_box_tag "conditions[]", "Fall risk", false, class: "conditions-container__companion--checkbox" %>
+                     Fall risk
+                  <% end %>
+               </div>
+               <div>
+                  <h3 class="conditions-container__companion--text">Other Conditions</h3>
+                  <%= label_tag :Cancer, nil, :class => "conditions-container__companion--label" do %>
+                     <%= check_box_tag "conditions[]", "Cancer", false, class: "conditions-container__companion--checkbox" %>
+                     Cancer
+                  <% end %>
+                  <%= label_tag :Chronic, nil, :class => "conditions-container__companion--label" do %>
+                     <%= check_box_tag "conditions[]", "Chronic Obstructive Pulmonary disease", false, class: "conditions-container__companion--checkbox" %>
+                     Chronic Obstructive Pulmonary disease
+                  <% end %> 
+                  <%= label_tag :Stroke, nil, :class => "conditions-container__companion--label" do %>
+                     <%= check_box_tag "conditions[]", "Stroke", false, class: "conditions-container__companion--checkbox" %>
+                     Stroke
+                  <% end %>
+                  <%= label_tag :Musculoskeletal, nil, :class => "conditions-container__companion--label" do %>
+                     <%= check_box_tag "conditions[]", "Musculoskeletal disorders", false, class: "conditions-container__companion--checkbox" %>
+                     Musculoskeletal disorders
+                  <% end %>
+                  <%= label_tag :Psychiatric, nil, :class => "conditions-container__companion--label" do %>
+                     <%= check_box_tag "conditions[]", "Psychiatric disorders", false, class: "conditions-container__companion--checkbox" %>
+                     Psychiatric disorders
+                  <% end %>    
+                  <%= label_tag :Other, nil, :class => "conditions-container__companion--label" do %>
+                     <%= check_box_tag "conditions[]", "Other", false, class: "conditions-container__companion--checkbox" %>
+                     Other
+                  <% end %> 
+               </div>
+            </div>
+            <div>
+               <h3 class="conditions-container__companion--text">Related Service</h3>
+               <%= label_tag :Care, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "related_service[]", "Home Health Care", false, class: "conditions-container__companion--checkbox" %>
+                  Home Health Care
+               <% end %> 
+               <%= label_tag :Palliative, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "related_service[]", "Palliative Care", false, class: "conditions-container__companion--checkbox" %>
+                  Palliative Care
+               <% end %>  
+               <%= label_tag :Hospice, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "related_service[]", "Hospice Care", false, class: "conditions-container__companion--checkbox" %>
+                  Hospice Care
+               <% end %>
+               <%= label_tag :Surgery, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "related_service[]", "Post surgery recovery", false, class: "conditions-container__companion--checkbox" %>
+                  Post surgery recovery
+               <% end %> 
+               <%= label_tag :Other, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "related_service[]", "Other", false, class: "conditions-container__companion--checkbox" %>
+                  Other
+               <% end %> 
+            </div>
+         </div>
+      </div>
+      <%= f.submit "Next Step", class: "skills-submit-cg"%>
+   <% end %>
+</div>
 
  

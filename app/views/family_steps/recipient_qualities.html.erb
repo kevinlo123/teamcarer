@@ -103,9 +103,9 @@
             </div>
          </div>
          <h2 style="color: #133A6B">Was the care recipient recently discharged from a hospital?</h2>
-         <%= f.select :recently_discharged, options_for_select([['Yes', true], ['No', false]]), {:prompt => "Select"}, {:class => "signup-input-container--input"} %><br>
+         <%= f.select :recently_discharged, options_for_select([['Yes', true], ['No', false]]), {:prompt => "Select"}, {:class => "signup-input-container--input", :required => true } %><br>
          <h2 style="color: #133A6B">Is the Care recipient on hospice?</h2>
-         <%= f.select :hospice, options_for_select([['Yes', true], ['No', false]]), {:prompt => "Select"}, {:class => "signup-input-container--input"} %><br>
+         <%= f.select :hospice, options_for_select([['Yes', true], ['No', false]]), {:prompt => "Select"}, {:class => "signup-input-container--input", :required => true } %><br>
       </div>
       <%= f.submit "Next Step", class: "signup-input-container--submit care-button", style: "max-width: 500px !important;" %>
    <% end %>

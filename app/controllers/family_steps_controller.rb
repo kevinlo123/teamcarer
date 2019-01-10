@@ -8,6 +8,14 @@ class FamilyStepsController < ApplicationController
       render_wizard
    end
 
+   def city
+      @cities = CS.get(:us,params[:state]) 
+      respond_to do |format|
+         format.js { render '/families/registrations/new.js.erb' }         
+         format.html { redirect_to "family_steps/care_needed" } 
+      end
+   end
+
    def create
       if current_family.confirmed? == false
          render template: "layouts/confirm_email"
