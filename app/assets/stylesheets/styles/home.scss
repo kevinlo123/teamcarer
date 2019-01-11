@@ -3,7 +3,7 @@
 
 .home-hero-banner {
    height: 360px;
-   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),image-url("home-hero-banner.png");
+   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),image-url("home-hero-banner-mobile.png");      
    background-size: cover;
    background-repeat: no-repeat;
    background-position: center right;
@@ -29,7 +29,7 @@
          padding: 1.2rem;
          text-decoration: none;
          color: white;
-         width: 170px;
+         width: 155px;
          text-align: center;
          border-radius: 3px;
          transition: .3s ease-in-out;
@@ -44,7 +44,7 @@
          padding: 1.2rem;
          text-decoration: none;
          color: white;
-         width: 170px;
+         width: 155px;
          text-align: center;
          border-radius: 3px; 
          transition: .3s ease-in-out;         
@@ -71,10 +71,10 @@
 .image-about-paragraph {
    width: 100%;
    margin: 0 auto;
-   max-width: 500px;   
+   max-width: 600px;   
    @include element(image) {
       width: 100%;
-      max-width: 500px;
+      max-width: 600px;
       display: block;
       margin: 0 auto;
    }
@@ -92,7 +92,7 @@
    }
 }
 
-@media only screen and (max-width: 355px) {
+@media only screen and (max-width: 365px) {
    .home-hero-banner {
       @include element(content) {
          @include modifier(text) {
@@ -111,4 +111,105 @@
          }
       }
    }   
+}
+
+@include tablet {
+   .home-hero-banner {
+      height: 515px;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), image-url("home-hero-banner.png"); 
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center right;
+      padding: .5rem;           
+      @include element(content) {
+         max-width: 550px;
+         @include modifier(text) {
+            font-size: $extra-large-font;
+         }
+      }
+      @include element(buttons) {
+         @include modifier(family) {
+            width: 225px;
+            padding: 1.5rem;
+            font-size: 1.5rem;        
+         }
+         @include modifier(caregiver) {
+            width: 225px;
+            padding: 1.5rem;
+            font-size: 1.5rem;                     
+         }
+      }
+   } 
+   .image-about-paragraph {
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 15px auto;
+      max-width: 840px;
+      justify-content: space-around;
+      padding: 1rem; 
+      @include element(text-container) {
+         margin: 0;
+         width: 45%;
+      }
+      @include element(image) {
+         width: 46%;
+         margin: 0;
+         height: 208px;
+         box-shadow: 10px 10px 0px $blue;
+      }
+      @include element(text) {
+         font-size: .95rem;
+         margin: 0rem 0rem 1rem 0rem;
+      }
+   } 
+   
+   .home-contact-form {
+      display: flex;
+      justify-content: space-around;
+      padding: 4rem;
+      @include element(text) {
+         width: 50%;
+      }
+      form {
+         width: 50%;
+      }
+   }
+}
+
+@include medium-desktop {
+   .home-hero-banner {
+      height: 530px;          
+      @include element(content) {
+         max-width: 595px;
+         @include modifier(text) {
+            font-size: $extra-large-font + .5;
+         }
+      }
+      @include element(buttons) {
+         @include modifier(family) {
+            width: 235px;
+            padding: 1.75rem;
+            font-size: 1.65rem;        
+         }
+         @include modifier(caregiver) {
+            width: 235px;
+            padding: 1.75rem;
+            font-size: 1.65rem;                     
+         }
+      }
+   } 
+   .image-about-paragraph {
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 0;
+      max-width: 100%;
+      margin: 0 0 2rem 0;
+      @include element(image) {
+         height: 316px;
+      }
+      @include element(text) {
+         font-size: 1.25rem;
+         margin: 0rem 0rem 1rem 0rem;
+      }
+   } 
 }

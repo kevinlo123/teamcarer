@@ -166,6 +166,9 @@ header {
       &:hover {
          background: #D9F4FF;
       }
+      &:last-child {
+         border: none;
+      }
       @include modifier(text) {
          color: $white;
          text-decoration: none;
