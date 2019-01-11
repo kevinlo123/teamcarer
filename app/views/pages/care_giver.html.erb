@@ -1,8 +1,83 @@
-<h1>this is the page that will have all the team login / sign </h1>
-<% if care_giver_signed_in? %>
-   <li class="nav-item"><%= link_to "Logout care", destroy_care_giver_session_path, method: :delete, class: "nav-link" %></li>
-<% else %>
-   <li class="nav-item"><%= link_to "Sign In Caregiver", new_care_giver_session_path, class: "nav-link" %></li>
-   <li class="nav-item"><%= link_to "Sign Up Caregiver", new_care_giver_registration_path, class: "nav-link" %></li>
-<% end %>
-<%= link_to "back to home", "/" %>
+<section>
+   <div>
+      <%= image_tag "logo-icon.png" %>
+      <h4>Empowered Team Leader</h4>
+      <ul>
+         <li>Join a team</li>
+         <li>Learn from peers</li>
+         <li>Work collaboratively</li>
+         <li>Rewarded handsomely</li>
+      </ul>
+      <button>Learn More</button>
+   </div>
+   <div>
+      <%= image_tag "logo-icon.png" %>
+      <h4>Become a Team Member</h4>
+      <ul>
+         <li>Join a team</li>
+         <li>Learn from peers</li>
+         <li>Work collaboratively</li>
+         <li>Rewarded handsomely</li>
+      </ul>
+      <button>Learn More</button>
+   </div>
+   <div>
+      <%= image_tag "logo-icon.png" %>
+      <h4>Provide Superior Team Care</h4>
+      <ul>
+         <li>Family first</li>
+         <li>Compassion</li>
+         <li>Integrity</li>
+         <li>Persistence</li>
+      </ul>
+      <button>Learn More</button>
+   </div>
+</section>
+<section>
+   <div>
+      <h4>Sign Up</h4>
+      <div>1</div>
+      <p>
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+         sed do eiusmod tempor incididunt ut labore et dolore magna
+      </p>
+   </div>
+   <div>
+      <h4>Create or Join a Team</h4>
+      <div>2</div>
+      <p>
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+         sed do eiusmod tempor incididunt ut labore et dolore magna
+      </p>
+   </div>
+   <div>
+      <h4>Work with Families</h4>
+      <div>3</div>
+      <p>
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+         sed do eiusmod tempor incididunt ut labore et dolore magna
+      </p>
+   </div>
+</section>
+<section class="home-contact-form">
+   <div class="home-contact-form__text">
+      <h1 style="color: #104A75">Send us a message</h1>
+      <h4 class="image-about-paragraph__text">Service Support: 1-800-888-8888</h4>
+      <h4 class="image-about-paragraph__text">Technical Support: 1-800-888-8888</h4>
+   </div>
+  <form>
+      <div class="field">
+         <input type="text" placeholder="name" class="signup-input-container--input">
+      </div>
+      <div class="field">
+         <input type="text" placeholder="email" class="signup-input-container--input">
+       </div>
+      <div class="field">
+         <input type="text" placeholder="subject" class="signup-input-container--input">
+      </div>
+      <div class="field">
+         <textarea style="height: 250px !important"placeholder="message" class="signup-input-container--input"></textarea>
+      </div>
+      <input type="submit" class="email-password__submit">
+  </form>
+</section>
