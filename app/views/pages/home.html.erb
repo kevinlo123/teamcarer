@@ -1,27 +1,42 @@
-<section>
-   <h1>Superior team-based in-home care for Seniors, like no other!</h1>
-   <%= link_to "i am a family",  controller: "pages", action: "family" %>
-   <%= link_to "i am a caregiver",  controller: "pages", action: "care_giver" %>
+<section class="home-hero-banner">
+   <div class="home-hero-banner__content">
+      <h1 class="home-hero-banner__content--text">Superior team-based in-home care for Seniors, like no other!</h1>
+      <div class="home-hero-banner__buttons">
+         <%= link_to "i am a family", {controller: "pages", action: "family"}, class: "home-hero-banner__buttons--family" %>
+         <%= link_to "i am a caregiver", {controller: "pages", action: "care_giver"}, class: "home-hero-banner__buttons--caregiver" %>
+      </div>
+   </div>
 </section>
-<section>
-   <h1>About us</h1>
-   <p>
-      Teamcarer is a digital marketplace that connects families and caregivers for in-home senior care. Caregivers work as teams to help seniors with bathing, dressing, grooming, house cleaning, 
-      meal preparation, medication reminders, memory impairment support, companion care and other services that help seniors remain in a home setting.
-   </p>
-   <img src="#" alt="image from wilson here"/><br>
-   <%= link_to "Sign up",  controller: "pages", action: "care_giver" %>
+<section class="home-about-us">
+   <h1 class="home-about-us__text">About us</h1>
+   <div class="image-about-paragraph">
+      <%= image_tag "about-us.png", class: "image-about-paragraph__image" %>
+      <p class="image-about-paragraph__text" >
+         TeamCarer is a digital marketplace that connects families and caregivers for in-home senior care. Caregivers work as teams to help seniors live independently 
+         at home by offering services such as bathing, dressing, grooming, house cleaning, meal preparation, medication reminders, memory impairment support, and companion care. All caregivers are screened, background checked and bonded.
+         Team members support, motivate, empower, and learn from each other to ensure trust and superior quality of care.
+      </p>
+      <p class="image-about-paragraph__text">Our vision: A better profession for caregivers and a better life for families and seniors!</p>
+   </div>
 </section>
-<section>
-   <h1>Send us a message</h1>
-   <span>Service Support: 1-800-888-8888</span>
-   <span>Technical Support: 1-800-888-8888</span>
+<section class="home-contact-form">
+   <h1 style="color: #104A75">Send us a message</h1>
+   <h4 class="image-about-paragraph__text">Service Support: 1-800-888-8888</h4>
+   <h4 class="image-about-paragraph__text">Technical Support: 1-800-888-8888</h4>
   <form>
-      <input type="text" placeholder="name"><br>
-      <input type="text" placeholder="email"><br>
-      <input type="text" placeholder="subject"><br>
-      <textarea placeholder="message"></textarea><br>
-      <input type="submit">
+      <div class="field">
+         <input type="text" placeholder="name" class="signup-input-container--input">
+      </div>
+      <div class="field">
+         <input type="text" placeholder="email" class="signup-input-container--input">
+       </div>
+      <div class="field">
+         <input type="text" placeholder="subject" class="signup-input-container--input">
+      </div>
+      <div class="field">
+         <textarea style="height: 250px !important"placeholder="message" class="signup-input-container--input"></textarea>
+      </div>
+      <input type="submit" class="email-password__submit">
   </form>
 </section>
 
