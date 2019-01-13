@@ -6,7 +6,7 @@
       <h3>Care Recipient: <%= @job_post.recipient_gender %>, 60 years old</h3>
       <h3>Location <%= @job_post.location %> </h3>
       <h3>Care Needed</h3>
-      <% @care_needed.each do |care| %>
+      <% current_family.recipient.companion_care.concat(current_family.recipient.personal_care).each do |care| %>
          <li><%= care %></li>
       <% end %>
       <h3>Medical Conditions</h3>

@@ -42,7 +42,6 @@ class FamilyController < ApplicationController
 
    def my_posting
       @job_post = current_family.job_post
-      @care_needed = current_family.recipient.companion_care.concat(current_family.recipient.personal_care)
    end
 
    def update_post
