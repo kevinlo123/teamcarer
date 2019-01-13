@@ -31,9 +31,11 @@ Rails.application.routes.draw do
    # family dashboard 
    as :family do 
       get 'family', to: 'family#index', as: :family_root
-      get 'family/my_posting', to: 'family#my_posting', as: :my_posting      
       get 'family/new_post', to: 'family#new_post'
       post 'family/create_post', to: 'family#create_post'
+      post 'family/update_recipient_for_post', to: 'family#update_recipient_for_post'
+      get 'family/my_posting', to: 'family#my_posting', as: :my_posting      
+      get 'family/edit_posting', to: 'family#edit_posting', as: :edit_posting            
       post 'family/update_post', to: 'family#update_post'      
       get 'family/recipient', to: 'family#recipient'
       post 'family/create_recipient', to: 'family#create_family_recipient'

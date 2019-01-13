@@ -1,13 +1,21 @@
-<% if !@jobpost %>
+<% if !@job_post.public %>
    <p>you have not made a post yet</p>
 <% else %>
    <div style="border: 1px solid lightgrey" class="post">
-      <p>post title:<%= @jobpost.title %></p>
-      <p>post description:<%= @jobpost.description %></p>
-      <p>post created by family with id: <%= @jobpost.family_id %></p>
-      <p>Is this job currently taken?: <%= @jobpost.taken %></p>
-      <p>post created at: <%= @jobpost.created_at.to_formatted_s(:long) %></p>
-      <h3>companion needs</h3>
+      <h4>title:<%= @job_post.title %></h4>
+      <h3>Care Recipient: <%= @job_post.recipient_gender %>, 60 years old</h3>
+      <h3>Location <%= @job_post.location %> </h3>
+      <h3>Care Needed</h3>
+      <% @care_needed.each do |care| %>
+         <li><%= care %></li>
+      <% end %>
+      <h3>Medical Conditions</h3>
+      <% current_family.recipient.conditions.each do |condition|%>
+         <li><%= condition %></li>
+      <% end %>
+      <h4>Most Desired Quality:<%= @job_post.recipient_quality %></h4>
+      <h3>Family contact: <%= @job_post.family_contact %> </h3>
+      <h3>Posted: <%= timeago(@job_post.created_at) %></h3>
    </div>
 <% end %>
 

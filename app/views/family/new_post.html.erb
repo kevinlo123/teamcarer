@@ -1,14 +1,25 @@
-<h3>Your job post will look like this to Teams, Would you like to continue or make changes?</h3>
+<h3>Your job post will look like this to Teams. Make changes or continue ?</h3>
 <%= form_for :jobpost , url: "update_post",  html: {class: "nifty_form"} do |f| %>
    <h4>title:<%= @jobpost_title %></h4>
    <h3>Care Recipient: <%= @recipient_info.gender %>, <%= @recipient_info.age %> years old</h3>
    <h3>Location <%= @location %> </h3>
    <h3>Care Needed</h3>
-   <% @recipient_info.companion_care.each do |activity|%>
-      <li><%= activity %></li>
-   <% end %>   
-   <% @recipient_info.personal_care.each do |activity|%>
-      <li><%= activity %></li>
+   <% if @recipient_info.companion_care == nil && @recipient_info.personal_care == nil %>
+      <p>Select Care needed</p>
+   <% else %>
+      <% if @recipient_info.companion_care == nil %>
+         <% @recipient_info.personal_care.each do |care| %>
+            <li><%= care %></li>
+         <% end %>
+      <% elsif @recipient_info.personal_care == nil %>
+         <% @recipient_info.companion_care.each do |care| %>
+            <li><%= care %></li>
+         <% end %>
+      <% else %>
+         <% @recipient_info.companion_care.concat(@recipient_info.personal_care).each do |care| %>
+            <li><%= care %></li>
+         <% end %>
+      <% end %>
    <% end %>
    <h3>Medical Conditions</h3>
    <% @recipient_info.conditions.each do |condition|%>
@@ -23,5 +34,7 @@
    <%= f.text_field :location, style:"display: none;", value: @location %>
    <%= f.text_field :family_contact, style:"display: none;", value: @family_contact %>
    <%= f.text_field :recipient_quality, style:"display: none;", value: @recipient_info.quality %>
+   <%= link_to 'edit erpost', '/family_steps/care_needed' %>
+   <%= link_to 'edit post', edit_posting_path %>
    <%= f.submit%>
 <% end %>

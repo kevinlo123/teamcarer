@@ -4,16 +4,16 @@ class FamilyController < ApplicationController
 
    def index
       @family = current_family.job_post 
-      @recipient_info = current_family.recipient      
-   end
-
-   def my_posting
-      @jobpost = current_family.job_post
+      @recipient_info = current_family.recipient  
+      if current_family.job_post   
+         if current_family.job_post.public == false
+            redirect_to family_new_post_path
+         end  
+      end       
    end
 
    def new_post
       @recipient_info = current_family.recipient
-      @care_needed = @recipient_info.companion_care.concat(@recipient_info.companion_care)
       @location = "#{@recipient_info.city}, #{@recipient_info.state}"
       @family_contact = "#{current_family.firstname} #{current_family.lastname.titleize.chars.first}"
       @jobpost = current_family.job_post
@@ -29,6 +29,22 @@ class FamilyController < ApplicationController
       end
    end
 
+   def update_recipient_for_post
+      @recipient = current_family.recipient
+      @recipient.update(companion_care: params[:companion_care])
+      @recipient.update(personal_care: params[:personal_care])   
+      if @recipient.update(sanitize_recipient)
+         redirect_to family_root_path
+      else
+         render html: "Sorry your recipient wasnt updated"
+      end
+   end
+
+   def my_posting
+      @job_post = current_family.job_post
+      @care_needed = current_family.recipient.companion_care.concat(current_family.recipient.personal_care)
+   end
+
    def update_post
       @jobpost = current_family.job_post.update_attributes(sanitize_post)
       current_family.job_post.update(public: true)
@@ -37,6 +53,11 @@ class FamilyController < ApplicationController
       else
          render json: @jobpost.errors.full_messages
       end
+   end
+
+
+   def edit_posting
+      @my_posting = current_family.job_post
    end
    
 
@@ -80,6 +101,6 @@ class FamilyController < ApplicationController
          params.require(:jobpost).permit(:title, :description, :taken, :companion_care, :recipient_conditions, :recipient_gender, :location, :family_contact, :recipient_quality)
       end 
       def sanitize_recipient
-         params.require(:recipient).permit(:firstname,:lastname,:gender,:age)
+         params.require(:recipient).permit(:firstname,:lastname,:gender,:age,:city,:state,:quality)
       end
 end

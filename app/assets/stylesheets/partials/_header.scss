@@ -183,7 +183,7 @@ header {
 
 @include medium-desktop {
    .mobile-nav {
-      width: 65%;
+      width: 55%;
    }
 
    .mobile-nav__logo {
@@ -195,7 +195,8 @@ header {
    }
    .desktop-nav {
       display: block;
-      width: 31%;
+      width: 50%;
+      max-width: 675px;
    }
 }
 
