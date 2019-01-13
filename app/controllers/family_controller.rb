@@ -17,7 +17,14 @@ class FamilyController < ApplicationController
       @location = "#{@recipient_info.city}, #{@recipient_info.state}"
       @family_contact = "#{current_family.firstname} #{current_family.lastname.titleize.chars.first}"
       @jobpost = current_family.job_post
-      @jobpost_title = current_family.job_post.title      
+      @jobpost_title = current_family.job_post.title  
+      if @recipient_info.companion_care == nil 
+         @care_needed =  @recipient_info.personal_care 
+      elsif @recipient_info.personal_care == nil 
+         @care_needed =  @recipient_info.companion_care 
+      else
+         @care_needed = @recipient_info.companion_care.concat(@recipient_info.personal_care)
+      end   
    end
 
    def create_post
