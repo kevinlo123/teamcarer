@@ -6,8 +6,22 @@
       <h3>Care Recipient: <%= @job_post.recipient_gender %>, 60 years old</h3>
       <h3>Location <%= @job_post.location %> </h3>
       <h3>Care Needed</h3>
-      <% current_family.recipient.companion_care.concat(current_family.recipient.personal_care).each do |care| %>
-         <li><%= care %></li>
+      <% if current_family.recipient.companion_care == nil && current_family.recipient.personal_care == nil %>
+         <p>No Care needed</p>
+      <% else %>
+         <% if current_family.recipient.companion_care == nil %>
+            <% current_family.recipient.personal_care.each do |care| %>
+               <li><%= care %></li>
+            <% end %>
+         <% elsif current_family.recipient.personal_care == nil %>
+            <% current_family.recipient.companion_care.each do |care| %>
+               <li><%= care %></li>
+            <% end %>
+         <% else %>
+            <% current_family.recipient.companion_care.concat(current_family.recipient.personal_care).each do |care| %>
+               <li><%= care %></li>
+            <% end %>
+         <% end %>
       <% end %>
       <h3>Medical Conditions</h3>
       <% current_family.recipient.conditions.each do |condition|%>
