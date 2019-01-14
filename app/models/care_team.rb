@@ -10,4 +10,20 @@ class CareTeam < ApplicationRecord
           CareTeam.all.order('created_at ASC')
       end
    end
+   def self.search_state(team_state)
+      if team_state
+         team_state.downcase!
+         self.where('LOWER(team_state) LIKE ?', "%#{team_state}%").order('created_at ASC')
+      else
+          CareTeam.all.order('created_at ASC')
+      end
+   end
+   def self.search_city(team_city)
+      if team_city
+         team_city.downcase!
+         self.where('LOWER(team_city) LIKE ?', "%#{team_city}%").order('created_at ASC')
+      else
+          CareTeam.all.order('created_at ASC')
+      end
+   end
 end

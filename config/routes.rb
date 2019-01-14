@@ -43,7 +43,9 @@ Rails.application.routes.draw do
       get 'family/edit_recipient/:id/edit', to: 'family#edit_recipient'  
       patch 'family/update_recipient/:id', to: 'family#update_recipient'
       get 'family/team_search', to: 'family#team_search', as: :search_team  
-      get 'family/team_search_results', to: 'family#team_search_results', as: :search_team_results 
+      get 'family/team_search_results', to: 'family#team_search_results', as: :search_team_results
+      get 'family/team_search_results_state', to: 'family#team_search_results_state', as: :search_team_results_state 
+      get 'family/team_search_results_city', to: 'family#team_search_results_city', as: :search_team_results_city             
    end  
    # caregiver dashboard 
    as :team do      

@@ -101,6 +101,16 @@ class FamilyController < ApplicationController
       @teams = CareTeam.search(params[:search])
       @all_teams = CareTeam.all.order('created_at ASC')
    end
+
+   def team_search_results_state
+      @teams = CareTeam.search_state(params[:search])
+      @all_teams = CareTeam.all.order('created_at ASC')
+   end
+
+   def team_search_results_city
+      @teams = CareTeam.search_city(params[:search])
+      @all_teams = CareTeam.all.order('created_at ASC')
+   end
    
    private 
       def sanitize_post

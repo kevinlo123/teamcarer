@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_14_065027) do
+ActiveRecord::Schema.define(version: 2019_01_14_112914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 2019_01_14_065027) do
     t.string "team_name"
     t.text "team_statement"
     t.integer "care_giver_id"
+    t.string "team_state"
+    t.string "team_city"
     t.index ["care_giver_id"], name: "index_care_teams_on_care_giver_id"
   end
 

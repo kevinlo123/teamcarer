@@ -1,0 +1,13 @@
+<h3>results</h3>
+<% if @teams %>
+   <p>found <%= @teams.length %> teams out of <%= @all_teams.length %> In the state of <%= params[:search] %></p>
+   <% @teams.each do |team| %>
+      <div style="border: 1px solid lightgrey" class="post">
+         <p>team name:<%= team.team_name %></p>
+      </div>
+   <% end %>
+   <%= link_to 'back to all teams', search_team_path %>
+<% else %>
+   <p>There are no teams currently in <%= params[:search] %>.</p>
+   <%= link_to 'back to all teams', search_team_path %>
+<% end %> 
