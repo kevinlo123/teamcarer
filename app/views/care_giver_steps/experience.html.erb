@@ -1,0 +1,43 @@
+<h1>experience</h1>
+<%= form_for :team, url: 'experience'  do  |f|%>
+   <h3>work experience:</h3>
+   <%= fields_for :work_exps do |u| %>
+      <p>Employer</p>
+      <%= u.text_field :employer %><br>
+      <p>Title</p>
+      <%= u.text_field :title %><br>
+      <p>State</p>
+      <%= u.text_field :state %><br>
+      <p>City</p>
+      <%= u.text_field :city %><br>
+      <%= u.select :from, options_for_select(years),{:prompt => "From"},{:required => true } %>
+      <%= u.select :to, options_for_select(years),{:prompt => "To"},{:required => true } %>
+   <% end %>
+   <h3>Education:</h3>
+   <%= fields_for :educations do |u| %>
+      <p>School</p>
+      <%= u.text_field :school %>
+      <p>Major</p>
+      <%= u.text_field :major %><br>
+      <p>State</p>
+      <%= u.text_field :state %><br>
+      <p>City</p>
+      <%= u.text_field :city %><br>
+      <%= u.select :from, options_for_select(years),{:prompt => "From"},{ :required => true } %>
+      <%= u.select :to, options_for_select(years),{:prompt => "To"},{:required => true } %>
+   <% end %>
+   <h3>Certificates</h3>
+   <%= fields_for :certificates do |u| %>
+      <p>School / program</p>
+      <%= u.text_field :school_program %>
+      <p>Certificate</p>
+      <%= u.text_field :certificate %>
+      <p>Certificate Id #</p>
+      <%= u.text_field :certificatid %><br>
+      <p>State</p>
+      <%= u.text_field :state %><br>
+      <%= u.select :from, options_for_select(years),{:prompt => "From"},{ :required => true } %>
+      <%= u.select :to, options_for_select(years),{:prompt => "To"},{ :required => true } %>
+   <% end %>
+   <%=f.submit  %>
+<% end %>

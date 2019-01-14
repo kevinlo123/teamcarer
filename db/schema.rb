@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_10_102218) do
+ActiveRecord::Schema.define(version: 2019_01_14_065027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,30 @@ ActiveRecord::Schema.define(version: 2019_01_10_102218) do
     t.text "team_statement"
     t.integer "care_giver_id"
     t.index ["care_giver_id"], name: "index_care_teams_on_care_giver_id"
+  end
+
+  create_table "certificates", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "school_program"
+    t.string "certificate"
+    t.integer "care_giver_id"
+    t.string "certificatid"
+    t.string "state"
+    t.integer "from"
+    t.integer "to"
+  end
+
+  create_table "educations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "school"
+    t.string "major"
+    t.integer "care_giver_id"
+    t.string "city"
+    t.string "state"
+    t.integer "from"
+    t.integer "to"
   end
 
   create_table "families", force: :cascade do |t|
@@ -133,6 +157,18 @@ ActiveRecord::Schema.define(version: 2019_01_10_102218) do
     t.integer "hours_weekly"
     t.integer "months"
     t.index ["family_id"], name: "index_recipients_on_family_id"
+  end
+
+  create_table "work_exps", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "employer"
+    t.string "title"
+    t.integer "care_giver_id"
+    t.string "city"
+    t.string "state"
+    t.integer "from"
+    t.integer "to"
   end
 
   add_foreign_key "job_posts", "families"
