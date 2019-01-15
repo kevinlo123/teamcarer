@@ -94,16 +94,17 @@ class FamilyController < ApplicationController
    end
 
    def team_search  
-      @teams = CareTeam.all.order('created_at ASC')
+      @teams = CareTeam.paginate(:page => params[:page], :per_page => 2).order('created_at ASC')
+      @all_teams = CareTeam.all.order('created_at ASC')      
    end
 
    def team_search_results
-      @teams = CareTeam.search(params[:search])
+      @teams = CareTeam.search(params[:search]).paginate(page: params[:page],:per_page => 5)
       @all_teams = CareTeam.all.order('created_at ASC')
    end
 
    def team_search_results_state
-      @teams = CareTeam.search_state(params[:search])
+      @teams = CareTeam.search_state(params[:search]).paginate(page: params[:page],:per_page => 1)
       @all_teams = CareTeam.all.order('created_at ASC')
    end
 

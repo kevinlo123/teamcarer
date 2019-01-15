@@ -7,6 +7,7 @@
       </div>
    <% end %>
    <%= link_to 'back to all teams', search_team_path %>
+   <%= will_paginate @teams %>
 <% else %>
    <p>There are no teams containing the term(s) <%= params[:search] %>.</p>
    <%= link_to 'back to all teams', search_team_path %>

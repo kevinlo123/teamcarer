@@ -13,11 +13,13 @@
    <%= text_field_tag :search, params[:search], placeholder: "Search Teams By city", required: true %>
    <%= submit_tag "Search", :name => nil %>
 <% end %>
-<p>Search through <%= @teams.length %> total teams</p> 
+<p>Search through <%= @all_teams.length %> total teams</p> 
 <% @teams.each do |team| %>
    <div style="border: 1px solid lightgrey" class="post">
       <p>team name:<%= team.team_name %></p>
    </div>
 <% end %>
+<%= will_paginate @teams %>
+
 
 
