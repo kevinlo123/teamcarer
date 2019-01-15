@@ -13,10 +13,30 @@
       <nav class="desktop-nav">
          <ul class="desktop-nav-list">
             <% if family_signed_in? %>
-               <a class="desktop-nav-list__item desktop-nav-list__item--text" style="margin-left: 40px;" href="/">Home</a>
+               <a class="desktop-nav-list__item desktop-nav-list__item--text" style="margin-left: 120px;" href="/">Home</a>
+               <li class="desktop-nav-list__item" style="margin-left: 18px;">Dashboard
+                  <ul class="desktop-dropdown">
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family">Home</a>
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family/my_posting">My Posting</a>
+                     <% unless current_family.job_post %>
+                        <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family/new_post">Create a Job post</a>
+                     <% end %>     
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family/recipient">Care Recipient</a>   
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family/team_search">Search for a team</a>
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/families/edit">Settings</a>             
+                  </ul>
+               </li>
                <%= link_to "Log out", destroy_family_session_path, method: :delete, class: "desktop-nav-list__item desktop-nav-list__item--text" %>
             <% elsif care_giver_signed_in? %>
-               <a class="desktop-nav-list__item desktop-nav-list__item--text" style="margin-left: 40px;" href="/">Home</a>
+               <a class="desktop-nav-list__item desktop-nav-list__item--text" style="margin-left: 120px;" href="/">Home</a>
+               <li class="desktop-nav-list__item" style="margin-left: 18px;">Dashboard
+                  <ul class="desktop-dropdown">
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/team">Home</a>
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/team/posts">Job postings</a>    
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/team/my_team">My team</a>   
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/team/edit">Settings</a>             
+                  </ul>
+               </li>
                <%= link_to "Log out", destroy_care_giver_session_path, method: :delete, class: "desktop-nav-list__item desktop-nav-list__item--text" %>
             <% else %>
                <a class="desktop-nav-list__item desktop-nav-list__item--text" href="/">Home</a>

@@ -67,6 +67,19 @@
       $(".number-field").keyup(function() {
          $(this).val($(this).val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
       });
+      
+      $("#dropdown-button-1").on("click", function() {
+         $("#dropdown-1").slideToggle(100);
+      });
+
+      $("#dropdown-button-2").on("click", function() {
+         $("#dropdown-2").slideToggle(100);
+      });
+
+      $("#dropdown-button-3").on("click", function() {
+         $("#dropdown-3").slideToggle(100);
+      });
+      
       var state = document.getElementById("state-picker");
       state.addEventListener("change", function() {
          $.ajax({
