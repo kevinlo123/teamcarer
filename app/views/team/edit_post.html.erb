@@ -5,6 +5,7 @@
    <%= form_for @Jobpost, url: 'update_post',  html: {class: "nifty_form"} do |f| %>
       <h3><%= @Jobpost.title %></h3>
       <p><%= @Jobpost.description %></p>
+      <%= mail_to @email, "Contact family" %>
       <p>this job is currently taken? <%= @Jobpost.taken %></p>
       <%= f.submit 'Take job' %>
    <% end %>

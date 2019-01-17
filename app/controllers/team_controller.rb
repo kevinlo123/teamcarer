@@ -33,6 +33,7 @@ class TeamController < ApplicationController
 
    def edit_post
       @Jobpost = JobPost.find(params[:id]) 
+      @email = @Jobpost.family.email
    end
 
    def update_post
@@ -46,7 +47,8 @@ class TeamController < ApplicationController
 
    def my_team
       @team = current_care_giver.care_team 
-      @members = CareGiver.where(care_team: @team)     
+      @members = CareGiver.where(care_team: @team)
+      @families = Family.where(care_team_id: current_care_giver.care_team)  
    end
 
    def show_team
@@ -59,7 +61,7 @@ class TeamController < ApplicationController
       @join_team_message = 'Congratulations on requesting this team the leader will be with you shortly!'
       if current_care_giver.update(care_team: @team) 
          flash[:notice] = @join_team_message        
-         redirect_to team_page_url
+         redirect_to team_root_path
       else
          flash[:notice] = 'Sorry this team is full!'
          redirect_to show_team_path

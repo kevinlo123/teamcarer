@@ -23,7 +23,7 @@ class FamilyController < ApplicationController
       elsif @recipient_info.personal_care == nil 
          @care_needed =  @recipient_info.companion_care 
       else
-         @care_needed = @recipient_info.companion_care.concat(@recipient_info.personal_care)
+         @care_needed = @recipient_info.companion_care + @recipient_info.personal_care
       end   
    end
 
@@ -111,6 +111,30 @@ class FamilyController < ApplicationController
    def team_search_results_city
       @teams = CareTeam.search_city(params[:search])
       @all_teams = CareTeam.all.order('created_at ASC')
+   end
+
+   def team_show
+      @care_team = CareTeam.find(params[:id]) 
+      @care_team_members = CareGiver.all.where(care_team: params[:id]) 
+      @leader = @care_team_members[0]
+   end
+
+   def team_show_member
+      @member = CareGiver.find(params[:id])  
+      @work_exp = WorkExp.where(care_giver_id: params[:id])         
+   end
+
+   def team_selection
+      @care_team = CareTeam.find(params[:id]) 
+      current_family.update(care_team_id: params[:id])
+      # current_family.update(care_team: @care_team)
+      # @care_team.update(family: current_family)     
+      redirect_to family_root_path
+   end
+
+   def my_team
+      @care_team = CareTeam.find(params[:id])
+      @care_team_members = CareGiver.all.where(care_team: params[:id])       
    end
    
    private 

@@ -45,7 +45,11 @@ Rails.application.routes.draw do
       get 'family/team_search', to: 'family#team_search', as: :search_team  
       get 'family/team_search_results', to: 'family#team_search_results', as: :search_team_results
       get 'family/team_search_results_state', to: 'family#team_search_results_state', as: :search_team_results_state 
-      get 'family/team_search_results_city', to: 'family#team_search_results_city', as: :search_team_results_city             
+      get 'family/team_search_results_city', to: 'family#team_search_results_city', as: :search_team_results_city  
+      get 'family/team/:id', to: 'family#team_show', as: :team_show 
+      get 'family/team_member/:id', to: 'family#team_show_member', as: :team_show_member  
+      get 'family/team_selection/:id', to: 'family#team_selection', as: :team_selection  
+      get 'family/my_team/:id', to: 'family#my_team', as: :my_team                                   
    end  
    # caregiver dashboard 
    as :team do      

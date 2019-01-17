@@ -1,0 +1,10 @@
+<h1>all the members info here <%= @member.firstname %></h1>
+<% @member.conditions.each do |condition|%>
+   <li><%= condition %></li>
+<% end %>
+<% @work_exp.each do |po|%>
+   <%= po.employer %>
+   <%= po.title %>
+   <%= po.from %>
+   <%= po.to %>
+<% end %>

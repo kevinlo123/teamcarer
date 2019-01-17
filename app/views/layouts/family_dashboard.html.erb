@@ -31,8 +31,8 @@
          <br>
          <%= link_to "My posting", "/family/my_posting" %>
          <br>
-         <% unless current_family.job_post %>
-            <%= link_to "Create a Job post", "/family/new_post" %><br>
+         <% if current_family.care_team_id %>
+            <%= link_to "My Team", my_team_path(:id => current_family.care_team_id ) %><br>
          <% end %>
          <%= link_to "Care Recipient", "/family/recipient" %>
          <br>

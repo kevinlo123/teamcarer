@@ -16,3 +16,17 @@
 <% else %>
    <p>You are currently not in a team</p>
 <% end %>
+
+<% if @families %>
+   <p>You are not currently working with any families</p>
+<% else %>
+   <% @families.each do |family|%>
+      <h4>working with </h4>
+      <p><%=family.phone %></p>
+      <p><%=family.recipient_relation %></p>
+      <% if family.recipient %>
+         <p><%= family.recipient.firstname %></p>
+         <p><%= family.recipient.city %></p>
+      <% end %>
+   <% end %>
+<% end %>

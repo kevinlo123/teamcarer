@@ -4,6 +4,9 @@
    <% @teams.each do |team| %>
       <div style="border: 1px solid lightgrey" class="post">
          <p>team name:<%= team.team_name %></p>
+         <p><%= team.team_city%>,<%= team.team_state %></p>
+         <p><%= team.team_statement %></p>
+         <%= link_to 'Contact this team', team_show_path(:id => team.id) %>
       </div>
    <% end %>
    <%= link_to 'back to all teams', search_team_path %>

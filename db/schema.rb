@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_14_112914) do
+ActiveRecord::Schema.define(version: 2019_01_17_012447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2019_01_14_112914) do
     t.integer "care_giver_id"
     t.string "team_state"
     t.string "team_city"
+    t.integer "family_id"
     t.index ["care_giver_id"], name: "index_care_teams_on_care_giver_id"
   end
 
@@ -114,6 +115,7 @@ ActiveRecord::Schema.define(version: 2019_01_14_112914) do
     t.string "emergency_name"
     t.string "emergency_contact"
     t.string "recipient_relation"
+    t.integer "care_team_id"
     t.index ["confirmation_token"], name: "index_families_on_confirmation_token", unique: true
     t.index ["email"], name: "index_families_on_email", unique: true
     t.index ["reset_password_token"], name: "index_families_on_reset_password_token", unique: true
