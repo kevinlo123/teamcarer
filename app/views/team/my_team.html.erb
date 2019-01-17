@@ -17,8 +17,8 @@
    <p>You are currently not in a team</p>
 <% end %>
 
-<% if @families %>
-   <p>You are not currently working with any families</p>
+<% if @families == nil %>
+   <p>You are currently working with any families</p>
 <% else %>
    <% @families.each do |family|%>
       <h4>working with </h4>
