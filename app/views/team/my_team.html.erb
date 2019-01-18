@@ -1,27 +1,25 @@
-<h3>Your Team</h3>
-<% if(@team != nil) then %>
-   <div style="border: 1px solid lightgrey" class="post">
-      <p>Team name: <%= @team.team_name %></p>
-      <p>Team statement: <%= @team.team_statement %></p>
-      <p>Leader: <%= @team.care_giver.firstname %> <%= @team.care_giver.lastname %></p>
-      <% if(@members.length >= 2) %>
-         <% @members.each do |member|%>
-            <p>Member: <%= member.firstname %></p>
-         <% end %>
-      <% else %>
-         <p>There are currently no other members</p>
-      <% end %>
-   </div>
-   <p>user will also be able to see all members of the team and also leader</p>
+<% if current_care_giver.care_team %>
+   <p>Leader: <%= @team.care_giver.firstname %></p>
+   <% @members.each do |member| %>
+      <p>Member: <%= member.firstname %></p>
+   <% end %>
 <% else %>
-   <p>You are currently not in a team</p>
+   <p>Leader: you are <%= @team.care_giver.firstname %></p>
+   <% if(@members.length >= 1) %>
+      <% @members.each do |member| %>
+         <p>Member: <%= member.firstname %><%= link_to "remove", remove_member_path(:id => member.id), :data => {:confirm=>'Are you sure?'}%></p>
+      <% end %>
+   <% else %>
+      <p>There are currently no other members</p>
+   <% end %>
 <% end %>
 
-<% if @families == nil %>
+<% if @families == 0 %>
    <p>You are currently working with any families</p>
 <% else %>
    <% @families.each do |family|%>
       <h4>working with </h4>
+      <p><%=family.id %></p>
       <p><%=family.phone %></p>
       <p><%=family.recipient_relation %></p>
       <% if family.recipient %>
@@ -30,3 +28,9 @@
       <% end %>
    <% end %>
 <% end %>
+
+
+
+
+
+

@@ -116,7 +116,7 @@ class FamilyController < ApplicationController
    def team_show
       @care_team = CareTeam.find(params[:id]) 
       @care_team_members = CareGiver.all.where(care_team: params[:id]) 
-      @leader = @care_team_members[0]
+      # @leader = @care_team_members[0]
    end
 
    def team_show_member

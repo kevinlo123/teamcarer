@@ -1,8 +1,8 @@
 <h1>show team</h1>
 <p>Team-statment: <%= @care_team.team_statement%></p>
-<p>Leader:<%= @leader.firstname%></p>
-<%= link_to 'View Member', team_show_member_path(:id => @leader.id) %>
-<% @care_team_members.drop(1).each do |person| %>
+<p>Leader:<%= @care_team.care_giver.firstname%></p>
+<%= link_to 'View Member', team_show_member_path(:id => @care_team.care_giver.id) %>
+<% @care_team_members.each do |person| %>
    <div style="border: 1px solid lightgrey" class="post">
       <p>member:<%= person.firstname %></p>
       <%= link_to 'View Member', team_show_member_path(:id => person.id) %>

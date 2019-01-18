@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_17_012447) do
+ActiveRecord::Schema.define(version: 2019_01_17_112231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_01_17_012447) do
     t.string "years_experience"
     t.boolean "authorized"
     t.text "statement"
+    t.boolean "leader", default: false
     t.index ["confirmation_token"], name: "index_care_givers_on_confirmation_token", unique: true
     t.index ["email"], name: "index_care_givers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_care_givers_on_reset_password_token", unique: true

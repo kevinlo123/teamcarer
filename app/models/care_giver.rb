@@ -14,7 +14,7 @@ class CareGiver < ApplicationRecord
       def validate_care_team_user_limit
          if care_team_id
             care_team = CareTeam.find_by(id: care_team_id)
-            if care_team && care_team.care_givers.count > CareTeam::NUMBER_OF_PERMITTED_TEAMS
+            if care_team && care_team.care_givers.count >= CareTeam::NUMBER_OF_PERMITTED_TEAMS
                errors.add(:care_team_id, "User cannot be added to that care team")
             end
          end

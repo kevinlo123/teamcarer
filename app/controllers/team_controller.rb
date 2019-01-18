@@ -4,6 +4,7 @@ class TeamController < ApplicationController
 
    def index
       @team = current_care_giver
+      @check_if_leader = CareTeam.where(care_giver: current_care_giver)
    end
 
    def new_team
@@ -14,7 +15,7 @@ class TeamController < ApplicationController
       @team = CareTeam.new(sanitize_team)
       if @team.save
          unless current_care_giver.care_team
-            current_care_giver.update(care_team: @team)
+            current_care_giver.update(leader: true)
             @team.update(care_giver: current_care_giver)
          end
          redirect_to team_root_path
@@ -46,9 +47,18 @@ class TeamController < ApplicationController
    end
 
    def my_team
-      @team = current_care_giver.care_team 
+      @team = CareTeam.find(params[:id])
+      @current_user = CareGiver.find(current_care_giver.id);
+      # @leader = CareTeam.where(care_giver_id: current_care_giver.id)[0]
       @members = CareGiver.where(care_team: @team)
-      @families = Family.where(care_team_id: current_care_giver.care_team)  
+      @families = Family.where(care_team_id: params[:id])  
+   end
+
+   def remove_member
+      @member = CareGiver.find(params[:id]);
+      @leader = CareTeam.where(care_giver_id: current_care_giver.id)[0]
+      @member.update(care_team: nil)
+      redirect_to my_care_team_path(:id => @leader)
    end
 
    def show_team

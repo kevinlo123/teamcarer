@@ -55,7 +55,8 @@ Rails.application.routes.draw do
    as :team do      
       get 'team', to: 'team#index', as: :team_root   
       get 'team/posts', to: 'team#all_posts' 
-      get 'team/my_team', to: 'team#my_team'
+      get 'team/my_team/:id', to: 'team#my_team', as: :my_care_team
+      get 'team/remove_member/:id', to: 'team#remove_member', as: :remove_member      
       get 'team/new_team', to: 'team#new_team'
       post 'team/create_team', to: 'team#create_team' 
       get 'team/join_team', to: 'team#join_team', as: :join_teams

@@ -10,6 +10,7 @@
       <script src="https://use.fontawesome.com/f5fb6e9872.js"></script>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
+
       <%= favicon_link_tag asset_path('logo-icon.ico') %>
       <%= favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type:'image/png' %>
       <% if content_for?(:meta_og) %>
@@ -30,10 +31,13 @@
          <h3>Dashboard example actions</h3>
          <%= link_to "home/index", "/team" %>
          <br>
-         <%= link_to "All Job post", "/team/posts" %>
-         <br>
-         <%= link_to "My team", "/team/my_team" %>
-         <br>
+         <%= link_to "All Job post", "/team/posts" %><br>
+         <% if current_care_giver.care_team %>
+            <%= link_to "My team", my_care_team_path(:id => current_care_giver.care_team)%><br>
+         <% end %>
+         <% if current_care_giver.leader %>
+            <%= link_to "My team", my_care_team_path(:id => CareTeam.where(care_giver_id: current_care_giver.id)[0])%><br>
+         <% end %>
          <%= link_to "Settings", "/care_givers/edit" %>
          <%= render "layouts/partials/footer" %>
       </div>
