@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require jquery_ujs
 //= require jquery3
 //= require main
 //= require timeago.jquery
