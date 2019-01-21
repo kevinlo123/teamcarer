@@ -4,7 +4,7 @@
       <p>Member: <%= member.firstname %></p>
    <% end %>
 <% else %>
-   <p>Leader: you are <%= @team.care_giver.firstname %></p>
+   <p>Leader: you are the leader <%= @team.care_giver.firstname %></p>
    <% if(@members.length >= 1) %>
       <% @members.each do |member| %>
          <p>Member: <%= member.firstname %><%= link_to "remove", remove_member_path(:id => member.id), :data => {:confirm=>'Are you sure?'}%></p>
@@ -19,12 +19,12 @@
 <% else %>
    <% @families.each do |family|%>
       <h4>working with </h4>
-      <p><%=family.id %></p>
-      <p><%=family.phone %></p>
-      <p><%=family.recipient_relation %></p>
+      <p>Family id: <%=family.id %></p>
+      <p>Family phone: <%=family.phone %></p>
+      <p>Family recipient_relation: <%=family.recipient_relation %></p>
       <% if family.recipient %>
-         <p><%= family.recipient.firstname %></p>
-         <p><%= family.recipient.city %></p>
+         <p>Family recipient firstname:<%= family.recipient.firstname %></p>
+         <p>Family recipient city location:<%= family.recipient.city %></p>
       <% end %>
    <% end %>
 <% end %>

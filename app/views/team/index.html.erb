@@ -1,11 +1,16 @@
 <p><%= flash[:notice] %></p>
-<% if current_care_giver.care_team %>
+<% if @leader %>
    <h3>For the Team index i want to have all current user information</h3>
    <div style="border: 1px solid lightgrey" class="post">
       <p>Name: <%= @team.firstname %> <%= @team.lastname %></p>
       <p>phone number: <%= @team.phone %></p>
       <p>located in: <%= @team.city %>, <%= @team.state %></p>
-      
+   </div>
+<% elsif @check_member %>
+   <div style="border: 1px solid lightgrey" class="post">
+      <p>Name: <%= @team.firstname %> <%= @team.lastname %></p>
+      <p>phone number: <%= @team.phone %></p>
+      <p>located in: <%= @team.city %>, <%= @team.state %></p>
    </div>
 <% else %>
    <p>Welcome! would you like to</p>

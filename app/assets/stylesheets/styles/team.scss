@@ -8,18 +8,18 @@
    z-index:10;
    display: flex;
    flex-direction: column;
-   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),image-url("team.png");
-   background-position: 63% 75%;
+   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),image-url("family.jpeg");
+   background-position: 35% 75%;
    background-size: cover;
+   @include padding($large-padding + 1, 0, $large-padding + 1, 0);   
    @include element(card) {
-      padding: .75rem;
-      height: 31rem;
+      padding: 1.5rem;
       border: 4px solid white;
       background: rgba(253, 253, 253, 0.6);
       color: white;
       width: 80%;
-      max-width: 350px;
-      @include margin($small-margin, auto, $small-margin, auto);
+      max-width: 550px;
+      @include margin($large-margin + 1, auto, $large-margin, auto);
       text-align: center;
       @include modifier(logo) {
          height: 5.5rem;
@@ -32,66 +32,28 @@
          @include margin($small-margin, auto, $small-margin, auto);         
       }
       @include modifier(bullets) {
+         list-style: none;
          padding: 0;
-         margin: 0 auto;
-         text-align: left;
-         display: none;         
-         width: 55%;
-         position: relative;
-         left: 8%;
-      }  
-      @include modifier(button) {
-         display: block;
-         border-radius: 3px;
-         @include padding($small-padding - .25, $small-padding, $small-padding - .25, $small-padding);         
-         margin: 0 auto;
-         background: $blue;
-         color: white;
-         border: none;
-         &:hover {
-            cursor: pointer;
-         }
+         margin-bottom: 2rem;
       }    
    }
 }
 
-@media only screen and (min-width: 414px) {
-   .team-landing-hero{
-      @include element(card) {
-         @include modifier(bullets) {
-            width: 75%;
-         }      
-      }
-   }
-}
-
-@media only screen and (min-width: 450px) {
-   .team-landing-hero{
-      @include element(card) {
-         @include modifier(bullets) {
-            width: 70%;
-         }      
-      }
-   }
-}
-
-@media only screen and (min-width: 500px) {
-   .team-landing-hero{
-      @include element(card) {
-         @include modifier(bullets) {
-            width: 65%;
-         }      
-      }
-   }
-}
-
-@media only screen and (min-width: 500px) {
-   .team-landing-hero{
-      @include element(card) {
-         @include modifier(bullets) {
-            width: 65%;
-         }      
-      }
+.signup-button-cg {
+   font-size: 1.5rem;
+   color: white;
+   text-decoration: none;
+   background: $yellow;
+   padding: 1rem;
+   text-align: center;
+   width: 190px;
+   border-radius: 3px;
+   margin: 0 auto;
+   border: 1px solid white;
+   transition: .3s ease-in-out;
+   &:hover {
+      cursor: pointer;
+      opacity: .8;
    }
 }
 
@@ -99,73 +61,29 @@
    font-size: 1.45rem;
 }
 
-.bg-image {
-   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),image-url("family.jpeg");
-   background-position: 35% 75%;
-   width:100%;
-   height:100%;
-   -webkit-filter: blur(5px);
-   z-index:0;
-   position: absolute;
-   background-position: 35% 75%;
-   background-size:cover;
-   filter: blur(3px);
-   z-index: -1;
-}
 
 @include medium-desktop {
    .team-landing-hero{
       z-index: 10;
       display: flex;
       background-size: cover;
-      height: 650px;
-      background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),image-url("team.png");
+      background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),image-url("family.png");
       background-size: cover;
       background-repeat: no-repeat;
       flex-direction: row;
+      @include padding($large-padding + 2, 0, $large-padding + 7, 0);         
       @include element(card) {
-         border: 4px solid white;
-         background: rgba(253, 253, 253, 0.6);
-         color: white;
-         height: 29rem;
-         padding: 0rem 0rem;
-         margin: 2rem;
-         text-align: center;
-         width: 29%;
-         min-width: 250px;
-         max-width: 250px;
-         @include modifier(logo) {
-            height: 5.5rem;
-            display: block;
-            margin: 0 auto;
-            @include margin($small-margin, auto, $small-margin + 1, auto);         
-         }
-         @include modifier(text) {
-            font-size: 1rem;
-            @include margin($small-margin, auto, $small-margin, auto);         
-         }
-         @include modifier(bullets) {
-            padding: 0;
-            margin: 0 auto;
-            text-align: left;
-            display: none;
-            width: 70%;
-            position: relative;
-            left: 8%;
-         }  
-         @include modifier(button) {
-            display: block;
-            border-radius: 3px;
-            @include padding($small-padding - .25, $small-padding, $small-padding - .25, $small-padding);         
-            margin: 0 auto;
-            background: $blue;
-            color: white;
-            border: none;
-            &:hover {
-               cursor: pointer;
-            }
-         }    
+         width: 27%;
+         max-width: 350px;
+         @include margin($large-margin + 1, auto, $large-margin + 1.5rem, auto);
+         text-align: center;   
       }
+   }
+   .signup-button-cg {
+      position: absolute;
+      top: 31%;
+      left: 0;
+      right: 0;
    }
 
    .team-landing-hero-container {
@@ -175,4 +93,41 @@
       height: 100%;
       padding: 0rem;
    }
+}
+
+.team-landing-steps {
+   display: flex;
+   flex-direction: column;
+   background: $light-grey;
+   padding-bottom: 1.5rem;
+   @include element(section) {
+      text-align: center;
+      padding: .5rem;      
+      @include modifier(text) {
+         font-size: $medium-font;
+      }
+      @include modifier(number) {
+         background: $yellow;
+         font-size: $large-font;
+         height: 55px;
+         border-radius: 50%;
+         width: 57px;
+         padding: .5rem;
+         color: $white;
+         margin: 0 auto;
+      }
+      @include modifier(paragraph) {
+         font-size: $medium-font - .25;
+      }
+   }
+}
+
+@include medium-desktop {
+   .team-landing-steps {
+      flex-direction: row;
+      padding: 2rem;
+      @include element(section) {   
+         width: 33.3%;         
+      }
+   }  
 }

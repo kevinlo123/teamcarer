@@ -77,9 +77,7 @@ footer {
 }
 
 .footer-copyright {
-   display: flex;
-   justify-content: space-between;
-   flex-wrap: wrap;
+   text-align: center;
    border-top: 1px solid;
    padding-top: 10px;
    @include element(text) {

@@ -2,68 +2,63 @@
    <div class="team-landing-hero-container">
       <div class="team-landing-hero__card">
          <%= image_tag "logo-icon.png", class: "team-landing-hero__card--logo" %>
-         <h4 class="team-landing-hero__card--text">Empowered Team Leader</h4>
-         <ul id="dropdown-1" class="team-landing-hero__card--bullets">
+         <h4 style="font-size: 1.5rem; margin-bottom: 2rem;" class="team-landing-hero__card--text">Empowered Team Leader</h4>
+         <ul class="team-landing-hero__card--bullets">
+            <li class="team-landing-hero__card--text">Create a team</li>
+            <li class="team-landing-hero__card--text">Mentor your team</li>
+            <li class="team-landing-hero__card--text">Operate Flexibly</li>
+            <li class="team-landing-hero__card--text">Perform superiorly</li>
+         </ul>
+      </div>
+      <div class="team-landing-hero__card">
+         <%= image_tag "logo-icon.png", class: "team-landing-hero__card--logo" %>
+         <h4 style="font-size: 1.5rem; margin-bottom: 2rem;" class="team-landing-hero__card--text">Become a Team Member</h4>
+         <ul class="team-landing-hero__card--bullets">
             <li class="team-landing-hero__card--text">Join a team</li>
             <li class="team-landing-hero__card--text">Learn from peers</li>
             <li class="team-landing-hero__card--text">Work collaboratively</li>
             <li class="team-landing-hero__card--text">Rewarded handsomely</li>
          </ul>
-         <button id="dropdown-button-1" class="team-landing-hero__card--button">Learn More</button>
       </div>
       <div class="team-landing-hero__card">
          <%= image_tag "logo-icon.png", class: "team-landing-hero__card--logo" %>
-         <h4 class="team-landing-hero__card--text">Become a Team Member</h4>
-         <ul id="dropdown-2" class="team-landing-hero__card--bullets">
-            <li class="team-landing-hero__card--text">Join a team</li>
-            <li class="team-landing-hero__card--text">Learn from peers</li>
-            <li class="team-landing-hero__card--text">Work collaboratively</li>
-            <li class="team-landing-hero__card--text">Rewarded handsomely</li>
-         </ul>
-         <button id="dropdown-button-2" class="team-landing-hero__card--button">Learn More</button>
-      </div>
-      <div class="team-landing-hero__card">
-         <%= image_tag "logo-icon.png", class: "team-landing-hero__card--logo" %>
-         <h4 class="team-landing-hero__card--text">Provide Superior Team Care</h4>
-         <ul id="dropdown-3" class="team-landing-hero__card--bullets">
+         <h4 style="font-size: 1.5rem; margin-bottom: 2rem;" class="team-landing-hero__card--text">Provide Superior Team Care</h4>
+         <ul class="team-landing-hero__card--bullets">
             <li class="team-landing-hero__card--text">Family first</li>
             <li class="team-landing-hero__card--text">Compassion</li>
             <li class="team-landing-hero__card--text">Integrity</li>
             <li class="team-landing-hero__card--text">Persistence</li>
          </ul>
-         <button id="dropdown-button-3" class="team-landing-hero__card--button">Learn More</button>
       </div>
    </div>
+   <%= link_to "Sign Up!", "care_givers/sign_up", class: "signup-button-cg" %>
 </section>
-<section>
-   <div>
-      <h4>Sign Up</h4>
-      <div>1</div>
-      <p>
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-         sed do eiusmod tempor incididunt ut labore et dolore magna
+<section class="team-landing-steps">
+   <div class="team-landing-steps__section">
+      <h4 class="team-landing-steps__section--text">Sign Up</h4>
+      <div class="team-landing-steps__section--number">1</div>
+      <p class="team-landing-steps__section--paragraph">
+         Enter your basic information, skills, and experience  
       </p>
    </div>
-   <div>
-      <h4>Create or Join a Team</h4>
-      <div>2</div>
-      <p>
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-         sed do eiusmod tempor incididunt ut labore et dolore magna
+   <div class="team-landing-steps__section">
+      <h4 class="team-landing-steps__section--text">Create or Join a Team</h4>
+      <div class="team-landing-steps__section--number">2</div>
+      <p class="team-landing-steps__section--paragraph">
+         Create your own care team or find an existing team to join
       </p>
    </div>
-   <div>
-      <h4>Work with Families</h4>
-      <div>3</div>
-      <p>
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-         sed do eiusmod tempor incididunt ut labore et dolore magna
+   <div class="team-landing-steps__section">
+      <h4 class="team-landing-steps__section--text">Work with Families</h4>
+      <div class="team-landing-steps__section--number">3</div>
+      <p class="team-landing-steps__section--paragraph">
+         Search for a job that matches your skill set well
       </p>
    </div>
 </section>
 <section class="home-contact-form">
    <div class="home-contact-form__text">
-      <h1 style="color: #104A75">Send us a message</h1>
+      <h1 style="color: #104A75">Send Us a Message</h1>
       <h4 class="image-about-paragraph__text">Service Support: 1-800-888-8888</h4>
       <h4 class="image-about-paragraph__text">Technical Support: 1-800-888-8888</h4>
    </div>

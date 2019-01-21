@@ -11,7 +11,7 @@
          </div>
          <% if devise_mapping.rememberable? -%>
          <div class="field">
-            <%= f.label :remember_me ,:style => "display: inline-block; color: #133A6B; margin: 5px 0; font-size: 1.15rem;" %>
+            <%= f.label :Remember_me ,"Remember Me",:style => "display: inline-block; color: #133A6B; margin: 5px 0; font-size: 1.15rem;" %>
             <%= f.check_box :remember_me %>
          </div>
          <% end -%>
@@ -19,7 +19,6 @@
          <div class="actions">
             <%= f.submit "Log in", class: "email-password__submit" %>
          </div>
-         <p style="color: #133A6B">By signing in, you agree to our Terms of Service and Privacy Policy.</p>
       </div>
    <% end %>
 </div>

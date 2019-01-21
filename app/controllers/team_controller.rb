@@ -4,7 +4,8 @@ class TeamController < ApplicationController
 
    def index
       @team = current_care_giver
-      @check_if_leader = CareTeam.where(care_giver: current_care_giver)
+      @check_member = current_care_giver.care_team
+      @leader = CareTeam.where(care_giver_id: current_care_giver.id)[0]
    end
 
    def new_team

@@ -32,8 +32,13 @@
                <li class="desktop-nav-list__item" style="margin-left: 18px;">Dashboard
                   <ul class="desktop-dropdown">
                      <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/team">Home</a>
-                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/team/posts">Job postings</a>    
-                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/team/my_team">My team</a>   
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/team/posts">Job postings</a> 
+                     <% if current_care_giver.care_team %>
+                        <%= link_to "My team", my_care_team_path(:id => current_care_giver.care_team), :class => "desktop-dropdown__list-item desktop-dropdown__list-item--text"%>
+                     <% end %>
+                     <% if current_care_giver.leader %>
+                        <%= link_to "My team", my_care_team_path(:id => CareTeam.where(care_giver_id: current_care_giver.id)[0]), :class => "desktop-dropdown__list-item desktop-dropdown__list-item--text" %>
+                     <% end %>   
                      <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/team/edit">Settings</a>             
                   </ul>
                </li>
@@ -87,16 +92,16 @@
                <%= link_to "Settings", "/care_givers/edit" , class: "side-menu__list-item side-menu__list-item--text" %>
                <li class="side-menu__list-item toggle-nav">Close</li>
             <% else %>
-               <li class="side-menu__list-item">Log in <i class="fas fa-chevron-down"></i>
-                  <ul class="sub-menu">
-                     <a class="sub-menu__list-item sub-menu__list-item--text" href="/families/sign_in">- Family</a>
-                     <a class="sub-menu__list-item sub-menu__list-item--text" href="/care_givers/sign_in" >- Caregiver</a>
-                  </ul>
-               </li>
-               <li class="side-menu__list-item">Sign up <i class="fas fa-chevron-down"></i>
+               <li class="side-menu__list-item">Sign Up <i class="fas fa-chevron-down"></i>
                   <ul class="sub-menu">
                      <a class="sub-menu__list-item sub-menu__list-item--text" href="/families/sign_up">- Family</a>
                      <a class="sub-menu__list-item sub-menu__list-item--text" href="/care_givers/sign_up" >- Caregiver</a>
+                  </ul>
+               </li>
+               <li class="side-menu__list-item">Log In <i class="fas fa-chevron-down"></i>
+                  <ul class="sub-menu">
+                     <a class="sub-menu__list-item sub-menu__list-item--text" href="/families/sign_in">- Family</a>
+                     <a class="sub-menu__list-item sub-menu__list-item--text" href="/care_givers/sign_in" >- Caregiver</a>
                   </ul>
                </li>
                <a class="side-menu__list-item side-menu__list-item--text" id="aboutus-mobile" href="/">About Us</a>
