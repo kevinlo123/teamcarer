@@ -102,11 +102,11 @@
       }
       @include element(buttons) {
          @include modifier(family) {
-            width: 140px;
+            width: 142px;
             padding: .95rem;            
          }
          @include modifier(caregiver) {
-            width: 140px;
+            width: 142px;
             padding: .95rem;
          }
       }
