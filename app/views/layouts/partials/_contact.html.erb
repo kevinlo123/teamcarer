@@ -5,7 +5,6 @@
       <h4 class="image-about-paragraph__text">Technical Support: 1-800-888-8888</h4>
    </div>
    <%= form_for @message, url: create_message_path do |f| %>
-      <%= notice %>
       <%= @message.errors.full_messages.join(', ') %>
       <div class="field">
          <%= f.text_field :name, placeholder: 'Name', class: 'signup-input-container--input' %>

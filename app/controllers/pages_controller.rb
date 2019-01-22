@@ -19,20 +19,20 @@ class PagesController < ApplicationController
 
    def create
       @message = Message.new message_params
-      if @message.valid?
-         MessageMailer.contact_me(@message).deliver_now         
+      if @message.valid? && URI(request.referer).path == "/"
+         MessageMailer.contact_general(@message).deliver_now         
          redirect_to root_path, notice: "Message received, thanks!"
+      elsif @message.valid? && URI(request.referer).path == "/care_giver_page"
+         MessageMailer.contact_care_giver(@message).deliver_now         
+         redirect_to "/care_giver_page", notice: "Message received, thanks!"
+      elsif @message.valid? && URI(request.referer).path == "/family_page"
+         MessageMailer.contact_family(@message).deliver_now         
+         redirect_to "/family_page", notice: "Message received, thanks!"
       else
-         render :home
+         render :home         
       end
-      # if request.original_url == root_path         
-      #    redirect_to root_path, notice: "Message received, thanks!"
-      # elsif request.original_url == "family_page"
-      #    redirect_to "family_page", notice: "Message received, thanks!"
-      # else
-      #    redirect_to "care_giver_page", notice: "Message received, thanks!"
-      # end
    end
+   
    private
       def message_params
          params.require(:message).permit(:name, :email, :body)

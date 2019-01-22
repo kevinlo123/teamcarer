@@ -33,18 +33,41 @@ Rails.application.configure do
    config.active_storage.service = :local
 
    # email sending configurations
-   config.action_mailer.raise_delivery_errors = false
+   # config.action_mailer.raise_delivery_errors = false
+   # config.action_mailer.perform_caching = false
+   # config.action_mailer.delivery_method = :smtp
+   # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+   # config.action_mailer.smtp_settings = {
+   #    address:              'smtp.gmail.com',
+   #    port:                 587,
+   #    domain:               'example.com',
+   #    user_name:            ENV['GMAIL_USERNAME'],
+   #    password:             ENV['PASSWORD'],
+   #    authentication:       'plain',
+   # }
+   config.action_mailer.raise_delivery_errors = true
+   
+   config.action_mailer.perform_deliveries = true
+   
+   config.action_mailer.default :charset => "utf-8"
+   
    config.action_mailer.perform_caching = false
+   
    config.action_mailer.delivery_method = :smtp
-   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+   config.action_mailer.default_url_options = { :host => 'teamcarer.herokuapp.com' }
+   
    config.action_mailer.smtp_settings = {
-      address:              'smtp.gmail.com',
-      port:                 587,
-      domain:               'example.com',
-      user_name:            ENV['GMAIL_USERNAME'],
-      password:             ENV['PASSWORD'],
-      authentication:       'plain',
+      :address => 'smtp.office365.com',
+      :port => 587,
+      :authentication => :login,  
+      :domain => 'teamcarer.com',      
+      :user_name =>  ENV['WELCOME_EMAIL'], 
+      :password => ENV['WELCOME_EMAIL_PASSWORD'], 
+      :from =>  ENV['WELCOME_EMAIL'],      
+      :enable_starttls_auto => true
    }
+   
    # Print deprecation notices to the Rails logger.
    config.active_support.deprecation = :log
 
