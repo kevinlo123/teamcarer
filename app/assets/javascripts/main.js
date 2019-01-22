@@ -79,6 +79,14 @@
       $("#dropdown-button-3").on("click", function() {
          $("#dropdown-3").slideToggle(100);
       });
+      var stateCg = document.getElementById("state-picker-cg");
+      stateCg.addEventListener("change", function() {
+         console.log("change")
+         $.ajax({
+            url: "/states-cg?state=" + stateCg.value,
+            type: "GET"
+         })
+      })
       
       var state = document.getElementById("state-picker");
       state.addEventListener("change", function() {

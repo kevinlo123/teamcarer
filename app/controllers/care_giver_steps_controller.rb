@@ -14,6 +14,14 @@ class CareGiverStepsController < ApplicationController
       render_wizard
    end
 
+   def city
+      @cities = CS.get(:us,params[:state]) 
+      respond_to do |format|
+         format.js { render '/care_giver_steps/state.js.erb' }         
+         format.html { redirect_to "care_giver_steps/personal_statement" } 
+      end
+   end
+
    def update
       if current_care_giver.confirmed? == false 
          render template: "layouts/confirm_email"

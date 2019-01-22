@@ -3,8 +3,8 @@
    <%= f.label :team_name %>
    <%= f.text_field :team_name %><br>
    <p>Please select where your team will be located</p>
-   <%= f.select :team_state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:id => "state-picker", :required => true } %>
-   <%= f.select :team_city, options_for_select([]),{:prompt => "City"}, { :id => "city-picker", :required => true } %> 
+   <%= f.select :team_state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:id => "state-picker-cg", :required => true } %>
+   <%= f.select :team_city, options_for_select([]),{:prompt => "City"}, { :id => "city-picker-cg", :required => true } %> 
    <%= f.label :team_statement %>
    <%= f.text_area :team_statement, size: "40x12" %><br>
    <%= f.submit%>

@@ -31,6 +31,7 @@ Rails.application.routes.draw do
    post 'care_giver_steps/yes_no', to: 'care_giver_steps#yes_no' 
    post 'care_giver_steps/personal_statement', to: 'care_giver_steps#personal_statement'  
    post 'care_giver_steps/experience', to: 'care_giver_steps#experience' 
+   get 'states-cg', to: 'care_giver_steps#city'      
    # family dashboard 
    as :family do 
       get 'family', to: 'family#index', as: :family_root

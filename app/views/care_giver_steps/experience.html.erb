@@ -1,43 +1,113 @@
-<h1>experience</h1>
-<%= form_for :team, url: 'experience'  do  |f|%>
-   <h3>work experience:</h3>
-   <%= fields_for :work_exps do |u| %>
-      <p>Employer</p>
-      <%= u.text_field :employer %><br>
-      <p>Title</p>
-      <%= u.text_field :title %><br>
-      <p>State</p>
-      <%= u.text_field :state %><br>
-      <p>City</p>
-      <%= u.text_field :city %><br>
-      <%= u.select :from, options_for_select(years),{:prompt => "From"},{:required => true } %>
-      <%= u.select :to, options_for_select(years),{:prompt => "To"},{:required => true } %>
+<div class="signup-container-cg">
+   <%= image_tag "logo-icon.png", class: "login-container__logo" %>
+   <h2 class="signup-container__signup-text">Sign up</h2>
+   <div class="progress-bar-container-cg">
+      <div class="box progress-bar-cg" data-module="progressbar">
+         <ol>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span style="background: #FFB052; !important" class="cell-cg">
+                  <span class="item-cg">
+                     <span>Care Giver info</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span style="background: #FFB052;" class="cell-cg">
+                  <span class="item-cg">
+                     <span>Care Giver Skills</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span style="background: #FFB052;" class="cell-cg">
+                  <span class="item-cg">
+                     <span>Disease Management</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current-cg qa-progressbar-item-cg">
+               <span style="background: #FFB052;" class="cell-cg">
+                  <span class="item-cg">
+                     <span>Questionnaire</span>
+                  </span>
+               </span>
+            </li>
+            <li class="current-cg qa-progressbar-item last">
+               <span class="cell-cg">
+                  <span class="item-cg">
+                     <span>Experience/Statement</span>
+                  </span>
+               </span>
+            </li>
+         </ol>
+      </div>
+   </div>
+   <%= form_for :team, url: 'experience'  do  |f|%>
+      <div class="signup-input-container-cg">
+         <h3 style="font-size: 1.75rem;">work experience:</h3>
+         <%= fields_for :work_exps do |u| %>
+            <div class="field">
+               <%= u.text_field :employer, autofocus: true, placeholder: "Employer", autocomplete: "employer", class: "signup-input-container-cg--input-cg" %>
+            </div>
+            <div class="field">
+               <%= u.text_field :title, autofocus: true, placeholder: "Job Title", autocomplete: "title", class: "signup-input-container-cg--input-cg" %>
+            </div>
+            <div class="field">
+               <%= u.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker", :required => true } %>
+            </div>
+            <div class="field">
+               <%= u.select :city, options_for_select([]),{:prompt => "City", :required => true}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker", :required => true } %> 
+            </div>
+            <div class="field">
+               <%= u.select :from, options_for_select(years),{:prompt => "From:"}, {:class => "signup-input-container-cg--input-cg", :required => true } %>
+            </div>
+            <div class="field">
+               <%= u.select :to, options_for_select(years),{:prompt => "To:"}, {:class => "signup-input-container-cg--input-cg",:required => true } %>
+            </div>
+         <% end %>
+         <h3 style="font-size: 1.75rem;">Education:</h3>
+         <%= fields_for :educations do |u| %>
+            <div class="field">
+               <%= u.text_field :school, autofocus: true, placeholder: "School", autocomplete: "school", class: "signup-input-container-cg--input-cg" %>
+            </div>
+            <div class="field">
+               <%= u.text_field :major, autofocus: true, placeholder: "Major", autocomplete: "major", class: "signup-input-container-cg--input-cg" %>
+            </div>
+            <div class="field">
+               <%= u.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker-cg", :required => true } %>
+            </div>
+            <div class="field">
+               <%= u.select :city, options_for_select([]),{:prompt => "City", :required => true}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker-cg", :required => true } %> 
+            </div>
+            <div class="field">
+               <%= u.select :from, options_for_select(years),{:prompt => "From:"},{:class => "signup-input-container-cg--input-cg", :required => true } %>
+            </div>
+            <div class="field">
+               <%= u.select :to, options_for_select(years),{:prompt => "To:"}, {:class => "signup-input-container-cg--input-cg",:required => true } %>
+            </div>
+         <% end %>
+         <h3 style="font-size: 1.75rem;">Certificates</h3>
+         <%= fields_for :certificates do |u| %>
+            <div class="field">
+               <%= u.text_field :school_program, autofocus: true, placeholder: "School/Program", autocomplete: "school/program", class: "signup-input-container-cg--input-cg" %>
+            </div>
+            <div class="field">
+               <%= u.text_field :certificate, autofocus: true, placeholder: "Certificate", autocomplete: "certificate", class: "signup-input-container-cg--input-cg" %>
+            </div>
+            <div class="field">
+               <%= u.text_field :certificatid, autofocus: true, placeholder: "Certificate id #", autocomplete: "certificateid", class: "signup-input-container-cg--input-cg" %>
+            </div>
+            <div class="field">
+               <%= u.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker-cg", :required => true } %>
+            </div>
+            <div class="field">
+               <%= u.select :from, options_for_select(years),{:prompt => "From:"},{:class => "signup-input-container-cg--input-cg", :required => true } %>
+            </div>
+            <div class="field">
+               <%= u.select :to, options_for_select(years),{:prompt => "To:"},{:class => "signup-input-container-cg--input-cg", :required => true } %>
+            </div>
+         <% end %>
+         <%=f.submit "Next Step", class: "skills-submit-cg"  %>
+      </div>
    <% end %>
-   <h3>Education:</h3>
-   <%= fields_for :educations do |u| %>
-      <p>School</p>
-      <%= u.text_field :school %>
-      <p>Major</p>
-      <%= u.text_field :major %><br>
-      <p>State</p>
-      <%= u.text_field :state %><br>
-      <p>City</p>
-      <%= u.text_field :city %><br>
-      <%= u.select :from, options_for_select(years),{:prompt => "From"},{ :required => true } %>
-      <%= u.select :to, options_for_select(years),{:prompt => "To"},{:required => true } %>
-   <% end %>
-   <h3>Certificates</h3>
-   <%= fields_for :certificates do |u| %>
-      <p>School / program</p>
-      <%= u.text_field :school_program %>
-      <p>Certificate</p>
-      <%= u.text_field :certificate %>
-      <p>Certificate Id #</p>
-      <%= u.text_field :certificatid %><br>
-      <p>State</p>
-      <%= u.text_field :state %><br>
-      <%= u.select :from, options_for_select(years),{:prompt => "From"},{ :required => true } %>
-      <%= u.select :to, options_for_select(years),{:prompt => "To"},{ :required => true } %>
-   <% end %>
-   <%=f.submit  %>
-<% end %>
+</div>
