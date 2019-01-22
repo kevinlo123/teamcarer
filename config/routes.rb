@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       root to: 'pages#home'
       get 'family_page', to: 'pages#family'
       get 'care_giver_page', to: 'pages#care_giver'
+      post 'contact', to: 'pages#create', as: :create_message
    end
    # devise for our two users
    devise_for :families, path: 'families', controllers: { sessions: "families/sessions", confirmations: 'families/confirmations', registrations: 'families/registrations'}
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
    post 'family_steps/recipient_information_second', to: 'family_steps#care_needs'
    post 'family_steps/recipient_information_third', to: 'family_steps#mobility_quality' 
    post 'family_steps/recipient_information_fourth', to: 'family_steps#conditions' 
+   # caregiver steps
    post 'care_giver_steps/skills_information', to: 'care_giver_steps#update'    
    post 'care_giver_steps/disease_management', to: 'care_giver_steps#conditions'
    post 'care_giver_steps/yes_no', to: 'care_giver_steps#yes_no' 

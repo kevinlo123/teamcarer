@@ -1,0 +1,25 @@
+<section class="home-contact-form">
+   <div class="home-contact-form__text">
+      <h1 style="color: #104A75">Send Us a Message</h1>
+      <h4 class="image-about-paragraph__text">Service Support: 1-800-888-8888</h4>
+      <h4 class="image-about-paragraph__text">Technical Support: 1-800-888-8888</h4>
+   </div>
+   <%= form_for @message, url: create_message_path do |f| %>
+      <%= notice %>
+      <%= @message.errors.full_messages.join(', ') %>
+      <div class="field">
+         <%= f.text_field :name, placeholder: 'Name', class: 'signup-input-container--input' %>
+      </div>
+      <div class="field">
+         <%= f.email_field :email, placeholder: 'Email', class: 'signup-input-container--input' %>
+      </div>
+      <div class="field">
+         <%= f.text_area :body, placeholder: 'Message', class: 'signup-input-container--input', style: 'height: 250px !important' %>
+      </div>
+      <% if controller.action_name == "care_giver" %>
+         <%= f.submit 'Send', class:'email-password__submit', style: 'background: #FFB052' %>
+      <% else %>
+         <%= f.submit 'Send', class:'email-password__submit', style: 'background: #104A75' %>
+      <% end %>
+   <% end %>
+</section>
