@@ -68,6 +68,11 @@ Rails.application.configure do
 
       # email sending configurations
    config.action_mailer.raise_delivery_errors = true
+   
+   config.action_mailer.perform_deliveries = true
+   
+   config.action_mailer.default :charset => "utf-8"
+   
    config.action_mailer.perform_caching = false
    
    config.action_mailer.delivery_method = :smtp
@@ -80,11 +85,10 @@ Rails.application.configure do
       :authentication => :login,  
       :domain => 'teamcarer.com',      
       :user_name =>  ENV['WELCOME_EMAIL'], 
-      :password => ENV['WELCOME_EMAIL_PASSWORD'],      
+      :password => ENV['WELCOME_EMAIL_PASSWORD'], 
+      :from =>  ENV['WELCOME_EMAIL'],      
       :enable_starttls_auto => true
    }
-
-   config.action_mailer.default_options = { from: 'teamcarer.herokuapp.com' }
    
 
 
