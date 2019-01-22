@@ -71,10 +71,10 @@
             <%= f.telephone_field :phone, maxlength: 11, autocomplete: "phone", placeholder: "Phone", class: "signup-input-container--input number-field" %>
          </div>
          <div class="field">
-            <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container--input", :id => "state-picker"} %>
+            <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container--input", :id => "state-picker-cg"} %>
          </div>
          <div class="field">
-            <%= f.select :city, options_for_select([]),{:prompt => "City"}, {:class => "signup-input-container--input", :id => "city-picker"} %> 
+            <%= f.select :city, options_for_select([]),{:prompt => "City"}, {:class => "signup-input-container--input", :id => "city-picker-cg"} %> 
          </div>
          <div class="field">
             <%= f.text_field :street, autofocus: true, autocomplete: "street", placeholder: "Street Address", class: "signup-input-container--input" %>
