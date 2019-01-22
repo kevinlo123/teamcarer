@@ -1,16 +1,16 @@
-<h2>Resend confirmation instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "families/shared/links" %>
+<div class="login-container">
+   <%= image_tag "logo-icon.png", class: "login-container__logo" %>
+   <h2 class="login-container__log-in-text">Resend confirmation instructions</h2>
+   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <div class="email-password">
+         <%= devise_error_messages! %>
+         <div class="field email-password__email">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "Email", class: "email-password__input-family" %>
+         </div>
+         <%= render "families/shared/links" %>
+         <div class="actions">
+            <%= f.submit "Resend confirmation instructions", class: "email-password__submit", style: "background: #104A75"  %>
+         </div>
+      </div>
+   <% end %>
+</div>

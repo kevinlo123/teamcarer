@@ -7,16 +7,19 @@ class MessageMailer < ApplicationMailer
 
    def contact_general(message)
       @name = message.name.titleize
+      @email = message.email     
       @body = message.body    
       mail to: "welcome@teamcarer.com", from: 'welcome@teamcarer.com', subject: 'General Inquiry'
    end
    def contact_care_giver(message)
       @name = message.name.titleize
+      @email = message.email           
       @body = message.body    
       mail to: "welcome@teamcarer.com", from: 'welcome@teamcarer.com', subject: 'Care Giver Inquiry'
    end
    def contact_family(message)
       @name = message.name.titleize
+      @email = message.email           
       @body = message.body    
       mail to: "welcome@teamcarer.com", from: 'welcome@teamcarer.com', subject: 'Family Inquiry'
    end

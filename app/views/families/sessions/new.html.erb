@@ -4,10 +4,10 @@
    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="email-password">
          <div class="field email-password__email">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail", class: "email-password__input" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail", class: "email-password__input-family" %>
          </div>
          <div class="field email-password__password">
-            <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "email-password__input" %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "email-password__input-family" %>
          </div>
          <% if devise_mapping.rememberable? -%>
          <div class="field">
@@ -17,7 +17,7 @@
          <% end -%>
          <%= render "families/shared/links" %>
          <div class="actions">
-            <%= f.submit "Log in", class: "email-password__submit" %>
+            <%= f.submit "Log in", class: "email-password__submit", style: "background: #104A75" %>
          </div>
       </div>
    <% end %>

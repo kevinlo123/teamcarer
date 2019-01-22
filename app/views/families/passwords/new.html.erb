@@ -1,16 +1,16 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "families/shared/links" %>
+<div class="login-container">
+   <%= image_tag "logo-icon.png", class: "login-container__logo" %>
+   <h2 class="login-container__log-in-text">Forgot your password?</h2>
+   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <div class="email-password">
+         <%= devise_error_messages! %>
+         <div class="field email-password__email">
+            <%= f.email_field :email, autofocus: true, placeholder: "Email", autocomplete: "email", class: "email-password__input-family" %>
+         </div>
+         <%= render "families/shared/links" %>
+         <div class="actions">
+            <%= f.submit "Send reset password instructions", class: "email-password__submit", style: "background: #104A75"  %>
+         </div>
+      </div>
+   <% end %>
+</div>

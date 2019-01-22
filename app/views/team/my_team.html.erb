@@ -7,7 +7,7 @@
    <p>Leader: you are the leader <%= @team.care_giver.firstname %></p>
    <% if(@members.length >= 1) %>
       <% @members.each do |member| %>
-         <p>Member: <%= member.firstname %><%= link_to "remove", remove_member_path(:id => member.id), :data => {:confirm=>'Are you sure?'}%></p>
+         <p>Member: <%= member.firstname %><%= link_to "remove", remove_member_path(:id => member.id), :data => {:confirm=>'Are you sure?'} %></p>
       <% end %>
    <% else %>
       <p>There are currently no other members</p>

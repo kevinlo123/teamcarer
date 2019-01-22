@@ -1,24 +1,23 @@
-<h2>Change Your Password</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New Password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm New Password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change My Password" %>
-  </div>
-<% end %>
+<div class="login-container">
+   <%= image_tag "logo-icon.png", class: "login-container__logo" %>
+   <h2 class="login-container__log-in-text">Change your password</h2>
+   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <div class="email-password">
+         <%= devise_error_messages! %>
+         <%= f.hidden_field :reset_password_token %>
+         <div class="field email-password__email">
+            <% if @minimum_password_length %>
+               <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+            <% end %>
+            <%= f.password_field :password, autofocus: true, placeholder: "New Password", autocomplete: "new-password", class: "email-password__input-family" %>
+         </div>
+         <div class="field email-password__email">
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm New Password", class: "email-password__input-family" %>
+         </div>
+         <div class="actions">
+            <%= f.submit "Change My Password", class: "email-password__submit", style: "background: #104A75" %>
+         </div>
+      </div>
+   <% end %>
+</div>
 
