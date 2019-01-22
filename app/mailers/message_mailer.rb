@@ -9,6 +9,6 @@ class MessageMailer < ApplicationMailer
    def contact_me(message)
       @greeting = "Hi"
       @body = message.body    
-      mail to: "welcome@teamcarer.com",from: 'teamcarer.herokuapp.com', subject: 'Inquiry'
+      mail to: "welcome@teamcarer.com", from: 'teamcarer.herokuapp.com', subject: 'Inquiry'
    end
 end
