@@ -1,5 +1,5 @@
 class MessageMailer < ApplicationMailer
-   # default :from => '"Teamcarer" <teamcarer.herokuapp.com>'   
+   default :from => '"Teamcarer" <teamcarer.herokuapp.com>'   
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -9,6 +9,6 @@ class MessageMailer < ApplicationMailer
    def contact_me(message)
       @greeting = "Hi"
       @body = message.body    
-      mail to: "welcome@teamcarer.com", from: message.email, subject: 'Inquiry'
+      mail to: "welcome@teamcarer.com", subject: 'Inquiry'
    end
 end
