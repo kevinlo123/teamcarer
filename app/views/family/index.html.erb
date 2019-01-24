@@ -1,11 +1,19 @@
 <% if !current_family.job_post %>
-<h3>Do you want to Create a Job Post?</h3>
-<h3>You can make changes after you post. Only items flagged with an asterick will be posted, and only registered care teams can see the post.</h3>
-   <%= form_for  :jobpost , url: "family/create_post",  html: {class: "nifty_form"} do |f| %>
-      <h4>Give a title to your Job Post.</h4>
-      <%= f.text_field :title %><br>
-      <%= f.submit%>
-   <% end %>
+   <div class="home-jobpost-container">
+      <div class="home-jobpost-container__create">
+         <h3 class="home-jobpost-container__create--text">Do You Want to Create a Job Post?</h3>
+      </div>
+      <div class="home-jobpost-container__changes">
+         <h3 class="home-jobpost-container__changes--text">You can make changes after you post. Only items flagged with an asterick will be posted, and only registered care teams can see the post.</h3>
+      </div>
+      <%= form_for  :jobpost , url: "family/create_post" do |f| %>
+         <div class="home-jobpost-container__form-input">
+            <%= f.label :title, 'Give a title to your Job Post'%>
+            <%= f.text_field :title, required: true, placeholder: "Title", class: "home-jobpost-container__form-input--input" %>
+         </div>
+         <%= f.submit "Next", class: "home-jobpost-container__button" %>
+      <% end %>
+   </div>
 <% else %>
    <h2>Welcome <%= current_family.firstname %>!</h2>
    <div style="border: 1px solid lightgrey" class="post">

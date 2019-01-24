@@ -1,40 +1,68 @@
-<h3>Your job post will look like this to Teams. Make changes or continue ?</h3>
-<%= form_for :jobpost , url: "update_post",  html: {class: "nifty_form"} do |f| %>
-   <h4>title:<%= @jobpost_title %></h4>
-   <h3>Care Recipient: <%= @recipient_info.gender %>, <%= @recipient_info.age %> years old</h3>
-   <h3>Location <%= @location %> </h3>
-   <h3>Care Needed</h3>
-   <% if @recipient_info.companion_care == nil && @recipient_info.personal_care == nil %>
-      <p>Select Care needed</p>
-   <% else %>
-      <% if @recipient_info.companion_care == nil %>
-         <% @recipient_info.personal_care.each do |care| %>
-            <li><%= care %></li>
-         <% end %>
-      <% elsif @recipient_info.personal_care == nil %>
-         <% @recipient_info.companion_care.each do |care| %>
-            <li><%= care %></li>
-         <% end %>
-      <% else %>
-         <% @recipient_info.companion_care.concat(@recipient_info.personal_care).each do |care| %>
-            <li><%= care %></li>
-         <% end %>
-      <% end %>
+<div class="home-newpost-container__preview-text">
+   <h3 class="home-newpost-container__left-side--text" style="text-align: center; margin-top: 3rem; font-size: 1.25rem">Your job post will look like this to Teams</h3>
+</div>
+<div class="home-newpost-container">
+   <%= form_for :jobpost , url: "update_post",  html: {class: "nifty_form"} do |f| %>
+      <div class="home-newpost-container__title-text">
+         <h4 class="home-newpost-container__title-text--text"><%= @jobpost_title %></h4>
+      </div>
+      <div class="home-newpost-container__preview-container">
+         <div class="home-newpost-container__left-side">
+            <h3 class="home-newpost-container__left-side--text">Care Recipient: <%= @recipient_info.gender %>, <%= @recipient_info.age %> years old</h3>
+            <h3 class="home-newpost-container__left-side--text">Location: <%= @location %> </h3>
+            <div class="care-needed-container">
+               <h3 class="home-newpost-container__left-side--text">Care Needed:</h3>
+               <% if @recipient_info.companion_care == nil && @recipient_info.personal_care == nil %>
+                  <p class="home-newpost-container__left-side--text">Select Care needed</p>
+               <% else %>
+                  <% if @recipient_info.companion_care == nil %>
+                     <ul>
+                        <% @recipient_info.personal_care.each do |care| %>
+                           <li class="home-newpost-container__left-side--text"><%= care %></li>
+                        <% end %>
+                     </ul>
+                  <% elsif @recipient_info.personal_care == nil %>
+                     <ul>
+                        <% @recipient_info.companion_care.each do |care| %>
+                           <li class="home-newpost-container__left-side--text"><%= care %></li>
+                        <% end %>
+                     </ul>
+                  <% else %>  
+                     <ul>
+                        <% @recipient_info.companion_care.concat(@recipient_info.personal_care).each do |care| %>
+                           <li class="home-newpost-container__left-side--text"><%= care %></li>
+                        <% end %>
+                     </ul>
+                  <% end %>
+               <% end %>
+            </div>
+            <h3 class="home-newpost-container__left-side--text">Most desired Quality: <%= @recipient_info.quality %> </h3>
+            <h3 class="home-newpost-container__left-side--text">Family contact: <%= @family_contact %> </h3>
+            <h3 class="home-newpost-container__left-side--text">Posted: <%= timeago(@jobpost.created_at) %></h3>
+         </div>
+         <div class="home-newpost-container__right-side">
+            <div class="medical-conditions-container">
+               <h3 class="home-newpost-container__left-side--text">Medical Conditions:</h3>
+               <ul>
+                  <% @recipient_info.conditions.each do |condition|%>
+                     <li class="home-newpost-container__left-side--text"><%= condition %></li>
+                  <% end %>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <%= f.text_area :companion_care, style:"display: none;", value: @care_needed  %>
+      <%= f.text_area :recipient_conditions, style:"display: none;", value: @recipient_info.conditions %>
+      <%= f.text_field :recipient_gender,style:"display: none;", value: @recipient_info.gender %>
+      <%= f.text_field :location, style:"display: none;", value: @location %>
+      <%= f.text_field :family_contact, style:"display: none;", value: @family_contact %>
+      <%= f.text_field :recipient_quality, style:"display: none;", value: @recipient_info.quality %>
+      <div class="newpost-button-container">
+         <h3 class="home-newpost-container__left-side--text" style="margin-top: 1.8rem;">Would you liked to make changes? Or continue</h3>
+         <div class="button-container">
+            <%= link_to 'edit post', edit_posting_path, class: "edit"%>
+            <%= f.submit "Post", class: "post" %>
+         </div>
+      </div>
    <% end %>
-   <h3>Medical Conditions</h3>
-   <% @recipient_info.conditions.each do |condition|%>
-      <li><%= condition %></li>
-   <% end %>
-   <h3>Most desired Quality: <%= @recipient_info.quality %> </h3>
-   <h3>Family contact: <%= @family_contact %> </h3>
-   <h3>Posted: <%= timeago(@jobpost.created_at) %></h3>
-   <%= f.text_area :companion_care, style:"display: none;", value: @care_needed  %>
-   <%= f.text_area :recipient_conditions, style:"display: none;", value: @recipient_info.conditions %>
-   <%= f.text_field :recipient_gender,style:"display: none;", value: @recipient_info.gender %>
-   <%= f.text_field :location, style:"display: none;", value: @location %>
-   <%= f.text_field :family_contact, style:"display: none;", value: @family_contact %>
-   <%= f.text_field :recipient_quality, style:"display: none;", value: @recipient_info.quality %>
-   <%= link_to 'edit erpost', '/family_steps/care_needed' %>
-   <%= link_to 'edit post', edit_posting_path %>
-   <%= f.submit%>
-<% end %>
+</div>

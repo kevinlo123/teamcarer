@@ -22,23 +22,26 @@
    </head>
    <body>
       <div class="main">
-      <div class="black-overlay"></div>
+         <div class="black-overlay"></div>
          <%= render "layouts/partials/header" %>
-         <h1>Welcome to the family Dashboard!</h1>
-         <%= yield %>
-         <h3>Dashboard example actions</h3>
-         <%= link_to "home/index", "/family" %>
-         <br>
-         <%= link_to "My posting", "/family/my_posting" %>
-         <br>
-         <% if current_family.care_team_id %>
-            <%= link_to "My Team", my_team_path(:id => current_family.care_team_id ) %><br>
-         <% end %>
-         <%= link_to "Care Recipient", "/family/recipient" %>
-         <br>
-         <%= link_to "Search for a team", "/family/team_search" %>
-         <br>
-         <%= link_to "Settings", "/families/edit" %>
+         <div class="side-menu-content-container">
+            <div class="side-menu-family">
+               <div class="dashboard-text-container">
+                  <h3 class="dashboard-text">Dashboard</h3>
+               </div>
+               <%= link_to "home", "/family", class: "side-menu-family__link" %>
+               <%= link_to "My posting", "/family/my_posting", class: "side-menu-family__link" %>
+               <% if current_family.care_team_id %>
+                  <%= link_to "My Team", my_team_path(:id => current_family.care_team_id ), class: "side-menu-family__link" %>
+               <% end %>
+               <%= link_to "Care Recipient", "/family/recipient", class: "side-menu-family__link" %>
+               <%= link_to "Search for a team", "/family/team_search", class: "side-menu-family__link" %>
+               <%= link_to "Settings", "/families/edit", class: "side-menu-family__link" %>
+            </div>
+            <div class="content">
+               <%= yield %>
+            </div>
+         </div>
          <%= render "layouts/partials/footer" %>
       </div>
    </body>

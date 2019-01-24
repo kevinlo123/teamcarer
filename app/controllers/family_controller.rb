@@ -61,6 +61,13 @@ class FamilyController < ApplicationController
       end
    end
 
+   def delete_post
+      @job_post = JobPost.find(params[:id])
+      if @job_post.delete
+         redirect_to family_root_path
+      end
+   end
+
 
    def edit_posting
       @my_posting = current_family.job_post
@@ -94,7 +101,7 @@ class FamilyController < ApplicationController
    end
 
    def team_search  
-      @teams = CareTeam.paginate(:page => params[:page], :per_page => 2).order('created_at ASC')
+      @teams = CareTeam.paginate(:page => params[:page], :per_page => 5).order('created_at ASC')
       @all_teams = CareTeam.all.order('created_at ASC')      
    end
 

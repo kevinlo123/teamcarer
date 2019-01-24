@@ -38,7 +38,8 @@ Rails.application.routes.draw do
       get 'family/new_post', to: 'family#new_post'
       post 'family/create_post', to: 'family#create_post'
       post 'family/update_recipient_for_post', to: 'family#update_recipient_for_post'
-      get 'family/my_posting', to: 'family#my_posting', as: :my_posting      
+      get 'family/my_posting', to: 'family#my_posting', as: :my_posting  
+      delete 'family/my_posting/delete/:id', to: 'family#delete_post', as: :delete_post
       get 'family/edit_posting', to: 'family#edit_posting', as: :edit_posting            
       post 'family/update_post', to: 'family#update_post'      
       get 'family/recipient', to: 'family#recipient'

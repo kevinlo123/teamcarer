@@ -1,35 +1,56 @@
 <% if !@job_post %>
    <p>you have not made a post yet</p>
 <% else %>
-   <div style="border: 1px solid lightgrey" class="post">
-      <h4>title:<%= @job_post.title %></h4>
-      <h3>Care Recipient: <%= @job_post.recipient_gender %>, 60 years old</h3>
-      <h3>Location <%= @job_post.location %> </h3>
-      <h3>Care Needed</h3>
-      <% if current_family.recipient.companion_care == nil && current_family.recipient.personal_care == nil %>
-         <p>No Care needed</p>
-      <% else %>
-         <% if current_family.recipient.companion_care == nil %>
-            <% current_family.recipient.personal_care.each do |care| %>
-               <li><%= care %></li>
-            <% end %>
-         <% elsif current_family.recipient.personal_care == nil %>
-            <% current_family.recipient.companion_care.each do |care| %>
-               <li><%= care %></li>
-            <% end %>
-         <% else %>
-            <% current_family.recipient.companion_care.concat(current_family.recipient.personal_care).each do |care| %>
-               <li><%= care %></li>
-            <% end %>
-         <% end %>
-      <% end %>
-      <h3>Medical Conditions</h3>
-      <% current_family.recipient.conditions.each do |condition|%>
-         <li><%= condition %></li>
-      <% end %>
-      <h4>Most Desired Quality:<%= @job_post.recipient_quality %></h4>
-      <h3>Family contact: <%= @job_post.family_contact %> </h3>
-      <h3>Posted: <%= timeago(@job_post.created_at) %></h3>
+   <div class="home-newpost-container">
+      <div class="home-newpost-container__title-text">
+         <h4 class="home-newpost-container__title-text--text"><%= @job_post.title %></h4>
+      </div>
+      <div class="home-newpost-container__preview-container" style="padding: 2rem">
+         <div class="home-newpost-container__left-side">
+            <h3 class="home-newpost-container__left-side--text">Care Recipient: <%= @job_post.recipient_gender %>, <%= current_family.recipient.age %> years old</h3>
+            <h3 class="home-newpost-container__left-side--text">Location <%= @job_post.location %> </h3>
+            <div class="care-needed-container">
+               <h3 class="home-newpost-container__left-side--text">Care Needed</h3>
+               <% if current_family.recipient.companion_care == nil && current_family.recipient.personal_care == nil %>
+                  <p class="home-newpost-container__left-side--text">No Care needed</p>
+               <% else %>
+                  <% if current_family.recipient.companion_care == nil %>
+                     <ul>
+                        <% current_family.recipient.personal_care.each do |care| %>
+                           <li class="home-newpost-container__left-side--text"><%= care %></li>
+                        <% end %>
+                     </ul>
+                  <% elsif current_family.recipient.personal_care == nil %>
+                     <ul>
+                        <% current_family.recipient.companion_care.each do |care| %>
+                           <li class="home-newpost-container__left-side--text"><%= care %></li>
+                        <% end %>
+                     </ul>
+                  <% else %>
+                     <ul>
+                        <% current_family.recipient.companion_care.concat(current_family.recipient.personal_care).each do |care| %>
+                           <li class="home-newpost-container__left-side--text"><%= care %></li>
+                        <% end %>
+                     </ul>
+                  <% end %>
+               <% end %>
+            </div>
+            <h4 class="home-newpost-container__left-side--text">Most Desired Quality:<%= @job_post.recipient_quality %></h4>
+            <h3 class="home-newpost-container__left-side--text">Family contact: <%= @job_post.family_contact %> </h3>
+            <h3 class="home-newpost-container__left-side--text">Posted: <%= timeago(@job_post.created_at) %></h3>
+         </div>
+         <div class="home-newpost-container__right-side">
+            <div class="medical-conditions-container">
+               <h3 class="home-newpost-container__left-side--text">Medical Conditions:</h3>
+               <ul>
+                  <% current_family.recipient.conditions.each do |condition|%>
+                     <li class="home-newpost-container__left-side--text"><%= condition %></li>
+                  <% end %>
+               </ul>
+            </div>
+         </div>
+      </div>
    </div>
+   <%= link_to "Delete Post", delete_post_path(:id => current_family.job_post), :method => :delete, class: "home-jobpost-container__button", style: "text-decoration: none; text-align: center;"%>
 <% end %>
 

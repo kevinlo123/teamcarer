@@ -1,10 +1,10 @@
-// Place all the styles related to the family controller here.
+// Place all the styles related to the team controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "../base/mix-ins.scss";
-@import "../base/variables.scss";
+@import "../../base/mix-ins.scss";
+@import "../../base/variables.scss";
 
-.family-landing-hero{
+.team-landing-hero{
    z-index:10;
    display: flex;
    flex-direction: column;
@@ -39,11 +39,11 @@
    }
 }
 
-.signup-button {
+.signup-button-cg {
    font-size: 1.5rem;
    color: white;
    text-decoration: none;
-   background: $blue;
+   background: $yellow;
    padding: 1rem;
    text-align: center;
    width: 190px;
@@ -57,13 +57,13 @@
    }
 }
 
-.family-landing-hero__card--text-main {
+.team-landing-hero__card--text-main {
    font-size: 1.45rem;
 }
 
 
 @include medium-desktop {
-   .family-landing-hero {
+   .team-landing-hero {
       z-index: 10;
       display: flex;
       background-size: cover;
@@ -79,14 +79,14 @@
          text-align: center;   
       }
    }
-   .signup-button {
+   .signup-button-cg {
       position: absolute;
-      top: 33%;
+      top: 32%;
       left: 0;
       right: 0;
    }
 
-   .family-landing-hero-container {
+   .team-landing-hero-container {
       width: 100%;
       display: flex;
       justify-content: space-around;
@@ -95,7 +95,7 @@
    }
 }
 
-.family-landing-steps {
+.team-landing-steps {
    display: flex;
    flex-direction: column;
    background: $light-grey;
@@ -107,7 +107,7 @@
          font-size: $medium-font;
       }
       @include modifier(number) {
-         background: $blue;
+         background: $yellow;
          font-size: $large-font;
          height: 55px;
          border-radius: 50%;
@@ -123,7 +123,7 @@
 }
 
 @include medium-desktop {
-   .family-landing-steps {
+   .team-landing-steps {
       flex-direction: row;
       padding: 2rem;
       @include element(section) {   

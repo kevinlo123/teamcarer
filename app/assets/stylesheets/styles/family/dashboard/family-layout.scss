@@ -1,0 +1,57 @@
+// Place all the styles related to the JobPosts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "../../../base/mix-ins.scss";
+@import "../../../base/variables.scss";
+
+.side-menu-content-container {
+   display: flex;
+   height: 1000px;
+   .side-menu-family {
+      height: 100%;
+      width: 18%;
+      background: #D9F4FF;
+      // background: #133A6B;
+      min-width: 235px;
+      z-index: 1; 
+      @include padding($small-padding - .25, $small-padding, $small-padding - .25, $small-padding);   
+      color: $blue;
+      @include element(link) {
+         text-decoration: none;
+         color: $blue;
+         // color: white;
+         display: block;
+         font-size: $medium-font - .25;
+         margin: 1rem 0 1rem 1.5rem;
+         transition: .3s ease-in-out; 
+         &:hover {
+            margin-left: 35px;
+            color: $yellow;
+         } 
+      }      
+   }
+   .content {
+      overflow-y: scroll;
+      width: 82%;
+      z-index: 0;
+      background: $light-grey;
+   }
+}
+
+.dashboard-text-container {
+   border-top: 1px solid $blue;      
+   border-bottom: 1px solid $blue;
+   margin-bottom: 1rem;
+   padding-left: 1.25rem;
+}
+
+@media only screen and (max-width: 991px) {
+   .side-menu-content-container {
+      .side-menu-family {
+         display: none;
+      }
+      .content {
+         width: 100%;
+      }
+   }
+}

@@ -1,0 +1,177 @@
+@import "../../../base/mix-ins.scss";
+@import "../../../base/variables.scss";
+
+.home-newpost-container {
+   border: 1px solid transparent;
+   width: 90%;
+   max-width: 950px;
+   margin: 3rem auto 0 auto;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+   background: $white;
+   @include element(preview-text) {
+      @include modifier(text) {
+         text-align: center;
+         color: $blue;
+      }
+   }
+   @include element(title-text) {
+      border-bottom: 1px solid $yellow; 
+      @include modifier(text) {
+         text-align: center;
+         color: $blue;
+         font-size: 1.5rem;
+         margin: 1rem;
+      }
+   }
+   @include element(preview-container) {
+      display: flex;
+      justify-content: space-around;
+   }
+   @include element(left-side) {
+      width: 48%;
+      @include modifier(text) {
+         color: $blue;
+         font-size: 1.2rem;
+         margin: .5rem;
+      }
+   }
+   @include element(right-side) {
+      width: 48%;      
+   }
+   .care-needed-container {
+      display: flex;
+      justify-content: space-between;
+      ul {
+         margin: 0;
+      }
+   }
+
+   .medical-conditions-container {
+      display: flex;
+      justify-content: space-between;
+      h3 {
+         width: 70%;         
+      }
+      ul {
+         margin: 0;
+      }
+   }
+   .newpost-button-container {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 1.5rem;
+      border-top: 1px solid $yellow;
+      .button-container {
+         display: flex;
+         .edit {
+            background: $blue;
+            padding: 1rem;
+            color: white;
+            border: none;
+            display: block;
+            width: 120px;
+            margin: 1rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 3px;
+            &:hover {
+               cursor: pointer;
+            }
+         }
+         .post {
+            background: $blue;
+            padding: 1rem;
+            color: white;
+            margin: 1rem;         
+            border: none;
+            display: block;
+            width: 120px;
+            border-radius: 3px;
+            &:hover {
+               cursor: pointer;
+            }
+         }
+      }
+   }
+}
+.home-newpost-container-mobile {
+   display: none;
+}
+
+@media only screen and (max-width: 800px) {
+   .home-newpost-container {
+      width: 95%;
+   }
+}   
+
+.newpost-button-container_mobile {
+   display: none;
+}
+
+@media only screen and (max-width: 650px) {
+   .home-newpost-container { 
+      @include element(title-text) {
+         @include modifier(text) {
+            font-size: 1.25rem;
+         }
+      }
+      @include element(preview-container) {
+         display: flex;
+         flex-direction: column;
+         justify-content: space-around;
+      }
+      @include element(left-side) {
+         width: 100%;
+         @include modifier(text) {
+            color: $blue;
+            font-size: 1rem;
+            margin: 1.5rem 1rem;
+         }
+      }
+      @include element(right-side) {
+         width: 100%;      
+      }
+      .care-needed-container {
+         display: flex;
+         justify-content: space-between;
+         flex-direction: column;
+         margin-top: 0;
+         h3 {
+            margin-top: 0;                     
+         }
+         ul {
+            margin: 0;
+            li {
+               margin: 0
+            }
+         }
+      }
+
+      .medical-conditions-container {
+         display: flex;
+         justify-content: space-between;
+         flex-direction: column;
+         h3 {
+            width: 70%;    
+            margin-top: 0;                     
+         }
+         ul {
+            margin: 0 0 2rem 0;
+            li {
+               margin: 0
+            }
+         }
+      }
+      .newpost-button-container {
+         display: block;
+         position: absolute;
+         border-top: none;
+         width: 95%;
+         .button-container {
+            justify-content: space-between;
+         }
+      }
+   }
+}  
+   
