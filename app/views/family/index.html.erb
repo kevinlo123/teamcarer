@@ -15,9 +15,24 @@
       <% end %>
    </div>
 <% else %>
-   <h2>Welcome <%= current_family.firstname %>!</h2>
-   <div style="border: 1px solid lightgrey" class="post">
-      <p>Name: <%= current_family.firstname %><%= current_family.lastname %></p>
+   <div class="home-family-member">
+      <div class="home-family-member__text-container">
+         <h2 class="home-family-member__text-container--text">Family Member</h2>
+      </div>
+      <div class="data-container">
+         <div class="data-container__left">
+            <p class="data-container__left--text">First Name: <%= current_family.firstname %></p>
+            <p class="data-container__left--text">Last Name: <%= current_family.lastname %></p>
+            <p class="data-container__left--text">E-mail: <%= current_family.email %></p>
+            <a class="data-container__left--text" href="tel:#{current_family.phone}">Phone: <%= current_family.phone %></a>
+         </div>
+         <div class="data-container__right">
+            <p class="data-container__right--text">City: <%= current_family.city %></p>
+            <p class="data-container__right--text">State: <%= current_family.state %></p>
+            <p class="data-container__right--text">Address: <%= current_family.street %></p>
+            <p class="data-container__right--text">Zipcode: <%= current_family.zip %></p>
+         </div>
+      </div>
+      <%= link_to "Update", "families/edit", class: "home-jobpost-container__button", style: "text-decoration: none; text-align: center;"%>
    </div>
-   <p>FAMILY NEEDS TO VIEW HIS / HER INFO IN THIS PAGE</p>
 <% end %>

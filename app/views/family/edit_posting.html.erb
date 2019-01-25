@@ -2,8 +2,8 @@
 <%= form_for :recipient, url: "update_recipient_for_post" do |f| %>
    <%= f.select :gender, options_for_select([["Male", "Male"],["Female","Female"]]), {:prompt => "Gender"}, {:class => "signup-input-container--input", :required => true } %>
    <%= f.text_field :age, maxlength: 3, required: true, placeholder: "Age", class: "signup-input-container--input" %>
-   <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker", :required => true } %>
-   <%= f.select :city, options_for_select([]),{:prompt => "City", :required => true}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker", :required => true } %> 
+   <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker-cg", :required => true } %>
+   <%= f.select :city, options_for_select([]),{:prompt => "City", :required => true}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker-cg", :required => true } %> 
    <h3>Care Needed</h3>
    <%= label_tag :HouseCleaning, nil, :class => "conditions-container__companion--label" do %>
       <%= check_box_tag "companion_care[]", "House cleaning", false, class: "conditions-container__companion--checkbox" %>

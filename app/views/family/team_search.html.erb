@@ -1,19 +1,19 @@
-<h1>Search for a team</h1>
+<h3>Do you want to find a Care team?</h3>
 <p>search for a team by team name</p>
 <%= form_tag search_team_results_path, :method => 'get' do %>
    <%= text_field_tag :search, params[:search], placeholder: "Search Teams By name", required: true %>
    <%= submit_tag "Search", :name => nil %>
 <% end %>
-<p>Or</p>
+<p>Or By Location</p>
 <%= form_tag search_team_results_state_path, :method => 'get' do %>
-   <%= select_tag :search, options_for_select(CS.states(:us).map { |code, name| [name, code] }), {:id => "state-picker", :required => true } %>
+   <%= select_tag :search, options_for_select(CS.states(:us).map { |code, name| [name, code] }), {:id => "state-picker", :required => true, :prompt => "State" } %>
    <%= submit_tag "Search", :name => nil %>
 <% end %>
 <%= form_tag search_team_results_city_path, :method => 'get' do %>
    <%= text_field_tag :search, params[:search], placeholder: "Search Teams By city", required: true %>
    <%= submit_tag "Search", :name => nil %>
 <% end %>
-<p>Search through <%= @all_teams.length %> total teams</p> 
+<!--<p>Search through <%= @all_teams.length %> total teams</p> 
 <% @teams.each do |team| %>
    <div style="border: 1px solid lightgrey" class="post">
       <p>team name:<%= team.team_name %></p>
@@ -22,7 +22,7 @@
       <%= link_to 'Contact this team', team_show_path(:id => team.id) %>
    </div>
 <% end %>
-<%= will_paginate @teams %>
+<%= will_paginate @teams %>-->
 
 
 
