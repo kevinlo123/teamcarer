@@ -2,6 +2,11 @@
 <%= form_for :care_team, url: 'create_team', html: {class: "nifty_form"} do |f| %>
    <%= f.label :team_name %>
    <%= f.text_field :team_name %><br>
+   <p>How much will you charge for care?</p>
+   <%= f.label :companion_hrly_price, "Companion Care($) per hour:" %>
+   <%= f.text_field :companion_hrly_price,  maxlength: 3, required: true  %><br>
+   <%= f.label :personal_hrly_price, "Personal Care($) per hour:" %>
+   <%= f.text_field :personal_hrly_price,  maxlength: 3, required: true %><br>
    <p>Please select where your team will be located</p>
    <%= f.select :team_state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:id => "state-picker-cg", :required => true } %>
    <%= f.select :team_city, options_for_select([]),{:prompt => "City"}, { :id => "city-picker-cg", :required => true } %> 

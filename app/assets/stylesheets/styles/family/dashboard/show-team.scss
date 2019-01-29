@@ -1,0 +1,89 @@
+@import "../../../base/mix-ins.scss";
+@import "../../../base/variables.scss";
+
+.team-container {
+   border: 1px solid transparent;
+   width: 95%;
+   max-width: 950px;
+   margin: 3rem auto 0 auto;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+   background: $white;
+   @include element(data-container) {
+      display: flex;
+      @include element(top) {
+         width: 50%;
+         padding: 0 2rem; 
+         .member-text {
+            color: $blue;
+            margin: 1rem 0;
+            font-size: 1.25rem;
+         }      
+         .view-text {
+            color: $light-blue;
+            text-decoration: none;
+            margin-left: 10px;
+            &:hover {
+               text-decoration: underline;
+            }
+         } 
+         .select-team-button {
+            background: $blue;
+            font-size: 1.25rem;
+            width: 275px;
+            color: white;
+            text-decoration: none;
+            align-self: center;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 5rem;
+            display: block;
+            margin: 2rem 0;
+         }          
+      }
+      @include element(bottom) {
+         width: 50%;
+         padding: 0 2rem; 
+         .service-text {
+            font-size: 1.25rem;
+            color: $blue;
+         } 
+         .customer-service {
+            background: $yellow;
+            font-size: 1.25rem;
+            width: 275px;
+            color: white;
+            text-decoration: none;
+            align-self: center;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 5rem;
+            display: block;
+            margin: 2rem 0;
+         }     
+      }
+   }
+}
+
+@media only screen and (max-width: 768px) {
+   .team-container {
+      @include element(data-container) {
+         flex-direction: column;
+         @include element(top) {
+            width: 100%;
+            text-align: center; 
+            .select-team-button {
+               margin: 2rem auto;
+               width: 255px;               
+            }          
+         }
+         @include element(bottom) {
+            width: 100%;
+            text-align: center;  
+            .customer-service {
+               margin: 2rem auto;
+               width: 255px;               
+            }     
+         }
+      }
+   }   
+}

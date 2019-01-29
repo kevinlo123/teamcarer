@@ -20,7 +20,10 @@
                      <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family/my_posting">My Posting</a>
                      <% unless current_family.job_post %>
                         <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family">Create a Job post</a>
-                     <% end %>     
+                     <% end %>  
+                     <% if current_family.care_team_id %>
+                        <%= link_to "My Team", my_team_path(:id => current_family.care_team_id ), class: "desktop-dropdown__list-item desktop-dropdown__list-item--text" %>
+                     <% end %>   
                      <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family/recipient">Care Recipient</a>   
                      <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family/team_search">Search for a team</a>
                      <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/families/edit">Settings</a>             
@@ -72,6 +75,9 @@
                      <%= link_to "- My posting", "/family/my_posting", class: "sub-menu__list-item sub-menu__list-item--text" %>
                      <% unless current_family.job_post %>
                         <%= link_to "- Create a Job post", "/family", class: "sub-menu__list-item sub-menu__list-item--text" %>
+                     <% end %>
+                     <% if current_family.care_team_id %>
+                        <%= link_to "- My Team", my_team_path(:id => current_family.care_team_id ), class: "sub-menu__list-item sub-menu__list-item--text" %>
                      <% end %>
                      <%= link_to "- Care Recipient", "/family/recipient", class: "sub-menu__list-item sub-menu__list-item--text" %>
                      <%= link_to "- Search for a team", "/family/team_search", class: "sub-menu__list-item sub-menu__list-item--text" %>

@@ -1,7 +1,23 @@
-<h1>my team</h1>
-<%= @care_team.team_name %>
-<p>Leader:<%= @care_team.care_giver.firstname %></p>
-
-<%@care_team_members.each do |member| %>
-   <p>Member:<%= member.firstname %></p>
-<% end %>
+<div class="team-container">
+   <div class="home-teamsearch-container__care-text">
+      <h3 class="home-teamsearch-container__care-text--text"><%= @care_team.team_name %></h3>
+   </div>
+   <div class="team-container__data-container" style="padding: 1.5rem">
+      <div class="team-container__data-container__top">
+         <p style="font-size: 1.35rem; margin-bottom: 0rem;">Team statement</p>
+         <p style="font-size: 1.15rem; color: grey;"><%= @care_team.team_statement %></p>
+         <p class="member-text" style="display: inline">Leader: <%= @care_team.care_giver.firstname%></p>
+         <%= link_to 'View Leader', team_show_member_path(:id => @care_team.care_giver.id), class: "view-text" %><br><br>
+         <% @care_team_members.each do |person| %>
+            <p class="member-text" style="display: inline">Member: <%= person.firstname %></p>
+            <%= link_to 'View Member', team_show_member_path(:id => person.id), class: "view-text" %>
+         <% end %>
+      </div>
+      <div class="team-container__data-container__bottom">
+         <p class="service-text">Companion Care $<%= @care_team.companion_hrly_price %> per hour</p>
+         <p class="service-text">Personal Care $<%= @care_team.personal_hrly_price %> per hour</p>
+         <a href="#" class="customer-service">Customer Service</a>
+      </div>
+   </div>
+</div>
+<%= link_to "Stop working with this team", remove_team_path, :method => :patch, :data => { :confirm => 'Are you sure?' }, class: "home-jobpost-container__button", style: "text-decoration: none; text-align: center; width: 250px;"%>

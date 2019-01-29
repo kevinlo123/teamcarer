@@ -1,0 +1,51 @@
+@import "../../../base/mix-ins.scss";
+@import "../../../base/variables.scss";
+
+.member-container {
+   border: 1px solid transparent;
+   width: 95%;
+   max-width: 950px;
+   margin: 3rem auto 0 auto;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+   background: $white;
+}
+
+.member-data-container {
+   padding: 1rem 3rem 3rem 3rem;
+   display: flex;
+   @include element(left) {
+      width: 50%;
+      @include modifier(team_name) {
+         color: $blue;
+         font-size: 1.5rem;
+      }
+      @include modifier(text) {
+         color: $blue;
+         font-size: 1.2rem;
+      }
+      .list-item {
+         color: $blue;
+         font-size: 1rem;
+      }
+   }
+   @include element(right) {
+      width: 50%;  
+      .list-item {
+         color: $blue;
+         font-size: 1rem;
+      }    
+   }
+}
+
+@media only screen and (max-width: 768px) {
+   .member-data-container {
+      flex-direction: column;
+      @include element(left) {
+         width: 100%;
+         margin-bottom: 2rem;
+      }
+      @include element(right) {
+         width: 100%;     
+      }
+   }
+}

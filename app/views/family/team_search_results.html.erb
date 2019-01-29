@@ -1,17 +1,37 @@
-<h3>results</h3>
-<% if @teams %>
-   <p>found <%= @teams.length %> teams out of <%= @all_teams.length %> containing the term(s) <%= params[:search] %></p>
-   <% @teams.each do |team| %>
-      <div style="border: 1px solid lightgrey" class="post">
-         <p>team name:<%= team.team_name %></p>
-         <p><%= team.team_city%>,<%= team.team_state %></p>
-         <p><%= team.team_statement %></p>
-         <%= link_to 'Contact this team', team_show_path(:id => team.id) %>
+<% if @teams.length > 0 %>
+   <div class="search-results-container">
+      <div class="home-teamsearch-container__care-text">
+         <h3 class="home-teamsearch-container__care-text--text">Care teams</h3>
       </div>
-   <% end %>
-   <%= link_to 'back to all teams', search_team_path %>
-   <%= will_paginate @teams %>
+      <h3 style="text-align: center; color: #104A75; font-size: 1.2rem;">Below are the teams best matched on your search</h3>
+      <div class="teams-container">
+         <% @teams.each do |team| %>
+            <div class="teams-container__team">
+               <div class="teams-container__data">
+                  <h3><%= team.team_name %></h3>
+                  <div class="teams-container__data--location-hours">
+                     <h3><%= team.team_city%>, <%= team.team_state %></h3>
+                     <h3>$<%= team.companion_hrly_price %>-$<%= team.personal_hrly_price %>/hr<h3p>
+                  </div>
+                  <p class="preview"><%= team.team_statement %></p>
+               </div>
+               <%= link_to 'Contact this team', team_show_path(:id => team.id), class: "contact-team-button" %>
+            </div>
+         <% end %>
+      </div>
+      <div class="digg_pagination" style="margin-bottom: 1rem; display: flex; justify-content: center;">
+         <%= will_paginate @teams %>
+      </div>
+   </div>
+   <%= link_to 'back to search teams', search_team_path, class: "home-jobpost-container__button", style: "width: 250px; text-decoration: none; text-align: center;" %>
 <% else %>
-   <p>There are no teams containing the term(s) <%= params[:search] %>.</p>
-   <%= link_to 'back to all teams', search_team_path %>
+   <div class="search-results-container">
+      <div class="home-teamsearch-container__care-text">
+         <h3 class="home-teamsearch-container__care-text--text">Care teams</h3>
+      </div>
+      <h3 style="text-align: center; color: #104A75; font-size: 1.2rem;">There are no teams containing the term(s) <%= params[:search] %>.</h3>
+      <div class="teams-container">
+         <%= link_to 'back to search teams', search_team_path, class: "home-jobpost-container__button", style: "width: 250px; text-decoration: none; text-align: center;" %>
+      </div>
+   </div>
 <% end %> 

@@ -111,12 +111,12 @@ class FamilyController < ApplicationController
    end
 
    def team_search_results_state
-      @teams = CareTeam.search_state(params[:search]).paginate(page: params[:page],:per_page => 1)
+      @teams = CareTeam.search_state(params[:search]).paginate(page: params[:page],:per_page => 5)
       @all_teams = CareTeam.all.order('created_at ASC')
    end
 
    def team_search_results_city
-      @teams = CareTeam.search_city(params[:search])
+      @teams = CareTeam.search_city(params[:search]).paginate(page: params[:page],:per_page => 5)
       @all_teams = CareTeam.all.order('created_at ASC')
    end
 
@@ -128,7 +128,10 @@ class FamilyController < ApplicationController
 
    def team_show_member
       @member = CareGiver.find(params[:id])  
-      @work_exp = WorkExp.where(care_giver_id: params[:id])         
+      @leader = CareTeam.find_by(care_giver_id: params[:id])
+      @work_exp = WorkExp.where(care_giver_id: params[:id]) 
+      @certificates = Certificate.where(care_giver_id: params[:id]) 
+      @education = Education.where(care_giver_id: params[:id]) 
    end
 
    def team_selection
@@ -142,6 +145,11 @@ class FamilyController < ApplicationController
    def my_team
       @care_team = CareTeam.find(params[:id])
       @care_team_members = CareGiver.all.where(care_team: params[:id])       
+   end
+
+   def remove_team
+      current_family.update(care_team_id: nil)
+      redirect_to family_root_path      
    end
    
    private 

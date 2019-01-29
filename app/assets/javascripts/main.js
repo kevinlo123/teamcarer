@@ -79,6 +79,24 @@
       $("#dropdown-button-3").on("click", function() {
          $("#dropdown-3").slideToggle(100);
       });
+
+      var showChar = 50;
+      var ellipsestext = "...";
+
+      $('.preview').each(function() {
+         var content = $(this).html();
+         if(content.length > showChar) {
+            var c = content.substr(0, showChar);
+            var h = content.substr(showChar-1, content.length - showChar);
+            var html = c +  ellipsestext;
+            $(this).html(html);
+         }
+      });
+
+      $('#already').on("click", function() {
+         alert("You are already assigned to a team");
+      });
+      
       var stateCg = document.getElementById("state-picker-cg");
       stateCg.addEventListener("change", function() {
          console.log("change")

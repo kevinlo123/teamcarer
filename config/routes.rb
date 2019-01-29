@@ -53,7 +53,8 @@ Rails.application.routes.draw do
       get 'family/team/:id', to: 'family#team_show', as: :team_show 
       get 'family/team_member/:id', to: 'family#team_show_member', as: :team_show_member  
       get 'family/team_selection/:id', to: 'family#team_selection', as: :team_selection  
-      get 'family/my_team/:id', to: 'family#my_team', as: :my_team                                   
+      get 'family/my_team/:id', to: 'family#my_team', as: :my_team   
+      patch 'family/remove_team', to: 'family#remove_team', as: :remove_team                                
    end  
    # caregiver dashboard 
    as :team do      

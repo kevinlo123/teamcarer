@@ -81,6 +81,6 @@ class TeamController < ApplicationController
    
    private 
       def sanitize_team
-         params.require(:care_team).permit(:team_name, :team_statement, :team_state, :team_city)
+         params.require(:care_team).permit(:team_name, :team_statement, :team_state, :team_city, :personal_hrly_price, :companion_hrly_price)
       end
 end
