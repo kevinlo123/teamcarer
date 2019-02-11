@@ -1,0 +1,29 @@
+@import "../../../base/mix-ins.scss";
+@import "../../../base/variables.scss";
+
+.create-team-container {
+   border: 1px solid transparent;
+   width: 95%;
+   max-width: 950px;
+   margin: 3rem auto 0 auto;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+   background: $baby-blue;
+}
+
+.create-team-form {
+   width: 90%;
+   margin: 0 auto;
+   @include element(container) {
+      width: 400px;
+      margin: 0 auto;
+   }
+}
+
+@media only screen and (max-width: 480px) {
+   .create-team-form {
+      @include element(container) {
+         width: 100%;
+         margin: 0 auto;
+      }
+   } 
+}   

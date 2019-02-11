@@ -1,14 +1,56 @@
-<h3>Edit recipient credentials</h3>
 <% if @Jobpost.taken %>
       <p>This job has already been taken</p>
 <% else %>
-   <%= form_for @Jobpost, url: 'update_post',  html: {class: "nifty_form"} do |f| %>
-      <h3><%= @Jobpost.title %></h3>
-      <p><%= @Jobpost.description %></p>
-      <% @Jobpost.family.recipient.companion_care.each do |care| %>
-         <li><%= care %></li>
-      <% end %>
-      <%= mail_to @email, "Contact family" %>
-   <% end %>
+   <div class="home-newpost-container">
+      <div class="home-newpost-container__title-text">
+         <h4 class="home-newpost-container__title-text--text"><%= @Jobpost.title.titleize %></h4>
+      </div>
+      <div class="home-newpost-container__preview-container" style="padding: 2rem">
+         <div class="home-newpost-container__left-side">
+            <h3 class="home-newpost-container__left-side--text">Care Recipient: <%= @Jobpost.recipient_gender %>, <%= @Jobpost.family.recipient.age %> years old</h3>
+            <h3 class="home-newpost-container__left-side--text">Location: <%= @Jobpost.city %>, <%= @Jobpost.state %></h3>
+            <div class="care-needed-container">
+               <h3 class="home-newpost-container__left-side--text">Care Needed:</h3>
+               <% if @Jobpost.family.recipient.companion_care == nil && @Jobpost.family.recipient.personal_care == nil %>
+                  <p class="home-newpost-container__left-side--text">No Care needed</p>
+               <% else %>
+                  <% if @Jobpost.family.recipient.companion_care == nil %>
+                     <ul>
+                        <% @Jobpost.family.recipient.personal_care.each do |care| %>
+                           <li class="home-newpost-container__left-side--text"><%= care %></li>
+                        <% end %>
+                     </ul>
+                  <% elsif @Jobpost.family.recipient.personal_care == nil %>
+                     <ul>
+                        <% @Jobpost.family.recipient.companion_care.each do |care| %>
+                           <li class="home-newpost-container__left-side--text"><%= care %></li>
+                        <% end %>
+                     </ul>
+                  <% else %>
+                     <ul>
+                        <% @Jobpost.family.recipient.companion_care.concat(@Jobpost.family.recipient.personal_care).each do |care| %>
+                           <li class="home-newpost-container__left-side--text"><%= care %></li>
+                        <% end %>
+                     </ul>
+                  <% end %>
+               <% end %>
+            </div>
+            <h4 class="home-newpost-container__left-side--text">Most Desired Quality:<%= @Jobpost.recipient_quality %></h4>
+            <h3 class="home-newpost-container__left-side--text">Family contact: <%= @Jobpost.family_contact %> </h3>
+            <h3 class="home-newpost-container__left-side--text">Posted: <%= timeago(@Jobpost.created_at) %></h3>
+         </div>
+         <div class="home-newpost-container__right-side">
+            <div class="medical-conditions-container">
+               <h3 class="home-newpost-container__left-side--text">Medical Conditions:</h3>
+               <ul>
+                  <% @Jobpost.family.recipient.conditions.each do |condition|%>
+                     <li class="home-newpost-container__left-side--text"><%= condition %></li>
+                  <% end %>
+               </ul>
+            </div>
+            <%= mail_to @email, "Contact family", class: "contact-button" %>
+         </div>
+      </div>
+   </div>
 <% end %>
 

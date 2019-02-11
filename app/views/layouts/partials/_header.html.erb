@@ -35,14 +35,14 @@
                <li class="desktop-nav-list__item" style="margin-left: 18px;">Dashboard
                   <ul class="desktop-dropdown">
                      <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/team">Home</a>
-                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/team/posts">Job postings</a> 
+                     <%= link_to "Job Postings", all_posts_path(:id => current_care_giver.id), class: "desktop-dropdown__list-item desktop-dropdown__list-item--text" %>
                      <% if current_care_giver.care_team %>
                         <%= link_to "My team", my_care_team_path(:id => current_care_giver.care_team), :class => "desktop-dropdown__list-item desktop-dropdown__list-item--text" %>
                      <% end %>
                      <% if current_care_giver.leader %>
                         <%= link_to "My team", my_care_team_path(:id => CareTeam.where(care_giver_id: current_care_giver.id)[0]), :class => "desktop-dropdown__list-item desktop-dropdown__list-item--text" %>
                      <% end %>   
-                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/team/edit">Settings</a>             
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/care_givers/edit">Settings</a>             
                   </ul>
                </li>
                <%= link_to "Log out", destroy_care_giver_session_path, method: :delete, class: "desktop-nav-list__item desktop-nav-list__item--text" %>
@@ -90,8 +90,13 @@
                <li class="side-menu__list-item">Dashboard <i class="fas fa-chevron-down"></i>
                   <ul class="sub-menu">
                      <%= link_to "- Home", "/team", class: "sub-menu__list-item sub-menu__list-item--text" %>
-                     <%= link_to "- All Job post", "/team/posts", class: "sub-menu__list-item sub-menu__list-item--text" %>
-                     <%= link_to "- My team", "/team/my_team", class: "sub-menu__list-item sub-menu__list-item--text" %>
+                     <%= link_to "- Job Postings", all_posts_path(:id => current_care_giver.id), class: "sub-menu__list-item sub-menu__list-item--text" %>
+                     <% if current_care_giver.care_team %>
+                        <%= link_to "- My team", my_care_team_path(:id => current_care_giver.care_team), class: "sub-menu__list-item sub-menu__list-item--text" %>
+                     <% end %>
+                     <% if current_care_giver.leader %>
+                        <%= link_to "- My team", my_care_team_path(:id => CareTeam.where(care_giver_id: current_care_giver.id)[0]), class: "sub-menu__list-item sub-menu__list-item--text" %>
+                     <% end %>  
                   </ul>
                </li>
                <%= link_to "Log out", destroy_care_giver_session_path, method: :delete, class: "side-menu__list-item side-menu__list-item--text" %>

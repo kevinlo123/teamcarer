@@ -1,33 +1,53 @@
-<% if current_care_giver.care_team %>
-   <p>Leader: <%= @team.care_giver.firstname %></p>
-   <% @members.each do |member| %>
-      <p>Member: <%= member.firstname %></p>
-   <% end %>
-<% else %>
-   <p>Leader: you are the leader <%= @team.care_giver.firstname %></p>
-   <% if(@members.length >= 1) %>
-      <% @members.each do |member| %>
-         <p>Member: <%= member.firstname %><%= link_to "remove", remove_member_path(:id => member.id), :data => {:confirm=>'Are you sure?'} %></p>
-      <% end %>
-   <% else %>
-      <p>There are currently no other members</p>
-   <% end %>
-<% end %>
-
+<div class="team-container" style="background: #F3FCFF">
+   <div class="home-teamsearch-container__care-text">
+      <h3 class="home-teamsearch-container__care-text--text"><%= @care_team.team_name %></h3>
+   </div>
+   <div class="team-container__data-container" style="padding: 1.5rem">
+      <div class="team-container__data-container__top">
+         <p style="font-size: 1.35rem; margin-bottom: 0rem;">Team statement</p>
+         <p style="font-size: 1.15rem; color: grey;"><%= @care_team.team_statement %></p>
+         <p class="member-text" style="display: inline">Leader: <%= @care_team.care_giver.firstname%></p>
+         <%= link_to 'View Leader', show_member_path(:id => @care_team.care_giver.id), class: "view-text" %><br><br>
+         <% if current_care_giver.care_team %>
+            <% @care_team_members.each do |person| %>
+               <p class="member-text" style="display: inline">Member: <%= person.firstname %></p>
+               <%= link_to 'View', show_member_path(:id => person.id), class: "view-text" %>
+            <% end %>
+         <% else %>
+            <% @care_team_members.each do |person| %>
+               <p class="member-text" style="display: inline">Member: <%= person.firstname %></p>
+               <%= link_to "Remove", remove_member_path(:id => person.id), :data => {:confirm=>'Are you sure?'}, class: "view-text" %>
+               <%= link_to 'View', show_member_path(:id => person.id), class: "view-text" %>
+            <% end %>
+         <% end %>
+      </div>
+      <div class="team-container__data-container__bottom">
+         <p class="service-text">Companion Care $<%= @care_team.companion_hrly_price %> per hour</p>
+         <p class="service-text">Personal Care $<%= @care_team.personal_hrly_price %> per hour</p>
+         <a href="#" class="customer-service">Customer Service</a>
+      </div>
+   </div>
+</div>
+<h2>Your Jobs</h2>
 <% if @families == 0 %>
    <p>You are currently working with any families</p>
 <% else %>
    <% @families.each do |family|%>
-      <h4>working with </h4>
-      <p>Family id: <%=family.id %></p>
-      <p>Family phone: <%=family.phone %></p>
-      <p>Family recipient_relation: <%=family.recipient_relation %></p>
-      <% if family.recipient %>
-         <p>Family recipient firstname:<%= family.recipient.firstname %></p>
-         <p>Family recipient city location:<%= family.recipient.city %></p>
-      <% end %>
+      <div style="border: 1px solid">
+         <p>Family id: <%=family.id %></p>
+         <p>Family phone: <%=family.phone %></p>
+         <p>Family recipient_relation: <%=family.recipient_relation %></p>
+         <% if family.recipient %>
+            <p>Family recipient firstname:<%= family.recipient.firstname %></p>
+            <p>Family recipient city location:<%= family.recipient.city %></p>
+         <% end %>
+      </div>
    <% end %>
 <% end %>
+<!--<% if !current_care_giver.care_team %>-->
+   <h2>Hours</h2>
+   <div>We need to be able to click on a job and submit hours</div>
+<!--<% end %>-->
 
 
 

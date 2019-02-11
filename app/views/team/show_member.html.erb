@@ -1,0 +1,53 @@
+<div class="member-container">
+   <div class="home-teamsearch-container__care-text">
+      <h3 class="home-teamsearch-container__care-text--text"><%= @member.firstname.titleize %> <%= @member.lastname.first.titleize %>.</h3>
+   </div>
+   <div class="member-data-container">
+      <div class="member-data-container__left">
+         <% if @member.care_team %>
+            <h3 class="member-data-container__left--team_name"><%= @member.care_team.team_name %></h3>
+         <% else %>
+            <h3 class="member-data-container__left--team_name"><%= @leader.team_name %></h3>
+         <% end %>
+         <h3 class="member-data-container__left--text">Education</h3>
+         <% @education.each do |po|%>
+            <li class="list-item"><%= po.school %></li>
+         <% end %>
+         <h3 class="member-data-container__left--text">Certificates</h3>
+         <% @certificates.each do |po|%>
+            <li class="list-item"><%= po.certificate %></li>
+         <% end %>
+         <h3 class="member-data-container__left--text">Languages</h3>
+         <% @member.languages.each do |language|%>
+            <li class="list-item"><%= language %></li>
+         <% end %>
+         <div style="margin: 1.5em 0 3rem 0;">
+            <h3 class="member-data-container__left--text"  style="display: inline;">Experience</h3>
+            <% if @member.years_experience.to_i > 1 %>
+               <p style="display: inline;"><%= @member.years_experience %> years</p>
+            <% else %>
+               <p style="display: inline;"><%= @member.years_experience %> year</p>
+            <% end %>
+         </div>
+         <%= link_to "Back to Team", :back, :style => "font-size: 1.2rem; text-decoration: none; color: white; background: #104A75; padding: 1rem; border-radius: 3px;" %>
+      </div>
+      <div class="member-data-container__right">
+         <h3 class="member-data-container__left--text">Personal Statement</h3>
+         <p style="color: grey;"><%= @member.statement %></p>
+         <h3 class="member-data-container__left--text">Experience with</h3>
+         <% @member.conditions.each do |condition|%>
+            <li class="list-item"><%= condition %></li>
+         <% end %>
+         <h3 class="member-data-container__left--text">Related Service</h3>
+         <% @member.related_service.each do |condition|%>
+            <li class="list-item"><%= condition %></li>
+         <% end %>
+         <% @member.personal_care.each do |care|%>
+            <li class="list-item"><%= care %></li>
+         <% end %>
+         <% @member.companion_care.each do |care|%>
+            <li class="list-item"><%= care %></li>
+         <% end %>
+      </div>
+   </div>
+</div>

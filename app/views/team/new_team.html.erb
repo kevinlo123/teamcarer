@@ -1,16 +1,24 @@
-<h1>Create a team!</h1>
-<%= form_for :care_team, url: 'create_team', html: {class: "nifty_form"} do |f| %>
-   <%= f.label :team_name %>
-   <%= f.text_field :team_name %><br>
-   <p>How much will you charge for care?</p>
-   <%= f.label :companion_hrly_price, "Companion Care($) per hour:" %>
-   <%= f.text_field :companion_hrly_price,  maxlength: 3, required: true  %><br>
-   <%= f.label :personal_hrly_price, "Personal Care($) per hour:" %>
-   <%= f.text_field :personal_hrly_price,  maxlength: 3, required: true %><br>
-   <p>Please select where your team will be located</p>
-   <%= f.select :team_state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:id => "state-picker-cg", :required => true } %>
-   <%= f.select :team_city, options_for_select([]),{:prompt => "City"}, { :id => "city-picker-cg", :required => true } %> 
-   <%= f.label :team_statement %>
-   <%= f.text_area :team_statement, size: "40x12" %><br>
-   <%= f.submit%>
-<% end %>
+<div class="create-team-container" style="margin-bottom: 3rem;">
+   <div class="home-jobpost-container__create">
+      <h3 class="home-jobpost-container__create--text">Create a Team!</h3>
+   </div>
+   <%= form_for :care_team, url: 'create_team', html: {class: "nifty_form"} do |f| %>
+      <div class="create-team-form">
+         <div class="create-team-form__container">
+            <h3 style="color: #104A75">Give a name to your Team</h3>
+            <%= f.text_field :team_name, required: true, placeholder: "Team Name", class: "signup-input-container-cg--input-cg" %>
+            <h3 style="color: #104A75">How much will you charge for care?</h3>
+            <%= f.label :companion_hrly_price, "Companion Care($) per hour:" %>
+            <%= f.text_field :companion_hrly_price,  maxlength: 3, required: true, placeholder: "$ per hour", class: "signup-input-container-cg--input-cg" %>
+            <%= f.label :personal_hrly_price, "Personal Care($) per hour:" %>
+            <%= f.text_field :personal_hrly_price,  maxlength: 3, required: true, placeholder: "$ per hour", class: "signup-input-container-cg--input-cg" %>
+            <h3 style="color: #104A75">Please select where your team will be located</h3>
+            <%= f.select :team_state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:id => "state-picker-cg", :required => true, class: "signup-input-container-cg--input-cg", style: "margin-bottom: 1rem;" } %>
+            <%= f.select :team_city, options_for_select([]),{:prompt => "City"}, { :id => "city-picker-cg", :required => true , class: "signup-input-container-cg--input-cg"} %> 
+            <h3 style="color: #104A75">Team Statement: A brief description of why the families want to hire you</h3>
+            <%= f.text_area :team_statement, size: "40x12", placeholder: "Use a story and make it unique", required: true, class: "signup-input-container-cg--input-cg" %>
+            <%= f.submit "Create Team", class: "signup-input-container-cg--submit-cg", style: "margin-bottom: 2rem;"%>
+         </div>
+      </div>
+   <% end %>
+</div>

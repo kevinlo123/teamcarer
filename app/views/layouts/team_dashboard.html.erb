@@ -26,20 +26,31 @@
       <div class="main">
          <div class="black-overlay"></div>
          <%= render "layouts/partials/header" %>
-         <h1>Welcome to the Team Dashboard!</h1>
-         <%= yield %>
-         <h3>Dashboard example actions</h3>
-         <%= link_to "home/index", "/team" %>
-         <br>
-         <%= link_to "All Job post", "/team/posts" %><br>
-         <% if current_care_giver.care_team %>
-            <%= link_to "My team", my_care_team_path(:id => current_care_giver.care_team)%><br>
-         <% end %>
-         <% if current_care_giver.leader %>
-            <%= link_to "My team", my_care_team_path(:id => CareTeam.where(care_giver_id: current_care_giver.id)[0])%><br>
-         <% end %>
-         <%= link_to "Settings", "/care_givers/edit" %>
+         <div class="side-menu-content-container-cg">
+            <div class="side-menu-family-cg">
+               <div class="dashboard-text-container-cg">
+                  <h3 class="dashboard-text-cg">Dashboard</h3>
+               </div>
+               <%= link_to "Home", "/team", class: "side-menu-family-cg__link-cg"  %>
+               <%= link_to "Job Postings", all_posts_path(:id => current_care_giver.id), class: "side-menu-family-cg__link-cg"  %>
+               <% if current_care_giver.care_team %>
+                  <%= link_to "My team", my_care_team_path(:id => current_care_giver.care_team), class: "side-menu-family-cg__link-cg" %>
+               <% end %>
+               <% if current_care_giver.leader %>
+                  <%= link_to "My team", my_care_team_path(:id => CareTeam.where(care_giver_id: current_care_giver.id)[0]), class: "side-menu-family-cg__link-cg"  %>
+               <% end %>
+               <%= link_to "Settings", "/care_givers/edit", class: "side-menu-family-cg__link-cg"  %>
+            </div>
+            <div class="content-cg">
+               <%= yield %>
+            </div>
+         </div>
          <%= render "layouts/partials/footer" %>
       </div>
    </body>
+   <%= javascript_tag do %>
+     $(function() {
+       $("time.timeago").timeago();
+     });
+   <% end %>
 </html>

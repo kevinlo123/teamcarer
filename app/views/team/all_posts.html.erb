@@ -1,11 +1,56 @@
 <p><%= flash[:notice] %></p>
-<% @Jobpost.each do |post| %>   
-      <div style="border: 1px solid lightgrey" class="post">
-         <p>post title:<%= post.title %></p>
-         <p>post description:<%= post.description %></p>
-         <p>post created by family with id: <%= post.family_id %></p>
-         <p>Is this job currently taken?: <%= post.taken %></p>
-         <a href="/team/edit_post/<%= post.id %>/edit">Request Job</a>
-         <p>post created at: <%= post.created_at.to_formatted_s(:long) %></p>
+<% if @Jobpost.length <= 0 %>
+   <% if @jobs_by_state.length <= 0 %>
+      <p>There are no jobs in your area</p>
+   <% else %>
+      <div class="all-posts-container">
+         <div class="home-teamsearch-container__care-text">
+            <h3 class="home-teamsearch-container__care-text--text">All Jobs located in MA</h3>
+         </div>
+         <div class="jobs-container">
+            <% @jobs_by_state.each do |post| %>   
+               <div class="jobs-container__job">
+                  <div class="jobs-container__job-data">
+                     <h2 style="color: #133A6B"><%= post.title.titleize %></h2>
+                     <h4 class="jobs-container__job-data--text">Contact: <%= post.family.firstname.titleize %> <%= post.family.lastname.first.titleize %>.</h4>
+                     <h4 class="jobs-container__job-data--text"><%= post.family.recipient.hours_weekly %> hrs. per week</h4>
+                     <h4 class="jobs-container__job-data--text">Care Recipient: <%= post.family.recipient.gender %>, <%= post.family.recipient.age %> years old</h4>
+                     <h4 class="jobs-container__job-data--text">Location: <%= post.city %>, <%= post.state %></h4>
+                     <h4 class="jobs-container__job-data--text">Most desired quality: <%= post.family.recipient.quality %></h4>
+                     <h4 class="jobs-container__job-data--text">posted <%= timeago(post.created_at) %></h4>
+                  </div>
+                  <a class="request-job-button" href="/team/edit_post/<%= post.id %>/edit">Request Job</a>
+               </div>
+            <% end %>
+         </div>
+         <div class="digg_pagination" style="margin-bottom: 1rem; display: flex; justify-content: center; background: #D9F4FF">
+            <%= will_paginate @jobs_by_state %>
+         </div>
       </div>
+   <% end %>
+<% else %>
+   <div class="all-posts-container">
+      <div class="home-teamsearch-container__care-text">
+         <h3 class="home-teamsearch-container__care-text--text">Jobs in <%= current_care_giver.city %>, <%= current_care_giver.state %></h3>
+      </div>
+      <div class="jobs-container">
+         <% @Jobpost.each do |post| %>   
+            <div class="jobs-container__job">
+               <div class="jobs-container__job-data">
+                  <h2 style="color: #133A6B"><%= post.title.titleize %></h2>
+                  <h4 class="jobs-container__job-data--text">Contact: <%= post.family.firstname.titleize %> <%= post.family.lastname.first.titleize %>.</h4>
+                  <h4 class="jobs-container__job-data--text"><%= post.family.recipient.hours_weekly %> hrs. per week</h4>
+                  <h4 class="jobs-container__job-data--text">Care Recipient: <%= post.family.recipient.gender %>, <%= post.family.recipient.age %> years old</h4>
+                  <h4 class="jobs-container__job-data--text">Location: <%= post.city %>, <%= post.state %></h4>
+                  <h4 class="jobs-container__job-data--text">Most desired quality: <%= post.family.recipient.quality %></h4>
+                  <h4 class="jobs-container__job-data--text">posted <%= timeago(post.created_at) %></h4>
+               </div>
+               <a class="request-job-button" href="/team/edit_post/<%= post.id %>/edit">Request Job</a>
+            </div>
+         <% end %>
+      </div>
+      <div class="digg_pagination" style="margin-bottom: 1rem; display: flex; justify-content: center; background: #D9F4FF">
+         <%= will_paginate @Jobpost %>
+      </div>
+   </div>
 <% end %>

@@ -1,13 +1,45 @@
-<h1>Join a team</h1>
 <% if @teams.length < 1 %>
    <p>No teams to join at this time</p>
 <% else %>
-   <% @teams.each do |team| %>
+   <div class="home-teamsearch-container" style="background: #F3FCFF">
+      <div class="home-teamsearch-container__care-text">
+         <h3  class="home-teamsearch-container__care-text--text">Find a Care team to Join</h3>
+      </div>
+      <%= form_tag team_results_path, :method => 'get' do %>
+         <div class="teamsearch-name">
+            <%= label :search, "Search for a team by the Teams Name" %>
+            <div class="teamsearch-name__inputs">
+               <%= text_field_tag :search, params[:search], placeholder: "Search Teams By name", required: true, class: "teamsearch-name__inputs--input" %>
+               <%= submit_tag "Search", :name => nil, class: "teamsearch-name__inputs--button", style: "background: #FFB052" %>
+            </div>
+         </div>
+      <% end %>
+      <p class="location-text">Or By Location</p>
+      <%= form_tag team_results_state_path, :method => 'get' do %>
+         <div class="teamsearch-name">
+         <%= label :search, "State" %>
+            <div class="teamsearch-name__inputs">
+               <%= select_tag :search, options_for_select(CS.states(:us).map { |code, name| [name, code] }), {:id => "state-picker", :required => true, :prompt => "State", :class => "teamsearch-name__inputs--input" } %>
+               <%= submit_tag "Search", :name => nil, class: "teamsearch-name__inputs--button", style: "background: #FFB052"  %>
+            </div>
+         </div>
+      <% end %>
+      <%= form_tag team_results_city_path, :method => 'get' do %>
+         <div class="teamsearch-name" style="margin-bottom: 4rem;">
+            <%= label :search, "City" %>
+            <div class="teamsearch-name__inputs">
+               <%= text_field_tag :search, params[:search], placeholder: "Search Teams By city", required: true, class: "teamsearch-name__inputs--input" %>
+               <%= submit_tag "Search", :name => nil, class: "teamsearch-name__inputs--button", style: "background: #FFB052" %>
+            </div>
+         </div>
+      <% end %>
+   </div>
+   <!--<% @teams.each do |team| %>
       <div style="border: 1px solid lightgrey" class="post">
          <p>Team: <%= team.team_name %></p>
          <p>Statement: <%= team.team_statement %></p>
          <p>Leader: <%= team.care_giver.firstname %> <%= team.care_giver.lastname %></p>
          <a href="/team/show_team/<%= team.id %>">join team</a>
       </div>
-   <% end %>
+   <% end %>-->
 <% end %>

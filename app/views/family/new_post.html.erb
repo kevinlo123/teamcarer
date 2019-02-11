@@ -9,7 +9,7 @@
       <div class="home-newpost-container__preview-container">
          <div class="home-newpost-container__left-side">
             <h3 class="home-newpost-container__left-side--text">Care Recipient: <%= @recipient_info.gender %>, <%= @recipient_info.age %> years old</h3>
-            <h3 class="home-newpost-container__left-side--text">Location: <%= @location %> </h3>
+            <h3 class="home-newpost-container__left-side--text">Location: <%= @city %>, <%= @state %> </h3>
             <div class="care-needed-container">
                <h3 class="home-newpost-container__left-side--text">Care Needed:</h3>
                <% if @recipient_info.companion_care == nil && @recipient_info.personal_care == nil %>
@@ -54,7 +54,8 @@
       <%= f.text_area :companion_care, style:"display: none;", value: @care_needed  %>
       <%= f.text_area :recipient_conditions, style:"display: none;", value: @recipient_info.conditions %>
       <%= f.text_field :recipient_gender,style:"display: none;", value: @recipient_info.gender %>
-      <%= f.text_field :location, style:"display: none;", value: @location %>
+      <%= f.text_field :city, style:"display: none;", value: @city %>
+      <%= f.text_field :state, style:"display: none;", value: @state %>
       <%= f.text_field :family_contact, style:"display: none;", value: @family_contact %>
       <%= f.text_field :recipient_quality, style:"display: none;", value: @recipient_info.quality %>
       <div class="newpost-button-container">

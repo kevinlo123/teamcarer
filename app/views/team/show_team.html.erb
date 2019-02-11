@@ -1,13 +1,29 @@
-<h3>Team information here</h3>
 <p><%= flash[:notice] %></p>
-<p>Team Name: <%= @team.team_name %></p>
-<p>Team Statement: <%= @team.team_statement %></p>
-<p>Team Leader: <%= @team.care_giver.firstname %> <%= @team.care_giver.lastname %></p>
-<% @members.each do |member|%>
-   <p>Member: <%= member.firstname %></p>
-<% end %>
-<%= form_for @team, url: {action:'update_team'},  html: {class: "nifty_form"} do |f| %>
-   <%= f.submit 'Join Team' %>
-<% end %>
-<%= link_to 'go back', join_teams_path %>
+<div class="team-container">
+   <div class="home-teamsearch-container__care-text">
+      <h3 class="home-teamsearch-container__care-text--text"><%= @care_team.team_name %></h3>
+   </div>
+   <div class="team-container__data-container">
+      <div class="team-container__data-container__top">
+         <p style="font-size: 1.35rem; margin-bottom: 0rem;">Team statement</p>
+         <p style="font-size: 1.15rem; color: grey;"><%= @care_team.team_statement %></p>
+         <p class="member-text" style="display: inline">Leader: <%= @care_team.care_giver.firstname%></p>
+         <%= link_to 'View Leader', show_member_path(:id => @care_team.care_giver.id), class: "view-text" %><br><br>
+         <% @care_team_members.each do |person| %>
+            <p class="member-text" style="display: inline">Member: <%= person.firstname %></p>
+            <%= link_to 'View Member', show_member_path(:id => person.id), class: "view-text" %>
+         <% end %>
+         <% unless current_care_giver.care_team_id %>
+             <%= form_for current_care_giver, url: {action:'update_team'},  html: {class: "nifty_form"} do |f| %>
+               <%= f.submit 'Join Team', :data => { :confirm => 'Are you sure?' }, class: "select-team-button" %>
+            <% end %>
+         <% end %>
+      </div>
+      <div class="team-container__data-container__bottom">
+         <p class="service-text">Companion Care $<%= @care_team.companion_hrly_price %> per hour</p>
+         <p class="service-text">Personal Care $<%= @care_team.personal_hrly_price %> per hour</p>
+         <p class="service-text">You can click "Join This Team" or contact the team leader</p>
+      </div>
+   </div>
+</div>
 

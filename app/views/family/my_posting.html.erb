@@ -8,7 +8,7 @@
       <div class="home-newpost-container__preview-container" style="padding: 2rem">
          <div class="home-newpost-container__left-side">
             <h3 class="home-newpost-container__left-side--text">Care Recipient: <%= @job_post.recipient_gender %>, <%= current_family.recipient.age %> years old</h3>
-            <h3 class="home-newpost-container__left-side--text">Location <%= @job_post.location %> </h3>
+            <h3 class="home-newpost-container__left-side--text">Location: <%= @job_post.city %>, <%= @job_post.state %> </h3>
             <div class="care-needed-container">
                <h3 class="home-newpost-container__left-side--text">Care Needed</h3>
                <% if current_family.recipient.companion_care == nil && current_family.recipient.personal_care == nil %>

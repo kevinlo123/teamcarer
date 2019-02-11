@@ -1,0 +1,66 @@
+@import "../../../base/mix-ins.scss";
+@import "../../../base/variables.scss";
+
+.all-posts-container {
+   border: 1px solid transparent;
+   width: 90%;
+   max-width: 950px;
+   margin: 3rem auto 6rem auto;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+   background: #F3FCFF;
+}
+
+.jobs-container {
+   width: 100%;
+   padding: 0;
+   @include element(job) {
+      background: #D9F4FF;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;   
+      padding: .75rem 1.5rem;     
+      &:nth-of-type(even) {
+         background: white;
+      } 
+   }
+   @include element(job-data) {
+      width: 55%;
+      @include modifier(text) {
+         color: $blue;
+         font-size: 1.05rem;
+         margin: 1rem 0;
+      }
+   }
+   .request-job-button {
+      background: $blue;
+      font-size: 1.25rem;
+      width: 275px;
+      color: white;
+      text-decoration: none;
+      align-self: center;
+      text-align: center;
+      padding: 1.5rem;
+      border-radius: 5rem;
+   }
+}
+
+@media only screen and (max-width: 768px) {
+   .all-posts-container {
+      .jobs-container {
+         padding: 0 0 1rem 0;;
+         @include element(job) {
+            flex-direction: column;
+            text-align: center;       
+         }
+         @include element(job-data) {
+            width: 100%;
+            margin-bottom: 1.5rem;                     
+         }
+      }
+      .request-job-button {
+         width: 250px;
+         margin-bottom: 1.5rem;         
+      }
+   }
+}

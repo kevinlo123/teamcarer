@@ -1,20 +1,88 @@
 <p><%= flash[:notice] %></p>
 <% if @leader %>
-   <h3>For the Team index i want to have all current user information</h3>
-   <div style="border: 1px solid lightgrey" class="post">
-      <p>Name: <%= @team.firstname %> <%= @team.lastname %></p>
-      <p>phone number: <%= @team.phone %></p>
-      <p>located in: <%= @team.city %>, <%= @team.state %></p>
+   <div class="home-family-member" style="background: #F3FCFF">
+      <div class="home-family-member__text-container">
+         <h2 class="home-family-member__text-container--text">Team Leader</h2>
+      </div>
+      <div class="data-container">
+         <div class="data-container__left">
+            <p class="data-container__left--text">First Name: <%= current_care_giver.firstname %></p>
+            <p class="data-container__left--text">Last Name: <%= current_care_giver.lastname %></p>
+            <p class="data-container__left--text">E-mail: <%= current_care_giver.email %></p>
+            <a class="data-container__left--text" href="tel:#{current_care_giver.phone}">Phone: <%= current_care_giver.phone %></a>
+         </div>
+         <div class="data-container__right">
+            <p class="data-container__right--text">City: <%= current_care_giver.city %></p>
+            <p class="data-container__right--text">State: <%= current_care_giver.state %></p>
+            <p class="data-container__right--text">Address: <%= current_care_giver.street %></p>
+            <p class="data-container__right--text">Zipcode: <%= current_care_giver.zip %></p>
+         </div>
+      </div>
+      <%= link_to "Update", "care_givers/edit", class: "home-jobpost-container__button", style: "text-decoration: none; text-align: center; background: #FFB052"%>
    </div>
 <% elsif @check_member %>
-   <div style="border: 1px solid lightgrey" class="post">
-      <p>Name: <%= @team.firstname %> <%= @team.lastname %></p>
-      <p>phone number: <%= @team.phone %></p>
-      <p>located in: <%= @team.city %>, <%= @team.state %></p>
+   <div class="home-family-member" style="background: #F3FCFF">
+      <div class="home-family-member__text-container">
+         <h2 class="home-family-member__text-container--text">Team Member</h2>
+      </div>
+      <div class="data-container">
+         <div class="data-container__left">
+            <p class="data-container__left--text">First Name: <%= current_care_giver.firstname %></p>
+            <p class="data-container__left--text">Last Name: <%= current_care_giver.lastname %></p>
+            <p class="data-container__left--text">E-mail: <%= current_care_giver.email %></p>
+            <a class="data-container__left--text" href="tel:#{current_care_giver.phone}">Phone: <%= current_care_giver.phone %></a>
+         </div>
+         <div class="data-container__right">
+            <p class="data-container__right--text">City: <%= current_care_giver.city %></p>
+            <p class="data-container__right--text">State: <%= current_care_giver.state %></p>
+            <p class="data-container__right--text">Address: <%= current_care_giver.street %></p>
+            <p class="data-container__right--text">Zipcode: <%= current_care_giver.zip %></p>
+         </div>
+      </div>
+      <%= link_to "Update", "care_givers/edit", class: "home-jobpost-container__button", style: "text-decoration: none; text-align: center; background: #FFB052"%>
    </div>
 <% else %>
-   <p>Welcome! would you like to</p>
-   <%= link_to 'create a team', 'team/new_team' %>
-   <%= link_to 'join a team', 'team/join_team' %>
+   <div class="join-team-container">
+      <div class="home-jobpost-container__create">
+         <h3 class="home-jobpost-container__create--text">Create a Team or join a Team?</h3>
+      </div>
+      <div class="requirements-container">
+         <div class="requirements-member">
+            <div class="requirements-member__main-text">
+               <h4 class="requirements-member__main-text--txt">Team Member Requirements</h4>
+            </div>
+            <ul>
+               <li>Fluent In English</li>
+               <li>Highly ethical</li>
+               <li>Dependable, honest, trustworthy</li>
+               <li>Compassionate, caring, understanding</li>
+               <li>Patient, persistent</li>
+               <li>500 or more hours of experience in caring seniors</li>
+            </ul>
+         </div>
+         <div class="requirements-leader">
+            <div class="requirements-leader__main-text">
+               <h4 class="requirements-member__main-text--txt">Team Leader Requirements</h4>
+            </div>
+            <ul>
+               <li>Great Communication Skills</li>
+            </ul>
+            <h4 class="capable-text">With minimal training capable of</h4>
+            <ul>
+               <li>Hiring, training and coordinating caregivers</li>
+               <li>Assessing clients’ needs, creating care plans and handling crisis situations</li>
+            </ul>
+            <h4 class="capable-text">With proper training capable of</h4>
+            <ul>
+               <li>Motivating and uniting team members</li>
+               <li>Managing team finances</li>
+             </ul>
+         </div>
+      </div>
+      <div class="buttons-container">
+         <%= link_to 'Join a team', 'team/join_team', class: "buttons-container__join"  %>
+         <%= link_to 'Create a team', 'team/new_team', class: "buttons-container__create" %>
+      </div>
+   </div>
 <% end %>
 

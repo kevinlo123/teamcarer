@@ -14,7 +14,8 @@ class FamilyController < ApplicationController
 
    def new_post
       @recipient_info = current_family.recipient
-      @location = "#{@recipient_info.city}, #{@recipient_info.state}"
+      @city = "#{@recipient_info.city}"
+      @state = "#{@recipient_info.state}"
       @family_contact = "#{current_family.firstname} #{current_family.lastname.titleize.chars.first}"
       @jobpost = current_family.job_post
       @jobpost_title = current_family.job_post.title  
@@ -154,7 +155,7 @@ class FamilyController < ApplicationController
    
    private 
       def sanitize_post
-         params.require(:jobpost).permit(:title, :description, :taken, :companion_care, :recipient_conditions, :recipient_gender, :location, :family_contact, :recipient_quality)
+         params.require(:jobpost).permit(:title, :description, :taken, :companion_care, :recipient_conditions, :recipient_gender, :family_contact, :recipient_quality, :city, :state)
       end 
       def sanitize_recipient
          params.require(:recipient).permit(:firstname,:lastname,:gender,:age,:city,:state,:quality)

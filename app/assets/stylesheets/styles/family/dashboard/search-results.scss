@@ -10,7 +10,7 @@
    background: $white;
    .teams-container {
       width: 100%;
-      padding: 0 0 1rem 0;;
+      padding: 0 0 1rem 0;
       @include element(team) {
          background: #D9F4FF;
          margin: 0;

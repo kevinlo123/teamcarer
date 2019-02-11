@@ -1,0 +1,53 @@
+@import "../../../base/mix-ins.scss";
+@import "../../../base/variables.scss";
+
+.side-menu-content-container-cg {
+   display: flex;
+   height: 1000px;
+   .side-menu-family-cg {
+      height: 100%;
+      width: 18%;
+      background: #133A6B;
+      min-width: 235px;
+      z-index: 1; 
+      @include padding($small-padding - .25, $small-padding, $small-padding - .25, $small-padding);   
+      color: $blue;
+      @include element(link-cg) {
+         text-decoration: none;
+         color: white;
+         display: block;
+         font-size: $medium-font - .25;
+         margin: 1rem 0 1rem 1.5rem;
+         transition: .3s ease-in-out; 
+         &:hover {
+            margin-left: 35px;
+            color: $yellow;
+         } 
+      }      
+   }
+   .content-cg {
+      overflow-y: scroll;
+      width: 82%;
+      z-index: 0;
+      background: $light-grey;
+   }
+}
+
+.dashboard-text-container-cg {
+   border-top: 1px solid $white;      
+   border-bottom: 1px solid $white;
+   margin-bottom: 1rem;
+   padding-left: 1.25rem;
+   color: $white;
+}
+
+@media only screen and (max-width: 991px) {
+   .side-menu-content-container-cg {
+      .side-menu-family-cg {
+         display: none;
+      }
+      .content-cg {
+         width: 100%;
+      }
+   }
+}

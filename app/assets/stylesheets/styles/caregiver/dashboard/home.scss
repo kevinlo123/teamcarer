@@ -1,0 +1,136 @@
+@import "../../../base/mix-ins.scss";
+@import "../../../base/variables.scss";
+
+.join-team-container {
+   border: 1px solid transparent;
+   width: 95%;
+   max-width: 950px;
+   margin: 3rem auto 0 auto;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+   background: $baby-blue;
+}
+
+.requirements-container {
+   width: 95%;
+   display: flex;
+   margin: 2rem auto .75rem auto;
+}
+
+.requirements-member {
+   border: 1px solid #C1C1C1;
+   border-radius: 3px;
+   width: 48%;
+   margin: 1rem auto;
+   @include element(main-text) {
+      border-bottom: 1px solid $yellow;
+      @include modifier(txt) {
+         color: $blue;
+         font-size: 1.25rem;
+         margin: 1rem 1rem;
+         text-align: center;
+      }
+   }
+   ul {
+      margin: 1rem;
+      border: 1px solid transparent;
+   }
+   ul li {
+      margin: 1rem;
+      color: $blue;
+   }
+}
+
+.requirements-leader {
+   border: 1px solid #C1C1C1;
+   border-radius: 3px;   
+   width: 48%;
+   margin: 1rem auto;
+   @include element(main-text) {
+      border-bottom: 1px solid $yellow;
+      @include modifier(txt) {
+         color: $blue;
+         font-size: 1.25rem;
+         margin: 1rem 1rem;
+         text-align: center;
+      }
+   }
+
+   .capable-text {
+      margin-left: 1.6rem;
+      color: $blue;
+   }
+
+   ul li {
+      margin: 1rem;
+      color: $blue;
+   }
+}
+
+.buttons-container {
+   width: 93%;
+   margin: 0 auto;
+   padding: 0  0 2rem 0;
+   display: flex;
+   justify-content: space-around;
+   @include element(join) {
+      color: white;
+      border-radius: 3px;
+      padding: 1rem;
+      text-align: center;
+      width: 200px;
+      text-decoration: none;      
+      background: $blue;
+   }
+   @include element(create) {
+      color: $blue;
+      padding: 1rem;  
+      text-align: center;      
+      width: 200px; 
+      border-radius: 3px;      
+      text-decoration: none;
+      background: #E5E5E5;
+   }
+}
+
+.contact-button {
+   width: 255px;
+   background: $yellow;
+   padding: 1.25rem 3rem;
+   border-radius: 50px;
+   color: white;
+   text-decoration: none;
+   font-size: 1.25rem;
+   margin: 5rem auto;
+   display: block;
+   text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+   .join-team-container {
+      width: 90%;
+      margin-bottom: 4rem;
+   }
+   .requirements-container {
+      flex-direction: column;
+   }
+   .requirements-leader {  
+      width: 95%;
+   }
+   .requirements-member {  
+      width: 95%;
+   }
+
+   .buttons-container {
+      flex-direction: column;
+      a {
+         margin: 1rem auto;
+         width: 275px;
+      }
+   }
+}
+
+@media only screen and (max-width: 325px) {
+   .join-team-container {
+      width: 100%;
+   }
+}

@@ -59,15 +59,19 @@ Rails.application.routes.draw do
    # caregiver dashboard 
    as :team do      
       get 'team', to: 'team#index', as: :team_root   
-      get 'team/posts', to: 'team#all_posts' 
+      get 'team/posts/:id', to: 'team#all_posts', as: :all_posts
       get 'team/my_team/:id', to: 'team#my_team', as: :my_care_team
       get 'team/remove_member/:id', to: 'team#remove_member', as: :remove_member      
       get 'team/new_team', to: 'team#new_team'
       post 'team/create_team', to: 'team#create_team' 
       get 'team/join_team', to: 'team#join_team', as: :join_teams
+      get 'team/search_results', to: 'team#search_results', as: :team_results
+      get 'team/search_results_state', to: 'team#search_results_state', as: :team_results_state 
+      get 'team/search_results_city', to: 'team#search_results_city', as: :team_results_city  
       get 'team/edit_post/:id/edit', to: 'team#edit_post'
       patch 'team/edit_post/:id/update_post', to: 'team#update_post'
       get 'team/show_team/:id', to: 'team#show_team', as: :show_team
+      get 'team/team_member/:id', to: 'team#show_member', as: :show_member        
       patch '/team/update_team/:id', to: 'team#update_team'      
    end  
 end

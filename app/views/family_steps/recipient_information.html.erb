@@ -70,10 +70,10 @@
             <%= f.text_field :address , required: true, placeholder: "Address", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker", :required => true } %>
+            <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker-cg", :required => true } %>
          </div>
          <div class="field">
-            <%= f.select :city, options_for_select([]),{:prompt => "City", :required => true}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker", :required => true } %> 
+            <%= f.select :city, options_for_select([]),{:prompt => "City", :required => true}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker-cg", :required => true } %> 
          </div>
          <div class="actions">
             <%= f.submit "Next Step", class: "signup-input-container--submit" %> 
