@@ -80,6 +80,10 @@
          $("#dropdown-3").slideToggle(100);
       });
 
+      $("#join-alert").on("click", function() {
+         alert("You must be in a team to contact families!");
+      });
+
       var showChar = 50;
       var ellipsestext = "...";
 

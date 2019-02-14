@@ -71,17 +71,32 @@
          @include element(top) {
             width: 100%;
             text-align: center; 
+            padding: 0 1rem;             
             .select-team-button {
                margin: 2rem auto;
-               width: 255px;               
+               width: 100%;               
             }          
          }
          @include element(bottom) {
             width: 100%;
-            text-align: center;  
+            text-align: center; 
+            padding: 0 1rem;             
             .customer-service {
                margin: 2rem auto;
-               width: 255px;               
+               width: 295px;               
+            }     
+         }
+      }
+   }   
+}
+
+@media only screen and (max-width: 500px) {
+   .team-container {
+      @include element(data-container) {
+         @include element(bottom) {
+            .customer-service {
+               margin: 2rem auto;
+               width: 100%;               
             }     
          }
       }

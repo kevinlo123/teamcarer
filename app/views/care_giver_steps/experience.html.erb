@@ -44,7 +44,7 @@
    </div>
    <%= form_for :team, url: 'experience'  do  |f|%>
       <div class="signup-input-container-cg">
-         <h3 style="font-size: 1.75rem;">work experience:</h3>
+         <h3 style="font-size: 1.75rem;">Work experience:</h3>
          <%= fields_for :work_exps do |u| %>
             <div class="field">
                <%= u.text_field :employer, autofocus: true, placeholder: "Employer", autocomplete: "employer", class: "signup-input-container-cg--input-cg" %>

@@ -50,6 +50,26 @@ class FamilyController < ApplicationController
 
    def my_posting
       @job_post = current_family.job_post
+      beginning_of_week = Time.current.beginning_of_week
+      end_of_week = beginning_of_week.end_of_week
+      if current_family.job_post == nil 
+         @hours = ""
+      else
+         @hours = Hour.where(job_post_id: current_family.job_post.id, created_at: beginning_of_week..end_of_week)
+         @companion = 0
+         @personal = 0
+         @hours.each do |record|
+            @companion += record.companion_hours
+            @personal += record.personal_hours
+         end  
+         @total
+         @care_team = CareTeam.find_by(id: current_family.care_team_id)
+         if @care_team == nil
+            @total = "Once you connect with a team you will be able to confirm the teams hours worked on a weekly basis"
+         else
+            @total = (@companion * @care_team.companion_hrly_price) + (@personal * @care_team.personal_hrly_price)         
+         end       
+      end
    end
 
    def update_post
@@ -124,7 +144,6 @@ class FamilyController < ApplicationController
    def team_show
       @care_team = CareTeam.find(params[:id]) 
       @care_team_members = CareGiver.all.where(care_team: params[:id]) 
-      # @leader = @care_team_members[0]
    end
 
    def team_show_member
@@ -137,9 +156,7 @@ class FamilyController < ApplicationController
 
    def team_selection
       @care_team = CareTeam.find(params[:id]) 
-      current_family.update(care_team_id: params[:id])
-      # current_family.update(care_team: @care_team)
-      # @care_team.update(family: current_family)     
+      current_family.update(care_team_id: params[:id])  
       redirect_to family_root_path
    end
 

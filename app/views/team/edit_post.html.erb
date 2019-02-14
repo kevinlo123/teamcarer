@@ -48,7 +48,11 @@
                   <% end %>
                </ul>
             </div>
-            <%= mail_to @email, "Contact family", class: "contact-button" %>
+            <% if @leader || @check_member%>
+               <%= mail_to @email, "Contact Family", class: "contact-button" %>
+            <% else %>
+               <a class="contact-button" id="join-alert" href="#">Contact Family</a>
+            <% end %>
          </div>
       </div>
    </div>

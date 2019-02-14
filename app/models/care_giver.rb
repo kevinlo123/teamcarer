@@ -7,6 +7,7 @@ class CareGiver < ApplicationRecord
    has_many :work_exps
    has_many :educations   
    has_many :certificates
+   has_many :hours 
    accepts_nested_attributes_for :work_exps
    accepts_nested_attributes_for :educations
    accepts_nested_attributes_for :certificates 

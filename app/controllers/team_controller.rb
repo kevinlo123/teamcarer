@@ -53,6 +53,8 @@ class TeamController < ApplicationController
    def edit_post
       @Jobpost = JobPost.find(params[:id]) 
       @email = @Jobpost.family.email
+      @check_member = current_care_giver.care_team
+      @leader = CareTeam.where(care_giver_id: current_care_giver.id)[0]
    end
 
    def update_post
@@ -65,10 +67,6 @@ class TeamController < ApplicationController
    end
 
    def my_team
-      # @team = CareTeam.find(params[:id])
-      # @current_user = CareGiver.find(current_care_giver.id);
-      # # @leader = CareTeam.where(care_giver_id: current_care_giver.id)[0]
-      # @members = CareGiver.where(care_team: @team)
       @families = Family.where(care_team_id: params[:id]) 
       @care_team = CareTeam.find(params[:id])
       @care_team_members = CareGiver.all.where(care_team: params[:id])    
@@ -105,9 +103,39 @@ class TeamController < ApplicationController
          redirect_to show_team_path
       end
    end
+
+   def hours
+      @family = Family.find(params[:id])
+   end
+
+   def for_the_day(x,y)
+      if Hour.where(:created_at => (Time.zone.now.beginning_of_day..Time.zone.now), :job_post_id => x, :care_giver_id => y).any? == true         
+         return "Exceeds daily limit"
+      end
+   end
+
+   def create_hours
+      @family = Family.find(params[:id])      
+      @check = self.for_the_day(@family.job_post.id, current_care_giver.id)
+      if @check 
+         flash[:notice] =  "You have already logged Your hours for today."
+         redirect_to controller: 'team', action: 'hours', id: @family.id  
+      else 
+         @hours = current_care_giver.hours.create(sanitize_hours)
+         @hours.update(job_post_id: @family.job_post.id)
+         if @hours.save
+            flash[:notice] = "Your hours have been successfully logged."
+            redirect_to controller: 'team', action: 'hours', id: @family.id 
+         end 
+      end
+   end
    
    private 
       def sanitize_team
          params.require(:care_team).permit(:team_name, :team_statement, :team_state, :team_city, :personal_hrly_price, :companion_hrly_price)
+      end
+
+      def sanitize_hours
+         params.require(:hours).permit(:day_worked, :companion_hours, :personal_hours)         
       end
 end

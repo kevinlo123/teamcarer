@@ -72,7 +72,9 @@ Rails.application.routes.draw do
       patch 'team/edit_post/:id/update_post', to: 'team#update_post'
       get 'team/show_team/:id', to: 'team#show_team', as: :show_team
       get 'team/team_member/:id', to: 'team#show_member', as: :show_member        
-      patch '/team/update_team/:id', to: 'team#update_team'      
+      patch '/team/update_team/:id', to: 'team#update_team' 
+      get 'team/hours/:id', to: 'team#hours', as: :care_hours 
+      post 'team/create_hours/:id', to: 'team#create_hours', as: :create_hours      
    end  
 end
 

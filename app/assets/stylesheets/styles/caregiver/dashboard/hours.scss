@@ -1,0 +1,43 @@
+@import "../../../base/mix-ins.scss";
+@import "../../../base/variables.scss";
+
+#hours-table {
+   width: 70%;
+   margin: 10px auto;
+ }
+ 
+ caption {
+   font-size: 1.6em;
+   font-weight: 400;
+   padding: 10px 0;
+ }
+ 
+ thead th {
+   font-weight: 400;
+   background: #E5E5E5;
+   border: 1px solid grey;
+   color: $blue;
+ }
+ 
+ tr {
+   background: #f4f7f8;
+   margin-bottom: 5px;
+ }
+ 
+ tr:nth-child(even) {
+   background: #e8eeef;
+ }
+ 
+ th{
+   text-align: left;
+   font-weight: 300;
+}
+
+.hours-block {
+   padding: 15px 9px 15px;          
+}
+
+.data {
+   border: 1px solid grey;
+}
+ 

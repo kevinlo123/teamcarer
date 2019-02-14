@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_150316) do
+ActiveRecord::Schema.define(version: 2019_02_12_172906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,18 @@ ActiveRecord::Schema.define(version: 2019_02_11_150316) do
     t.index ["reset_password_token"], name: "index_families_on_reset_password_token", unique: true
   end
 
+  create_table "hours", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "care_giver_id"
+    t.bigint "job_post_id"
+    t.integer "companion_hours"
+    t.integer "personal_hours"
+    t.date "day_worked"
+    t.index ["care_giver_id"], name: "index_hours_on_care_giver_id"
+    t.index ["job_post_id"], name: "index_hours_on_job_post_id"
+  end
+
   create_table "job_posts", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -185,6 +197,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_150316) do
 
   add_foreign_key "care_teams", "families"
   add_foreign_key "families", "care_teams"
+  add_foreign_key "hours", "care_givers"
   add_foreign_key "job_posts", "families"
   add_foreign_key "recipients", "families"
 end
