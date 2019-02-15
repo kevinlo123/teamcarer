@@ -7,8 +7,8 @@
       </div>
       <div class="home-newpost-container__preview-container" style="padding: 2rem">
          <div class="home-newpost-container__left-side">
-            <h3 class="home-newpost-container__left-side--text">Care Recipient: <%= @Jobpost.recipient_gender %>, <%= @Jobpost.family.recipient.age %> years old</h3>
-            <h3 class="home-newpost-container__left-side--text">Location: <%= @Jobpost.city %>, <%= @Jobpost.state %></h3>
+            <h3 class="home-newpost-container__left-side--text">Care Recipient: <%= @Jobpost.family.recipient.gender %>, <%= @Jobpost.family.recipient.age %> years old</h3>
+            <h3 class="home-newpost-container__left-side--text">Location: <%= @Jobpost.family.recipient.city %>, <%= @Jobpost.family.recipient.state %></h3>
             <div class="care-needed-container">
                <h3 class="home-newpost-container__left-side--text">Care Needed:</h3>
                <% if @Jobpost.family.recipient.companion_care == nil && @Jobpost.family.recipient.personal_care == nil %>
@@ -35,7 +35,7 @@
                   <% end %>
                <% end %>
             </div>
-            <h4 class="home-newpost-container__left-side--text">Most Desired Quality:<%= @Jobpost.recipient_quality %></h4>
+            <h4 class="home-newpost-container__left-side--text">Most Desired Quality: <%= @Jobpost.family.recipient.quality %></h4>
             <h3 class="home-newpost-container__left-side--text">Family contact: <%= @Jobpost.family_contact %> </h3>
             <h3 class="home-newpost-container__left-side--text">Posted: <%= timeago(@Jobpost.created_at) %></h3>
          </div>

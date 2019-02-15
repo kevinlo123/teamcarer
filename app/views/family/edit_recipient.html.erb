@@ -1,12 +1,142 @@
-<h3>Edit recipient credentials</h3>
 <%= form_for @recipient, url: {action: 'update_recipient'},  html: {class: "nifty_form"} do |f| %>
-   <%= f.label :firstname %>
-   <%= f.text_field :firstname, required: true, value: @recipient.firstname %><br>
-   <%= f.label :lastname %>
-   <%= f.text_field :lastname, required: true, value: @recipient.lastname %><br>
-   <%= f.label :gender %>
-   <%= f.text_field :gender, required: true, value: @recipient.gender %><br>
-   <%= f.label :age %>
-   <%= f.text_field :age, required: true, value: @recipient.age %><br>
-   <%= f.submit%>
+   <div class="signup-input-container">
+      <h2 style="margin-top: 2.5rem; color: #104A75">Edit recipient credentials</h2>
+      <div class="field" style="margin-top: 1.5rem;">
+         <%= f.label :firstname %>
+         <%= f.text_field :firstname, required: true, value: @recipient.firstname, class: "signup-input-container--input" %>
+      </div>
+      <div class="field" style="margin-top: 1.5rem;">
+         <%= f.label :lastname %>
+         <%= f.text_field :lastname, required: true, value: @recipient.lastname, class: "signup-input-container--input" %>
+      </div>
+      <div class="field" style="margin-top: 1.5rem;">
+         <%= f.label :gender %>
+         <%= f.select :gender, options_for_select([["Male", "Male"],["Female", "Female"]], @recipient.gender), {}, {:class => "signup-input-container--input", :required => true } %>
+      </div>
+      <div class="field" style="margin-top: 1.5rem;">
+         <%= f.label :age %>
+         <%= f.text_field :age, required: true, value: @recipient.age, class: "signup-input-container--input" %>
+      </div>
+      <div class="field" style="margin-top: 1.5rem;">
+         <%= f.label :primary_language %>
+         <%= f.text_field :primary_language, required: true, value: @recipient.primary_language, class: "signup-input-container--input" %>
+      </div>
+      <div class="field" style="margin-top: 1.5rem;">
+         <%= f.label :phone %>
+         <%= f.text_field :phone, required: true, maxlength: 10, value: @recipient.phone, class: "signup-input-container--input" %>
+      </div>
+      <div class="field" style="margin-top: 1.5rem;">
+         <%= f.label :address %>
+         <%= f.text_field :address, required: true, value: @recipient.address, class: "signup-input-container--input" %>
+      </div>
+      <div class="field" style="margin-top: 1.5rem;">
+         <%= f.label :city %>
+         <%= f.text_field :city, required: true, value: @recipient.city, class: "signup-input-container--input" %>
+      </div>
+      <div class="field" style="margin-top: 1.5rem;">
+         <%= f.label :state %>
+         <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }, @recipient.state ), {}, {:class => "signup-input-container--input", :id => "state-picker-cg", :style => "margin-bottom: 2.5rem;", :required => true} %>
+      </div>
+      <h2 style="color: #104A75">Care Needed</h2>
+      <div style="margin-top: 0" class="conditions-container">
+         <div class="conditions-container__companion">
+            <h3 class="conditions-container__companion--text">Companion Care</h3>
+               <%= label_tag :HouseCleaning, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "House cleaning", false, class: "conditions-container__companion--checkbox" %>
+                  House Cleaning
+               <% end %>
+               <%= label_tag :Laundry, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Laundry", false, class: "conditions-container__companion--checkbox" %>
+                  Laundry
+               <% end %>
+               <%= label_tag :mealprep, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Meal preperation", false, class: "conditions-container__companion--checkbox" %>
+                  Meal preperation
+               <% end %>
+               <%= label_tag :transportation, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Driving / Transportation", false, class: "conditions-container__companion--checkbox" %>
+                  Driving / Transportation
+               <% end %>
+               <%= label_tag :Errands, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Running Errands", false, class: "conditions-container__companion--checkbox" %>
+                  Running Errands
+               <% end %>
+               <%= label_tag :Companionship, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Companionship", false, class: "conditions-container__companion--checkbox" %>
+                  Companionship
+               <% end %>
+               <%= label_tag :Reminders, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Medication Reminders", false, class: "conditions-container__companion--checkbox" %>
+                  Medication Reminders
+               <% end %>
+               <%= label_tag :Finance, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "companion_care[]", "Finance Management", false, class: "conditions-container__companion--checkbox" %>
+                  Finance Management
+               <% end %>
+            </div>
+            <div class="conditions-container__personal">
+               <h3 class="conditions-container__personal--text">Personal Care</h3>
+               <%= label_tag :bathing, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Bathing", false, class: "conditions-container__personal--checkbox" %>
+                  Bathing
+               <% end %>
+               <%= label_tag :Grooming, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Grooming", false, class: "conditions-container__personal--checkbox" %>
+                  Grooming
+               <% end %>
+               <%= label_tag :Dressing, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Dressing", false, class: "conditions-container__personal--checkbox" %>
+                  Dressing
+               <% end %>
+               <%= label_tag :Toilet, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Toilet/Incontinence", false, class: "conditions-container__personal--checkbox" %>
+                  Toilet/Incontinence
+               <% end %>
+               <%= label_tag :Transfering, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Transfering", false, class: "conditions-container__personal--checkbox" %>
+                  Transfering
+               <% end %>
+               <%= label_tag :Ambulating, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Ambulating", false, class: "conditions-container__personal--checkbox" %>
+                  Ambulating 
+               <% end %>
+               <%= label_tag :OralCare, nil, :class => "conditions-container__personal--label" do %>
+                  <%= check_box_tag "personal_care[]", "Oral Care", false, class: "conditions-container__personal--checkbox" %>
+                  Oral Care
+               <% end %>
+            </div>
+         </div>
+         <h2 style="color: #104A75">Most desirable quality</h2>
+         <div class="quality-container">
+            <div class="inline">
+               <%= f.radio_button :quality, 'Empathy' %>
+               <%= f.label :quality, 'Empathy', value: "launch product", :class => "conditions-container__companion--label" %>
+            </div>
+            <div class="inline">
+               <%= f.radio_button :quality, "Trust" %>
+               <%= f.label :quality, "Trust", value: "Trust", :class => "conditions-container__companion--label" %>
+            </div>
+            <div class="inline">
+               <%= f.radio_button :quality, "Credentials and Skills" %>
+               <%= f.label :quality, "Credentials and Skills", value: "Credentials and Skills", :class => "conditions-container__companion--label" %>
+            </div>
+            <div class="inline">
+               <%= f.radio_button :quality, "Speaks care recipients Language" %>
+               <%= f.label :quality, "Speaks care recipients Language", value: "Speaks care recipients Language", :class => "conditions-container__companion--label" %>
+            </div>
+            <div class="inline">
+               <%= f.radio_button :quality, "Punctuality & Reliability" %>
+               <%= f.label :quality, "Punctuality & Reliability", value: "Punctuality & Reliability", :class => "conditions-container__companion--label" %>
+            </div>
+            <div class="inline">
+               <%= f.radio_button :quality, "Persistence" %>
+               <%= f.label :quality, "Persistence", value: "Persistence", :class => "conditions-container__companion--label" %>
+            </div>
+            <div class="inline">
+               <%= f.radio_button :quality, "Other" %>
+               <%= f.label :quality, "Other", value: "Other", :class => "conditions-container__companion--label" %>
+            </div>
+         </div>
+      <%= f.submit "Confirm Changes", class: "signup-input-container--submit" %>
+   </div>
 <% end %>

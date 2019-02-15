@@ -29,7 +29,7 @@
                <div class="dashboard-text-container">
                   <h3 class="dashboard-text">Dashboard</h3>
                </div>
-               <%= link_to "home", "/family", class: "side-menu-family__link" %>
+               <%= link_to "Home", "/family", class: "side-menu-family__link" %>
                <%= link_to "My posting", "/family/my_posting", class: "side-menu-family__link" %>
                <% if current_family.care_team_id %>
                   <%= link_to "My Team", my_team_path(:id => current_family.care_team_id ), class: "side-menu-family__link" %>

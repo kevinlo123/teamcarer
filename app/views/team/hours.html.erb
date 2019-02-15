@@ -1,7 +1,7 @@
 <p style="text-align: center;margin-top: 2.5rem; font-size: 1.25rem;"><%= flash[:notice] %></p>
 <%= form_for :hours, url: create_hours_path(:id => @family.id) do |f| %>
    <table id="hours-table" cellspacing="0">
-      <caption style="margin-bottom: 2rem;">Submit hours for  <%= @family.firstname %>'s approval</caption>
+      <caption style="margin-bottom: 2rem;">Submit hours for approval</caption>
       <thead>
          <tr>
             <th class="hours-block" style="border-bottom: none;">Date</th> 
@@ -11,13 +11,33 @@
       </thead> 
       <tbody>
          <tr>
-            <td class="hours-block data" scope="row"><%= f.date_field :day_worked, required: true, placeholder: "Enter Todays Date" %></td> 
-            <td class="hours-block data" style="border-right: none; border-left: none;"><%= f.text_field :companion_hours, required: true, maxlength: 2, placeholder: "Hours worked" %></td>      
-            <td class="hours-block data"><%= f.text_field :personal_hours, required: true, maxlength: 2, placeholder: "Hours worked" %></td>      
+            <td class="hours-block data" scope="row"><%= f.date_field :day_worked, required: true, placeholder: "Enter Todays Date", class: "signup-input-container-cg--input-cg"  %></td> 
+            <td class="hours-block data" style="border-right: none; border-left: none;"><%= f.text_field :companion_hours, required: true, maxlength: 2, placeholder: "Hours worked", class: "signup-input-container-cg--input-cg"  %></td>      
+            <td class="hours-block data"><%= f.text_field :personal_hours, required: true, maxlength: 2, placeholder: "Hours worked", class: "signup-input-container-cg--input-cg" %></td>      
          </tr>  
       </tbody>
    </table>
-   <%= f.submit "Submit hours", style: "margin-bottom: 2rem;", :data => { :confirm => 'Are you sure These hours are correct?' }%>
+   <!--<div style="display: none;">
+      <div>
+         <span>Date</span>
+      </div>
+      <div>
+         <%= f.date_field :day_worked, required: true, placeholder: "Enter Todays Date", class: "signup-input-container-cg--input-cg"  %>
+      </div>
+      <div>
+         <span>Companion Care</span>
+      </div>
+      <div>
+         <%= f.text_field :companion_hours, required: true, maxlength: 2, placeholder: "Hours worked", class: "signup-input-container-cg--input-cg" %>
+      </div>
+      <div>
+         <span>Personal Care</span>
+      </div>
+      <div>
+         <%= f.text_field :personal_hours, required: true, maxlength: 2, placeholder: "Hours worked", class: "signup-input-container-cg--input-cg" %>
+      </div>
+   </div>-->
+   <%= f.submit "Submit hours", style: "margin-bottom: 2rem;", :data => { :confirm => 'Are you sure These hours are correct?' }, class: "home-jobpost-container__button", style: "text-decoration: none; text-align: center;"%>
 <% end %>
 
 

@@ -12,7 +12,7 @@
       </div>
       <div class="home-newpost-container__preview-container" style="padding: 2rem">
          <div class="home-newpost-container__left-side">
-            <h3 class="home-newpost-container__left-side--text">Care Recipient: <%= @job_post.recipient_gender %>, <%= current_family.recipient.age %> years old</h3>
+            <h3 class="home-newpost-container__left-side--text">Care Recipient: <%= current_family.recipient.gender %>, <%= current_family.recipient.age %> years old</h3>
             <h3 class="home-newpost-container__left-side--text">Location: <%= @job_post.city %>, <%= @job_post.state %> </h3>
             <div class="care-needed-container">
                <h3 class="home-newpost-container__left-side--text">Care Needed:</h3>
@@ -40,7 +40,7 @@
                   <% end %>
                <% end %>
             </div>
-            <h4 class="home-newpost-container__left-side--text">Most Desired Quality:<%= @job_post.recipient_quality %></h4>
+            <h4 class="home-newpost-container__left-side--text">Most Desired Quality: <%= current_family.recipient.quality %></h4>
             <h3 class="home-newpost-container__left-side--text">Family contact: <%= @job_post.family_contact %> </h3>
             <h3 class="home-newpost-container__left-side--text">Posted: <%= timeago(@job_post.created_at) %></h3>
          </div>
@@ -56,7 +56,7 @@
          </div>
       </div>
    </div>
-   <%= link_to "Delete Post", delete_post_path(:id => current_family.job_post), :method => :delete, class: "home-jobpost-container__button", style: "text-decoration: none; text-align: center;" %>
+   <%= link_to "Delete Post", delete_post_path(:id => current_family.job_post), :method => :delete, class: "home-jobpost-container__button", data: { confirm: "Are you sure?" }, style: "text-decoration: none; text-align: center;" %>
    <% if current_family.care_team_id == nil %>
       <p><%= @total %></p>
    <% else %>

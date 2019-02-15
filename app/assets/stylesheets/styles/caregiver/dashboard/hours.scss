@@ -2,7 +2,8 @@
 @import "../../../base/variables.scss";
 
 #hours-table {
-   width: 70%;
+   width: 80%;
+   min-width: 650px;
    margin: 10px auto;
  }
  
@@ -40,4 +41,10 @@
 .data {
    border: 1px solid grey;
 }
+
+// @media only screen and (max-width: 668px) {
+//    #hours-table {
+//       display: none;
+//    }
+// }   
  

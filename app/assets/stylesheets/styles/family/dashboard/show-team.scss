@@ -59,6 +59,9 @@
             border-radius: 5rem;
             display: block;
             margin: 2rem 0;
+            &:hover {
+               cursor: pointer;
+            }
          }     
       }
    }

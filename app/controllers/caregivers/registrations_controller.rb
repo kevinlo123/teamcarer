@@ -39,6 +39,7 @@ class Caregivers::RegistrationsController < Devise::RegistrationsController
 
    # GET /resource/edit
    def edit
+      @state = current_care_giver.state
       super
    end
 

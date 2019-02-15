@@ -114,8 +114,14 @@ class FamilyController < ApplicationController
 
    def update_recipient
       @recipient = Recipient.find(params[:id])
-      if @recipient.update(sanitize_recipient)
-         redirect_to family_recipient_path
+      if @recipient.update_attributes(sanitize_recipient)
+         if params[:companion_care] && params[:personal_care]
+            @recipient.update(companion_care: params[:companion_care])
+            @recipient.update(personal_care: params[:personal_care]) 
+            redirect_to family_recipient_path
+         else 
+            redirect_to family_recipient_path            
+         end
       else
          render html: "Sorry your post wasnt updated"
       end
@@ -174,7 +180,8 @@ class FamilyController < ApplicationController
       def sanitize_post
          params.require(:jobpost).permit(:title, :description, :taken, :companion_care, :recipient_conditions, :recipient_gender, :family_contact, :recipient_quality, :city, :state)
       end 
+
       def sanitize_recipient
-         params.require(:recipient).permit(:firstname,:lastname,:gender,:age,:city,:state,:quality)
+         params.require(:recipient).permit(:firstname, :lastname, :gender, :age, :city, :state, :quality, :primary_language, :phone, :address)
       end
 end

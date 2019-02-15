@@ -15,7 +15,7 @@
                      <h4 class="jobs-container__job-data--text">Contact: <%= post.family.firstname.titleize %> <%= post.family.lastname.first.titleize %>.</h4>
                      <h4 class="jobs-container__job-data--text"><%= post.family.recipient.hours_weekly %> hrs. per week</h4>
                      <h4 class="jobs-container__job-data--text">Care Recipient: <%= post.family.recipient.gender %>, <%= post.family.recipient.age %> years old</h4>
-                     <h4 class="jobs-container__job-data--text">Location: <%= post.city %>, <%= post.state %></h4>
+                     <h4 class="jobs-container__job-data--text">Location: <%= post.family.recipient.city %>, <%= post.family.recipient.state %></h4>
                      <h4 class="jobs-container__job-data--text">Most desired quality: <%= post.family.recipient.quality %></h4>
                      <h4 class="jobs-container__job-data--text">posted <%= timeago(post.created_at) %></h4>
                   </div>

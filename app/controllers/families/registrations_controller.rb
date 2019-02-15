@@ -33,7 +33,8 @@ class Families::RegistrationsController < Devise::RegistrationsController
 
    # GET /resource/edit
    def edit
-     super
+      @state = current_family.state
+      super
    end
 
    # PUT /resource
@@ -43,7 +44,7 @@ class Families::RegistrationsController < Devise::RegistrationsController
 
    # DELETE /resource
    def destroy
-     super
+      super
    end
 
    # GET /resource/cancel
@@ -52,7 +53,7 @@ class Families::RegistrationsController < Devise::RegistrationsController
    # cancel oauth signing in/up in the middle of the process,
    # removing all OAuth session data.
    def cancel
-     super
+      super
    end
 
    protected
