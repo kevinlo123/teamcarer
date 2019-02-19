@@ -6,8 +6,10 @@
       <div class="member-data-container__left">
          <% if @member.care_team %>
             <h3 class="member-data-container__left--team_name"><%= @member.care_team.team_name %></h3>
+            <a class="member-data-container__left--team_name" href="tel:<%= @member.phone %>" >Contact: <%= @member.phone %></a>
          <% else %>
             <h3 class="member-data-container__left--team_name"><%= @leader.team_name %></h3>
+            <a class="member-data-container__left--team_name" href="tel:<%= @leader.care_giver.phone %>">Contact: <%= @leader.care_giver.phone %></a>
          <% end %>
          <h3 class="member-data-container__left--text">Education</h3>
          <% @education.each do |po|%>

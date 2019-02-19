@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'eef795b2d763581d3620a0159e7ae114d805040ffa7443f81961691795b7a167e8ac82d59e1495a7d57aefdba100f9934be70329c43c75cd9c7442b301356a9c'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -31,7 +31,7 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-  config.scoped_views = true  
+  config.scoped_views = true
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
@@ -129,7 +129,7 @@ Devise.setup do |config|
   # access will be blocked just in the third day. Default is 0.days, meaning
   # the user cannot access the website without confirming their account.
 
-  config.allow_unconfirmed_access_for = 5.minutes
+  config.allow_unconfirmed_access_for = 100.days
 
 #   A period that the user is allowed to confirm their account before their
 #   token becomes invalid. For example, if set to 3.days, the user can confirm

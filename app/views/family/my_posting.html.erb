@@ -58,47 +58,47 @@
    </div>
    <%= link_to "Delete Post", delete_post_path(:id => current_family.job_post), :method => :delete, class: "home-jobpost-container__button", data: { confirm: "Are you sure?" }, style: "text-decoration: none; text-align: center;" %>
    <% if current_family.care_team_id == nil %>
-      <p><%= @total %></p>
+      <p class="hours-app"><%= @total %></p>
    <% else %>
-      <table id="hours-table" cellspacing="0" style="margin-bottom: 10rem;">
-         <caption style="margin-bottom: 2rem;">Hours for week of <%= Date.today.beginning_of_week.strftime('%m/%d/%Y') %> - <%= Date.today.end_of_week.strftime('%m/%d/%Y') %></caption>
+      <table id="hours-table" cellspacing="0" style="margin-bottom: 7rem;">
+         <caption class="hours-app">Hours for week of <%= Date.today.beginning_of_week.strftime('%m/%d/%Y') %> - <%= Date.today.end_of_week.strftime('%m/%d/%Y') %></caption>
          <thead>
             <tr>
-               <th class="hours-block">Caregiver</th> 
-               <th class="hours-block" style="border-left: none;">Day worked</th> 
-               <th class="hours-block" style="border-left: none;">Companion hours</th> 
-               <th class="hours-block" style="border-left: none;">Personal hours</th>           
+               <th class="hours-block">Caregiver</th>
+               <th class="hours-block" style="border-left: none;">Day worked</th>
+               <th class="hours-block" style="border-left: none;">Companion hours</th>
+               <th class="hours-block" style="border-left: none;">Personal hours</th>
             </tr>
-         </thead> 
+         </thead>
          <tbody>
             <% @hours.each do |hours|%>
                <tr>
-                  <td class="hours-block data" scope="row" style="border-top: none;"><%= hours.care_giver.firstname.titleize %></td> 
-                  <td class="hours-block data" scope="row" style="border-left: none; border-top: none;"><%= hours.created_at.strftime("%m-%d-%Y") %></td> 
-                  <td class="hours-block data" scope="row" style="border-left: none; border-top: none;"><%= hours.companion_hours %></td> 
-                  <td class="hours-block data" scope="row" style="border-left: none; border-top: none;"><%= hours.personal_hours %></td> 
-               </tr>  
-            <% end %>  
+                  <td class="hours-block data" scope="row" style="border-top: none;"><%= hours.care_giver.firstname.titleize %></td>
+                  <td class="hours-block data" scope="row" style="border-left: none; border-top: none;"><%= hours.created_at.strftime("%m-%d-%Y") %></td>
+                  <td class="hours-block data" scope="row" style="border-left: none; border-top: none;"><%= hours.companion_hours %></td>
+                  <td class="hours-block data" scope="row" style="border-left: none; border-top: none;"><%= hours.personal_hours %></td>
+               </tr>
+            <% end %>
             <tr>
                <td style="visibility: hidden;">&nbsp;</td>
                <td style="visibility: hidden;">&nbsp;</td>
                <td class="hours-block data" style="border-top: none;">Total: <%= @companion %> hours</td>
                <td class="hours-block data" style="border-left: none; border-top: none;">Total: <%= @personal %> hours</td>
-            </tr> 
+            </tr>
             <tr>
                <td style="visibility: hidden;">&nbsp;</td>
                <td style="visibility: hidden;">&nbsp;</td>
                <td class="hours-block data" style="border-top: none;">Hourly rate: $<%= @care_team.companion_hrly_price %></td>
                <td class="hours-block data" style="border-left: none; border-top: none;">Hourly rate: $<%= @care_team.personal_hrly_price %></td>
-            </tr> 
+            </tr>
             <tr>
                <td style="visibility: hidden;">&nbsp;</td>
                <td style="visibility: hidden;">&nbsp;</td>
                <td style="visibility: hidden; border-right: none">&nbsp;</td>
                <td class="hours-block data" style="border-top: none; background: #104A75; color: white;">Total: <b>$<%= @total %></b></td>
-            </tr>   
+            </tr>
          </tbody>
       </table>
+      <%= link_to "Make Payment", new_charge_path, class: "home-jobpost-container__button", style: "text-align: center; text-decoration: none; margin-bottom: 5rem; width: 150px;" %>
    <% end %>
 <% end %>
-

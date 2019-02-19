@@ -67,7 +67,7 @@
       $(".number-field").keyup(function() {
          $(this).val($(this).val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
       });
-      
+
       $("#dropdown-button-1").on("click", function() {
          $("#dropdown-1").slideToggle(100);
       });
@@ -89,8 +89,32 @@
       });
 
       $("#customer-button").on("click", function() {
-         $("#service-number").css("display", "block");         
-      })
+         $("#service-number").css("display", "block");
+      });
+
+      $("#condition-other").on("click", function() {
+        if($("#condition-other").is(":checked")){
+          $("#condition-other-input").css("display", "block");
+        } else {
+          $("#condition-other-input").css("display", "none");
+        }
+      });
+
+      $("#service-other").on("click", function() {
+        if($("#service-other").is(":checked")){
+          $("#service-other-input").css("display", "block");
+        } else {
+          $("#service-other-input").css("display", "none");
+        }
+      });
+
+      $("#condition-other-fam").on("click", function() {
+        if($("#condition-other-fam").is(":checked")){
+          $("#condition-other-input-fam").css("display", "block");
+        } else {
+          $("#condition-other-input-fam").css("display", "none");
+        }
+      });
 
       var showChar = 50;
       var ellipsestext = "...";
@@ -108,7 +132,7 @@
       $('#already').on("click", function() {
          alert("You are already assigned to a team");
       });
-      
+
       var stateCg = document.getElementById("state-picker-cg");
       stateCg.addEventListener("change", function() {
          console.log("change")
@@ -117,7 +141,7 @@
             type: "GET"
          })
       })
-      
+
       var state = document.getElementById("state-picker");
       state.addEventListener("change", function() {
          $.ajax({
@@ -127,11 +151,3 @@
       })
    });
 })(jQuery);
-
-
-   
-
-
-	
-   
-   

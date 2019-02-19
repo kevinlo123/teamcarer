@@ -98,7 +98,7 @@
                <% end %>
                <%= label_tag :Ambulating, nil, :class => "conditions-container__personal--label" do %>
                   <%= check_box_tag "personal_care[]", "Ambulating", false, class: "conditions-container__personal--checkbox" %>
-                  Ambulating 
+                  Ambulating
                <% end %>
                <%= label_tag :OralCare, nil, :class => "conditions-container__personal--label" do %>
                   <%= check_box_tag "personal_care[]", "Oral Care", false, class: "conditions-container__personal--checkbox" %>
@@ -131,10 +131,6 @@
             <div class="inline">
                <%= f.radio_button :quality, "Persistence" %>
                <%= f.label :quality, "Persistence", value: "Persistence", :class => "conditions-container__companion--label" %>
-            </div>
-            <div class="inline">
-               <%= f.radio_button :quality, "Other" %>
-               <%= f.label :quality, "Other", value: "Other", :class => "conditions-container__companion--label" %>
             </div>
          </div>
       <%= f.submit "Confirm Changes", class: "signup-input-container--submit" %>

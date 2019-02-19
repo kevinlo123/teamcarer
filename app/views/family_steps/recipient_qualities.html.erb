@@ -97,10 +97,6 @@
                <%= f.radio_button :quality, "Persistence" %>
                <%= f.label :quality, "Persistence", value: "Persistence", :class => "conditions-container__companion--label" %>
             </div>
-            <div class="inline">
-               <%= f.radio_button :quality, "Other" %>
-               <%= f.label :quality, "Other", value: "Other", :class => "conditions-container__companion--label" %>
-            </div>
          </div>
          <h2 style="color: #133A6B">Was the care recipient recently discharged from a hospital?</h2>
          <%= f.select :recently_discharged, options_for_select([['Yes', true], ['No', false]]), {:prompt => "Select"}, {:class => "signup-input-container--input", :required => true } %><br>

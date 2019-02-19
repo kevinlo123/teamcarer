@@ -83,7 +83,7 @@
                   <%= label_tag :Chronic, nil, :class => "conditions-container__companion--label" do %>
                      <%= check_box_tag "conditions[]", "Chronic Obstructive Pulmonary disease", false, class: "conditions-container__companion--checkbox" %>
                      Chronic Obstructive Pulmonary disease
-                  <% end %> 
+                  <% end %>
                   <%= label_tag :Stroke, nil, :class => "conditions-container__companion--label" do %>
                      <%= check_box_tag "conditions[]", "Stroke", false, class: "conditions-container__companion--checkbox" %>
                      Stroke
@@ -95,11 +95,12 @@
                   <%= label_tag :Psychiatric, nil, :class => "conditions-container__companion--label" do %>
                      <%= check_box_tag "conditions[]", "Psychiatric disorders", false, class: "conditions-container__companion--checkbox" %>
                      Psychiatric disorders
-                  <% end %>    
-                  <%= label_tag :Other, nil, :class => "conditions-container__companion--label" do %>
-                     <%= check_box_tag "conditions[]", "Other", false, class: "conditions-container__companion--checkbox" %>
+                  <% end %>
+                  <label class="conditions-container__companion--label" for="Other">
+                     <input type="checkbox" id="condition-other" class="conditions-container__companion--checkbox" />
                      Other
-                  <% end %> 
+                 </label>
+                 <input type="textbox" name="conditions[]" placeholder="Condition" id="condition-other-input", class="signup-input-container-cg--input-cg" style="display: none;" >
                </div>
             </div>
             <div>
@@ -107,11 +108,11 @@
                <%= label_tag :Care, nil, :class => "conditions-container__companion--label" do %>
                   <%= check_box_tag "related_service[]", "Home Health Care", false, class: "conditions-container__companion--checkbox" %>
                   Home Health Care
-               <% end %> 
+               <% end %>
                <%= label_tag :Palliative, nil, :class => "conditions-container__companion--label" do %>
                   <%= check_box_tag "related_service[]", "Palliative Care", false, class: "conditions-container__companion--checkbox" %>
                   Palliative Care
-               <% end %>  
+               <% end %>
                <%= label_tag :Hospice, nil, :class => "conditions-container__companion--label" do %>
                   <%= check_box_tag "related_service[]", "Hospice Care", false, class: "conditions-container__companion--checkbox" %>
                   Hospice Care
@@ -119,16 +120,15 @@
                <%= label_tag :Surgery, nil, :class => "conditions-container__companion--label" do %>
                   <%= check_box_tag "related_service[]", "Post surgery recovery", false, class: "conditions-container__companion--checkbox" %>
                   Post surgery recovery
-               <% end %> 
-               <%= label_tag :Other, nil, :class => "conditions-container__companion--label" do %>
-                  <%= check_box_tag "related_service[]", "Other", false, class: "conditions-container__companion--checkbox" %>
+               <% end %>
+               <label class="conditions-container__companion--label" for="Other">
+                  <input type="checkbox" id="service-other" class="conditions-container__companion--checkbox" />
                   Other
-               <% end %> 
+               </label>
+               <input type="textbox" name="related_service[]" placeholder="Service" id="service-other-input", class="signup-input-container-cg--input-cg" style="display: none;" >
             </div>
          </div>
       </div>
       <%= f.submit "Next Step", class: "skills-submit-cg" %>
    <% end %>
 </div>
-
- 

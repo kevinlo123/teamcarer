@@ -6,36 +6,38 @@
    min-width: 650px;
    margin: 10px auto;
  }
- 
- caption {
+
+ .hours-app {
    font-size: 1.6em;
    font-weight: 400;
    padding: 10px 0;
+   margin-bottom: 2rem;
+   text-align: center;
  }
- 
+
  thead th {
    font-weight: 400;
    background: #E5E5E5;
    border: 1px solid grey;
    color: $blue;
  }
- 
+
  tr {
    background: #f4f7f8;
    margin-bottom: 5px;
  }
- 
+
  tr:nth-child(even) {
    background: #e8eeef;
  }
- 
+
  th{
    text-align: left;
    font-weight: 300;
 }
 
 .hours-block {
-   padding: 15px 9px 15px;          
+   padding: 15px 9px 15px;
 }
 
 .data {
@@ -46,5 +48,4 @@
 //    #hours-table {
 //       display: none;
 //    }
-// }   
- 
+// }

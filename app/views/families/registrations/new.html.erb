@@ -50,9 +50,6 @@
             <%= f.email_field :email, autofocus: true, placeholder: "E-mail", autocomplete: "email", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <!--<% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %>-->
             <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "signup-input-container--input" %>
          </div>
          <div class="field">
@@ -74,7 +71,7 @@
             <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container--input", :id => "state-picker-cg"} %>
          </div>
          <div class="field">
-            <%= f.select :city, options_for_select([]),{:prompt => "City"}, {:class => "signup-input-container--input", :id => "city-picker-cg"} %> 
+            <%= f.select :city, options_for_select([]),{:prompt => "City"}, {:class => "signup-input-container--input", :id => "city-picker-cg"} %>
          </div>
          <div class="field">
             <%= f.text_field :street, autofocus: true, autocomplete: "street", placeholder: "Street Address", class: "signup-input-container--input" %>

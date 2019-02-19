@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise' # User Authentiacation
 
-gem 'wicked' # Multi Step Form 
+gem 'wicked' # Multi Step Form
 
 gem "recaptcha", require: "recaptcha/rails" #google robot captcha
 
@@ -42,6 +42,8 @@ gem 'jquery-rails' #jquerrryyyy lol
 gem 'city-state'
 
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'stripe'
 
 
 # Use Capistrano for deployment
@@ -76,4 +78,3 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ruby "2.5.1"
-

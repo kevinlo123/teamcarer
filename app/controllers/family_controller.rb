@@ -1,15 +1,15 @@
 class FamilyController < ApplicationController
-   layout "family_dashboard" 
+   layout "family_dashboard"
    before_action :authenticate_family!
 
    def index
-      @family = current_family.job_post 
-      @recipient_info = current_family.recipient  
-      if current_family.job_post   
+      @family = current_family.job_post
+      @recipient_info = current_family.recipient
+      if current_family.job_post
          if current_family.job_post.public == false
             redirect_to family_new_post_path
-         end  
-      end       
+         end
+      end
    end
 
    def new_post
@@ -18,14 +18,14 @@ class FamilyController < ApplicationController
       @state = "#{@recipient_info.state}"
       @family_contact = "#{current_family.firstname} #{current_family.lastname.titleize.chars.first}"
       @jobpost = current_family.job_post
-      @jobpost_title = current_family.job_post.title  
-      if @recipient_info.companion_care == nil 
-         @care_needed =  @recipient_info.personal_care 
-      elsif @recipient_info.personal_care == nil 
-         @care_needed =  @recipient_info.companion_care 
+      @jobpost_title = current_family.job_post.title
+      if @recipient_info.companion_care == nil
+         @care_needed =  @recipient_info.personal_care
+      elsif @recipient_info.personal_care == nil
+         @care_needed =  @recipient_info.companion_care
       else
          @care_needed = @recipient_info.companion_care + @recipient_info.personal_care
-      end   
+      end
    end
 
    def create_post
@@ -40,7 +40,7 @@ class FamilyController < ApplicationController
    def update_recipient_for_post
       @recipient = current_family.recipient
       @recipient.update(companion_care: params[:companion_care])
-      @recipient.update(personal_care: params[:personal_care])   
+      @recipient.update(personal_care: params[:personal_care])
       if @recipient.update(sanitize_recipient)
          redirect_to family_root_path
       else
@@ -52,7 +52,7 @@ class FamilyController < ApplicationController
       @job_post = current_family.job_post
       beginning_of_week = Time.current.beginning_of_week
       end_of_week = beginning_of_week.end_of_week
-      if current_family.job_post == nil 
+      if current_family.job_post == nil
          @hours = ""
       else
          @hours = Hour.where(job_post_id: current_family.job_post.id, created_at: beginning_of_week..end_of_week)
@@ -61,14 +61,14 @@ class FamilyController < ApplicationController
          @hours.each do |record|
             @companion += record.companion_hours
             @personal += record.personal_hours
-         end  
+         end
          @total
          @care_team = CareTeam.find_by(id: current_family.care_team_id)
          if @care_team == nil
             @total = "Once you connect with a team you will be able to confirm the teams hours worked on a weekly basis"
          else
-            @total = (@companion * @care_team.companion_hrly_price) + (@personal * @care_team.personal_hrly_price)         
-         end       
+            @total = (@companion * @care_team.companion_hrly_price) + (@personal * @care_team.personal_hrly_price)
+         end
       end
    end
 
@@ -93,7 +93,7 @@ class FamilyController < ApplicationController
    def edit_posting
       @my_posting = current_family.job_post
    end
-   
+
 
    def recipient
       @recipient = current_family.recipient
@@ -109,7 +109,7 @@ class FamilyController < ApplicationController
    end
 
    def edit_recipient
-      @recipient = Recipient.find(params[:id])      
+      @recipient = Recipient.find(params[:id])
    end
 
    def update_recipient
@@ -117,19 +117,19 @@ class FamilyController < ApplicationController
       if @recipient.update_attributes(sanitize_recipient)
          if params[:companion_care] && params[:personal_care]
             @recipient.update(companion_care: params[:companion_care])
-            @recipient.update(personal_care: params[:personal_care]) 
+            @recipient.update(personal_care: params[:personal_care])
             redirect_to family_recipient_path
-         else 
-            redirect_to family_recipient_path            
+         else
+            redirect_to family_recipient_path
          end
       else
          render html: "Sorry your post wasnt updated"
       end
    end
 
-   def team_search  
+   def team_search
       @teams = CareTeam.paginate(:page => params[:page], :per_page => 5).order('created_at ASC')
-      @all_teams = CareTeam.all.order('created_at ASC')      
+      @all_teams = CareTeam.all.order('created_at ASC')
    end
 
    def team_search_results
@@ -148,38 +148,38 @@ class FamilyController < ApplicationController
    end
 
    def team_show
-      @care_team = CareTeam.find(params[:id]) 
-      @care_team_members = CareGiver.all.where(care_team: params[:id]) 
+      @care_team = CareTeam.find(params[:id])
+      @care_team_members = CareGiver.all.where(care_team: params[:id])
    end
 
    def team_show_member
-      @member = CareGiver.find(params[:id])  
+      @member = CareGiver.find(params[:id])
       @leader = CareTeam.find_by(care_giver_id: params[:id])
-      @work_exp = WorkExp.where(care_giver_id: params[:id]) 
-      @certificates = Certificate.where(care_giver_id: params[:id]) 
-      @education = Education.where(care_giver_id: params[:id]) 
+      @work_exp = WorkExp.where(care_giver_id: params[:id])
+      @certificates = Certificate.where(care_giver_id: params[:id])
+      @education = Education.where(care_giver_id: params[:id])
    end
 
    def team_selection
-      @care_team = CareTeam.find(params[:id]) 
-      current_family.update(care_team_id: params[:id])  
+      @care_team = CareTeam.find(params[:id])
+      current_family.update(care_team_id: params[:id])
       redirect_to family_root_path
    end
 
    def my_team
       @care_team = CareTeam.find(params[:id])
-      @care_team_members = CareGiver.all.where(care_team: params[:id])       
+      @care_team_members = CareGiver.all.where(care_team: params[:id])
    end
 
    def remove_team
       current_family.update(care_team_id: nil)
-      redirect_to family_root_path      
+      redirect_to family_root_path
    end
-   
-   private 
+
+   private
       def sanitize_post
          params.require(:jobpost).permit(:title, :description, :taken, :companion_care, :recipient_conditions, :recipient_gender, :family_contact, :recipient_quality, :city, :state)
-      end 
+      end
 
       def sanitize_recipient
          params.require(:recipient).permit(:firstname, :lastname, :gender, :age, :city, :state, :quality, :primary_language, :phone, :address)

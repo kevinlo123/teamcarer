@@ -30,27 +30,35 @@
    </div>
 </div>
 <% if @families.length == 0 %>
-   <p>You are currently not working with any families</p>
-<% else %>
-   <h2>Your Jobs</h2>
-   <% @families.each do |family|%>
-      <div style="border: 1px solid">
-         <p>Family id: <%=family.id %></p>
-         <p>Family phone: <%=family.phone %></p>
-         <p>Family recipient_relation: <%=family.recipient_relation %></p>
-         <% if family.recipient %>
-            <p>Family recipient firstname:<%= family.recipient.firstname %></p>
-            <p>Family recipient city location:<%= family.recipient.city %></p>
-         <% end %>
-         <%= link_to "hours", care_hours_path(:id => family.id) %>
+   <div class="all-posts-container">
+      <div class="home-teamsearch-container__care-text">
+         <h3 class="home-teamsearch-container__care-text--text">You are currently not working with any families</h3>
       </div>
-   <% end %>
-<% end %>
-<!--<% if !current_care_giver.care_team %>-->
-<!--<% end %>-->
-
-
-
-
-
-
+      <div class="jobs-container">
+            <div class="jobs-container__job">
+               <div class="jobs-container__job-data"></div>
+            </div>
+      </div>
+   </div>
+ <% else %>
+    <div class="all-posts-container">
+       <div class="home-teamsearch-container__care-text">
+          <h3 class="home-teamsearch-container__care-text--text">Your Jobs</h3>
+       </div>
+       <div class="jobs-container">
+          <% @families.reverse.each do |family|%>
+             <div class="jobs-container__job">
+                <div class="jobs-container__job-data">
+                   <h2 style="color: #133A6B">Contact: <%= family.firstname.titleize %> <%= family.lastname.first.titleize %>.</h2>
+                   <a class="jobs-container__job-data--text" href="tel:<%= family.phone %>">Phone: <%= family.phone %></a>
+                   <% if family.recipient %>
+                   <h4 class="jobs-container__job-data--text">Care Recipient: <%= family.recipient.firstname %>, <%= family.recipient.gender %>, <%= family.recipient.age %> years old</h4>
+                   <h4 class="jobs-container__job-data--text">Location: <%= family.recipient.city %>, <%= family.recipient.state %></h4>
+                   <% end %>
+                </div>
+                <%= link_to "Log Hours", care_hours_path(:id => family.id), class: "request-job-button" %>
+             </div>
+          <% end %>
+       </div>
+    </div>
+ <% end %>

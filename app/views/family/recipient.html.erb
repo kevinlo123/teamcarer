@@ -1,46 +1,32 @@
-<% if @recipient %>
-   <div class="home-family-member">
-      <div class="home-family-member__text-container">
-         <h2 class="home-family-member__text-container--text">Care Recipient</h2>
-      </div>
-      <div class="data-container">
-         <div class="data-container__left">
-            <p class="data-container__left--text">Firstname: <%= @recipient.firstname %></p>
-            <p class="data-container__left--text">Lastname: <%= @recipient.lastname %></p>
-            <p class="data-container__left--text">Gender: <%= @recipient.gender %></p>
-            <p class="data-container__left--text">Age: <%= @recipient.age %></p>
-            <p class="data-container__left--text">Primary language: <%= @recipient.primary_language %></p>
-            <div style="display: flex; width: 100%;">
-               <p class="data-container__right--text">Care needed:</p>
-               <ul>
-                  <% current_family.recipient.companion_care.each do |care| %>
-                     <li class="data-container__right--text"><%= care %></li>
-                  <% end %>
-                  <% current_family.recipient.personal_care.each do |care| %>
-                     <li class="data-container__right--text"><%= care %></li>
-                  <% end %>
-               </ul>
-            </div>
-         </div>
-         <div class="data-container__right">
-            <p class="data-container__right--text">Phone: <%= @recipient.phone %></p>
-            <p class="data-container__right--text">Address: <%= @recipient.address %></p>
-            <p class="data-container__right--text">Location: <%= @recipient.city %>, <%= @recipient.state %></p>
-            <p class="data-container__right--text">Most Desired Quality: <%= @recipient.quality %></p>
-         </div>
-      </div>
-   </div>
-   <a class="home-jobpost-container__button" style="width: 150px; text-align: center; text-decoration: none;"href="edit_recipient/<%= @recipient.id %>/edit">Edit Recipient</a>
-<% else %>
-   <%= form_for :recipient, url: "create_recipient",  html: {class: "nifty_form"} do |f| %>
-      <%= f.label :firstname %>
-      <%= f.text_field :firstname, required: true %><br>
-      <%= f.label :lastname %>
-      <%= f.text_field :lastname, required: true %><br>
-      <%= f.label :gender %>
-      <%= f.text_field :gender, required: true %><br>
-      <%= f.label :age %>
-      <%= f.text_field :age, required: true %><br>
-      <%= f.submit%>
-   <% end %>
-<% end %>
+<div class="home-family-member">
+  <div class="home-family-member__text-container">
+     <h2 class="home-family-member__text-container--text">Care Recipient</h2>
+  </div>
+  <div class="data-container">
+     <div class="data-container__left">
+        <p class="data-container__left--text">Firstname: <%= @recipient.firstname %></p>
+        <p class="data-container__left--text">Lastname: <%= @recipient.lastname %></p>
+        <p class="data-container__left--text">Gender: <%= @recipient.gender %></p>
+        <p class="data-container__left--text">Age: <%= @recipient.age %></p>
+        <p class="data-container__left--text">Primary language: <%= @recipient.primary_language %></p>
+        <div style="display: flex; width: 100%;">
+           <p class="data-container__right--text">Care needed:</p>
+           <ul>
+              <% current_family.recipient.companion_care.each do |care| %>
+                 <li class="data-container__right--text"><%= care %></li>
+              <% end %>
+              <% current_family.recipient.personal_care.each do |care| %>
+                 <li class="data-container__right--text"><%= care %></li>
+              <% end %>
+           </ul>
+        </div>
+     </div>
+     <div class="data-container__right">
+        <p class="data-container__right--text">Phone: <%= @recipient.phone %></p>
+        <p class="data-container__right--text">Address: <%= @recipient.address %></p>
+        <p class="data-container__right--text">Location: <%= @recipient.city %>, <%= @recipient.state %></p>
+        <p class="data-container__right--text">Most Desired Quality: <%= @recipient.quality %></p>
+     </div>
+  </div>
+</div>
+<a class="home-jobpost-container__button" style="width: 150px; text-align: center; text-decoration: none;"href="edit_recipient/<%= @recipient.id %>/edit">Edit Recipient</a>

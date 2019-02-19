@@ -82,7 +82,7 @@
                <%= label_tag :Chronic, nil, :class => "conditions-container__companion--label" do %>
                   <%= check_box_tag "conditions[]", "Chronic Obstructive Pulmonary disease", false, class: "conditions-container__companion--checkbox" %>
                   Chronic Obstructive Pulmonary disease
-               <% end %> 
+               <% end %>
                <%= label_tag :Stroke, nil, :class => "conditions-container__companion--label" do %>
                   <%= check_box_tag "conditions[]", "Stroke", false, class: "conditions-container__companion--checkbox" %>
                   Stroke
@@ -94,11 +94,12 @@
                <%= label_tag :Psychiatric, nil, :class => "conditions-container__companion--label" do %>
                   <%= check_box_tag "conditions[]", "Psychiatric disorders", false, class: "conditions-container__companion--checkbox" %>
                   Psychiatric disorders
-               <% end %>    
-               <%= label_tag :Other, nil, :class => "conditions-container__companion--label" do %>
-                  <%= check_box_tag "conditions[]", "Other", false, class: "conditions-container__companion--checkbox" %>
+               <% end %>
+               <label class="conditions-container__companion--label" for="Other">
+                  <input type="checkbox" id="condition-other-fam" class="conditions-container__companion--checkbox" />
                   Other
-               <% end %>              
+               </label>
+               <input type="textbox" name="conditions[]", placeholder="Condition" id="condition-other-input-fam", class="signup-input-container--input" style="display: none;" >
             </div>
          </div>
       </div>
@@ -108,7 +109,7 @@
       </div>
       <div class="field center">
          <h3 class="conditions-container__companion--text">How many months of services do you expect in the coming year?</h3>
-         <%= f.select :months, options_for_select(twelve_months), {:prompt => "Months"}, {:class => "signup-input-container-cg--input-cg", :required => true } %> 
+         <%= f.select :months, options_for_select(twelve_months), {:prompt => "Months"}, {:class => "signup-input-container-cg--input-cg", :required => true } %>
       </div>
       <%= f.submit "Finish", class: "signup-input-container--submit care-button", style: "max-width: 500px !important;"%>
    <% end %>
