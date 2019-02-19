@@ -84,10 +84,6 @@
          alert("You must be in a team to contact families!");
       });
 
-      $("#join-alert").on("click", function() {
-         alert("You must be in a team to contact families!");
-      });
-
       $("#customer-button").on("click", function() {
          $("#service-number").css("display", "block");
       });
