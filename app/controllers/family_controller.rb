@@ -16,7 +16,7 @@ class FamilyController < ApplicationController
       @recipient_info = current_family.recipient
       @city = "#{@recipient_info.city}"
       @state = "#{@recipient_info.state}"
-      @family_contact = "#{current_family.firstname} #{current_family.lastname.titleize.chars.first}"
+      @family_contact = "#{current_family.firstname.titleize} #{current_family.lastname.titleize.chars.first}"
       @jobpost = current_family.job_post
       @jobpost_title = current_family.job_post.title
       if @recipient_info.companion_care == nil

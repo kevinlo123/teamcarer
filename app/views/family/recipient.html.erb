@@ -12,12 +12,24 @@
         <div style="display: flex; width: 100%;">
            <p class="data-container__right--text">Care needed:</p>
            <ul>
-              <% current_family.recipient.companion_care.each do |care| %>
-                 <li class="data-container__right--text"><%= care %></li>
-              <% end %>
-              <% current_family.recipient.personal_care.each do |care| %>
-                 <li class="data-container__right--text"><%= care %></li>
-              <% end %>
+               <% if current_family.recipient.companion_care == nil && current_family.recipient.personal_care == nil %>
+                  <li class="data-container__right--text">No care needed</li>
+               <% elsif current_family.recipient.companion_care == nil %>
+                  <% current_family.recipient.personal_care.each do |care| %>
+                     <li class="data-container__right--text"><%= care %></li>
+                  <% end %>
+               <% elsif current_family.recipient.personal_care == nil %>
+                  <% current_family.recipient.companion_care.each do |care| %>
+                     <li class="data-container__right--text"><%= care %></li>
+                  <% end %>
+               <% else %>
+                  <% current_family.recipient.companion_care.each do |care| %>
+                     <li class="data-container__right--text"><%= care %></li>
+                  <% end %>
+                  <% current_family.recipient.personal_care.each do |care| %>
+                     <li class="data-container__right--text"><%= care %></li>
+                  <% end %>
+               <% end %>
            </ul>
         </div>
      </div>
