@@ -36,34 +36,34 @@
       <div class="member-data-container__right">
          <h3 class="member-data-container__left--text">Personal Statement</h3>
          <p style="color: grey;"><%= @member.statement %></p>
-         <h3 class="member-data-container__left--text">Experience with</h3>
          <% if @member.conditions == nil %>
-            <li class="list-item">No conditions</li>
+            <li class="list-item" style="display: none;">No conditions</li>
          <% else %>
+            <h3 class="member-data-container__left--text">Experience with</h3>
             <% @member.conditions.each do |condition|%>
                <li class="list-item"><%= condition %></li>
             <% end %>
          <% end %>
-         <h3 class="member-data-container__left--text">Companion Care</h3>
          <% if @member.companion_care == nil %>
-            <li class="list-item">No companion care</li>
+            <li class="list-item" style="display: none;">No companion care</li>
          <% else %>
+            <h3 class="member-data-container__left--text">Companion Care</h3>
             <% @member.companion_care.each do |condition|%>
                <li class="list-item"><%= condition %></li>
             <% end %>
          <% end %>
-         <h3 class="member-data-container__left--text">Personal Care</h3>
          <% if @member.personal_care == nil %>
-            <li class="list-item">No personal care</li>
+            <li class="list-item" style="display: none;">No personal care</li>
          <% else %>
+            <h3 class="member-data-container__left--text">Personal Care</h3>
             <% @member.personal_care.each do |condition|%>
                <li class="list-item"><%= condition %></li>
             <% end %>
          <% end %>
-         <h3 class="member-data-container__left--text">Related Service</h3>
          <% if @member.related_service == nil %>
-            <li class="list-item">No related service</li>
+            <li class="list-item" style="display: none;">No related service</li>
          <% else %>
+            <h3 class="member-data-container__left--text">Related Service</h3>
             <% @member.related_service.each do |condition|%>
                <li class="list-item"><%= condition %></li>
             <% end %>
