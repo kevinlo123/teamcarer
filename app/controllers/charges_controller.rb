@@ -54,8 +54,9 @@ class ChargesController < ApplicationController
          :description => 'Rails Stripe customer',
          :currency    => 'usd'
       )
+      redirect_to family_root_path   
+      # flash[:notice] = "Your payment has been recieved thank you."     
       rescue Stripe::CardError => e
       flash[:error] = e.message
-      redirect_to family_root_path
    end
 end

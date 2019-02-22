@@ -108,7 +108,27 @@ class TeamController < ApplicationController
       @family = Family.find(params[:id])
    end
 
-   def for_the_day(x,y)
+   def leader_hours
+      beginning_of_week = Time.current.beginning_of_week
+      end_of_week = beginning_of_week.end_of_week
+      @job_post = JobPost.find(params[:id])
+      @hours = Hour.where(job_post_id:  @job_post.id, created_at: beginning_of_week..end_of_week)
+      @companion = 0
+      @personal = 0
+      @hours.each do |record|
+         @companion += record.companion_hours
+         @personal += record.personal_hours
+      end
+      @total
+      @care_team = CareTeam.find_by(care_giver_id: current_care_giver.id)
+      if @care_team == nil
+         @total = "Once you connect with a team you will be able to confirm the teams hours worked on a weekly basis"
+      else
+         @total = (@companion * @care_team.companion_hrly_price) + (@personal * @care_team.personal_hrly_price)
+      end
+   end
+
+   def for_the_day(x, y)
       if Hour.where(:created_at => (Time.zone.now.beginning_of_day..Time.zone.now), :job_post_id => x, :care_giver_id => y).any? == true         
          return "Exceeds daily limit"
       end
