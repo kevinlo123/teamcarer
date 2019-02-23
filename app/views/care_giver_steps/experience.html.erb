@@ -7,7 +7,7 @@
             <li class="current-cg qa-progressbar-item-cg">
                <span style="background: #FFB052; !important" class="cell-cg">
                   <span class="item-cg">
-                     <span>Care Giver info</span>
+                     <span>Care Giver Info</span>
                   </span>
                </span>
             </li>
@@ -44,7 +44,7 @@
    </div>
    <%= form_for :team, url: 'experience'  do  |f|%>
       <div class="signup-input-container-cg">
-         <h3 style="font-size: 1.75rem;">Work experience:</h3>
+         <h3 style="font-size: 1.75rem;">Work experience</h3>
          <%= fields_for :work_exps do |u| %>
             <div class="field">
                <%= u.text_field :employer, autofocus: true, placeholder: "Employer", autocomplete: "employer", class: "signup-input-container-cg--input-cg" %>
@@ -65,7 +65,7 @@
                <%= u.select :to, options_for_select(years),{:prompt => "To:"}, {:class => "signup-input-container-cg--input-cg",:required => true } %>
             </div>
          <% end %>
-         <h3 style="font-size: 1.75rem;">Education:</h3>
+         <h3 style="font-size: 1.75rem;">Education</h3>
          <%= fields_for :educations do |u| %>
             <div class="field">
                <%= u.text_field :school, autofocus: true, placeholder: "School", autocomplete: "school", class: "signup-input-container-cg--input-cg" %>

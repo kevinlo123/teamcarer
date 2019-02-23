@@ -41,98 +41,98 @@
       <div style="margin-top: 0" class="conditions-container">
          <div class="conditions-container__companion">
             <h3 class="conditions-container__companion--text">Companion Care</h3>
-               <%= label_tag :HouseCleaning, nil, :class => "conditions-container__companion--label" do %>
-                  <%= check_box_tag "companion_care[]", "House cleaning", false, class: "conditions-container__companion--checkbox" %>
-                  House Cleaning
-               <% end %>
-               <%= label_tag :Laundry, nil, :class => "conditions-container__companion--label" do %>
-                  <%= check_box_tag "companion_care[]", "Laundry", false, class: "conditions-container__companion--checkbox" %>
-                  Laundry
-               <% end %>
-               <%= label_tag :mealprep, nil, :class => "conditions-container__companion--label" do %>
-                  <%= check_box_tag "companion_care[]", "Meal preperation", false, class: "conditions-container__companion--checkbox" %>
-                  Meal preperation
-               <% end %>
-               <%= label_tag :transportation, nil, :class => "conditions-container__companion--label" do %>
-                  <%= check_box_tag "companion_care[]", "Driving / Transportation", false, class: "conditions-container__companion--checkbox" %>
-                  Driving / Transportation
-               <% end %>
-               <%= label_tag :Errands, nil, :class => "conditions-container__companion--label" do %>
-                  <%= check_box_tag "companion_care[]", "Running Errands", false, class: "conditions-container__companion--checkbox" %>
-                  Running Errands
-               <% end %>
-               <%= label_tag :Companionship, nil, :class => "conditions-container__companion--label" do %>
-                  <%= check_box_tag "companion_care[]", "Companionship", false, class: "conditions-container__companion--checkbox" %>
-                  Companionship
-               <% end %>
-               <%= label_tag :Reminders, nil, :class => "conditions-container__companion--label" do %>
-                  <%= check_box_tag "companion_care[]", "Medication Reminders", false, class: "conditions-container__companion--checkbox" %>
-                  Medication Reminders
-               <% end %>
-               <%= label_tag :Finance, nil, :class => "conditions-container__companion--label" do %>
-                  <%= check_box_tag "companion_care[]", "Finance Management", false, class: "conditions-container__companion--checkbox" %>
-                  Finance Management
-               <% end %>
-            </div>
-            <div class="conditions-container__personal">
-               <h3 class="conditions-container__personal--text">Personal Care</h3>
-               <%= label_tag :bathing, nil, :class => "conditions-container__personal--label" do %>
-                  <%= check_box_tag "personal_care[]", "Bathing", false, class: "conditions-container__personal--checkbox" %>
-                  Bathing
-               <% end %>
-               <%= label_tag :Grooming, nil, :class => "conditions-container__personal--label" do %>
-                  <%= check_box_tag "personal_care[]", "Grooming", false, class: "conditions-container__personal--checkbox" %>
-                  Grooming
-               <% end %>
-               <%= label_tag :Dressing, nil, :class => "conditions-container__personal--label" do %>
-                  <%= check_box_tag "personal_care[]", "Dressing", false, class: "conditions-container__personal--checkbox" %>
-                  Dressing
-               <% end %>
-               <%= label_tag :Toilet, nil, :class => "conditions-container__personal--label" do %>
-                  <%= check_box_tag "personal_care[]", "Toilet/Incontinence", false, class: "conditions-container__personal--checkbox" %>
-                  Toilet/Incontinence
-               <% end %>
-               <%= label_tag :Transfering, nil, :class => "conditions-container__personal--label" do %>
-                  <%= check_box_tag "personal_care[]", "Transfering", false, class: "conditions-container__personal--checkbox" %>
-                  Transfering
-               <% end %>
-               <%= label_tag :Ambulating, nil, :class => "conditions-container__personal--label" do %>
-                  <%= check_box_tag "personal_care[]", "Ambulating", false, class: "conditions-container__personal--checkbox" %>
-                  Ambulating
-               <% end %>
-               <%= label_tag :OralCare, nil, :class => "conditions-container__personal--label" do %>
-                  <%= check_box_tag "personal_care[]", "Oral Care", false, class: "conditions-container__personal--checkbox" %>
-                  Oral Care
-               <% end %>
-            </div>
+            <%= label_tag :HouseCleaning, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "House cleaning", false, class: "conditions-container__companion--checkbox" %>
+               House Cleaning
+            <% end %>
+            <%= label_tag :Laundry, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Laundry", false, class: "conditions-container__companion--checkbox" %>
+               Laundry
+            <% end %>
+            <%= label_tag :mealprep, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Meal preperation", false, class: "conditions-container__companion--checkbox" %>
+               Meal preperation
+            <% end %>
+            <%= label_tag :transportation, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Driving / Transportation", false, class: "conditions-container__companion--checkbox" %>
+               Driving / Transportation
+            <% end %>
+            <%= label_tag :Errands, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Running Errands", false, class: "conditions-container__companion--checkbox" %>
+               Running Errands
+            <% end %>
+            <%= label_tag :Companionship, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Companionship", false, class: "conditions-container__companion--checkbox" %>
+               Companionship
+            <% end %>
+            <%= label_tag :Reminders, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Medication Reminders", false, class: "conditions-container__companion--checkbox" %>
+               Medication Reminders
+            <% end %>
+            <%= label_tag :Finance, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "companion_care[]", "Finance Management", false, class: "conditions-container__companion--checkbox" %>
+               Finance Management
+            <% end %>
          </div>
-         <h2 style="color: #104A75">Most desirable quality</h2>
-         <div class="quality-container">
-            <div class="inline">
-               <%= f.radio_button :quality, 'Empathy' %>
-               <%= f.label :quality, 'Empathy', value: "launch product", :class => "conditions-container__companion--label" %>
-            </div>
-            <div class="inline">
-               <%= f.radio_button :quality, "Trust" %>
-               <%= f.label :quality, "Trust", value: "Trust", :class => "conditions-container__companion--label" %>
-            </div>
-            <div class="inline">
-               <%= f.radio_button :quality, "Credentials and Skills" %>
-               <%= f.label :quality, "Credentials and Skills", value: "Credentials and Skills", :class => "conditions-container__companion--label" %>
-            </div>
-            <div class="inline">
-               <%= f.radio_button :quality, "Speaks care recipients Language" %>
-               <%= f.label :quality, "Speaks care recipients Language", value: "Speaks care recipients Language", :class => "conditions-container__companion--label" %>
-            </div>
-            <div class="inline">
-               <%= f.radio_button :quality, "Punctuality & Reliability" %>
-               <%= f.label :quality, "Punctuality & Reliability", value: "Punctuality & Reliability", :class => "conditions-container__companion--label" %>
-            </div>
-            <div class="inline">
-               <%= f.radio_button :quality, "Persistence" %>
-               <%= f.label :quality, "Persistence", value: "Persistence", :class => "conditions-container__companion--label" %>
-            </div>
+         <div class="conditions-container__personal">
+            <h3 class="conditions-container__personal--text">Personal Care</h3>
+            <%= label_tag :bathing, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Bathing", false, class: "conditions-container__personal--checkbox" %>
+               Bathing
+            <% end %>
+            <%= label_tag :Grooming, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Grooming", false, class: "conditions-container__personal--checkbox" %>
+               Grooming
+            <% end %>
+            <%= label_tag :Dressing, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Dressing", false, class: "conditions-container__personal--checkbox" %>
+               Dressing
+            <% end %>
+            <%= label_tag :Toilet, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Toilet/Incontinence", false, class: "conditions-container__personal--checkbox" %>
+               Toilet/Incontinence
+            <% end %>
+            <%= label_tag :Transfering, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Transfering", false, class: "conditions-container__personal--checkbox" %>
+               Transfering
+            <% end %>
+            <%= label_tag :Ambulating, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Ambulating", false, class: "conditions-container__personal--checkbox" %>
+               Ambulating
+            <% end %>
+            <%= label_tag :OralCare, nil, :class => "conditions-container__personal--label" do %>
+               <%= check_box_tag "personal_care[]", "Oral Care", false, class: "conditions-container__personal--checkbox" %>
+               Oral Care
+            <% end %>
          </div>
+      </div>
+      <h2 style="color: #104A75">Most desirable quality</h2>
+      <div class="quality-container">
+         <div class="inline">
+            <%= f.radio_button :quality, 'Empathy' %>
+            <%= f.label :quality, 'Empathy', value: "launch product", :class => "conditions-container__companion--label" %>
+         </div>
+         <div class="inline">
+            <%= f.radio_button :quality, "Trust" %>
+            <%= f.label :quality, "Trust", value: "Trust", :class => "conditions-container__companion--label" %>
+         </div>
+         <div class="inline">
+            <%= f.radio_button :quality, "Credentials and Skills" %>
+            <%= f.label :quality, "Credentials and Skills", value: "Credentials and Skills", :class => "conditions-container__companion--label" %>
+         </div>
+         <div class="inline">
+            <%= f.radio_button :quality, "Speaks care recipients Language" %>
+            <%= f.label :quality, "Speaks care recipients Language", value: "Speaks care recipients Language", :class => "conditions-container__companion--label" %>
+         </div>
+         <div class="inline">
+            <%= f.radio_button :quality, "Punctuality & Reliability" %>
+            <%= f.label :quality, "Punctuality & Reliability", value: "Punctuality & Reliability", :class => "conditions-container__companion--label" %>
+         </div>
+         <div class="inline">
+            <%= f.radio_button :quality, "Persistence" %>
+            <%= f.label :quality, "Persistence", value: "Persistence", :class => "conditions-container__companion--label" %>
+         </div>
+      </div>
       <%= f.submit "Confirm Changes", class: "signup-input-container--submit" %>
    </div>
 <% end %>

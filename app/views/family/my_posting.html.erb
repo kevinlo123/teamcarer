@@ -56,11 +56,13 @@
          </div>
       </div>
    </div>
-   <%= link_to "Delete Post", delete_post_path(:id => current_family.job_post), :method => :delete, class: "home-jobpost-container__button", data: { confirm: "Are you sure?" }, style: "text-decoration: none; text-align: center;" %>
+   <% if !current_family.care_team_id %>
+      <%= link_to "Delete Post", delete_post_path(:id => current_family.job_post), :method => :delete, class: "home-jobpost-container__button", data: { confirm: "Are you sure?" }, style: "text-decoration: none; text-align: center;" %>
+   <% end %>
    <% if current_family.care_team_id == nil %>
       <p class="hours-app"><%= @total %></p>
    <% else %>
-      <table id="hours-table" cellspacing="0" style="margin-bottom: 7rem;">
+      <table id="hours-table" cellspacing="0" style="margin-top: 4rem;margin-bottom: 7rem;">
          <caption class="hours-app">Hours for week of <%= Date.today.beginning_of_week.strftime('%m/%d/%Y') %> - <%= Date.today.end_of_week.strftime('%m/%d/%Y') %></caption>
          <thead>
             <tr>

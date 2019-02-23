@@ -7,7 +7,7 @@
             <li class="current qa-progressbar-item">
                <span class="cell">
                   <span class="item">
-                     <span>Family Member info</span>
+                     <span>Family Member Info</span>
                   </span>
                </span>
             </li>
@@ -28,14 +28,14 @@
             <li class="qa-progressbar-item">
                <span class="cell">
                   <span class="item">
-                     <span>Care Recipient qualities</span>
+                     <span>Care Recipient Qualities</span>
                   </span>
                </span>
             </li>
             <li class="last qa-progressbar-item">
                <span class="cell">
                   <span class="item">
-                     <span>Care Recipient conditions</span>
+                     <span>Care Recipient Conditions</span>
                   </span>
                </span>
             </li>
@@ -53,16 +53,16 @@
             <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "password confirmation", class: "signup-input-container--input" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password Confirmation", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname", placeholder: "First name", class: "signup-input-container--input" %>
+            <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname", placeholder: "First Name", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.text_field :middlename, autofocus: true, autocomplete: "middlename", placeholder: "Middle name (optional)", class: "signup-input-container--input" %>
+            <%= f.text_field :middlename, autofocus: true, autocomplete: "middlename", placeholder: "Middle Name (optional)", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname", placeholder:"Last name", class: "signup-input-container--input" %>
+            <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname", placeholder:"Last Name", class: "signup-input-container--input" %>
          </div>
          <div class="field">
             <%= f.telephone_field :phone, maxlength: 11, autocomplete: "phone", placeholder: "Phone", class: "signup-input-container--input number-field" %>
@@ -80,10 +80,10 @@
             <%= f.text_field :zip, maxlength: 5, autofocus: true, autocomplete: "zip", placeholder: "Zip Code", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.text_field :emergency_name, autofocus: true, autocomplete: "emergency_name", placeholder: "Emergency contact name", class: "signup-input-container--input" %>
+            <%= f.text_field :emergency_name, autofocus: true, autocomplete: "emergency_name", placeholder: "Emergency Contact Name", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.telephone_field :emergency_contact, maxlength: 11, autofocus: true, autocomplete: "emergency_contact", placeholder: "Emergency contact number", class: "signup-input-container--input number-field" %>
+            <%= f.telephone_field :emergency_contact, maxlength: 11, autofocus: true, autocomplete: "emergency_contact", placeholder: "Emergency Contact Number", class: "signup-input-container--input number-field" %>
          </div>
          <div class="field">
             <%= f.select :recipient_relation, options_for_select(family_relationships), {:prompt => "Who is the Care Recipient?"}, {:class => "signup-input-container--input"} %>
