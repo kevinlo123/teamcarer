@@ -25,6 +25,12 @@ class CareGiverStepsController < ApplicationController
    def update
       if current_care_giver.confirmed? == false 
          render template: "layouts/confirm_email"
+      elsif params[:companion_care].blank? && params[:personal_care].blank? 
+         redirect_to "/care_giver_steps/skills_information"          
+         flash[:notice] = "Please select at least one condition"
+      elsif params[:languages].blank?
+         redirect_to "/care_giver_steps/skills_information"          
+         flash[:notice] = "Please select a language"
       else         
          @team = current_care_giver
          @team.update(companion_care: params[:companion_care])
@@ -37,10 +43,18 @@ class CareGiverStepsController < ApplicationController
 
    def conditions
       @team = current_care_giver
-      @team.update(conditions: params[:conditions]) 
-      @team.update(related_service: params[:related_service])       
-      jump_to(:yes_no)         
-      render_wizard  
+      if params[:conditions].last == ""
+         params[:conditions].pop
+      end
+      if params[:conditions].blank? 
+         redirect_to "/care_giver_steps/disease_management"          
+         flash[:notice] = "Please select at least one condition below"
+      else
+         @team.update(conditions: params[:conditions]) 
+         @team.update(related_service: params[:related_service])       
+         jump_to(:yes_no)         
+         render_wizard  
+      end
    end
 
    def yes_no

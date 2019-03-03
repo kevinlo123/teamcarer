@@ -162,8 +162,10 @@ class FamilyController < ApplicationController
 
    def team_selection
       @care_team = CareTeam.find(params[:id])
-      current_family.update(care_team_id: params[:id])
-      redirect_to family_root_path
+      if current_family.update(care_team_id: params[:id])
+         redirect_to my_team_path(:id => params[:id]) 
+         flash[:notice] = "Congratulations! you are now connection with #{@care_team.team_name}"                           
+      end    
    end
 
    def my_team

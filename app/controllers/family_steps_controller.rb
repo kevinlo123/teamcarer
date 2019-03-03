@@ -19,38 +19,69 @@ class FamilyStepsController < ApplicationController
    def create
       if current_family.confirmed? == false
          render template: "layouts/confirm_email"
-      else
+      elsif current_family.recipient == nil       
          @recipient = current_family.create_recipient(sanitize_recipient)
          if @recipient.save
-            jump_to(:care_needed)       
-         else      
-            render json: @recipient.errors.full_messages
+            jump_to(:care_needed) 
+            render_wizard                     
+         else 
+            redirect_to "/family_steps/recipient_information"
+            flash[:notice] = "Age must be a number"            
          end
-         render_wizard         
+      else  
+         if current_family.recipient.update_attributes(sanitize_recipient)
+            jump_to(:care_needed)  
+            render_wizard   
+         else  
+            redirect_to "/family_steps/recipient_information"
+            flash[:notice] = "Age must be a number" 
+         end                         
       end
    end
 
    def care_needs
       @recipient = current_family.recipient
-      @recipient.update(companion_care: params[:companion_care])
-      @recipient.update(personal_care: params[:personal_care])      
-      jump_to(:recipient_qualities)                                
-      render_wizard
+      if params[:companion_care].blank? && params[:personal_care].blank?
+         redirect_to "/family_steps/care_needed"          
+         flash[:notice] = "Please select at least one condition"
+      else
+         @recipient.update(companion_care: params[:companion_care])
+         @recipient.update(personal_care: params[:personal_care])      
+         jump_to(:recipient_qualities)                                
+         render_wizard
+     end 
    end
 
    def mobility_quality
-      @recipient = current_family.recipient      
-      @recipient.update(mobility: params[:mobility])
-      @recipient.update_attributes(sanitize_recipient)      
-      jump_to(:recipient_conditions)   
-      render_wizard      
+      @recipient = current_family.recipient   
+      if params[:mobility].blank? || params[:quality].present?
+         redirect_to "/family_steps/recipient_qualities"          
+         flash[:notice] = "Please select at least one option for the questions below"
+      else   
+         @recipient.update(mobility: params[:mobility])
+         @recipient.update_attributes(sanitize_recipient)      
+         jump_to(:recipient_conditions)   
+         render_wizard      
+      end
    end
 
    def conditions
       @recipient = current_family.recipient 
-      @recipient.update(conditions: params[:conditions]) 
-      @recipient.update_attributes(sanitize_recipient)            
-      redirect_to family_root_path
+      puts "!!!!!!!!!!!!!! ->" + params[:recipient][:hours_weekly]
+      if params[:conditions].last == ""
+         params[:conditions].pop
+      end
+      if params[:conditions].blank? 
+         redirect_to "/family_steps/recipient_conditions"          
+         flash[:notice] = "Please select at least one condition below"
+      elsif !/\A\d+\z/.match(params[:recipient][:hours_weekly])
+         redirect_to "/family_steps/recipient_conditions"          
+         flash[:notice] = "Hours per week must be a number" 
+      else 
+         @recipient.update(conditions: params[:conditions]) 
+         @recipient.update_attributes(sanitize_recipient)            
+         redirect_to family_root_path
+      end
    end
    
    private 

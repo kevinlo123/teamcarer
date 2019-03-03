@@ -96,6 +96,11 @@
                      <%= check_box_tag "conditions[]", "Psychiatric disorders", false, class: "conditions-container__companion--checkbox" %>
                      Psychiatric disorders
                   <% end %>
+                  <label class="conditions-container__companion--label" for="Other">
+                     <input type="checkbox" id="condition-other-fam" class="conditions-container__companion--checkbox" />
+                     Other
+                  </label>
+                  <input type="textbox" name="conditions[]", placeholder="Condition" id="condition-other-input-fam", class="signup-input-container--input" style="display: none;"/>
                </div>
             </div>
             <div>

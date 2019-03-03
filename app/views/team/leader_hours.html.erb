@@ -1,6 +1,6 @@
-<h1>hours</h1>
+<h1 style="visibility: hidden; margin-top: 5rem;">hours</h1>
 <table id="hours-table" cellspacing="0" style="margin-bottom: 7rem;">
-   <caption class="hours-app">Hours for week of <%= Date.today.beginning_of_week.strftime('%m/%d/%Y') %> - <%= Date.today.end_of_week.strftime('%m/%d/%Y') %></caption>
+   <caption class="hours-app">Your Teams Hours for week of <%= Date.today.beginning_of_week.strftime('%m/%d/%Y') %> - <%= Date.today.end_of_week.strftime('%m/%d/%Y') %></caption>
    <thead>
       <tr>
          <th class="hours-block">Caregiver</th>
@@ -38,3 +38,4 @@
       </tr>
    </tbody>
 </table>
+<%= link_to "Back", :back, style: "margin-bottom: 2rem;", class: "home-jobpost-container__button", style: "text-decoration: none; text-align: center;" %>

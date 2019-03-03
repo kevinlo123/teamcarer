@@ -21,16 +21,40 @@
       </div>
       <div class="data-container">
          <div class="data-container__left">
-            <p class="data-container__left--text">First Name: <%= current_family.firstname %></p>
-            <p class="data-container__left--text">Last Name: <%= current_family.lastname %></p>
-            <p class="data-container__left--text">E-mail: <%= current_family.email %></p>
-            <a class="data-container__left--text" href="tel:#{current_family.phone}">Phone: <%= current_family.phone %></a>
+            <div>
+               <p class="data-container__left--text" style="display: inline; font-size: 1.3rem; font-weight: bold;">First Name:</p> 
+               <p class="data-container__left--text" style="display: inline-block; margin-top: 2rem; margin-bottom: 0;"><%= current_family.firstname %></p>
+            </div>
+            <div>
+               <p class="data-container__left--text" style="display: inline; font-size: 1.3rem; font-weight: bold;">Last Name:</p>
+               <p class="data-container__left--text" style="display: inline-block; margin-top: 2rem; margin-bottom: 0;"><%= current_family.lastname %></p>
+            </div>
+            <div>
+               <p class="data-container__left--text" style="display: inline; font-size: 1.3rem; font-weight: bold;">E-mail:</p>
+               <p class="data-container__left--text" style="display: inline-block; margin-top: 2rem; margin-bottom: 0;"><%= current_family.email %></p>
+            </div>
+            <div>
+               <p class="data-container__left--text" style="display: inline; font-size: 1.3rem; font-weight: bold;">Phone:</p>
+               <p class="data-container__left--text" style="display: inline-block; margin-top: 2rem; margin-bottom: 0;"><%= current_family.phone %></p>
+            </div>
          </div>
          <div class="data-container__right">
-            <p class="data-container__right--text">City: <%= current_family.city %></p>
-            <p class="data-container__right--text">State: <%= current_family.state %></p>
-            <p class="data-container__right--text">Address: <%= current_family.street %></p>
-            <p class="data-container__right--text">Zipcode: <%= current_family.zip %></p>
+            <div>
+               <p class="data-container__right--text" style="display: inline; font-size: 1.3rem; font-weight: bold;">City:</p> 
+               <p class="data-container__right--text" style="display: inline-block; margin-top: 2rem; margin-bottom: 0;"><%= current_family.city %></p>
+            </div>
+            <div>
+               <p class="data-container__right--text" style="display: inline; font-size: 1.3rem; font-weight: bold;">State:</p>
+               <p class="data-container__right--text" style="display: inline-block; margin-top: 2rem; margin-bottom: 0;"><%= current_family.state %></p>
+            </div>
+            <div>
+               <p class="data-container__right--text" style="display: inline; font-size: 1.3rem; font-weight: bold;">Address:</p>
+               <p class="data-container__right--text" style="display: inline-block; margin-top: 2rem; margin-bottom: 0;"><%= current_family.street %></p>
+            </div>
+            <div>
+               <p class="data-container__right--text" style="display: inline; font-size: 1.3rem; font-weight: bold;">Zipcode:</p>
+               <p class="data-container__right--text" style="display: inline-block; margin-top: 2rem; margin-bottom: 0;"><%= current_family.zip %></p>
+            </div>
          </div>
       </div>
       <%= link_to "Update", "families/edit", class: "home-jobpost-container__button", style: "text-decoration: none; text-align: center;"%>

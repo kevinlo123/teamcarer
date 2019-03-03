@@ -1,6 +1,6 @@
-<p style="text-align: center;margin-top: 2.5rem; font-size: 1.25rem;"><%= flash[:notice] %></p>
-<h2 class="hours-app">Submit hours for approval</h2>
-<%= form_for :hours, url: create_hours_path(:id => @family.id) do |f| %>
+<h1 style="visibility: hidden; margin-top: 5rem;">hours</h1>
+<h2 class="hours-app">Submit hours for <%=@family.firstname%>'s approval</h2>
+<%= form_for :hours, url: create_hours_path(:id => @family.id), html: {:class => "hours-form"} do |f| %>
    <table id="hours-table" cellspacing="0">
       <thead>
          <tr>
@@ -11,11 +11,11 @@
       </thead>
       <tbody>
          <tr>
-            <td class="hours-block data" scope="row"><%= f.date_field :day_worked, required: true, placeholder: "Enter Todays Date", class: "signup-input-container-cg--input-cg"  %></td>
-            <td class="hours-block data" style="border-right: none; border-left: none;"><%= f.text_field :companion_hours, required: true, maxlength: 2, placeholder: "Hours worked", class: "signup-input-container-cg--input-cg"  %></td>
-            <td class="hours-block data"><%= f.text_field :personal_hours, required: true, maxlength: 2, placeholder: "Hours worked", class: "signup-input-container-cg--input-cg" %></td>
+            <td class="hours-block data" scope="row"><%= f.date_field :day_worked, required: "true", placeholder: "Enter Todays Date", class: "signup-input-container-cg--input-cg"  %></td>
+            <td class="hours-block data" style="border-right: none; border-left: none;"><%= f.text_field :companion_hours, required: true, maxlength: 2, placeholder: "Hours worked", class: "signup-input-container-cg--input-cg", id: "companion-hours" %></td>
+            <td class="hours-block data"><%= f.text_field :personal_hours, required: "true", maxlength: 2, placeholder: "Hours worked", class: "signup-input-container-cg--input-cg", id: "personal-hours" %></td>
          </tr>
       </tbody>
    </table>
-   <%= f.submit "Submit hours", style: "margin-bottom: 2rem;", :data => { :confirm => 'Are you sure These hours are correct?' }, class: "home-jobpost-container__button", style: "text-decoration: none; text-align: center;"%>
+   <%= f.submit "Submit hours", style: "margin-bottom: 2rem;", class: "home-jobpost-container__button", style: "text-decoration: none; text-align: center;", id: "hours-button" %>
 <% end %>

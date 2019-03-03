@@ -26,6 +26,9 @@
       <div class="main">
          <div class="black-overlay"></div>
          <%= render "layouts/partials/header" %>
+         <% flash.each do |name, message|%>
+            <%= content_tag(:div, message, class: "alert alert-info #{name}") %>
+         <% end %>
          <div class="side-menu-content-container-cg">
             <div class="side-menu-family-cg">
                <div class="dashboard-text-container-cg">

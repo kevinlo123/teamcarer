@@ -112,6 +112,9 @@
         }
       });
 
+      function validateCheckbox(){
+         console.log("are you sure");
+      }
       var showChar = 50;
       var ellipsestext = "...";
 
@@ -129,12 +132,22 @@
          alert("You are already assigned to a team");
       });
 
+      $("#hours-button").on("click", function() {
+         if($("#companion-hours").val().length === 0) {
+            alert("Please fill in companion hours worked");            
+         } else if ($("#personal-hours").val().length === 0) {
+            alert("Please fill in personal hours worked");                        
+         } else {
+            confirm("Are you sure these hours are correct?");                        
+         }
+      });
+
       var stateCg = document.getElementById("state-picker-cg");
       stateCg.addEventListener("change", function() {
-         console.log("change")
          $.ajax({
             url: "/states-cg?state=" + stateCg.value,
-            type: "GET"
+            type: "GET",
+            cache: false
          })
       })
 
@@ -142,7 +155,8 @@
       state.addEventListener("change", function() {
          $.ajax({
             url: "/states?state=" + state.value,
-            type: "GET"
+            type: "GET",
+            cache: false
          })
       })
    });

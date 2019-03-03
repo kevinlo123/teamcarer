@@ -1,7 +1,7 @@
 module NumbersHelper
    def twelve_months
       [
-         ['0', '0'],                  
+         ['Less Than 1', 'Less Than 1'],                  
          ['1', '1'],         
          ['2', '2'],
          ['3', '3'],

@@ -80,10 +80,10 @@
             <%= f.text_field :zip, maxlength: 5, autofocus: true, placeholder: "Zip code", autocomplete: "zip code", class: "signup-input-container-cg--input-cg" %>
          </div>
          <div class="field">
-            <%= f.text_field :emergency_contact, autofocus: true, placeholder: "Emergency Contact Name", autocomplete: "Emergency Contact Name", class: "signup-input-container-cg--input-cg" %>
+            <%= f.text_field :emergency_contact, autofocus: true, placeholder: "Emergency Contact Name", autocomplete: "Emergency Contact Name", class: "signup-input-container-cg--input-cg", required: true %>
          </div>
          <div class="field">
-            <%= f.telephone_field :emergency_number, maxlength: 11, autofocus: true, placeholder: "Emergency Contact Number", autocomplete: "Emergency Contact Number", class: "signup-input-container-cg--input-cg number-field" %>
+            <%= f.telephone_field :emergency_number, maxlength: 11, autofocus: true, placeholder: "Emergency Contact Number", autocomplete: "Emergency Contact Number", class: "signup-input-container-cg--input-cg number-field", required: true %>
          </div>
          <%= recaptcha_tags %>
          <div class="actions">

@@ -42,7 +42,7 @@
          </ol>
       </div>
    </div>
-   <%= form_for :recipient, url: "recipient_information" do |f| %>
+   <%= form_for :recipient, url: "recipient_information", :html => {:autocomplete => "off"} do |f| %>
       <div class="signup-input-container">
          <h2 class="signup-input-container__text">Step 2. Care Recipient Info</h2>
          <div class="field">
@@ -52,7 +52,7 @@
             <%= f.text_field :lastname, required: true, placeholder: "Recipient Last Name", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.select :gender, options_for_select([["Male", "Male"],["Female","Female"]]), {:prompt => "Gender"}, {:class => "signup-input-container--input", :required => true } %>
+            <%= f.select :gender, options_for_select([["Male", "Male"],["Female","Female"]]), {:include_blank => "Gender", :selected => "Gender"}, {:class => "signup-input-container--input", :required => true } %>
          </div>
          <div class="field">
             <%= f.text_field :age, maxlength: 3, required: true, placeholder: "Age", class: "signup-input-container--input" %>
@@ -67,10 +67,10 @@
             <%= f.text_field :address , required: true, placeholder: "Address", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker-cg", :required => true } %>
+            <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:include_blank => "State", :selected => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker-cg", :required => true, :autocomplete => "false"} %>
          </div>
          <div class="field">
-            <%= f.select :city, options_for_select([]),{:prompt => "City", :required => true}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker-cg", :required => true } %> 
+            <%= f.select :city, options_for_select([["City","City"]]),{:include_blank => "City", :selected => "City"}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker-cg", :required => true, :autocomplete => "false" } %> 
          </div>
          <div class="actions">
             <%= f.submit "Next Step", class: "signup-input-container--submit" %> 

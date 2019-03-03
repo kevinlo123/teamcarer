@@ -107,7 +107,6 @@
       display: flex;
       @include element(left) {
          width: 50%;
-         margin: 1rem;
          padding: 1rem 2.5rem;
          @include modifier(text) {
             font-size: 1.2rem;
@@ -117,7 +116,6 @@
       }
       @include element(right) {
          width: 50%;
-         margin: 1rem; 
          padding: 1rem 2.5rem;
          @include modifier(text) {
             font-size: 1.2rem;

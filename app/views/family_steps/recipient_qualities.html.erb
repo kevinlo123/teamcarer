@@ -70,6 +70,10 @@
                <%= check_box_tag "mobility[]", "Hospital Bed", false, class: "conditions-container__companion--checkbox" %>
                Hospital Bed
             <% end %>
+            <%= label_tag :NotApplicable, nil, :class => "conditions-container__companion--label" do %>
+               <%= check_box_tag "mobility[]", "N/A", false, class: "conditions-container__companion--checkbox" %>
+               Not Applicable
+            <% end %>
          </div>
          <h2 style="color: #133A6B">What is the most desirable quality of a care team you prefer to have? Please check ONE.</h2>
          <div class="quality-container">
@@ -97,11 +101,15 @@
                <%= f.radio_button :quality, "Persistence" %>
                <%= f.label :quality, "Persistence", value: "Persistence", :class => "conditions-container__companion--label" %>
             </div>
+            <div class="inline">
+               <%= f.radio_button :quality, "Other" %>
+               <%= f.label :Quality, "Other", value: "Other", :class => "conditions-container__companion--label" %>
+            </div>
          </div>
          <h2 style="color: #133A6B">Was the care recipient recently discharged from a hospital?</h2>
-         <%= f.select :recently_discharged, options_for_select([['Yes', true], ['No', false]]), {:prompt => "Select"}, {:class => "signup-input-container--input", :required => true } %><br>
+         <%= f.select :recently_discharged, options_for_select([['Yes', true], ['No', false]]), {:include_blank => "Select", :selected => "Select"}, {:class => "signup-input-container--input", :required => true } %><br>
          <h2 style="color: #133A6B">Is the Care recipient on hospice?</h2>
-         <%= f.select :hospice, options_for_select([['Yes', true], ['No', false]]), {:prompt => "Select"}, {:class => "signup-input-container--input", :required => true } %><br>
+         <%= f.select :hospice, options_for_select([['Yes', true], ['No', false]]), {:include_blank => "Select", :selected => "Select"}, {:class => "signup-input-container--input", :required => true } %><br>
       </div>
       <%= f.submit "Next Step", class: "signup-input-container--submit care-button", style: "max-width: 500px !important;" %>
    <% end %>

@@ -46,6 +46,7 @@ class TeamController < ApplicationController
 
    def all_posts
       @caregiver = CareGiver.find(params[:id])
+      @recent_jobs = JobPost.all.order('created_at ASC')
       @jobs_by_state = JobPost.where(public: true, state: "#{@caregiver.state}").paginate(page: params[:page],:per_page => 5)
       @Jobpost = JobPost.where(public: true, city: "#{@caregiver.city}").paginate(page: params[:page],:per_page => 2)
    end

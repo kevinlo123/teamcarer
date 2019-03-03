@@ -42,7 +42,7 @@
          </ol>
       </div>
    </div>
-   <%= form_for :recipient, url: 'recipient_information_second',  html: {class: "nifty_form"} do |f| %>
+   <%= form_for :recipient, url: 'recipient_information_second',  html: {required: "true"} do |f| %>
       <h2 style="margin: 40px 0;" class="signup-input-container__text">What Type of Care is needed? Check all that apply</h2>
       <h2 class="text-desktop">What Type of Care is needed? Check all that apply</h2>
       <div class="conditions-container">
@@ -113,6 +113,6 @@
             <% end %>
          </div>
       </div>
-      <%= f.submit "Next Step", class: "signup-input-container--submit care-button"%>
+      <%= f.submit "Next Step", class: "signup-input-container--submit care-button" %>
    <% end %>
 </div>

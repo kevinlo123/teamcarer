@@ -13,7 +13,7 @@
       <nav class="desktop-nav">
          <ul class="desktop-nav-list">
             <% if family_signed_in? %>
-               <a class="desktop-nav-list__item desktop-nav-list__item--text" style="margin-left: 120px;" href="/">Home</a>
+               <a class="desktop-nav-list__item desktop-nav-list__item--text" style="margin-left: 120px;" href="/family">Home</a>
                <li class="desktop-nav-list__item" style="margin-left: 18px;">Dashboard
                   <ul class="desktop-dropdown">
                      <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family">Home</a>
@@ -31,7 +31,7 @@
                </li>
                <%= link_to "Log out", destroy_family_session_path, method: :delete, class: "desktop-nav-list__item desktop-nav-list__item--text" %>
             <% elsif care_giver_signed_in? %>
-               <a class="desktop-nav-list__item desktop-nav-list__item--text" style="margin-left: 120px;" href="/">Home</a>
+               <a class="desktop-nav-list__item desktop-nav-list__item--text" style="margin-left: 120px;" href="/team">Home</a>
                <li class="desktop-nav-list__item" style="margin-left: 18px;">Dashboard
                   <ul class="desktop-dropdown">
                      <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/team">Home</a>
@@ -67,11 +67,10 @@
       </nav>
       <nav class="site-menu">
          <ul class="side-menu">
-            <a class="side-menu__list-item side-menu__list-item--text" href="/">Home</a>
             <% if family_signed_in? %>
+            <a class="side-menu__list-item side-menu__list-item--text" href="/family">Home</a>
                <li class="side-menu__list-item">Dashboard <i class="fas fa-chevron-down"></i>
                   <ul class="sub-menu">
-                     <%= link_to "- Home", "/family", class: "sub-menu__list-item sub-menu__list-item--text" %>
                      <%= link_to "- My posting", "/family/my_posting", class: "sub-menu__list-item sub-menu__list-item--text" %>
                      <% unless current_family.job_post %>
                         <%= link_to "- Create a Job post", "/family", class: "sub-menu__list-item sub-menu__list-item--text" %>
@@ -87,9 +86,9 @@
                <%= link_to "Settings", "/families/edit", class: "side-menu__list-item side-menu__list-item--text" %>
                <li class="side-menu__list-item toggle-nav">Close</li>
             <% elsif care_giver_signed_in? %>
+            <a class="side-menu__list-item side-menu__list-item--text" href="/team">Home</a>
                <li class="side-menu__list-item">Dashboard <i class="fas fa-chevron-down"></i>
                   <ul class="sub-menu">
-                     <%= link_to "- Home", "/team", class: "sub-menu__list-item sub-menu__list-item--text" %>
                      <%= link_to "- Job Postings", all_posts_path(:id => current_care_giver.id), class: "sub-menu__list-item sub-menu__list-item--text" %>
                      <% if current_care_giver.care_team %>
                         <%= link_to "- My team", my_care_team_path(:id => current_care_giver.care_team), class: "sub-menu__list-item sub-menu__list-item--text" %>
@@ -103,6 +102,7 @@
                <%= link_to "Settings", "/care_givers/edit" , class: "side-menu__list-item side-menu__list-item--text" %>
                <li class="side-menu__list-item toggle-nav">Close</li>
             <% else %>
+            <a class="side-menu__list-item side-menu__list-item--text" href="/">Home</a>
                <li class="side-menu__list-item">Sign Up <i class="fas fa-chevron-down"></i>
                   <ul class="sub-menu">
                      <a class="sub-menu__list-item sub-menu__list-item--text" href="/families/sign_up">- Family</a>
