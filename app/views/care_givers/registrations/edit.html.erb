@@ -38,6 +38,11 @@
          <%= f.label :emergency_number, "Emergency contact number" %>
          <%= f.telephone_field :emergency_number, maxlength: 11, autofocus: true, autocomplete: "emergency_contact", placeholder: "Emergency contact number", class: "signup-input-container-cg--input-cg number-field" %>
       </div>
+      <div class="field">
+         <%= f.label :emergency_number, "Edit Credentials" %><i>(Make changes to your answers in sign up process)</i><br />
+         <%= link_to "Edit Skills", edit_skills_path, class: "signup-input-container-cg--submit-cg", style:"width: 100%; text-decoration: none; margin: 1rem auto; display: block; text-align: center;" %>
+         <%= link_to "Edit Disease Management", edit_disease_path, class: "signup-input-container-cg--submit-cg", style:"width: 100%; text-decoration: none; margin: 0 auto; display: block; text-align: center;" %>
+      </div>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>

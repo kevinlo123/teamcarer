@@ -13,8 +13,12 @@
             <%= link_to 'View Member', team_show_member_path(:id => person.id), class: "view-text" %><br><br>
          <% end %>
          <% unless current_family.care_team_id %>
-            <%= link_to 'Select This Team',team_selection_path(:id => @care_team.id), :data => { :confirm => 'Are you sure?' }, class: "select-team-button" %>
+            <% if @care_team_members.length <= 1 %>
+               <a href="#" class="select-team-button" id="need-more">Select This Team</a>
             <% else %>
+               <%= link_to 'Select This Team',team_selection_path(:id => @care_team.id), :data => { :confirm => 'Are you sure?' }, class: "select-team-button" %>
+            <% end %>
+         <% else %>
             <a href="#" class="select-team-button" id="already">Select This Team</a>
          <% end %>
       </div>

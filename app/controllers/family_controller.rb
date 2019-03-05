@@ -43,6 +43,7 @@ class FamilyController < ApplicationController
       @recipient.update(personal_care: params[:personal_care])
       if @recipient.update(sanitize_recipient)
          redirect_to family_root_path
+         flash[:notice] = "Your post has been updated"                                    
       else
          render html: "Sorry your recipient wasnt updated"
       end
@@ -76,7 +77,7 @@ class FamilyController < ApplicationController
       @jobpost = current_family.job_post.update_attributes(sanitize_post)
       current_family.job_post.update(public: true)
       if @jobpost
-         redirect_to family_root_path
+         redirect_to search_team_path
       else
          render json: @jobpost.errors.full_messages
       end
@@ -115,10 +116,32 @@ class FamilyController < ApplicationController
    def update_recipient
       @recipient = Recipient.find(params[:id])
       if @recipient.update_attributes(sanitize_recipient)
-         if params[:companion_care] && params[:personal_care]
+         if params[:conditions].last == ""
+            params[:conditions].pop
+         end
+         if params[:companion_care] && params[:personal_care] && params[:mobility] && params[:conditions]
             @recipient.update(companion_care: params[:companion_care])
             @recipient.update(personal_care: params[:personal_care])
+            @recipient.update(conditions: params[:conditions])            
+            @recipient.update(mobility: params[:mobility])            
             redirect_to family_recipient_path
+            flash[:notice] = "Recipient has been successfully updated." 
+         elsif params[:companion_care]  
+            @recipient.update(companion_care: params[:companion_care])
+            redirect_to family_recipient_path
+            flash[:notice] = "Recipient has been successfully updated." 
+         elsif params[:personal_care]  
+            @recipient.update(personal_care: params[:personal_care])
+            redirect_to family_recipient_path
+            flash[:notice] = "Recipient has been successfully updated." 
+         elsif params[:conditions]  
+            @recipient.update(conditions: params[:conditions])            
+            redirect_to family_recipient_path
+            flash[:notice] = "Recipient has been successfully updated."
+         elsif params[:mobility]
+            @recipient.update(mobility: params[:mobility])
+            redirect_to family_recipient_path  
+            flash[:notice] = "Recipient has been successfully updated."                                       
          else
             redirect_to family_recipient_path
          end

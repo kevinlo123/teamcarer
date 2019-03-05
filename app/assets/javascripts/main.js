@@ -129,7 +129,11 @@
       });
 
       $('#already').on("click", function() {
-         alert("You are already assigned to a team");
+         alert("Please stop working with your current team to connect with a new one.");
+      });
+
+      $('#need-more').on("click", function() {
+         alert("This team needs more than one member for you to connect to them");
       });
 
       $("#hours-button").on("click", function() {

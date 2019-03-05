@@ -1,7 +1,9 @@
 module RelationshipsHelper
    def family_relationships
       [
-         ['Myself', 'Myself'],         
+         ['Myself', 'Myself'],
+         ['Grandfather', 'Grandfather'],
+         ['Grandmother', 'Grandmother'],         
          ['Mother', 'Mother'],
          ['Father', 'Father'],
          ['Son', 'Son'],

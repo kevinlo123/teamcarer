@@ -106,6 +106,97 @@
             <% end %>
          </div>
       </div>
+      <h2 style="color: #104A75">Mobility</h2>
+      <div class="mobility-container">
+         <%= label_tag :Cane, nil, :class => "conditions-container__companion--label" do %>
+            <%= check_box_tag "mobility[]", "Cane", false, class: "conditions-container__companion--checkbox" %>
+            Cane
+         <% end %>
+         <%= label_tag :Walker, nil, :class => "conditions-container__companion--label" do %>
+            <%= check_box_tag "mobility[]", "Walker", false, class: "conditions-container__companion--checkbox" %>
+            Walker
+         <% end %>
+         <%= label_tag :WheelChair, nil, :class => "conditions-container__companion--label" do %>
+            <%= check_box_tag "mobility[]", "Wheel Chair", false, class: "conditions-container__companion--checkbox" %>
+            Wheel Chair
+         <% end %>
+         <%= label_tag :Hoyer, nil, :class => "conditions-container__companion--label" do %>
+            <%= check_box_tag "mobility[]", "Hoyer Lift", false, class: "conditions-container__companion--checkbox" %>
+            Hoyer Lift
+         <% end %>
+         <%= label_tag :Scooter, nil, :class => "conditions-container__companion--label" do %>
+            <%= check_box_tag "mobility[]", "Scooter", false, class: "conditions-container__companion--checkbox" %>
+            Scooter
+         <% end %>
+         <%= label_tag :HospitalBed, nil, :class => "conditions-container__companion--label" do %>
+            <%= check_box_tag "mobility[]", "Hospital Bed", false, class: "conditions-container__companion--checkbox" %>
+            Hospital Bed
+         <% end %>
+         <%= label_tag :NotApplicable, nil, :class => "conditions-container__companion--label" do %>
+            <%= check_box_tag "mobility[]", "N/A", false, class: "conditions-container__companion--checkbox" %>
+            Not Applicable
+         <% end %>
+      </div>
+      <div class="recipient-condition-cont" style="margin-top: 1rem;">
+         <h2 style="color: #104A75;margin-top: 3.2rem;">Conditions</h2>
+         <div style="margin-top: 0;" class="conditions-container">
+            <div class="conditions-container__companion">
+               <h3 class="conditions-container__companion--text">Common Conditions</h3>
+               <%= label_tag :Memory, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "conditions[]", "Memory impairment / Dementia", false, class: "conditions-container__companion--checkbox" %>
+                  Memory impairment / Dementia
+               <% end %>
+               <%= label_tag :HeartFailure, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "conditions[]", "Congestive heart failure", false, class: "conditions-container__companion--checkbox" %>
+                  Congestive heart failure
+               <% end %>
+               <%= label_tag :Diabetes, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "conditions[]", "Diabetes", false, class: "conditions-container__companion--checkbox" %>
+                  Diabetese
+               <% end %>
+               <%= label_tag :EndStage, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "conditions[]", "End stage renal disease", false, class: "conditions-container__companion--checkbox" %>
+                  End stage renal disease
+               <% end %>
+               <%= label_tag :Thrive, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "conditions[]", "Failure to thrive", false, class: "conditions-container__companion--checkbox" %>
+                  Failure to thrive
+               <% end %>
+               <%= label_tag :Risk, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "conditions[]", "Fall risk", false, class: "conditions-container__companion--checkbox" %>
+                  Fall risk
+               <% end %>
+            </div>
+            <div class="conditions-container__companion">
+               <h3 class="conditions-container__companion--text">Other Conditions</h3>
+               <%= label_tag :Cancer, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "conditions[]", "Cancer", false, class: "conditions-container__companion--checkbox" %>
+                  Cancer
+               <% end %>
+               <%= label_tag :Chronic, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "conditions[]", "Chronic Obstructive Pulmonary disease", false, class: "conditions-container__companion--checkbox" %>
+                  Chronic Obstructive Pulmonary disease
+               <% end %>
+               <%= label_tag :Stroke, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "conditions[]", "Stroke", false, class: "conditions-container__companion--checkbox" %>
+                  Stroke
+               <% end %>
+               <%= label_tag :Musculoskeletal, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "conditions[]", "Musculoskeletal disorders", false, class: "conditions-container__companion--checkbox" %>
+                  Musculoskeletal disorders
+               <% end %>
+               <%= label_tag :Psychiatric, nil, :class => "conditions-container__companion--label" do %>
+                  <%= check_box_tag "conditions[]", "Psychiatric disorders", false, class: "conditions-container__companion--checkbox" %>
+                  Psychiatric disorders
+               <% end %>
+               <label class="conditions-container__companion--label" for="Other">
+                  <input type="checkbox" id="condition-other-fam" class="conditions-container__companion--checkbox" />
+                  Other
+               </label>
+               <input type="textbox" name="conditions[]", placeholder="Condition" id="condition-other-input-fam", class="signup-input-container--input" style="display: none;"/>
+            </div>
+         </div>
+      </div>
       <h2 style="color: #104A75">Most desirable quality</h2>
       <div class="quality-container">
          <div class="inline">

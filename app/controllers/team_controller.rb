@@ -150,6 +150,35 @@ class TeamController < ApplicationController
          end 
       end
    end
+
+   def edit_skills
+
+   end
+
+   def edit_skills_update        
+      @team = current_care_giver
+      @team.update(companion_care: params[:companion_care])
+      @team.update(personal_care: params[:personal_care])  
+      @team.update(languages: params[:languages]) 
+      redirect_to "/care_givers/edit" 
+      flash[:notice] = "Your profile has been successfully updated."      
+   end
+
+   def edit_disease
+
+   end
+
+
+   def edit_disease_update   
+      @team = current_care_giver
+      if params[:conditions].last == ""
+         params[:conditions].pop
+      end
+      @team.update(conditions: params[:conditions]) 
+      @team.update(related_service: params[:related_service])       
+      redirect_to "/care_givers/edit" 
+      flash[:notice] = "Your profile has been successfully updated."  
+   end
    
    private 
       def sanitize_team
