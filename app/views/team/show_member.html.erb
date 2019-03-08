@@ -21,7 +21,7 @@
                <li class="list-item"><%= po.certificate %></li>
             <% end %>
          <% end %>
-         <% if !@member.languages == nil %>
+         <% if @member.languages == nil %>
             <h3 class="member-data-container__left--text">Languages</h3>
             <% @member.languages.each do |language|%>
                <li class="list-item"><%= language %></li>
