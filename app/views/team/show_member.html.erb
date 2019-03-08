@@ -21,9 +21,11 @@
                <li class="list-item"><%= po.certificate %></li>
             <% end %>
          <% end %>
-         <h3 class="member-data-container__left--text">Languages</h3>
-         <% @member.languages.each do |language|%>
-            <li class="list-item"><%= language %></li>
+         <% !@member.languages == nil %>
+            <h3 class="member-data-container__left--text">Languages</h3>
+            <% @member.languages.each do |language|%>
+               <li class="list-item"><%= language %></li>
+            <% end %>
          <% end %>
          <div style="margin: 1.5em 0 3rem 0;">
             <h3 class="member-data-container__left--text"  style="display: inline;">Experience</h3>
