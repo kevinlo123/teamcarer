@@ -27,7 +27,7 @@ Rails.application.routes.draw do
    post 'family_steps/recipient_information_third', to: 'family_steps#mobility_quality'
    post 'family_steps/recipient_information_fourth', to: 'family_steps#conditions'
    # caregiver steps
-   post 'care_giver_steps/skills_information', to: 'care_giver_steps#update'
+   post 'care_giver_steps/skills_information', to: 'care_giver_steps#skills_information'
    post 'care_giver_steps/disease_management', to: 'care_giver_steps#conditions'
    post 'care_giver_steps/yes_no', to: 'care_giver_steps#yes_no'
    post 'care_giver_steps/personal_statement', to: 'care_giver_steps#personal_statement'
@@ -76,9 +76,14 @@ Rails.application.routes.draw do
       get 'team/hours/:id', to: 'team#hours', as: :care_hours
       post 'team/create_hours/:id', to: 'team#create_hours', as: :create_hours
       get 'team/leader_hours/:id', to: 'team#leader_hours', as: :leader_hours 
+      get 'team/care_giver_hours/', to: 'team#care_giver_hours', as: :care_giver_hours 
       get 'team/edit_skills', to: 'team#edit_skills', as: :edit_skills 
       post 'team/edit_skills_update', to: 'team#edit_skills_update'
       get 'team/edit_disease', to: 'team#edit_disease', as: :edit_disease 
-      post 'team/edit_disease_update', to: 'team#edit_disease_update'         
+      post 'team/edit_disease_update', to: 'team#edit_disease_update'  
+      get 'team/edit_questionnaire', to: 'team#edit_questionnaire', as: :edit_questionnaire
+      post 'team/edit_questionnaire_update', to: 'team#edit_questionnaire_update'    
+      get 'team/edit_experience', to: 'team#edit_experience', as: :edit_experience    
+      patch 'team/edit_experience_update', to: 'team#edit_experience_update'          
    end
 end

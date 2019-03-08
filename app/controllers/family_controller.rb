@@ -39,8 +39,11 @@ class FamilyController < ApplicationController
 
    def update_recipient_for_post
       @recipient = current_family.recipient
-      @recipient.update(companion_care: params[:companion_care])
-      @recipient.update(personal_care: params[:personal_care])
+      if !params[:companion_care].blank? 
+         @recipient.update(companion_care: params[:companion_care])
+      elsif !params[:personal_care].blank?
+         @recipient.update(personal_care: params[:personal_care])         
+      end
       if @recipient.update(sanitize_recipient)
          redirect_to family_root_path
          flash[:notice] = "Your post has been updated"                                    

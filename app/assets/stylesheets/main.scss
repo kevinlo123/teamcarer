@@ -18,7 +18,13 @@ body {
    width: 100%;
    height: 100%;
    z-index: 0;
+   counter-reset: my-counter;   
 }
+
+.job-label::before {
+   counter-increment: my-counter;
+   content: "Job " counter(my-counter) ". ";
+ }
 
 .main {
    position: relative;

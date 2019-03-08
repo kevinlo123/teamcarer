@@ -70,7 +70,16 @@ class TeamController < ApplicationController
    def my_team
       @families = Family.where(care_team_id: params[:id]) 
       @care_team = CareTeam.find(params[:id])
-      @care_team_members = CareGiver.all.where(care_team: params[:id])    
+      @care_team_members = CareGiver.all.where(care_team: params[:id])
+      @care_givers_hours = Hour.where(care_giver_id: current_care_giver.id)  
+      @companion = 0      
+      @personal = 0      
+      @total = 0;
+      @care_givers_hours.each do |record|
+         @companion += record.companion_hours
+         @personal += record.personal_hours
+      end
+      @total = @companion + @personal
    end
 
    def remove_member
@@ -95,7 +104,7 @@ class TeamController < ApplicationController
 
    def update_team
       @team = CareTeam.find(params[:id])
-      @join_team_message = 'Congratulations on requesting this team the leader will be with you shortly!'
+      @join_team_message = 'Congratulations on joining this team!'
       if current_care_giver.update(care_team: @team) 
          flash[:notice] = @join_team_message        
          redirect_to team_root_path
@@ -127,6 +136,21 @@ class TeamController < ApplicationController
       else
          @total = (@companion * @care_team.companion_hrly_price) + (@personal * @care_team.personal_hrly_price)
       end
+   end
+
+   def care_giver_hours
+      beginning_of_week = Time.current.beginning_of_week
+      end_of_week = beginning_of_week.end_of_week
+      @hours = Hour.where(care_giver_id:  current_care_giver.id, created_at: beginning_of_week..end_of_week)
+      @companion = 0
+      @personal = 0
+      @hours.each do |record|
+         @companion += record.companion_hours
+         @personal += record.personal_hours
+      end
+      @total
+      @care_team = current_care_giver.care_team
+      @total = (@companion * @care_team.companion_hrly_price) + (@personal * @care_team.personal_hrly_price)
    end
 
    def for_the_day(x, y)
@@ -179,10 +203,53 @@ class TeamController < ApplicationController
       redirect_to "/care_givers/edit" 
       flash[:notice] = "Your profile has been successfully updated."  
    end
+
+   def edit_questionnaire
+
+   end
+
+   def edit_questionnaire_update
+      @team = current_care_giver
+      @team.update_attributes(sanitize_care_giver) 
+      redirect_to "/care_givers/edit" 
+      flash[:notice] = "Your profile has been successfully updated."  
+   end
+
+   def edit_experience
+      @team = current_care_giver
+   end
    
+   def edit_experience_update
+      current_care_giver.update(sanitize_exp)
+      if !params[:certificates][:school_program].empty? && !params[:certificates][:certificate].empty? &&
+         !params[:certificates][:certificatid].empty? && !params[:certificates][:state].empty? &&
+         !params[:certificates][:from].empty? && !params[:certificates][:to].empty?
+         if current_care_giver.certificate
+           @cert =  current_care_giver.certificate.update(sanitize_certificates)
+         else
+            @cert = current_care_giver.create_certificate(sanitize_certificates)
+            @cert.save            
+         end 
+      end 
+      redirect_to "/care_givers/edit" 
+      flash[:notice] = "Your profile has been successfully updated." 
+   end
+
    private 
       def sanitize_team
          params.require(:care_team).permit(:team_name, :team_statement, :team_state, :team_city, :personal_hrly_price, :companion_hrly_price)
+      end
+
+      def sanitize_care_giver
+         params.require(:care_giver).permit(:dependable_car, :physical_issues, :tb_malaria, :smoke, :smoke_several_hours, :drugs_alcohol, :felonies, :years_experience, :authorized)
+      end
+
+      def sanitize_exp
+         params.require(:care_giver).permit( work_exps_attributes: [:id, :employer, :title, :state, :city, :from, :to], educations_attributes: [:id, :school, :major, :state, :city, :from, :to])         
+      end
+
+      def sanitize_certificates
+         params.require(:certificates).permit(:school_program,:certificate,:certificatid,:state,:from,:to)
       end
 
       def sanitize_hours

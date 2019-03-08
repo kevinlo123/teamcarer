@@ -1,0 +1,44 @@
+<div class="signup-container-cg">
+   <h2 class="signup-container__signup-text">Edit Your Answers</h2>
+   <%= form_for :care_giver, url: 'edit_questionnaire_update',  html: {class: "nifty_form"} do |f| %>
+      <div class="signup-input-container-cg">
+         <div class="field">
+            <p class="questionaire-text">Do you have a dependable car that is properly insured?</p>
+            <%= f.select :dependable_car, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg" } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">Do you have any physical problems that would prevent you from helping a client ambulate, transfer or lift a wheelchair?</p>
+            <%= f.select :physical_issues, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg" } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">Have you ever contracted TB (tuberculosis) or malaria?</p>
+            <%= f.select :tb_malaria, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg" } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">Do you smoke?</p>
+            <%= f.select :smoke, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg" } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">If yes, can you go without a cigarette for several hours?</p>
+            <%= f.select :smoke_several_hours, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg" } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">Have you ever had problems with drug or alcohol abuse?</p>
+            <%= f.select :drugs_alcohol, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg" } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">Have you ever been convicted of a felony?</p>
+            <%= f.select :felonies, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg" } %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">How many years of experience do you have with in-home companion care or personal care for seniors?</p>
+            <%= f.text_field :years_experience, maxlength: 2, autofocus: true, placeholder: "Years of experience", autocomplete: "Years of experience", class: "signup-input-container-cg--input-cg" %>
+         </div>
+         <div class="field">
+            <p class="questionaire-text">Are you authorized to work in the United States?</p>
+            <%= f.select :authorized, options_for_select([['Yes', true], ['No', false]]),{:prompt => "Select"},{:class => "signup-input-container-cg--input-cg" } %>
+         </div>
+         <%= f.submit "Update", class: "signup-input-container-cg--submit-cg"%>
+      </div>
+   <% end %>
+</div>

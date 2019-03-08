@@ -8,9 +8,8 @@ class CareGiverStepsController < ApplicationController
 
    def show
       @team = current_care_giver
-      @team.work_exps.build
+      3.times{@team.work_exps.build}
       @team.educations.build
-      @team.certificates.build      
       render_wizard
    end
 
@@ -23,6 +22,22 @@ class CareGiverStepsController < ApplicationController
    end
 
    def update
+      case step
+      when :experience
+         @care_giver = current_care_giver
+         @care_giver.update(sanitize_team)
+         @care_giver.educations.create(sanitize_education) 
+         if !params[:certificates][:school_program].empty? && !params[:certificates][:certificate].empty? &&
+            !params[:certificates][:state].empty? && !params[:certificates][:from].empty? && !params[:certificates][:to].empty?
+            @cert = current_care_giver.create_certificate(sanitize_certificates)
+            @cert.save   
+         end
+         jump_to(:personal_statement)  
+         render_wizard   
+      end 
+   end
+
+   def skills_information
       if current_care_giver.confirmed? == false 
          render template: "layouts/confirm_email"
       elsif params[:companion_care].blank? && params[:personal_care].blank? 
@@ -38,7 +53,7 @@ class CareGiverStepsController < ApplicationController
          @team.update(languages: params[:languages]) 
          jump_to(:disease_management)  
          render_wizard
-      end  
+      end 
    end
 
    def conditions
@@ -71,24 +86,15 @@ class CareGiverStepsController < ApplicationController
       end
    end
 
-   def experience
-      @care_giver = current_care_giver 
-      @care_giver.work_exps.create(sanitize_work)
-      @care_giver.educations.create(sanitize_education) 
-      @care_giver.certificates.create(sanitize_certificates)      
-      jump_to(:personal_statement)  
-      render_wizard        
-   end
-
    private 
       def sanitize_team
-         params.require(:care_giver).permit(:firstname,:middlename,:lastname,:dependable_car, :physical_issues, :tb_malaria, :smoke, :smoke_several_hours, :drugs_alcohol, :felonies, :years_experience, :authorized, :statement)
+         params.require(:care_giver).permit(:firstname,:middlename,:lastname,:dependable_car, :physical_issues, :tb_malaria, :smoke, :smoke_several_hours, :drugs_alcohol, :felonies, :years_experience, :authorized, :statement, work_exps_attributes: [:id, :employer, :title, :state, :city, :from, :to])
       end
       def sanitize_work
-         params.require(:work_exps).permit(:employer,:title,:state,:city,:from,:to)
+         params.require(:work_exps).permit(:employer, :title, :state, :city, :from, :to)
       end
       def sanitize_education
-         params.require(:educations).permit(:major,:school,:state,:city,:from,:to)
+         params.require(:educations).permit(:major,:school,:degree,:state,:city,:from,:to)
       end
       def sanitize_certificates
          params.require(:certificates).permit(:school_program,:certificate,:certificatid,:state,:from,:to)

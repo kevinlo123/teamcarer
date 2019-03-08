@@ -88,6 +88,12 @@
          <div class="field">
             <%= f.select :recipient_relation, options_for_select(family_relationships), {:prompt => "Who is the Care Recipient?"}, {:class => "signup-input-container--input"} %>
          </div>
+         <div class="field">
+            <%= f.text_field :who_pays, autofocus: true, placeholder: "Who pays for care?", autocomplete: "Who pays for care?", class: "signup-input-container--input number-field", required: true %>
+         </div>
+         <div class="field">
+            <%= f.select :heard_from, options_for_select(heard_from),{:prompt => "How did you hear about us?"}, {:class => "signup-input-container--input", :required => true } %>
+         </div>
          <%= recaptcha_tags %>
          <div class="actions">
             <%= f.submit "Next Step", class: "signup-input-container--submit" %>

@@ -1,0 +1,41 @@
+<h1 style="visibility: hidden; margin-top: 5rem;">hours</h1>
+<table id="hours-table" cellspacing="0" style="margin-bottom: 7rem;">
+   <caption class="hours-app">Your Hours for week of <%= Date.today.beginning_of_week.strftime('%m/%d/%Y') %> - <%= Date.today.end_of_week.strftime('%m/%d/%Y') %></caption>
+   <thead>
+      <tr>
+         <th class="hours-block">Caregiver</th>
+         <th class="hours-block" style="border-left: none;">Day worked</th>
+         <th class="hours-block" style="border-left: none;">Companion hours</th>
+         <th class="hours-block" style="border-left: none;">Personal hours</th>
+      </tr>
+   </thead>
+   <tbody>
+      <% @hours.each do |hours|%>
+         <tr>
+            <td class="hours-block data" scope="row" style="border-top: none;"><%= hours.care_giver.firstname.titleize %></td>
+            <td class="hours-block data" scope="row" style="border-left: none; border-top: none;"><%= hours.created_at.strftime("%m-%d-%Y") %></td>
+            <td class="hours-block data" scope="row" style="border-left: none; border-top: none;"><%= hours.companion_hours %></td>
+            <td class="hours-block data" scope="row" style="border-left: none; border-top: none;"><%= hours.personal_hours %></td>
+         </tr>
+      <% end %>
+      <tr>
+         <td style="visibility: hidden;">&nbsp;</td>
+         <td style="visibility: hidden;">&nbsp;</td>
+         <td class="hours-block data" style="border-top: none;">Total: <%= @companion %> hours</td>
+         <td class="hours-block data" style="border-left: none; border-top: none;">Total: <%= @personal %> hours</td>
+      </tr>
+      <tr>
+         <td style="visibility: hidden;">&nbsp;</td>
+         <td style="visibility: hidden;">&nbsp;</td>
+         <td class="hours-block data" style="border-top: none;">Hourly rate: $<%= @care_team.companion_hrly_price %></td>
+         <td class="hours-block data" style="border-left: none; border-top: none;">Hourly rate: $<%= @care_team.personal_hrly_price %></td>
+      </tr>
+      <tr>
+         <td style="visibility: hidden;">&nbsp;</td>
+         <td style="visibility: hidden;">&nbsp;</td>
+         <td style="visibility: hidden; border-right: none">&nbsp;</td>
+         <td class="hours-block data" style="border-top: none; background: #104A75; color: white;">Total: <b>$<%= @total %></b></td>
+      </tr>
+   </tbody>
+</table>
+<%= link_to "Back", :back, style: "margin-bottom: 2rem;", class: "home-jobpost-container__button", style: "text-decoration: none; text-align: center;" %>

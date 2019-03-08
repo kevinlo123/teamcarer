@@ -42,21 +42,23 @@
          </ol>
       </div>
    </div>
-   <%= form_for :team, url: 'experience'  do  |f|%>
+   <%= form_for @team, url: wizard_path  do  |f|%>
       <div class="signup-input-container-cg">
          <h3 style="font-size: 1.75rem;">Work experience</h3>
-         <%= fields_for :work_exps do |u| %>
+         <i>(Most Recent Employment - at least 3)</i>
+         <%= f.fields_for :work_exps do |u| %>
+            <h3 style="font-size: 1.25rem;position: relative; top: 15px;" class="job-label"></h3>
             <div class="field">
-               <%= u.text_field :employer, autofocus: true, placeholder: "Employer", autocomplete: "employer", class: "signup-input-container-cg--input-cg" %>
+               <%= u.text_field :employer, autofocus: true, placeholder: "Employer", autocomplete: "employer", class: "signup-input-container-cg--input-cg", required: true %>
             </div>
             <div class="field">
-               <%= u.text_field :title, autofocus: true, placeholder: "Job Title", autocomplete: "title", class: "signup-input-container-cg--input-cg" %>
+               <%= u.text_field :title, autofocus: true, placeholder: "Job Title", autocomplete: "title", class: "signup-input-container-cg--input-cg",required: true %>
             </div>
             <div class="field">
                <%= u.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker", :required => true } %>
             </div>
             <div class="field">
-               <%= u.select :city, options_for_select([]),{:prompt => "City", :required => true}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker", :required => true } %> 
+               <%= u.text_field :city, autofocus: true, placeholder: "City", autocomplete: "City", class: "signup-input-container-cg--input-cg", required: true %>
             </div>
             <div class="field">
                <%= u.select :from, options_for_select(years),{:prompt => "From:"}, {:class => "signup-input-container-cg--input-cg", :required => true } %>
@@ -65,19 +67,22 @@
                <%= u.select :to, options_for_select(years),{:prompt => "To:"}, {:class => "signup-input-container-cg--input-cg",:required => true } %>
             </div>
          <% end %>
-         <h3 style="font-size: 1.75rem;">Education</h3>
+        <h3 style="font-size: 1.75rem;">Education</h3>
          <%= fields_for :educations do |u| %>
             <div class="field">
-               <%= u.text_field :school, autofocus: true, placeholder: "School", autocomplete: "school", class: "signup-input-container-cg--input-cg" %>
+               <%= u.text_field :school, autofocus: true, placeholder: "School", autocomplete: "school", class: "signup-input-container-cg--input-cg", required: true %>
             </div>
             <div class="field">
-               <%= u.text_field :major, autofocus: true, placeholder: "Major", autocomplete: "major", class: "signup-input-container-cg--input-cg" %>
+               <%= u.text_field :major, autofocus: true, placeholder: "Major", autocomplete: "major", class: "signup-input-container-cg--input-cg", required: true %>
+            </div>
+            <div class="field">
+               <%= u.select :degree, options_for_select(degree_helper),{:prompt => "degree"}, {:class => "signup-input-container-cg--input-cg", :required => true } %>
             </div>
             <div class="field">
                <%= u.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker-cg", :required => true } %>
             </div>
             <div class="field">
-               <%= u.select :city, options_for_select([]),{:prompt => "City", :required => true}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker-cg", :required => true } %> 
+               <%= u.text_field :city, autofocus: true, placeholder: "City", autocomplete: "City", class: "signup-input-container-cg--input-cg", required: true %>
             </div>
             <div class="field">
                <%= u.select :from, options_for_select(years),{:prompt => "From:"},{:class => "signup-input-container-cg--input-cg", :required => true } %>
@@ -98,13 +103,13 @@
                <%= u.text_field :certificatid, autofocus: true, placeholder: "Certificate id #", autocomplete: "certificateid", class: "signup-input-container-cg--input-cg" %>
             </div>
             <div class="field">
-               <%= u.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker-cg", :required => true } %>
+               <%= u.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:prompt => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker-cg"} %>
             </div>
             <div class="field">
-               <%= u.select :from, options_for_select(years),{:prompt => "From:"},{:class => "signup-input-container-cg--input-cg", :required => true } %>
+               <%= u.select :from, options_for_select(years),{:prompt => "From:"},{:class => "signup-input-container-cg--input-cg"} %>
             </div>
             <div class="field">
-               <%= u.select :to, options_for_select(years),{:prompt => "To:"},{:class => "signup-input-container-cg--input-cg", :required => true } %>
+               <%= u.select :to, options_for_select(years),{:prompt => "To:"},{:class => "signup-input-container-cg--input-cg"} %>
             </div>
          <% end %>
          <%=f.submit "Next Step", class: "skills-submit-cg"  %>

@@ -85,6 +85,12 @@
          <div class="field">
             <%= f.telephone_field :emergency_number, maxlength: 11, autofocus: true, placeholder: "Emergency Contact Number", autocomplete: "Emergency Contact Number", class: "signup-input-container-cg--input-cg number-field", required: true %>
          </div>
+         <div class="field">
+            <%= f.text_field :who_pays, autofocus: true, placeholder: "Who pays for care?", autocomplete: "Who pays for care?", class: "signup-input-container-cg--input-cg number-field", required: true %>
+         </div>
+         <div class="field">
+            <%= f.select :heard_from, options_for_select(heard_from),{:prompt => "How did you hear about us?"}, {:class => "signup-input-container-cg--input-cg", :required => true } %>
+         </div>
          <%= recaptcha_tags %>
          <div class="actions">
             <%= f.submit "Next Step", class: "signup-input-container-cg--submit-cg" %>

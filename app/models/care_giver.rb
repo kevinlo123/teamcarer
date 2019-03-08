@@ -6,11 +6,10 @@ class CareGiver < ApplicationRecord
    validate :validate_care_team_user_limit
    has_many :work_exps
    has_many :educations   
-   has_many :certificates
+   has_one :certificate
    has_many :hours 
    accepts_nested_attributes_for :work_exps
    accepts_nested_attributes_for :educations
-   accepts_nested_attributes_for :certificates 
    private
       def validate_care_team_user_limit
          if care_team_id

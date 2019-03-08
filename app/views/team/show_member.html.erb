@@ -15,9 +15,11 @@
          <% @education.each do |po|%>
             <li class="list-item"><%= po.school %></li>
          <% end %>
-         <h3 class="member-data-container__left--text">Certificates</h3>
-         <% @certificates.each do |po|%>
-            <li class="list-item"><%= po.certificate %></li>
+         <% if @certificates.length >= 1 %>
+            <h3 class="member-data-container__left--text">Certificates</h3>
+            <% @certificates.each do |po|%>
+               <li class="list-item"><%= po.certificate %></li>
+            <% end %>
          <% end %>
          <h3 class="member-data-container__left--text">Languages</h3>
          <% @member.languages.each do |language|%>

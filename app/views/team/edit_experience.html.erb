@@ -1,0 +1,120 @@
+<div class="signup-container-cg">
+   <h2 class="signup-container__signup-text">Edit Past Experience</h2>
+   <%= form_for @team, url: "edit_experience_update" do  |f|%>
+      <div class="signup-input-container-cg">
+         <h3 style="font-size: 1.75rem;">Work experience</h3>
+         <%= f.fields_for :work_exps do |u| %>
+            <h3 style="font-size: 1.25rem;position: relative; top: 15px;" class="job-label"></h3>
+            <div class="field">
+               <%= u.label :employer %>
+               <%= u.text_field :employer, autofocus: true, placeholder: "Employer", autocomplete: "employer", class: "signup-input-container-cg--input-cg", required: true %>
+            </div>
+            <div class="field">
+               <%= u.label :title %>
+               <%= u.text_field :title, autofocus: true, placeholder: "Job Title", autocomplete: "title", class: "signup-input-container-cg--input-cg",required: true %>
+            </div>
+            <div class="field">
+               <%= u.label :state %>
+               <%= u.text_field :state, autofocus: true, placeholder: "City", autocomplete: "City", class: "signup-input-container-cg--input-cg", required: true %>
+            </div>
+            <div class="field">
+               <%= u.label :city %>
+               <%= u.text_field :city, autofocus: true, placeholder: "City", autocomplete: "City", class: "signup-input-container-cg--input-cg", required: true %>
+            </div>
+            <div class="field">
+               <%= u.label :from %>
+               <%= u.text_field :from, autofocus: true, placeholder: "City", autocomplete: "City", class: "signup-input-container-cg--input-cg", required: true %>
+            </div>
+            <div class="field">
+               <%= u.label :to %>
+               <%= u.text_field :to, autofocus: true, placeholder: "City", autocomplete: "City", class: "signup-input-container-cg--input-cg", required: true %>
+            </div>
+         <% end %>
+        <h3 style="font-size: 1.75rem;">Education</h3>
+         <%= f.fields_for :educations do |u| %>
+            <div class="field">
+               <%= u.label :school %>
+               <%= u.text_field :school, autofocus: true, placeholder: "School", autocomplete: "school", class: "signup-input-container-cg--input-cg", required: true %>
+            </div>
+            <div class="field">
+               <%= u.label :major %>
+               <%= u.text_field :major, autofocus: true, placeholder: "Major", autocomplete: "major", class: "signup-input-container-cg--input-cg", required: true %>
+            </div>
+            <div class="field">
+               <%= u.label :state %>
+               <%= u.text_field :state, autofocus: true, placeholder: "City", autocomplete: "City", class: "signup-input-container-cg--input-cg", required: true %>
+            </div>
+            <div class="field">
+               <%= u.label :city %>
+               <%= u.text_field :city, autofocus: true, placeholder: "City", autocomplete: "City", class: "signup-input-container-cg--input-cg", required: true %>
+            </div>
+            <div class="field">
+               <%= u.label :from %>
+               <%= u.text_field :from, autofocus: true, placeholder: "City", autocomplete: "City", class: "signup-input-container-cg--input-cg", required: true %>
+            </div>
+            <div class="field">
+               <%= u.label :to %>
+               <%= u.text_field :to, autofocus: true, placeholder: "City", autocomplete: "City", class: "signup-input-container-cg--input-cg", required: true %>
+            </div>
+         <% end %>
+         <% if current_care_giver.certificate %>
+            <h3 style="font-size: 1.75rem;">Certificates</h3>
+            <%= fields_for :certificates do |u| %>
+               <div class="field">
+                  <%= u.label :school_program, "School/Program" %>
+                  <%= u.text_field :school_program, autofocus: true, value: current_care_giver.certificate.school_program, placeholder: "School/Program", autocomplete: "school/program", class: "signup-input-container-cg--input-cg" %>
+               </div>
+               <div class="field">
+                  <%= u.label :certificate, "Certificate" %>
+                  <%= u.text_field :certificate, autofocus: true, value: current_care_giver.certificate.certificate, placeholder: "Certificate", autocomplete: "certificate", class: "signup-input-container-cg--input-cg" %>
+               </div>
+               <div class="field">
+                  <%= u.label :certificatid, "Certificate Id" %>
+                  <%= u.text_field :certificatid, autofocus: true, placeholder: "Certificate id #", value: current_care_giver.certificate.certificatid, autocomplete: "certificateid", class: "signup-input-container-cg--input-cg" %>
+               </div>
+               <div class="field">
+                  <%= u.label :state %>
+                  <%= u.text_field :state, autofocus: true, placeholder: "State", value: current_care_giver.certificate.state, autocomplete: "State", class: "signup-input-container-cg--input-cg" %>
+               </div>
+               <div class="field">
+                  <%= u.label :from %>
+                  <%= u.text_field :from, autofocus: true, placeholder: "From", value: current_care_giver.certificate.from,  autocomplete: "From", class: "signup-input-container-cg--input-cg" %>
+               </div>
+               <div class="field">
+                  <%= u.label :to %>
+                  <%= u.text_field :to, autofocus: true, placeholder: "To", value: current_care_giver.certificate.to, autocomplete: "To", class: "signup-input-container-cg--input-cg" %>
+               </div>
+            <% end %>
+         <% else %>
+            <h3 style="font-size: 1.75rem;">Certificates</h3>
+            <%= fields_for :certificates do |u| %>
+               <div class="field">
+                  <%= u.label :school_program, "School/Program" %>
+                  <%= u.text_field :school_program, autofocus: true, placeholder: "School/Program", autocomplete: "school/program", class: "signup-input-container-cg--input-cg" %>
+               </div>
+               <div class="field">
+                  <%= u.label :certificate, "Certificate" %>
+                  <%= u.text_field :certificate, autofocus: true, placeholder: "Certificate", autocomplete: "certificate", class: "signup-input-container-cg--input-cg" %>
+               </div>
+               <div class="field">
+                  <%= u.label :certificatid, "Certificate Id" %>
+                  <%= u.text_field :certificatid, autofocus: true, placeholder: "Certificate id #", autocomplete: "certificateid", class: "signup-input-container-cg--input-cg" %>
+               </div>
+               <div class="field">
+                  <%= u.label :state %>
+                  <%= u.text_field :state, autofocus: true, placeholder: "State", autocomplete: "State", class: "signup-input-container-cg--input-cg" %>
+               </div>
+               <div class="field">
+                  <%= u.label :from %>
+                  <%= u.text_field :from, autofocus: true, placeholder: "From", autocomplete: "From", class: "signup-input-container-cg--input-cg" %>
+               </div>
+               <div class="field">
+                  <%= u.label :to %>
+                  <%= u.text_field :to, autofocus: true, placeholder: "To", autocomplete: "To", class: "signup-input-container-cg--input-cg" %>
+               </div>
+            <% end %>
+         <% end %>
+         <%=f.submit "Update", class: "skills-submit-cg"  %>
+      </div>
+   <% end %>
+</div>
