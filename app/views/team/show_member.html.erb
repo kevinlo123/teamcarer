@@ -40,24 +40,24 @@
       <div class="member-data-container__right">
          <h3 class="member-data-container__left--text">Personal Statement</h3>
          <p style="color: grey;"><%= @member.statement %></p>
-         <% if !@member.conditions == nil %>
+         <% if @member.conditions %>
             <h3 class="member-data-container__left--text">Experience with</h3>
             <% @member.conditions.each do |condition|%>
                <li class="list-item"><%= condition %></li>
             <% end %>
          <% end %>
          <h3 class="member-data-container__left--text">Related Service</h3>
-         <% if !@member.related_service == nil %>
+         <% if @member.related_service %>
             <% @member.related_service.each do |condition|%>
                <li class="list-item"><%= condition %></li>
             <% end %>
          <% end %>
-         <% if !@member.personal_care == nil %>
+         <% if @member.personal_care %>
             <% @member.personal_care.each do |care|%>
                <li class="list-item"><%= care %></li>
             <% end %>
          <% end %>
-         <% if !@member.companion_care == nil %>
+         <% if @member.companion_care %>
             <% @member.companion_care.each do |care|%>
                <li class="list-item"><%= care %></li>
             <% end %>

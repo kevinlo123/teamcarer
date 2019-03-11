@@ -10,7 +10,7 @@
          <p class="member-text" style="display: inline">Leader: <%= @care_team.care_giver.firstname%></p>
          <%= link_to 'View Leader', show_member_path(:id => @care_team.care_giver.id), class: "view-text" %><br>
          <% @care_team_members.each do |person| %>
-            <div style="margin: 0 1rem">
+            <div style=="margin: 1rem 0">
                <p class="member-text" style="display: inline">Member: <%= person.firstname %></p>
                <%= link_to 'View Member', show_member_path(:id => person.id), class: "view-text" %>
             </div>
