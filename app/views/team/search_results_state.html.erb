@@ -15,7 +15,7 @@
                   </div>
                   <p class="preview"><%= team.team_statement %></p>
                </div>
-               <%= link_to 'View Team', team_show_path(:id => team.id), class: "contact-team-button" %>
+               <a class="contact-team-button" href="/team/show_team/<%= team.id %>">View team</a>
             </div>
          <% end %>
       </div>

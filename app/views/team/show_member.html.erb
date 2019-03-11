@@ -46,7 +46,9 @@
                <li class="list-item"><%= condition %></li>
             <% end %>
          <% end %>
-         <h3 class="member-data-container__left--text">Related Service</h3>
+         <% if @member.related_service && @member.personal_care &&  @member.companion_care %>
+            <h3 class="member-data-container__left--text">Related Service</h3>
+         <% end %>
          <% if @member.related_service %>
             <% @member.related_service.each do |condition|%>
                <li class="list-item"><%= condition %></li>
