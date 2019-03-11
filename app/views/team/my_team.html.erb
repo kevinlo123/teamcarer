@@ -7,17 +7,21 @@
          <p style="font-size: 1.35rem; margin-bottom: 0rem;">Team statement</p>
          <p style="font-size: 1.15rem; color: grey;"><%= @care_team.team_statement %></p>
          <p class="member-text" style="display: inline">Leader: <%= @care_team.care_giver.firstname%></p>
-         <%= link_to 'View Leader', show_member_path(:id => @care_team.care_giver.id), class: "view-text" %><br><br>
+         <%= link_to 'View Leader', show_member_path(:id => @care_team.care_giver.id), class: "view-text" %><br>
          <% if current_care_giver.care_team %>
             <% @care_team_members.each do |person| %>
-               <p class="member-text" style="display: inline">Member: <%= person.firstname %></p>
-               <%= link_to 'View', show_member_path(:id => person.id), class: "view-text" %>
+               <div style="margin: 1.5rem 0">
+                  <p class="member-text" style="display: inline">Member: <%= person.firstname %></p>
+                  <%= link_to 'View', show_member_path(:id => person.id), class: "view-text" %>
+               </div>
             <% end %>
          <% else %>
             <% @care_team_members.each do |person| %>
-               <p class="member-text" style="display: inline">Member: <%= person.firstname %></p>
-               <%= link_to "Remove", remove_member_path(:id => person.id), :data => {:confirm=>'Are you sure?'}, class: "view-text" %>
-               <%= link_to 'View', show_member_path(:id => person.id), class: "view-text" %>
+               <div style="margin: 1.5rem 0">
+                  <p class="member-text" style="display: inline">Member: <%= person.firstname %></p>
+                  <%= link_to "Remove", remove_member_path(:id => person.id), :data => {:confirm=>'Are you sure?'}, class: "view-text" %>
+                  <%= link_to 'View', show_member_path(:id => person.id), class: "view-text" %>
+               </div>
             <% end %>
          <% end %>
       </div>

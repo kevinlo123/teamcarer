@@ -40,19 +40,27 @@
       <div class="member-data-container__right">
          <h3 class="member-data-container__left--text">Personal Statement</h3>
          <p style="color: grey;"><%= @member.statement %></p>
-         <h3 class="member-data-container__left--text">Experience with</h3>
-         <% @member.conditions.each do |condition|%>
-            <li class="list-item"><%= condition %></li>
+         <% if !@member.conditions == nil %>
+            <h3 class="member-data-container__left--text">Experience with</h3>
+            <% @member.conditions.each do |condition|%>
+               <li class="list-item"><%= condition %></li>
+            <% end %>
          <% end %>
          <h3 class="member-data-container__left--text">Related Service</h3>
-         <% @member.related_service.each do |condition|%>
-            <li class="list-item"><%= condition %></li>
+         <% if !@member.related_service == nil %>
+            <% @member.related_service.each do |condition|%>
+               <li class="list-item"><%= condition %></li>
+            <% end %>
          <% end %>
-         <% @member.personal_care.each do |care|%>
-            <li class="list-item"><%= care %></li>
+         <% if !@member.personal_care == nil %>
+            <% @member.personal_care.each do |care|%>
+               <li class="list-item"><%= care %></li>
+            <% end %>
          <% end %>
-         <% @member.companion_care.each do |care|%>
-            <li class="list-item"><%= care %></li>
+         <% if !@member.companion_care == nil %>
+            <% @member.companion_care.each do |care|%>
+               <li class="list-item"><%= care %></li>
+            <% end %>
          <% end %>
       </div>
    </div>
