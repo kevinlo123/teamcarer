@@ -44,6 +44,7 @@ class TeamController < ApplicationController
       @recent_jobs = JobPost.all.order('created_at ASC')
       @jobs_by_state = JobPost.where(public: true, state: "#{@caregiver.state}").paginate(page: params[:page],:per_page => 5)
       @Jobpost = JobPost.where(public: true, city: "#{@caregiver.city}").paginate(page: params[:page],:per_page => 2)
+      @care_team_members = CareGiver.all.where(care_team: params[:id])
    end
 
    def edit_post
@@ -99,7 +100,7 @@ class TeamController < ApplicationController
 
    def update_team
       @team = CareTeam.find(params[:id])
-      @join_team_message = 'Congratulations on joining this team!'
+      @join_team_message = 'Thanks for selecting the team! You will hear from the team leader soon.'
       if current_care_giver.update(care_team: @team) 
          flash[:notice] = @join_team_message        
          redirect_to team_root_path
@@ -230,13 +231,24 @@ class TeamController < ApplicationController
       flash[:notice] = "Your profile has been successfully updated." 
    end
 
+   def edit_statement
+
+   end
+
+   def edit_statement_update        
+      @team = current_care_giver
+      @team.update_attributes(sanitize_care_giver)       
+      redirect_to "/care_givers/edit" 
+      flash[:notice] = "Your profile has been successfully updated."      
+   end
+
    private 
       def sanitize_team
          params.require(:care_team).permit(:team_name, :team_statement, :team_state, :team_city, :personal_hrly_price, :companion_hrly_price)
       end
 
       def sanitize_care_giver
-         params.require(:care_giver).permit(:dependable_car, :physical_issues, :tb_malaria, :smoke, :smoke_several_hours, :drugs_alcohol, :felonies, :years_experience, :authorized)
+         params.require(:care_giver).permit(:dependable_car, :physical_issues, :tb_malaria, :smoke, :smoke_several_hours, :drugs_alcohol, :felonies, :years_experience, :statement, :authorized)
       end
 
       def sanitize_exp

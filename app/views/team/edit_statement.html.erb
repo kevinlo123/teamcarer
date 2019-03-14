@@ -1,0 +1,10 @@
+<div class="signup-container-cg">
+   <h2 class="signup-container__signup-text">Edit Personal Statement</h2>
+   <%= form_for :care_giver, url: 'edit_statement_update',  html: {style: "height: 1000px"} do |f| %>
+      <div class="signup-input-container-cg">
+         <h3 class="conditions-container__companion--text">Personal Statement a brief description of why the families want to hire you</h3>
+         <%= f.text_area :statement, maxlength: 1000, placeholder: "Use a story and make it personal", required: true, class: "statement", value: current_care_giver.statement %><br>
+         <%= f.submit "Update", class: "signup-input-container-cg--submit-cg"%>
+      </div>
+   <% end %>
+</div>

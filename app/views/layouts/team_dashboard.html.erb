@@ -36,11 +36,11 @@
                </div>
                <% if current_care_giver.care_team %>
                   <%= link_to "Job Postings", all_posts_path(:id => current_care_giver.id), class: "side-menu-family-cg__link-cg"  %>
-                  <%= link_to "My team", my_care_team_path(:id => current_care_giver.care_team), class: "side-menu-family-cg__link-cg" %>
+                  <%= link_to "My Team", my_care_team_path(:id => current_care_giver.care_team), class: "side-menu-family-cg__link-cg" %>
                <% end %>
                <% if current_care_giver.leader %>
                   <%= link_to "Job Postings", all_posts_path(:id => current_care_giver.id), class: "side-menu-family-cg__link-cg"  %>
-                  <%= link_to "My team", my_care_team_path(:id => CareTeam.where(care_giver_id: current_care_giver.id)[0]), class: "side-menu-family-cg__link-cg"  %>
+                  <%= link_to "My Team", my_care_team_path(:id => CareTeam.where(care_giver_id: current_care_giver.id)[0]), class: "side-menu-family-cg__link-cg"  %>
                <% end %>
                <%= link_to "Settings", "/care_givers/edit", class: "side-menu-family-cg__link-cg"  %>
             </div>

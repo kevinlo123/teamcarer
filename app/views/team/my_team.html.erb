@@ -4,7 +4,7 @@
    </div>
    <div class="team-container__data-container" style="padding: 1.5rem 0">
       <div class="team-container__data-container__top">
-         <p style="font-size: 1.35rem; margin-bottom: 0rem;">Team statement</p>
+         <p style="font-size: 1.35rem; margin-bottom: 0rem;">Team Statement</p>
          <p style="font-size: 1.15rem; color: grey;"><%= @care_team.team_statement %></p>
          <p class="member-text" style="display: inline">Leader: <%= @care_team.care_giver.firstname%></p>
          <%= link_to 'View Leader', show_member_path(:id => @care_team.care_giver.id), class: "view-text" %><br>
@@ -61,9 +61,9 @@
                      <h4 class="jobs-container__job-data--text">Location: <%= family.recipient.city %>, <%= family.recipient.state %></h4>
                   <% end %>
                   <% if current_care_giver.care_team_id == nil %>
-                     <%= link_to "Your teams hours for this week", leader_hours_path(:id => family.job_post.id), class: "jobs-container__job-data--text", style: "margin: 15px auto; display: block;" %>
+                     <%= link_to "Your Teams Hours for this Week", leader_hours_path(:id => family.job_post.id), class: "jobs-container__job-data--text", style: "margin: 15px auto; display: block;" %>
                   <% else %>
-                     <%= link_to "Your hours for this week", care_giver_hours_path, class: "jobs-container__job-data--text", style: "margin: 15px auto; display: block;" %>
+                     <%= link_to "Your Hours for this Week", care_giver_hours_path, class: "jobs-container__job-data--text", style: "margin: 15px auto; display: block;" %>
                   <% end %>
                </div>
                <%= link_to "Log Hours", care_hours_path(:id => family.id), class: "request-job-button" %>

@@ -84,6 +84,8 @@ Rails.application.routes.draw do
       get 'team/edit_questionnaire', to: 'team#edit_questionnaire', as: :edit_questionnaire
       post 'team/edit_questionnaire_update', to: 'team#edit_questionnaire_update'    
       get 'team/edit_experience', to: 'team#edit_experience', as: :edit_experience    
-      patch 'team/edit_experience_update', to: 'team#edit_experience_update'          
+      patch 'team/edit_experience_update', to: 'team#edit_experience_update'
+      get 'team/edit_statement', to: 'team#edit_statement', as: :edit_statement          
+      post 'team/edit_statement_update', to: 'team#edit_statement_update'      
    end
 end

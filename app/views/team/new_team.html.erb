@@ -5,7 +5,7 @@
    <%= form_for :care_team, url: 'create_team', html: {class: "nifty_form"} do |f| %>
       <div class="create-team-form">
          <div class="create-team-form__container">
-            <h3 style="color: #104A75">Give a name to your Team</h3>
+            <h3 style="color: #104A75">Give a name to your team</h3>
             <%= f.text_field :team_name, required: true, placeholder: "Team Name", class: "signup-input-container-cg--input-cg" %>
             <h3 style="color: #104A75">How much will you charge for care?</h3>
             <%= f.label :companion_hrly_price, "Companion Care($) per hour:" %>

@@ -116,3 +116,27 @@
       </div>
    <% end %>
 </div>
+<%= javascript_tag do %>
+   var jobs = document.getElementsByClassName("job");
+   var jobTitles = document.getElementsByClassName("job-title");
+   var jobStates = document.getElementsByClassName("job-state");
+   var jobCities = document.getElementsByClassName("job-city");
+   var jobFrom = document.getElementsByClassName("job-from");
+   var jobTo =  document.getElementsByClassName("job-to");
+   var label = document.getElementsByClassName("job-label");
+   
+   jobs[1].required = false;
+   jobs[2].required = false;
+   jobTitles[1].required = false;
+   jobTitles[2].required = false;
+   jobStates[1].required = false;
+   jobStates[2].required = false;
+   jobCities[1].required = false;
+   jobCities[2].required = false;
+   jobFrom[1].required = false;
+   jobFrom[2].required = false;
+   jobTo[1].required = false;
+   jobTo[2].required = false;
+   
+   label[0].innerHTML += "(Most Recent Employment)";
+<% end %>

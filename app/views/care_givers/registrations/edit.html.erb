@@ -44,6 +44,7 @@
          <%= link_to "Edit Disease Management", edit_disease_path, class: "signup-input-container-cg--submit-cg", style:"width: 100%; text-decoration: none; margin: 0 auto; display: block; text-align: center;" %>
          <%= link_to "Edit Questionnaire Answers", edit_questionnaire_path, class: "signup-input-container-cg--submit-cg", style:"width: 100%; text-decoration: none; margin: 1rem auto; display: block; text-align: center;" %>
          <%= link_to "Edit Past Experience", edit_experience_path, class: "signup-input-container-cg--submit-cg", style:"width: 100%; text-decoration: none; margin: 0 auto; display: block; text-align: center;" %>
+         <%= link_to "Edit Personal Statement", edit_statement_path, class: "signup-input-container-cg--submit-cg", style:"width: 100%; text-decoration: none; margin: 1rem auto; display: block; text-align: center;" %>
       </div>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
