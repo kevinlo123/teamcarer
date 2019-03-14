@@ -17,7 +17,7 @@ module RelationshipsHelper
          ['Cousin', 'Cousin'],         
          ['Niece', 'Niece'], 
          ['Nephew', 'Nephew'],
-         ['Other', 'Other']       
+         ['Friend', 'Friend']       
       ]
    end
 end

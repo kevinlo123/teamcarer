@@ -1,20 +1,20 @@
 <div class="signup-container-cg">
    <%= image_tag "logo-icon.png", class: "login-container__logo" %>
-   <h2 class="signup-container__signup-text">Sign up</h2>
+   <h2 class="signup-container__signup-text">Sign Up</h2>
    <div class="progress-bar-container-cg">
       <div class="box progress-bar-cg" data-module="progressbar">
          <ol>
             <li class="current-cg qa-progressbar-item-cg">
                <span class="cell-cg">
                   <span class="item-cg">
-                     <span>Care Giver Info</span>
+                     <span>Caregiver Info</span>
                   </span>
                </span>
             </li>
             <li class="qa-progressbar-item-cg">
                <span class="cell-cg">
                   <span class="item-cg">
-                     <span>Care Giver Skills</span>
+                     <span>Caregiver Skills</span>
                   </span>
                </span>
             </li>
@@ -86,7 +86,8 @@
             <%= f.telephone_field :emergency_number, maxlength: 11, autofocus: true, placeholder: "Emergency Contact Number", autocomplete: "Emergency Contact Number", class: "signup-input-container-cg--input-cg number-field", required: true %>
          </div>
          <div class="field">
-            <%= f.text_field :who_pays, autofocus: true, placeholder: "Who pays for care?", autocomplete: "Who pays for care?", class: "signup-input-container-cg--input-cg number-field", required: true %>
+            <%= f.select :who_pays, options_for_select(who_pays),{:prompt => "Who pays for care?"}, {:class => "signup-input-container--input", :id => "who-pays-cg", :required => true } %>
+            <%= f.text_field :who_pays, autofocus: true, placeholder: "Who pays for care?", autocomplete: "Who pays for care?", class: "signup-input-container--input number-field", style: "display: none;", id: "who-pays-text-box-cg"%>
          </div>
          <div class="field">
             <%= f.select :heard_from, options_for_select(heard_from),{:prompt => "How did you hear about us?"}, {:class => "signup-input-container-cg--input-cg", :required => true } %>

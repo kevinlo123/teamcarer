@@ -1,20 +1,20 @@
 <div class="signup-container-cg">
    <%= image_tag "logo-icon.png", class: "login-container__logo" %>
-   <h2 class="signup-container__signup-text">Sign up</h2>
+   <h2 class="signup-container__signup-text">Sign Up</h2>
    <div class="progress-bar-container-cg">
       <div class="box progress-bar-cg" data-module="progressbar">
          <ol>
             <li class="current-cg qa-progressbar-item-cg">
                <span style="background: #FFB052; !important" class="cell-cg">
                   <span class="item-cg">
-                     <span>Care Giver Info</span>
+                     <span>Caregiver Info</span>
                   </span>
                </span>
             </li>
             <li class="current-cg qa-progressbar-item-cg">
                <span style="background: #FFB052;" class="cell-cg">
                   <span class="item-cg">
-                     <span>Care Giver Skills</span>
+                     <span>Caregiver Skills</span>
                   </span>
                </span>
             </li>
@@ -74,7 +74,7 @@
          </div>
          <div class="field">
             <p class="questionaire-text">How many years of experience do you have with in-home companion care or personal care for seniors?</p>
-            <%= f.text_field :years_experience, maxlength: 2, autofocus: true, required: true, placeholder: "Years of experience", autocomplete: "Years of experience", class: "signup-input-container-cg--input-cg" %>
+            <%= f.text_field :years_experience, maxlength: 2, required: true, placeholder: "Years of experience", autocomplete: "Years of experience", class: "signup-input-container-cg--input-cg" %>
          </div>
          <div class="field">
             <p class="questionaire-text">Are you authorized to work in the United States?</p>

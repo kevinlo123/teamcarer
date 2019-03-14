@@ -128,6 +128,14 @@
          }
       });
 
+      $("#quality-text-box").attr("name", "");                        
+      
+      $('body').on('input', "#quality-text-box", function() {
+         if($(this).val().length) {
+            $("#quality-text-box").attr("name", "recipient[quality]");                        
+         }
+      });
+
       $('#already').on("click", function() {
          alert("Please stop working with your current team to connect with a new one.");
       });
@@ -143,6 +151,57 @@
             alert("Please fill in personal hours worked");                        
          } else {
             confirm("Are you sure these hours are correct?");                        
+         }
+      });
+
+      var jobs = document.getElementsByClassName("job");
+      var jobTitles = document.getElementsByClassName("job-title");
+      var jobStates = document.getElementsByClassName("job-state");
+      var jobCities = document.getElementsByClassName("job-city");
+      var jobFrom = document.getElementsByClassName("job-from");
+      var jobTo =  document.getElementsByClassName("job-to");
+      var label = document.getElementsByClassName("job-label");
+
+      jobs[1].required = false;
+      jobs[2].required = false;
+      jobTitles[1].required = false;
+      jobTitles[2].required = false;
+      jobStates[1].required = false;
+      jobStates[2].required = false;
+      jobCities[1].required = false;
+      jobCities[2].required = false;
+      jobFrom[1].required = false;
+      jobFrom[2].required = false;
+      jobTo[1].required = false;
+      jobTo[2].required = false;
+
+      label[0].innerHTML += "(Most Recent Employment)";
+            
+      $("#who-pays-text-box").attr("name", "");            
+      
+      $("#who-pays").on("change", function(){
+         if($(this).val() === "Other (please specify)") {
+            $(this).css("display", "none");
+            $("#who-pays-text-box").css("display", "block");
+            $("#who-pays-text-box").attr("required", "true"); 
+            $("#who-pays-text-box").attr("name", "family[who_pays]");                        
+         } else {
+            $(this).css("display", "block");            
+            $("#who-pays-text-box").css("display", "none");            
+         }
+      });
+
+      $("#who-pays-text-box-cg").attr("name", "");                  
+
+      $("#who-pays-cg").on("change", function(){
+         if($(this).val() === "Other (please specify)") {
+            $(this).css("display", "none");
+            $("#who-pays-text-box-cg").css("display", "block");
+            $("#who-pays-text-box-cg").attr("required", "true"); 
+            $("#who-pays-text-box-cg").attr("name", "care_giver[who_pays]");                        
+         } else {
+            $(this).css("display", "block");            
+            $("#who-pays-text-box-cg").css("display", "none");            
          }
       });
 

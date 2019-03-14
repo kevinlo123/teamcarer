@@ -96,6 +96,7 @@ class FamilyController < ApplicationController
 
    def edit_posting
       @my_posting = current_family.job_post
+      @recipient = current_family.recipient
    end
 
 
@@ -163,13 +164,8 @@ class FamilyController < ApplicationController
       @all_teams = CareTeam.all.order('created_at ASC')
    end
 
-   def team_search_results_state
-      @teams = CareTeam.search_state(params[:search]).paginate(page: params[:page],:per_page => 5)
-      @all_teams = CareTeam.all.order('created_at ASC')
-   end
-
    def team_search_results_city
-      @teams = CareTeam.search_city(params[:search]).paginate(page: params[:page],:per_page => 5)
+      @teams = CareTeam.search_both(params[:city],params[:state]).paginate(page: params[:page],:per_page => 5) if params[:state].present? && params[:city].present?      
       @all_teams = CareTeam.all.order('created_at ASC')
    end
 

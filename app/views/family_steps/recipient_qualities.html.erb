@@ -90,8 +90,8 @@
                <%= f.label :quality, "Credentials and Skills", value: "Credentials and Skills", :class => "conditions-container__companion--label" %>
             </div>
             <div class="inline">
-               <%= f.radio_button :quality, "Speaks care recipients Language" %>
-               <%= f.label :quality, "Speaks care recipients Language", value: "Speaks care recipients Language", :class => "conditions-container__companion--label" %>
+               <%= f.radio_button :quality, "Speaks Care Recipients Language" %>
+               <%= f.label :quality, "Speaks Care Recipients Language", value: "Speaks care recipients Language", :class => "conditions-container__companion--label" %>
             </div>
             <div class="inline">
                <%= f.radio_button :quality, "Punctuality & Reliability" %>
@@ -102,8 +102,8 @@
                <%= f.label :quality, "Persistence", value: "Persistence", :class => "conditions-container__companion--label" %>
             </div>
             <div class="inline">
-               <%= f.radio_button :quality, "Other" %>
-               <%= f.label :Quality, "Other", value: "Other", :class => "conditions-container__companion--label" %>
+               <%= f.label :quality, "If other please specify", style: "color: #104A75; margin-top: 1.1rem"%>
+               <%= f.text_field :quality, placeholder: "Quality", autocomplete: "Quality", class: "signup-input-container--input number-field", id: "quality-text-box"%>
             </div>
          </div>
          <h2 style="color: #133A6B">Was the care recipient recently discharged from a hospital?</h2>

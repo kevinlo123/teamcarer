@@ -13,11 +13,11 @@
       <nav class="desktop-nav">
          <ul class="desktop-nav-list">
             <% if family_signed_in? %>
-               <a class="desktop-nav-list__item desktop-nav-list__item--text" style="margin-left: 120px;" href="/family">Home</a>
+               <a class="desktop-nav-list__item desktop-nav-list__item--text" style="margin-left: 120px;" href="/family/my_posting">Home</a>
                <li class="desktop-nav-list__item" style="margin-left: 18px;">Dashboard
                   <ul class="desktop-dropdown">
-                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family">Home</a>
-                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family/my_posting">My Posting</a>
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family/my_posting">Home</a>
+                     <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family">My Profile</a>
                      <% unless current_family.job_post %>
                         <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/family">Create a Job Post</a>
                      <% end %>  
@@ -29,7 +29,7 @@
                      <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/families/edit">Settings</a>             
                   </ul>
                </li>
-               <%= link_to "Log out", destroy_family_session_path, method: :delete, class: "desktop-nav-list__item desktop-nav-list__item--text" %>
+               <%= link_to "Log Out", destroy_family_session_path, method: :delete, class: "desktop-nav-list__item desktop-nav-list__item--text" %>
             <% elsif care_giver_signed_in? %>
                <a class="desktop-nav-list__item desktop-nav-list__item--text" style="margin-left: 120px;" href="/team">Home</a>
                <li class="desktop-nav-list__item" style="margin-left: 18px;">Dashboard
@@ -46,7 +46,7 @@
                      <a class="desktop-dropdown__list-item desktop-dropdown__list-item--text" href="/care_givers/edit">Settings</a>             
                   </ul>
                </li>
-               <%= link_to "Log out", destroy_care_giver_session_path, method: :delete, class: "desktop-nav-list__item desktop-nav-list__item--text" %>
+               <%= link_to "Log Out", destroy_care_giver_session_path, method: :delete, class: "desktop-nav-list__item desktop-nav-list__item--text" %>
             <% else %>
                <a class="desktop-nav-list__item desktop-nav-list__item--text" href="/">Home</a>
                <li class="desktop-nav-list__item">Log In 
@@ -69,10 +69,10 @@
       <nav class="site-menu">
          <ul class="side-menu">
             <% if family_signed_in? %>
-            <a class="side-menu__list-item side-menu__list-item--text" href="/family">Home</a>
+            <a class="side-menu__list-item side-menu__list-item--text" href="/family/my_posting">Home</a>
                <li class="side-menu__list-item">Dashboard <i class="fas fa-chevron-down"></i>
                   <ul class="sub-menu">
-                     <%= link_to "- My Posting", "/family/my_posting", class: "sub-menu__list-item sub-menu__list-item--text" %>
+                     <%= link_to "- My Profile", "/family", class: "sub-menu__list-item sub-menu__list-item--text" %>
                      <% unless current_family.job_post %>
                         <%= link_to "- Create a Job Post", "/family", class: "sub-menu__list-item sub-menu__list-item--text" %>
                      <% end %>
@@ -104,7 +104,7 @@
                      </ul>
                   </li>
                <% end %>  
-               <%= link_to "Log out", destroy_care_giver_session_path, method: :delete, class: "side-menu__list-item side-menu__list-item--text" %>
+               <%= link_to "Log Out", destroy_care_giver_session_path, method: :delete, class: "side-menu__list-item side-menu__list-item--text" %>
                <%= link_to "Settings", "/care_givers/edit" , class: "side-menu__list-item side-menu__list-item--text" %>
                <li class="side-menu__list-item toggle-nav">Close</li>
             <% else %>

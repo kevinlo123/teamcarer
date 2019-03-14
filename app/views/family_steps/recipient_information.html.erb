@@ -67,6 +67,9 @@
             <%= f.text_field :address , required: true, placeholder: "Address", class: "signup-input-container--input" %>
          </div>
          <div class="field">
+            <%= f.text_field :apt_suit , required: true, placeholder: "APT/Unit/Suite", class: "signup-input-container--input" %>
+         </div>
+         <div class="field">
             <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:include_blank => "State", :selected => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker-cg", :required => true, :autocomplete => "false"} %>
          </div>
          <div class="field">

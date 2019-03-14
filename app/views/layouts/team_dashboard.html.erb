@@ -34,7 +34,6 @@
                <div class="dashboard-text-container-cg">
                   <h3 class="dashboard-text-cg">Dashboard</h3>
                </div>
-               <%= link_to "Home", "/team", class: "side-menu-family-cg__link-cg"  %>
                <% if current_care_giver.care_team %>
                   <%= link_to "Job Postings", all_posts_path(:id => current_care_giver.id), class: "side-menu-family-cg__link-cg"  %>
                   <%= link_to "My team", my_care_team_path(:id => current_care_giver.care_team), class: "side-menu-family-cg__link-cg" %>
