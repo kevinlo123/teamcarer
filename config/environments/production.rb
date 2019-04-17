@@ -86,6 +86,7 @@ Rails.application.configure do
       user_name:            ENV['GMAIL_USERNAME'],
       password:             ENV['PASSWORD'],
       authentication:       'plain',
+      enable_starttls_auto: true      
    }
    
 
@@ -100,7 +101,6 @@ Rails.application.configure do
 
    # Send deprecation notices to registered listeners.
    config.active_support.deprecation = :notify
-   config.action_mailer.default_url_options = { host: 'teamcarer.herokuapp.com'}
    # Use default logging formatter so that PID and timestamp are not suppressed.
    config.log_formatter = ::Logger::Formatter.new
 
