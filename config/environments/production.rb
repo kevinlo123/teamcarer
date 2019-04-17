@@ -78,16 +78,13 @@ Rails.application.configure do
    config.action_mailer.delivery_method = :smtp
 
    config.action_mailer.default_url_options = { :host => 'teamcarer-sample.herokuapp.com' }
-   
-   config.action_mailer.raise_delivery_errors = false
-   config.action_mailer.perform_caching = false
-   config.action_mailer.delivery_method = :smtp
+
    config.action_mailer.smtp_settings = {
       address:              'smtp.gmail.com',
       port:                 587,
       domain:               'example.com',
-      :user_name =>  ENV['WELCOME_EMAIL'], 
-      :password => ENV['WELCOME_EMAIL_PASSWORD'], 
+      user_name:            ENV['GMAIL_USERNAME'],
+      password:             ENV['PASSWORD'],
       authentication:       'plain',
    }
    
