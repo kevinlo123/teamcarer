@@ -35,4 +35,3 @@ https://jacopretorius.net/2014/02/all-rails-db-rake-tasks-and-what-they-do.html
 * Heroku migration:`heroku run rake db:migrate`
 
 * Heroku database reset and clean: `heroku restart; heroku pg:reset DATABASE --confirm teamcarer; heroku run rake db:migrate`
-
