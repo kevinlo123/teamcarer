@@ -5,6 +5,7 @@ class FamilyStepsController < ApplicationController
 
    def show
       @recipient = current_family.recipient 
+      @family = Family.last      
       render_wizard
    end
 

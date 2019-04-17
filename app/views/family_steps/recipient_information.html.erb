@@ -64,17 +64,18 @@
             <%= f.telephone_field :phone, maxlength: 10, required: true, placeholder: "Phone Number", class: "signup-input-container--input number-field" %>
          </div>
          <div class="field">
-            <%= f.text_field :address , required: true, placeholder: "Address", class: "signup-input-container--input" %>
+            <%= f.text_field :address , required: true, placeholder: "Address", class: "signup-input-container--input", value: @family.street  %>
          </div>
          <div class="field">
             <%= f.text_field :apt_suit , required: true, placeholder: "APT/Unit/Suite", class: "signup-input-container--input" %>
          </div>
          <div class="field">
-            <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] }),{:include_blank => "State", :selected => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker-cg", :required => true, :autocomplete => "false"} %>
+            <%= f.select :state, options_for_select(CS.states(:us).map { |code, name| [name, code] },@family.state),{:include_blank => "State", :selected => "State"}, {:class => "signup-input-container-cg--input-cg", :id => "state-picker-cg", :required => true, :autocomplete => "false"} %>
          </div>
          <div class="field">
             <%= f.select :city, options_for_select([["City","City"]]),{:include_blank => "City", :selected => "City"}, {:class => "signup-input-container-cg--input-cg", :id => "city-picker-cg", :required => true, :autocomplete => "false" } %> 
          </div>
+         <%= @family %>
          <div class="actions">
             <%= f.submit "Next Step", class: "signup-input-container--submit" %> 
          </div> 
