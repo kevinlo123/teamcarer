@@ -6,6 +6,13 @@ This web application is also made simple and easy to use for families that would
 **Link to project:**(for testing purposes)
 https://teamcarer-sample.herokuapp.com/
 
+## Screen shots
+![Screen Shot 2019-04-18 at 11 35 13 PM](https://user-images.githubusercontent.com/29260507/56436238-1ef6da00-62a9-11e9-82c7-bc67701d8cf1.png)
+<img width="1280" alt="Screen Shot 2019-04-18 at 11 35 52 PM" src="https://user-images.githubusercontent.com/29260507/56436243-2ae29c00-62a9-11e9-841e-34c4963bcdf7.png">
+<img width="1280" alt="Screen Shot 2019-04-18 at 11 35 36 PM" src="https://user-images.githubusercontent.com/29260507/56436245-2ddd8c80-62a9-11e9-8a0b-46a2a48a2747.png">
+<img width="1280" alt="Screen Shot 2019-04-19 at 1 42 17 PM" src="https://user-images.githubusercontent.com/29260507/56436250-303fe680-62a9-11e9-83c8-dd1cd5d10b4a.png">
+<img width="1280" alt="Screen Shot 2019-04-19 at 1 42 35 PM" src="https://user-images.githubusercontent.com/29260507/56436252-31711380-62a9-11e9-89a0-d2f16243ddcc.png">
+
 ## Development
 
 * Ruby version: `Ruby 2.5.1p57`
