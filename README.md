@@ -1,4 +1,10 @@
 # Teamcarer
+TeamCarer is an online platform that connects families and caregivers for in-home senior care. Caregivers sign up, work in teams to help seniors live independently at home by offering services such as bathing, dressing, grooming, house cleaning, meal preparation, medication reminders, memory impairment support, and companion care. 
+
+This web application is also made simple and easy to use for families that would like to request services for a loved one or for a caregiver to find potential clients.
+
+**Link to project:**(for testing purposes)
+https://teamcarer-sample.herokuapp.com/
 
 ## Development
 
@@ -22,14 +28,6 @@
 
 ## Deployment
 
-**Link to project:**(for testing purposes)
-https://teamcarer.herokuapp.com/
-
-**For more about all rails db tasks and what they do visit:**
-https://jacopretorius.net/2014/02/all-rails-db-rake-tasks-and-what-they-do.html
-
-**Deployment:**
-
 * Push up to the repository on github then run `git push heroku master` from the terminal to deploy to our Heroku instance
 
 * Heroku console:`heroku run rails console`
@@ -39,3 +37,6 @@ https://jacopretorius.net/2014/02/all-rails-db-rake-tasks-and-what-they-do.html
 * Heroku logs:`heroku logs --tail`
 
 * Heroku database reset and clean: `heroku restart; heroku pg:reset DATABASE --confirm teamcarer; heroku run rake db:migrate`
+
+**For more rails db tasks visit:**
+https://jacopretorius.net/2014/02/all-rails-db-rake-tasks-and-what-they-do.html
