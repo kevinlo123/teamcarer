@@ -13,6 +13,13 @@ https://teamcarer-sample.herokuapp.com/
 <img width="1280" alt="Screen Shot 2019-04-19 at 1 42 17 PM" src="https://user-images.githubusercontent.com/29260507/56436250-303fe680-62a9-11e9-83c8-dd1cd5d10b4a.png">
 <img width="1280" alt="Screen Shot 2019-04-19 at 1 42 35 PM" src="https://user-images.githubusercontent.com/29260507/56436252-31711380-62a9-11e9-89a0-d2f16243ddcc.png">
 
+## How It's Made:
+
+**Tech used:** Ruby, Ruby on rails, JavaScript, Jquery, CoffeeScript, Erb, Html, SCSS, Postgresql, SQL 
+
+I built this project as an MVP for a clients startup named Teamcarer, The rails framework really helped me get things going as I was the only developer working on this project it was easy for me to build my data models and set DB relations which is why it was a good idea to use a relational database like Postgresql. I utilized the [Devise gem](https://github.com/plataformatec/devise) for both users authentication. As well as Jquery for all my client side JavaScript programming with a slight touch of ajax for some portions of the project. I stuck with the classic Embedded Ruby (ERB) templating Engine which worked great and made use of modular BEM SCSS stylesheets to keep the frontend clean and easy to change.
+
+
 ## Development
 
 * Ruby version: `Ruby 2.5.1p57`
