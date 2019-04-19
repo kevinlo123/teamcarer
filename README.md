@@ -32,6 +32,10 @@ https://jacopretorius.net/2014/02/all-rails-db-rake-tasks-and-what-they-do.html
 
 * Push up to the repository on github then run `git push heroku master` from the terminal to deploy to our Heroku instance
 
+* Heroku console:`heroku run rails console`
+
 * Heroku migration:`heroku run rake db:migrate`
+
+* Heroku logs:`heroku logs --tail`
 
 * Heroku database reset and clean: `heroku restart; heroku pg:reset DATABASE --confirm teamcarer; heroku run rake db:migrate`
