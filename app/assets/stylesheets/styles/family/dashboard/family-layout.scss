@@ -10,15 +10,15 @@
    .side-menu-family {
       height: 100%;
       width: 18%;
-      background: #D9F4FF;
+      background: #133A6B;
       // background: #133A6B;
       min-width: 235px;
       z-index: 1; 
       @include padding($small-padding - .25, $small-padding, $small-padding - .25, $small-padding);   
-      color: $blue;
+      color: white;
       @include element(link) {
          text-decoration: none;
-         color: $blue;
+         color: white;
          // color: white;
          display: block;
          font-size: $medium-font - .25;
@@ -39,8 +39,8 @@
 }
 
 .dashboard-text-container {
-   border-top: 1px solid $blue;      
-   border-bottom: 1px solid $blue;
+   border-top: 1px solid white;      
+   border-bottom: 1px solid white;
    margin-bottom: 1rem;
    padding-left: 1.25rem;
 }
