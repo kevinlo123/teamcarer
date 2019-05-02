@@ -8,8 +8,8 @@ class CareGiverStepsController < ApplicationController
 
    def show
       @team = current_care_giver
-      3.times{@team.work_exps.build}
-      @team.educations.build
+      # 3.times{@team.work_exps.build}
+      # @team.educations.build
       render_wizard
    end
 

@@ -45,7 +45,6 @@
    <%= form_for @team, url: wizard_path  do  |f|%>
       <div class="signup-input-container-cg">
          <h3 style="font-size: 1.75rem;">Work Experience</h3>
-         <i>(Three Most Recent Jobs)</i>
          <%= f.fields_for :work_exps do |u| %>
             <h3 style="font-size: 1.25rem;position: relative; top: 15px;" class="job-label"></h3>
             <div class="field">
