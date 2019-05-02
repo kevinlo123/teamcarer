@@ -45,7 +45,7 @@
    <%= form_for @team, url: wizard_path  do  |f|%>
       <div class="signup-input-container-cg">
          <h3 style="font-size: 1.75rem;">Work Experience</h3>
-         <%= f.fields_for :work_exps do |u| %>
+         <%= fields_for :work_exps do |u| %>
             <h3 style="font-size: 1.25rem;position: relative; top: 15px;" class="job-label"></h3>
             <div class="field">
                <%= u.text_field :employer, autofocus: true, placeholder: "Employer", autocomplete: "employer", class: "signup-input-container-cg--input-cg job",required: true %>
