@@ -26,6 +26,7 @@ class CareGiverStepsController < ApplicationController
       when :experience
          @care_giver = current_care_giver
          @care_giver.update(sanitize_team)
+         @care_giver.work_exps.create(sanitize_work)                   
          @care_giver.educations.create(sanitize_education) 
          if !params[:certificates][:school_program].empty? && !params[:certificates][:certificate].empty? &&
             !params[:certificates][:state].empty? && !params[:certificates][:from].empty? && !params[:certificates][:to].empty?
